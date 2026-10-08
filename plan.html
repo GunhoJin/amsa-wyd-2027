@@ -20,6 +20,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{margin:0;background:var(--ink);color:var(--fg)}
 body{font-family:var(--font);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all;
   padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -357,7 +358,7 @@ function scrollToNow(){ if(!location.hash){ const now = document.querySelector("
         title = document.getElementById("title"), rises = [...document.querySelectorAll(".rise")];
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   let seen = false; try{ seen = sessionStorage.getItem("wyd-plan-intro") === "1"; }catch(e){}
-  if(reduce || seen || location.hash){ scrollToNow(); return; }
+  if(reduce || seen || location.hash){ intro.remove(); scrollToNow(); return; }
 
   document.body.classList.add("intro-on","title-hide"); intro.hidden = false;
   let i = 0, blink = null, timers = [], done = false;
