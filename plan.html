@@ -365,7 +365,7 @@ function scrollToNow(){ if(!location.hash){ const now = document.querySelector("
 
   function finish(){
     if(done) return; done = true;
-    timers.forEach(clearTimeout); clearInterval(blink);
+    timers.forEach(clearTimeout); clearInterval(blink); clearInterval(iv);
     document.body.classList.remove("intro-on","title-hide");
     intro.remove();
     rises.forEach((el, k) => { el.style.transitionDelay = (k*70) + "ms"; });
@@ -382,12 +382,28 @@ function scrollToNow(){ if(!location.hash){ const now = document.querySelector("
     later(() => { document.body.classList.remove("intro-on"); rises.forEach((el,k)=>{ el.style.transitionDelay = (k*80)+"ms"; }); }, LAND_MS - 150);
     later(finish, LAND_MS + 60);
   }
-  function type(){
-    if(i < TEXT.length){ typed.textContent = TEXT.slice(0, ++i); later(type, TEXT[i-1] === "\n" ? TYPE_MS*4 : TYPE_MS); }
-    else { blink = setInterval(() => caret.classList.toggle("off"), 530); later(land, HOLD_MS); }
+  // 시간 기반 진행: 타이머가 지연·중단돼도 경과 시간으로 글자 수를 계산
+  const NL = TEXT.indexOf("\n"), NL_EXTRA = TYPE_MS*3;
+  const typeEnd = TEXT.length*TYPE_MS + NL_EXTRA;
+  let t0 = null, phase = "typing";
+  function charsAt(ms){ const n = Math.floor(ms / TYPE_MS); return n <= NL ? n : Math.max(NL+1, Math.floor((ms - NL_EXTRA)/TYPE_MS)); }
+  function step(){
+    if(done || phase === "land") return;
+    const el = performance.now() - t0;
+    if(phase === "typing"){
+      const n = Math.min(TEXT.length, charsAt(el));
+      if(typed.textContent.length !== n) typed.textContent = TEXT.slice(0, n);
+      if(el >= typeEnd){ typed.textContent = TEXT; phase = "hold"; blink = setInterval(() => caret.classList.toggle("off"), 530); }
+    } else if(phase === "hold" && el >= typeEnd + HOLD_MS){ phase = "land"; clearInterval(iv); land(); }
   }
-  // 웹폰트 로드 후 시작해야 착지 위치가 정확함
-  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => later(type, 350));
+  function raf(){ step(); if(!done && phase !== "land") requestAnimationFrame(raf); }
+  let iv = null;
+  let started = false;
+  function start(){ if(started) return; started = true; t0 = performance.now(); raf(); iv = setInterval(step, 150); }
+  // 웹폰트 로드 후 시작 (최대 700ms만 기다림)
+  Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 700))])
+    .then(() => later(start, 250));
+  setTimeout(finish, 10000);   // 안전장치: 어떤 경우에도 10초 안에 본문 표시
   document.getElementById("introSkip").addEventListener("click", finish);
   addEventListener("keydown", e => { if(e.key === "Escape") finish(); }, {once:true});
 })();
