@@ -124,14 +124,36 @@ main .wrap{padding-block:40px 64px;display:grid;gap:48px}
 .foot .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .verse{color:var(--fg-2)}
 @media (prefers-reduced-motion:no-preference){.m{transition:opacity .2s}}
+
+/* ── 인트로: Originkit Type Sequence 방식 타이핑 → 제목 자리로 착지 ── */
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding-inline:20px;background:var(--ink)}
+.intro::before{content:"";position:absolute;inset:0;background:url("bg-desktop.png") center/cover no-repeat;opacity:.35;pointer-events:none;transition:opacity .9s ease}
+.intro.landing{background:transparent;transition:background-color .9s ease}
+.intro.landing::before{opacity:0}
+.intro-text{position:relative;margin:0;font-weight:500;color:var(--fg);white-space:pre-wrap;text-align:left;
+  font-size:clamp(26px,7.6vw,76px);line-height:1.2;letter-spacing:-.026em;transform-origin:0 0;will-change:transform}
+.caret{display:inline-block;box-sizing:border-box;width:.16em;height:.82em;margin-left:.08em;vertical-align:-.08em;
+  background:var(--accent);border:1.5px solid rgba(255,255,255,.35);border-radius:2px}
+.caret.off{opacity:0}
+.intro-skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));font:inherit;font-size:12px;color:var(--fg-3);
+  background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;transition:opacity .4s}
+.intro.landing .intro-skip{opacity:0}
+body.intro-on{overflow:hidden}
+body.title-hide .head h1{visibility:hidden}
+body.intro-on .rise{opacity:0;transform:translateY(14px)}
+.rise{transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
 </style>
 </head>
 <body>
+<div class="intro" id="intro" hidden>
+  <p class="intro-text" id="introText" aria-hidden="true"><span id="typed"></span><span class="caret" id="caret"></span></p>
+  <button class="intro-skip" id="introSkip" type="button">건너뛰기</button>
+</div>
 
 <header class="nav">
   <div class="wrap">
     <a href="index.html" class="logo">AMSA<small>WYD 2027</small></a>
-    <nav class="links" aria-label="주요 메뉴">
+    <nav class="links rise" aria-label="주요 메뉴">
       <a href="index.html">홈</a><a href="plan.html" aria-current="page">1년 일정</a>
     </nav>
     <a href="index.html#join" class="btn btn-l">함께하기</a>
@@ -141,12 +163,12 @@ main .wrap{padding-block:40px 64px;display:grid;gap:48px}
 <section class="head">
   <div class="wrap">
     <div>
-      <p class="eyebrow">2026.08.30 — 2027.08</p>
-      <h1>서울 세계청년대회까지, 본당이 함께 걷는 1년</h1>
-      <p class="lead" style="margin-top:12px">전 신자는 기도로, 청년·청소년은 매달 주제와 성시간으로, 본당은 순례자 맞이를 준비합니다.</p>
-      <span class="draft">본당 협의 전 기획안 기준 · 세부 일정은 확정 후 갱신</span>
+      <p class="eyebrow rise">2026.08.30 — 2027.08</p>
+      <h1 id="title">서울 세계청년대회까지,<br>본당이 함께 걷는 1년</h1>
+      <p class="lead rise" style="margin-top:12px">전 신자는 기도로, 청년·청소년은 매달 주제와 성시간으로, 본당은 순례자 맞이를 준비합니다.</p>
+      <span class="draft rise">본당 협의 전 기획안 기준 · 세부 일정은 확정 후 갱신</span>
     </div>
-    <div class="prog" aria-label="준비 기간 진행 상황">
+    <div class="prog rise" aria-label="준비 기간 진행 상황">
       <div class="prog-top">
         <p class="dday" id="dday">D-299<small>본대회 8월 3일</small></p>
         <p class="today" id="today"></p>
@@ -324,7 +346,51 @@ let saved = "all-view"; try{ saved = localStorage.getItem("wyd-plan-filter") || 
 applyFilter(saved);
 
 /* 이번 달로 스크롤 (해시 없을 때만) */
-if(!location.hash){ const now = document.querySelector(".m.now"); if(now && now.offsetTop > innerHeight) now.scrollIntoView({block:"center"}); }
+function scrollToNow(){ if(!location.hash){ const now = document.querySelector(".m.now"); if(now && now.offsetTop > innerHeight) now.scrollIntoView({block:"center"}); } }
+
+/* 인트로 — Type Sequence(타이핑 55ms/자, 대기 중 커서 깜빡임 530ms) 후 제목 자리로 착지 */
+(function(){
+  const TEXT = "서울 세계청년대회까지,\n본당이 함께 걷는 1년";
+  const TYPE_MS = 55, HOLD_MS = 1100, LAND_MS = 900;
+  const intro = document.getElementById("intro"), typed = document.getElementById("typed"),
+        caret = document.getElementById("caret"), box = document.getElementById("introText"),
+        title = document.getElementById("title"), rises = [...document.querySelectorAll(".rise")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let seen = false; try{ seen = sessionStorage.getItem("wyd-plan-intro") === "1"; }catch(e){}
+  if(reduce || seen || location.hash){ scrollToNow(); return; }
+
+  document.body.classList.add("intro-on","title-hide"); intro.hidden = false;
+  let i = 0, blink = null, timers = [], done = false;
+  const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+
+  function finish(){
+    if(done) return; done = true;
+    timers.forEach(clearTimeout); clearInterval(blink);
+    document.body.classList.remove("intro-on","title-hide");
+    intro.remove();
+    rises.forEach((el, k) => { el.style.transitionDelay = (k*70) + "ms"; });
+    try{ sessionStorage.setItem("wyd-plan-intro","1"); }catch(e){}
+  }
+  function land(){
+    clearInterval(blink); caret.classList.add("off");
+    // FLIP: 인트로 문구 → 실제 h1 위치·크기
+    const a = box.getBoundingClientRect(), b = title.getBoundingClientRect();
+    const sc = b.height / a.height;
+    intro.classList.add("landing");
+    box.style.transition = `transform ${LAND_MS}ms cubic-bezier(.65,0,.35,1)`;
+    box.style.transform = `translate(${b.left - a.left}px, ${b.top - a.top}px) scale(${sc})`;
+    later(() => { document.body.classList.remove("intro-on"); rises.forEach((el,k)=>{ el.style.transitionDelay = (k*80)+"ms"; }); }, LAND_MS - 150);
+    later(finish, LAND_MS + 60);
+  }
+  function type(){
+    if(i < TEXT.length){ typed.textContent = TEXT.slice(0, ++i); later(type, TEXT[i-1] === "\n" ? TYPE_MS*4 : TYPE_MS); }
+    else { blink = setInterval(() => caret.classList.toggle("off"), 530); later(land, HOLD_MS); }
+  }
+  // 웹폰트 로드 후 시작해야 착지 위치가 정확함
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => later(type, 350));
+  document.getElementById("introSkip").addEventListener("click", finish);
+  addEventListener("keydown", e => { if(e.key === "Escape") finish(); }, {once:true});
+})();
 </script>
 </body>
 </html>
