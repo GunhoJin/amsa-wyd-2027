@@ -58,11 +58,15 @@ h1,h2,h3,p{margin:0}
 .track{position:relative;height:44px}
 .phases{position:absolute;inset:0 0 auto 0;height:28px;display:flex;gap:3px}
 .phase{display:flex;align-items:center;padding-inline:10px;font-size:12px;color:var(--fg-2);background:rgba(255,255,255,.06);border:1px solid var(--line);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ps{display:none}
+@media (max-width:600px){.phase{padding-inline:6px;font-size:11px}.pf{display:none}.ps{display:inline}}
 .phase.p3{background:rgba(255,210,122,.12);border-color:rgba(255,210,122,.35);color:var(--gold)}
 .fill{position:absolute;left:0;top:0;height:28px;background:linear-gradient(90deg,rgba(0,161,219,.0),rgba(0,161,219,.35));pointer-events:none}
 .pin{position:absolute;top:-6px;width:2px;height:40px;background:var(--fg);transform:translateX(-1px)}
 .pin::after{content:"오늘";position:absolute;top:40px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--fg);white-space:nowrap}
-.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--fg-3);font-variant-numeric:tabular-nums;margin-top:6px}
+.ticks{position:relative;height:16px;font-size:11px;color:var(--fg-3);font-variant-numeric:tabular-nums;margin-top:6px}
+.ticks span{position:absolute;top:0;transform:translateX(-2px);white-space:nowrap}
+@media (max-width:600px){.ticks span.odd{display:none}}
 
 /* sections */
 main .wrap{padding-block:40px 64px;display:grid;gap:48px}
@@ -137,7 +141,7 @@ main .wrap{padding-block:40px 64px;display:grid;gap:48px}
 <section class="head">
   <div class="wrap">
     <div>
-      <p class="eyebrow">2026.10 — 2027.08</p>
+      <p class="eyebrow">2026.08.30 — 2027.08</p>
       <h1>서울 세계청년대회까지, 본당이 함께 걷는 1년</h1>
       <p class="lead" style="margin-top:12px">전 신자는 기도로, 청년·청소년은 매달 주제와 성시간으로, 본당은 순례자 맞이를 준비합니다.</p>
       <span class="draft">본당 협의 전 기획안 기준 · 세부 일정은 확정 후 갱신</span>
@@ -161,7 +165,7 @@ main .wrap{padding-block:40px 64px;display:grid;gap:48px}
   <div class="wrap">
 
     <section aria-labelledby="h-repeat">
-      <div class="sec-h"><h2 id="h-repeat">매월 반복</h2><p>2026.10 ~ 2027.8 상시 운영</p></div>
+      <div class="sec-h"><h2 id="h-repeat">매월 반복</h2><p>준비 기간 상시 운영</p></div>
       <div class="repeat">
         <div class="rp"><p class="when">매일</p><p class="big">20:27</p><h3>20시 27분 기도</h3><p>젊은이를 위한 기도와 주모경. 각자 또는 가정에서.</p></div>
         <div class="rp"><p class="when">매월 넷째 주일</p><h3>WYD 기도의 날</h3><p>미사 지향, 청년이 준비한 보편지향기도.</p></div>
@@ -193,18 +197,21 @@ main .wrap{padding-block:40px 64px;display:grid;gap:48px}
 </footer>
 
 <script>
-const START = new Date("2026-10-01T00:00:00+09:00");
+const START = new Date("2026-08-30T00:00:00+09:00");
 const WYD   = new Date("2027-08-03T00:00:00+09:00");
 const END   = new Date("2027-08-31T23:59:59+09:00");
 
 const PHASES = [
-  {name:"체계 구축", from:"2026-10", to:"2026-12"},
+  {name:"체계 구축", from:"2026-08", to:"2026-12", label:"2026.08.30"},
   {name:"정례 운영", from:"2027-01", to:"2027-06"},
-  {name:"파견·본대회", from:"2027-07", to:"2027-08", cls:"p3"}
+  {name:"파견·본대회", short:"파견", from:"2027-07", to:"2027-08", cls:"p3"}
 ];
 
 // a: 전 신자 / y: 청년·청소년 / p: 본당 준비 / k: 주요 날짜
 const MONTHS = [
+  {ym:"2026-08", span:"8.30~9월", theme:"본당 WYD 준비 시작",
+   a:[], y:[], p:[],
+   k:[["8.30","준비 시작"]]},
   {ym:"2026-10", theme:"주제성구(요한 16,33)와 공식 주제가",
    a:["기도함 설치, 기도의 날 미사 지향 안내","매 미사 WYD 2027 공식 기도문 봉독 시작"],
    y:["주제가 함께 배우기"],
@@ -260,21 +267,27 @@ const kst = new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Seoul"}))
 const curYM = `${kst.getFullYear()}-${String(kst.getMonth()+1).padStart(2,"0")}`;
 const esc = s => s.replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 
-/* 진행 막대 */
+/* 진행 막대 — 날짜 기준 위치 */
 (function(){
-  const total = END - START, pct = Math.min(100, Math.max(0, (new Date() - START) / total * 100));
-  const mIdx = ym => { const [y,m] = ym.split("-").map(Number); return (y-2026)*12 + m - 10; };
+  const total = END - START, at = d => Math.min(100, Math.max(0, (d - START) / total * 100));
+  const pct = at(new Date());
+  const first = ym => ym === "2026-08" ? START : new Date(ym + "-01T00:00:00+09:00");
+  const nextM = ym => { let [y,m] = ym.split("-").map(Number); m++; if(m>12){m=1;y++;} return new Date(`${y}-${String(m).padStart(2,"0")}-01T00:00:00+09:00`); };
   document.getElementById("phases").innerHTML = PHASES.map(p=>{
-    const n = mIdx(p.to) - mIdx(p.from) + 1;
-    return `<div class="phase ${p.cls||""}" style="flex:${n}">${p.name}</div>`;
+    const w = at(p.to === "2027-08" ? END : nextM(p.to)) - at(first(p.from));
+    return `<div class="phase ${p.cls||""}" style="flex:0 0 calc(${w}% - 2px)"><span class="pf">${p.name}</span><span class="ps">${p.short||p.name}</span></div>`;
   }).join("");
   document.getElementById("fill").style.width = pct + "%";
   document.getElementById("pin").style.left = pct + "%";
-  document.getElementById("ticks").innerHTML = MONTHS.map(m=>`<span>${+m.ym.slice(5)}월</span>`).join("");
+  let ticks = "", i = 0;
+  for(let y=2026, m=9; y<2027 || m<=8; m++){ if(m>12){m=1;y++;}
+    const d = new Date(`${y}-${String(m).padStart(2,"0")}-01T00:00:00+09:00`);
+    ticks += `<span class="${i++%2?"odd":""}" style="left:${at(d)}%">${m}월</span>`; if(y===2027 && m===8) break; }
+  document.getElementById("ticks").innerHTML = ticks;
   const d = Math.ceil((WYD - new Date())/86400000);
   document.getElementById("dday").innerHTML = (d>0?`D-${d}`:d===0?"D-DAY":"WYD 2027") + "<small>본대회 8월 3일</small>";
   document.getElementById("today").textContent =
-    `오늘 ${kst.getFullYear()}.${kst.getMonth()+1}.${kst.getDate()} · 준비 기간 ${Math.round(pct)}% 지남`;
+    `오늘 ${kst.getFullYear()}.${kst.getMonth()+1}.${kst.getDate()} · 준비 ${Math.floor((new Date()-START)/86400000)+1}일째 · 기간 ${Math.round(pct)}% 지남`;
 })();
 
 /* 타임라인 */
@@ -282,14 +295,15 @@ function render(){
   let html = "", lastPhase = null;
   for(const m of MONTHS){
     const ph = PHASES.find(p => m.ym >= p.from && m.ym <= p.to);
-    if(ph !== lastPhase){ html += `<div class="phase-h"><b>${ph.name}</b>${ph.from.replace("-",".")} — ${ph.to.replace("-",".")}</div>`; lastPhase = ph; }
+    if(ph !== lastPhase){ html += `<div class="phase-h"><b>${ph.name}</b>${ph.label || ph.from.replace("-",".")} — ${ph.to.replace("-",".")}</div>`; lastPhase = ph; }
     const [y, mo] = m.ym.split("-");
-    const state = m.ym === curYM ? "now" : (m.ym < curYM ? "past" : "");
+    const endYM = m.span ? "2026-09" : m.ym;
+    const state = (m.ym <= curYM && curYM <= endYM) ? "now" : (endYM < curYM ? "past" : "");
     const li = (arr, t, label) => arr.map(x=>`<li data-t="${t}"><span class="tag t-${t}">${label}</span><span>${esc(x)}</span></li>`).join("");
     html += `<article class="m ${state}" data-ym="${m.ym}">
-      <div class="mo"><p class="n">${+mo}<span>월</span></p><p class="y">${y}</p>${state==="now"?'<span class="badge">이번 달</span>':""}</div>
+      <div class="mo"><p class="n">${m.span ? `<span style="font-size:22px;margin:0">${m.span}</span>` : `${+mo}<span>월</span>`}</p><p class="y">${y}</p>${state==="now"?'<span class="badge">이번 달</span>':""}</div>
       <div class="body">
-        <p class="theme" data-t="youth"><small>청년·청소년 주제</small>${esc(m.theme)}</p>
+        ${m.span ? `<p class="theme">${esc(m.theme)}</p>` : `<p class="theme" data-t="youth"><small>청년·청소년 주제</small>${esc(m.theme)}</p>`}
         ${m.k ? `<div class="keys">${m.k.map(([d,t])=>`<span class="key"><b>${d}</b>${esc(t)}</span>`).join("")}</div>` : ""}
         <ul class="items">${li(m.a,"all","전 신자")}${li(m.y,"youth","청년·청소년")}${li(m.p,"parish","본당 준비")}</ul>
       </div></article>`;
