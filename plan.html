@@ -121,6 +121,27 @@ main .wrap{padding-block:40px 64px;display:grid;gap:48px}
 .key b{font-variant-numeric:tabular-nums}
 
 
+/* WYD 십자가 순례 */
+.cross{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;align-items:start}
+@media (max-width:860px){.cross{grid-template-columns:1fr}}
+.cross-now{border:1px solid rgba(255,210,122,.35);background:linear-gradient(160deg,rgba(255,210,122,.10),rgba(255,210,122,0) 70%);padding:22px;display:grid;gap:10px}
+.cross-now .k{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.06em}
+.cross-now .where{font-size:30px;font-weight:700;letter-spacing:-.6px;line-height:1.15}
+.cross-now .when{font-size:13px;color:var(--fg-2);font-variant-numeric:tabular-nums}
+.cross-now p.q{font-size:13px;color:var(--fg-2);line-height:1.6;border-top:1px solid var(--line);padding-top:12px}
+.cross-now p.q b{color:var(--fg);font-weight:500}
+.cross-now a{font-size:13px;color:var(--accent)}
+.route{list-style:none;margin:0;padding:0;display:grid;position:relative}
+.route::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--line-2)}
+.stop{display:grid;grid-template-columns:16px minmax(0,1fr) auto;gap:14px;align-items:center;padding:9px 0;position:relative}
+.stop .pt{width:16px;height:16px;border-radius:999px;border:2px solid var(--line-2);background:var(--ink);z-index:1}
+.stop .nm{font-size:15px}
+.stop .dt{font-size:12px;color:var(--fg-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.stop.done{opacity:.45}.stop.done .pt{background:var(--fg-3);border-color:var(--fg-3)}
+.stop.now .pt{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(255,210,122,.18)}
+.stop.now .nm{color:var(--gold);font-weight:700}
+.stop.seoul .nm::after{content:"우리 교구";margin-left:8px;font-size:11px;font-weight:700;color:var(--ink);background:var(--accent);border-radius:999px;padding:1px 7px;vertical-align:2px}
+.stop.rest .nm{color:var(--fg-3)}
 .foot{border-top:1px solid var(--line);color:var(--fg-3);font-size:13px}
 .foot .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .verse{color:var(--fg-2)}
@@ -153,11 +174,11 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=10081557" class="logo">AMSA<small>WYD 2027</small></a>
+    <a href="index.html?v=10081605" class="logo">AMSA<small>WYD 2027</small></a>
     <nav class="links rise" aria-label="주요 메뉴">
-      <a href="index.html?v=10081557">홈</a><a href="plan.html" aria-current="page">1년 일정</a>
+      <a href="index.html?v=10081605">홈</a><a href="plan.html" aria-current="page">1년 일정</a>
     </nav>
-    <a href="index.html?v=10081557#join" class="btn btn-l">함께하기</a>
+    <a href="index.html?v=10081605#join" class="btn btn-l">함께하기</a>
   </div>
 </header>
 
@@ -194,6 +215,14 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
         <div class="rp"><p class="when">매월 넷째 주일</p><h3>WYD 기도의 날</h3><p>미사 지향, 청년이 준비한 보편지향기도.</p></div>
         <div class="rp"><p class="when">매월 1회</p><h3>청년·청소년 성시간</h3><p>그달 주제로 성체 앞에서 기도.</p></div>
         <div class="rp"><p class="when">상시 · 3월 마무리</p><h3>묵주기도 10억 단</h3><p>본당 기도함에 봉헌, 월 단위 집계·게시. 매 미사 WYD 2027 공식 기도문 봉독.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-cross">
+      <div class="sec-h"><h2 id="h-cross">WYD 십자가 순례</h2><p>2026.9 ~ 2027.5 국내 교구 순례 · 출처 wydseoul.org</p></div>
+      <div class="cross">
+        <div class="cross-now" id="crossNow"></div>
+        <ol class="route" id="route" aria-label="교구별 순례 일정"></ol>
       </div>
     </section>
 
@@ -267,9 +296,10 @@ const MONTHS = [
    p:["홈스테이 가정 모집 마감","조직위 본당 매뉴얼 수령 → 일정·항목 재조정"],
    k:[["4월","조직위 본당 매뉴얼 전달 예정"]]},
   {ym:"2027-05", theme:"환대와 만남: 맞이 마음가짐, 문화·언어 이해",
-   a:[],
-   y:[],
-   p:["홈스테이 교육, 숙소·세면 시설 점검","청년·청소년 참가 등록 마감"]},
+   a:["WYD 십자가 서울대교구 순례 맞이 기도"],
+   y:["십자가 순례 참여 (본당·지구 일정 확정 시)"],
+   p:["홈스테이 교육, 숙소·세면 시설 점검","청년·청소년 참가 등록 마감","서울대교구 십자가 순례 일정 중 본당·지구 방문 여부 확인"],
+   k:[["5.30~","WYD 십자가 서울대교구 도착"]]},
   {ym:"2027-06", theme:"파견 준비 기도 모임",
    a:["폐막 미사 동반 참석 안내"],
    y:[],
@@ -289,6 +319,41 @@ const MONTHS = [
 const kst = new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Seoul"}));
 const curYM = `${kst.getFullYear()}-${String(kst.getMonth()+1).padStart(2,"0")}`;
 const esc = s => s.replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+/* WYD 십자가 순례 — wydseoul.org '지금 십자가는' 향후 일정 (2026.10.8 확인) */
+const CROSS = [
+  {d:"대전교구", from:"2026-08-26", to:"2026-09-30"},
+  {d:"부산교구", from:"2026-09-30", to:"2026-10-28"},
+  {d:"제주교구", from:"2026-10-28", to:"2026-11-25"},
+  {d:"마산교구", from:"2026-11-25", to:"2026-12-23"},
+  {d:"휴식",     from:"2026-12-23", to:"2027-01-27", rest:true},
+  {d:"인천교구", from:"2027-01-27", to:"2027-03-03"},
+  {d:"안동교구", from:"2027-03-03", to:"2027-03-31"},
+  {d:"청주교구", from:"2027-03-31", to:"2027-04-28"},
+  {d:"전주교구", from:"2027-04-28", to:"2027-05-30"},
+  {d:"서울대교구", from:"2027-05-30", to:null, seoul:true}
+];
+(function(){
+  const day = s => new Date(s + "T00:00:00+09:00");
+  const fmt = s => { const [y,m,d] = s.split("-").map(Number); return `${String(y).slice(2)}.${m}.${d}`; };
+  const now = new Date();
+  const state = c => (c.to && now >= day(c.to)) ? "done" : (now >= day(c.from) ? "now" : "next");
+  document.getElementById("route").innerHTML = CROSS.map(c => {
+    const st = state(c);
+    return `<li class="stop ${st}${c.seoul?" seoul":""}${c.rest?" rest":""}"><span class="pt" aria-hidden="true"></span>
+      <span class="nm">${c.d}${st==="now"?" · 지금":""}</span><span class="dt">${fmt(c.from)} – ${c.to?fmt(c.to):""}</span></li>`;
+  }).join("");
+  const cur = CROSS.find(c => state(c) === "now");
+  const seoul = CROSS.find(c => c.seoul);
+  const dSeoul = Math.ceil((day(seoul.from) - now) / 86400000);
+  document.getElementById("crossNow").innerHTML = `
+    <p class="k">지금 십자가는</p>
+    <p class="where">${cur ? cur.d : "순례 일정 확인 중"}</p>
+    ${cur ? `<p class="when">${fmt(cur.from)} – ${cur.to ? fmt(cur.to) : ""}</p>` : ""}
+    <p class="when">서울대교구 도착 ${fmt(seoul.from)}${dSeoul > 0 ? ` · D-${dSeoul}` : ""}</p>
+    <p class="q">2024년 11월 24일 서울 젊은이들이 넘겨받은 WYD 십자가가 국내 교구를 순례하고 있습니다. <b>“이제 여러분의 차례입니다!”</b> (프란치스코 교황, 상징물 전달식)</p>
+    <a href="https://wydseoul.org/youthCrossPilgrimage/crossRoute" target="_blank" rel="noopener">최신 위치 보기 ↗</a>`;
+})();
 
 /* 진행 막대 — 날짜 기준 위치 */
 (function(){
