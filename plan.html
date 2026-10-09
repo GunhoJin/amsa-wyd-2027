@@ -21,6 +21,8 @@
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+/* 참여 안내 준비 전까지 참여 버튼 숨김 — 이 줄만 지우면 다시 표시 */
+[data-join]{display:none!important}
 html,body{margin:0;background:var(--ink);color:var(--fg)}
 body{font-family:var(--font);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all;
   padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -174,11 +176,11 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=10081605" class="logo">AMSA<small>WYD 2027</small></a>
+    <a href="index.html?v=10091433" class="logo">AMSA<small>WYD 2027</small></a>
     <nav class="links rise" aria-label="주요 메뉴">
-      <a href="index.html?v=10081605">홈</a><a href="plan.html" aria-current="page">1년 일정</a>
+      <a href="index.html?v=10091433">홈</a><a href="plan.html" aria-current="page">1년 일정</a>
     </nav>
-    <a href="index.html?v=10081605#join" class="btn btn-l">함께하기</a>
+    <a href="index.html?v=10091433#join" data-join class="btn btn-l">함께하기</a>
   </div>
 </header>
 
