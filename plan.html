@@ -77,8 +77,7 @@ main .wrap{padding-block:40px 64px;display:grid;gap:48px}
 .sec-h h2{font-size:22px;font-weight:500;letter-spacing:-.4px}
 .sec-h p{font-size:13px;color:var(--fg-3)}
 
-.repeat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
-@media (max-width:860px){.repeat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.repeat{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
 @media (max-width:440px){.repeat{grid-template-columns:1fr}}
 .rp{background:var(--panel);padding:18px;display:grid;gap:6px;align-content:start}
 .rp .when{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.04em}
@@ -111,7 +110,9 @@ main .wrap{padding-block:40px 64px;display:grid;gap:48px}
 @media (max-width:600px){.badge{margin-top:0}}
 .body{display:grid;gap:12px;min-width:0}
 .theme{font-size:17px;font-weight:500;line-height:1.45}
-.theme small{display:block;font-size:12px;color:var(--youth);font-weight:700;letter-spacing:.04em;margin-bottom:2px}
+.theme small{display:block;font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.04em;margin-bottom:2px}
+.theme.tbd{color:var(--fg-3)}
+.pnote{display:block;font-size:13px;font-weight:400;color:var(--fg-3);margin-top:2px}
 .items{list-style:none;margin:0;padding:0;display:grid;gap:7px}
 .items li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline;font-size:14px;color:var(--fg-2)}
 .tag{font-size:11px;font-weight:700;border-radius:4px;padding:1px 6px;white-space:nowrap;border:1px solid}
@@ -123,6 +124,33 @@ main .wrap{padding-block:40px 64px;display:grid;gap:48px}
 .key b{font-variant-numeric:tabular-nums}
 
 
+main .wrap > section{min-width:0}
+/* 본당위원회 */
+.poc{display:grid;gap:20px}
+.poc-chain{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.poc-chain li{display:grid;gap:1px;padding:10px 14px;border:1px solid var(--line-2);background:var(--panel)}
+.poc-chain li span{font-size:11px;color:var(--fg-3)}
+.poc-chain li b{font-size:15px;font-weight:500}
+.teams{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:860px){.teams{grid-template-columns:1fr}}
+.team{background:var(--panel);padding:18px;display:grid;gap:8px;align-content:start}
+.team .tn{font-size:15px;font-weight:700}
+.team.mine{background:linear-gradient(160deg,rgba(255,210,122,.10),rgba(255,210,122,0) 70%),var(--panel)}
+.team.mine .tn{color:var(--gold)}
+.team ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:13px;color:var(--fg-2)}
+.dirs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.dirs{grid-template-columns:1fr}}
+.dk{grid-column:1/-1;font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.08em}
+.dir{display:grid;gap:4px;border-top:1px solid var(--line-2);padding-top:10px}
+.dir b{font-size:15px;font-weight:500}
+.dir span{font-size:13px;color:var(--fg-2)}
+/* 본대회 주간 */
+.week-wrap{overflow-x:auto;border:1px solid var(--line)}
+.week{width:100%;min-width:640px;border-collapse:collapse;font-size:13px;text-align:center}
+.week th{font-weight:500;color:var(--fg-2);background:var(--panel);padding:10px 6px;border-bottom:1px solid var(--line-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.week td{padding:12px 8px;border:1px solid var(--line);color:var(--fg-2);vertical-align:middle}
+.week td.mv{color:var(--fg-3)}
+.week td.hl{color:var(--gold);font-weight:700}
 /* WYD 십자가 순례 */
 .cross{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;align-items:start}
 @media (max-width:860px){.cross{grid-template-columns:1fr}}
@@ -176,11 +204,11 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=10111707" class="logo">AMSA<small>WYD 2027</small></a>
+    <a href="index.html?v=10112347" class="logo">AMSA<small>WYD 2027</small></a>
     <nav class="links rise" aria-label="주요 메뉴">
-      <a href="index.html?v=10111707">홈</a><a href="about.html?v=10111707">소개</a><a href="plan.html?v=10111707" aria-current="page">1년 일정</a>
+      <a href="index.html?v=10112347">홈</a><a href="about.html?v=10112347">소개</a><a href="plan.html?v=10112347" aria-current="page">1년 일정</a>
     </nav>
-    <a href="index.html?v=10111707#join" data-join class="btn btn-l">함께하기</a>
+    <a href="index.html?v=10112347#join" data-join class="btn btn-l">함께하기</a>
   </div>
 </header>
 
@@ -190,7 +218,7 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
       <p class="eyebrow rise">2026.08.30 — 2027.08</p>
       <h1 id="title">서울 세계청년대회까지,<br>본당이 함께 걷는 1년</h1>
       <p class="lead rise" style="margin-top:12px">전 신자는 기도로, 청년·청소년은 매달 주제와 성시간으로, 본당은 순례자 맞이를 준비합니다.</p>
-      <span class="draft rise">본당 협의 전 기획안 기준 · 세부 일정은 확정 후 갱신</span>
+      <span class="draft rise">본당위원회(P.O.C.) 기획안 반영 · 미정 항목은 확정 후 갱신</span>
     </div>
     <div class="prog rise" aria-label="준비 기간 진행 상황">
       <div class="prog-top">
@@ -210,13 +238,52 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
 <main>
   <div class="wrap">
 
+    <section aria-labelledby="h-poc">
+      <div class="sec-h"><h2 id="h-poc">본당위원회 (P.O.C.)</h2><p>암사동성당 WYD 본당위원회 기획안 기준</p></div>
+      <div class="poc">
+        <ol class="poc-chain">
+          <li><span>위원장</span><b>주임 신부</b></li>
+          <li><span>부위원장 · 총괄</span><b>부주임 신부</b></li>
+          <li><span>협력 수도자</span><b>전교 수녀</b></li>
+          <li><span>집행위원장</span><b>사목회장</b></li>
+          <li><span>집행부위원장</span><b>WYD 분과장</b></li>
+        </ol>
+        <div class="teams">
+          <div class="team"><p class="tn">봉사자 / 행정팀</p><ul><li>매월 마지막 주 청년 미사에 젊은이 초대·안내</li><li>봉사자 모집과 교육 (교구 청소년국 연계)</li><li>지구·지역위원회와 소통</li><li>기금 마련 모금액 산출과 홍보</li><li>홈스테이 홍보와 접수</li></ul></div>
+          <div class="team"><p class="tn">전례 / 음악팀</p><ul><li>9월부터 매월 마지막 주 청년 미사 주관</li><li>주일학교·청년연합회·자모회·자부회가 함께 전례 준비</li><li>연합 성가대(Familia), 그레고리오 성가, 월 1~2회 연습</li><li>해설·독서는 주일학교·청년, 복사는 복사단</li></ul></div>
+          <div class="team mine"><p class="tn">영성 / 기획팀</p><ul><li>신앙을 되찾고 견고하게 하며 친교를 나누는 프로그램</li><li>월별 프로그램은 아래 월별 일정의 금색 머리글</li></ul></div>
+        </div>
+        <div class="dirs">
+          <p class="dk">본당 준비 방향</p>
+          <div class="dir"><b>관할 구역 젊은이의 신앙 되찾기</b><span>자취하는 사회 초년생 선교(레지오 협조), 쉬는 교우와 냉담 중인 자녀 회개</span></div>
+          <div class="dir"><b>지역 주민에게 대회 홍보</b><span>스티커 부착 운동, 현수막·교황청 국기 등 눈에 띄는 홍보</span></div>
+          <div class="dir"><b>전례 안의 사랑과 친교</b><span>미사 중심, 성시간·성모신심미사 강조, 단계별 참여, 세대 간 교류, 미사 후 친교의 장</span></div>
+        </div>
+      </div>
+    </section>
+
     <section aria-labelledby="h-repeat">
       <div class="sec-h"><h2 id="h-repeat">매월 반복</h2><p>준비 기간 상시 운영</p></div>
       <div class="repeat">
+        <div class="rp"><p class="when">매월 마지막 주</p><h3>청년 미사</h3><p>WYD 본당위원회 주관. 주일학교·청년연합회·자모회·자부회가 함께 전례 준비, 연합 성가대(Familia) 그레고리오 성가.</p></div>
         <div class="rp"><p class="when">매일</p><p class="big">20:27</p><h3>20시 27분 기도</h3><p>젊은이를 위한 기도와 주모경. 각자 또는 가정에서.</p></div>
         <div class="rp"><p class="when">매월 넷째 주일</p><h3>WYD 기도의 날</h3><p>미사 지향, 청년이 준비한 보편지향기도.</p></div>
         <div class="rp"><p class="when">매월 1회</p><h3>청년·청소년 성시간</h3><p>그달 주제로 성체 앞에서 기도.</p></div>
         <div class="rp"><p class="when">상시 · 3월 마무리</p><h3>묵주기도 10억 단</h3><p>본당 기도함에 봉헌, 월 단위 집계·게시. 매 미사 WYD 2027 공식 기도문 봉독.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-week">
+      <div class="sec-h"><h2 id="h-week">본대회 주간</h2><p>세계청년대회 본대회 공식 일정</p></div>
+      <div class="week-wrap">
+        <table class="week">
+          <thead><tr><th>8.1~2</th><th>3 (화)</th><th>4 (수)</th><th>5 (목)</th><th>6 (금)</th><th>7 (토)</th><th>8 (주일)</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3" class="mv">서울 이동<br>본대회 등록</td><td></td><td colspan="3">교리 교육</td><td rowspan="2" class="mv">순례자 밤샘기도<br>장소 이동</td><td class="hl">폐막 미사</td></tr>
+            <tr><td colspan="4">젊은이 축제(Youth Festival) · 성소박람회</td><td rowspan="2"></td></tr>
+            <tr><td class="hl">개막 미사</td><td></td><td class="hl">교황님 환영행사</td><td>십자가의 길</td><td>밤샘기도</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -262,56 +329,70 @@ const PHASES = [
 ];
 
 // a: 전 신자 / y: 청년·청소년 / p: 본당 준비 / k: 주요 날짜
+// prog: 암사동성당 WYD 본당위원회(P.O.C.) 기획안 4.2 영성/기획팀 월별 프로그램 (null = 미정)
+// theme: 영성 축 기획안의 청년·청소년 월 주제(안)
 const MONTHS = [
-  {ym:"2026-08", span:"8.30~9월", theme:"본당 WYD 준비 시작",
-   a:[], y:[], p:[],
-   k:[["8.30","준비 시작"]]},
-  {ym:"2026-10", theme:"주제성구(요한 16,33)와 공식 주제가",
-   a:["기도함 설치, 기도의 날 미사 지향 안내","매 미사 WYD 2027 공식 기도문 봉독 시작"],
+  {ym:"2026-08", span:"8.30~9월", prog:"WYD 설명·본당위원회 모집, 발대 미사와 친교의 장",
+   a:["세계청년대회 설명, 본당위원회 모집"], y:[], p:["본당위원회(P.O.C.) 구성"],
+   k:[["8.30","WYD 발대식"]]},
+  {ym:"2026-10", prog:"성모상 앞에서 미사 전 묵주기도", note:"묵주를 만들어 나누는 방안 검토",
+   theme:"주제성구(요한 16,33)와 공식 주제가",
+   a:["10.25 저녁미사 후 성당 마당 묵주기도 5단 봉헌 (화상 참여 병행)","기도함 설치, 기도의 날 미사 지향 안내","매 미사 WYD 2027 공식 기도문 봉독 시작"],
    y:["주제가 함께 배우기"],
-   p:["영성 파트 담당·사제 확정","홈스테이 가정 모집 시작","봉사자 모집 안내 게시","참가자 등록시스템 오픈 확인"]},
-  {ym:"2026-11", theme:"성 요한 바오로 2세",
+   p:["홈스테이 가정 모집 시작","봉사자 모집 안내 게시","참가자 등록시스템 오픈 확인"],
+   k:[["10.25","묵주기도 5단 봉헌"]]},
+  {ym:"2026-11", prog:"1박 2일 대침묵 피정", note:"여주 스승 예수 제자 수녀회 피정의 집 · 위령성월 피정으로 일정·장소 협의 중",
+   theme:"성 요한 바오로 2세",
    a:["20시 27분 기도 홍보","묵주기도 단수 집계 시작"],
    y:["첫 청소년 성시간"],
    p:["청년·청소년 참가 등록 시작 (단체 등록·패키지 안내)"]},
-  {ym:"2026-12", theme:"성 안드레아 김대건",
+  {ym:"2026-12", prog:"크리스마스 마켓", note:"참여팀 모집·부스 운영·수익금 기부 방식 협의 중",
+   theme:"성 안드레아 김대건",
    a:["대림·성탄 연계 기도"],
    y:["보편지향기도문 청년 당번표 확정"],
    p:["홈스테이·봉사자 모집 계속"]},
-  {ym:"2027-01", theme:"성녀 프란치스카 사베리오 카브리니 (이민자 수호성인)",
+  {ym:"2027-01", prog:"빛으로 봉헌하는 미사", note:"참고: 바티칸 주님 봉헌 축일 미사",
+   theme:"성녀 프란치스카 사베리오 카브리니 (이민자 수호성인)",
    a:["넷째 주일 기도의 날 정례 운영"],
    y:["보편지향기도문 당번 운영"],
    p:["홈스테이·봉사자 모집 계속"]},
-  {ym:"2027-02", theme:"성녀 주세피나 바키타",
+  {ym:"2027-02", prog:null,
+   theme:"성녀 주세피나 바키타",
    a:["사순 시기 기존 전례 중심 운영"],
    y:["신규 행사 최소화, 정례 기도만 유지"],
    p:[],
    k:[["2.10","재의 수요일 · 사순 시작"]]},
-  {ym:"2027-03", theme:"성 카를로 아쿠티스",
+  {ym:"2027-03", prog:"가시관 만들기",
+   theme:"성 카를로 아쿠티스",
    a:["묵주기도 10억 단 마무리 점검 (성주간 전)"],
    y:[],
    p:["봉사자 모집 마감 → 교육 준비"],
    k:[["3.28","주님 부활 대축일"]]},
-  {ym:"2027-04", theme:"교황 권고 「그리스도는 살아계십니다」 함께 읽기",
+  {ym:"2027-04", prog:null,
+   theme:"교황 권고 「그리스도는 살아계십니다」 함께 읽기",
    a:["호스트 가정과 교류 모임"],
    y:[],
    p:["홈스테이 가정 모집 마감","조직위 본당 매뉴얼 수령 → 일정·항목 재조정"],
    k:[["4월","조직위 본당 매뉴얼 전달 예정"]]},
-  {ym:"2027-05", theme:"환대와 만남: 맞이 마음가짐, 문화·언어 이해",
+  {ym:"2027-05", prog:null,
+   theme:"환대와 만남: 맞이 마음가짐, 문화·언어 이해",
    a:["WYD 십자가 서울대교구 순례 맞이 기도"],
    y:["십자가 순례 참여 (본당·지구 일정 확정 시)"],
    p:["홈스테이 교육, 숙소·세면 시설 점검","청년·청소년 참가 등록 마감","서울대교구 십자가 순례 일정 중 본당·지구 방문 여부 확인"],
    k:[["5.30~","WYD 십자가 서울대교구 도착"]]},
-  {ym:"2027-06", theme:"파견 준비 기도 모임",
+  {ym:"2027-06", prog:null,
+   theme:"파견 준비 기도 모임",
    a:["폐막 미사 동반 참석 안내"],
    y:[],
    p:["본당 참가 인원 확정"]},
-  {ym:"2027-07", theme:"환대 기도, 20시 27분 기도 집중",
+  {ym:"2027-07", prog:null,
+   theme:"환대 기도, 20시 27분 기도 집중",
    a:["파견 미사 · 봉사자 파견 축복"],
    y:["순례자 맞이 환대 기도"],
    p:["폐막 미사 단체 이동·집결 확정","교구대회 기간 순례자 맞이"],
    k:[["7.29~8.2","교구대회 · 순례자 맞이"]]},
-  {ym:"2027-08", theme:"본대회 기간 본당 청년 기도",
+  {ym:"2027-08", prog:"본대회 · 서울 이동 및 등록(8.1~2)",
+   theme:"본대회 기간 본당 청년 기도",
    a:["본대회 이후 감사 미사"],
    y:["경험 나눔의 밤"],
    p:["본당 정규 행사 축소, 순례자 맞이 집중"],
@@ -393,9 +474,9 @@ function render(){
     html += `<article class="m ${state}" data-ym="${m.ym}">
       <div class="mo"><p class="n">${m.span ? `<span style="font-size:22px;margin:0">${m.span}</span>` : `${+mo}<span>월</span>`}</p><p class="y">${y}</p>${state==="now"?'<span class="badge">이번 달</span>':""}</div>
       <div class="body">
-        ${m.span ? `<p class="theme">${esc(m.theme)}</p>` : `<p class="theme" data-t="youth"><small>청년·청소년 주제</small>${esc(m.theme)}</p>`}
+        <p class="theme${m.prog ? "" : " tbd"}"><small>영성기획팀 프로그램</small>${m.prog ? esc(m.prog) : "미정 · 기획 중"}${m.note ? `<span class="pnote">${esc(m.note)}</span>` : ""}</p>
         ${m.k ? `<div class="keys">${m.k.map(([d,t])=>`<span class="key"><b>${d}</b>${esc(t)}</span>`).join("")}</div>` : ""}
-        <ul class="items">${li(m.a,"all","전 신자")}${li(m.y,"youth","청년·청소년")}${li(m.p,"parish","본당 준비")}</ul>
+        <ul class="items">${li(m.a,"all","전 신자")}${li((m.theme?["월 주제(안) · "+m.theme]:[]).concat(m.y),"youth","청년·청소년")}${li(m.p,"parish","본당 준비")}</ul>
       </div></article>`;
   }
   document.getElementById("tl").innerHTML = html;
