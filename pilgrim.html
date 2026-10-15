@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>천주교 서울 순례길</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* Layout: 소개·1년 일정과 같은 어두운 바탕. 세 코스를 지하철 노선도처럼 이어진 세로 노선으로 — 가회동성당·약현성당이 코스 사이의 환승역 */
+:root{
+  --ink:#101216; --panel:#16191f;
+  --fg:#ffffff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.48);
+  --line:rgba(255,255,255,.1); --line-2:rgba(255,255,255,.18);
+  --accent:#00A1DB; --gold:#FFD27A;
+  --c1:#00A1DB; --c2:#FFD27A; --c3:#B9A6FF;
+  --btn-light:#f0f0f0; --btn-ink:#060e08;
+  --font:"Helvetica Neue","Noto Sans KR",Helvetica,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+/* 참여 안내 준비 전까지 참여 버튼 숨김 — 이 줄만 지우면 다시 표시 */
+[data-join]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg)}
+body{font-family:var(--font);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+
+.nav{border-bottom:1px solid var(--line-2)}
+.nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:26px;letter-spacing:-.8px;line-height:1;display:flex;align-items:baseline;gap:.35em;white-space:nowrap}
+.logo small{font-size:12px;letter-spacing:.08em;color:var(--fg-2)}
+.links{display:flex;gap:24px;font-size:15px}
+.links a{color:var(--fg-2);transition:color .2s}.links a:hover,.links a[aria-current]{color:var(--fg)}
+@media (max-width:640px){.links{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-size:14px;white-space:nowrap}
+.btn-l{color:var(--btn-ink);background:var(--btn-light)}
+
+.head{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.head::before{content:"";position:absolute;inset:0;background:url("bg-desktop.png") center 40%/cover no-repeat;opacity:.5;pointer-events:none}
+.head .wrap{position:relative;padding-block:56px 44px;display:grid;gap:28px}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.head h1{font-size:clamp(30px,5vw,46px);line-height:1.2;letter-spacing:-1.2px;font-weight:500;text-wrap:balance}
+.lead{color:var(--fg-2);max-width:60ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:rgba(16,18,22,.55)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px}
+.fact:last-child{border-right:0}
+@media (max-width:760px){.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.fact .k{font-size:12px;color:var(--fg-3)}
+.fact .v{font-size:19px;font-weight:500;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+
+main .wrap{padding-block:40px 64px;display:grid;gap:48px}
+main .wrap > section{min-width:0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.sec-h h2{font-size:22px;font-weight:500;letter-spacing:-.4px}
+.sec-h p{font-size:13px;color:var(--fg-3)}
+
+/* 노선 */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.lg{font:inherit;font-size:13px;color:var(--fg-2);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.lg i{width:18px;height:4px;border-radius:2px;display:block}
+.lg[aria-pressed="true"]{color:var(--fg);border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.06)}
+.lines{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:860px){.lines{grid-template-columns:1fr}}
+.course{border:1px solid var(--line);background:var(--panel);padding:20px 20px 12px;display:grid;gap:14px;align-content:start;--c:var(--c1)}
+.course.c2{--c:var(--c2)}.course.c3{--c:var(--c3)}
+.course.dim{opacity:.35}
+.ch{display:grid;gap:2px}
+.ch .no{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--c)}
+.ch h3{font-size:20px;font-weight:500;letter-spacing:-.3px}
+.ch .meta{font-size:13px;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.stops{list-style:none;margin:0;padding:0;position:relative}
+.stops::before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:4px;border-radius:2px;background:var(--c)}
+.st{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:7px 0;position:relative}
+.st .pt{width:22px;height:22px;border-radius:999px;background:var(--ink);border:4px solid var(--c);z-index:1}
+.st.x .pt{border-color:#fff;background:var(--c);box-shadow:0 0 0 3px var(--ink)}
+.st .nm{font-size:15px;line-height:1.35}
+.st .nm small{display:block;font-size:12px;color:var(--fg-3)}
+.st .tag{font-size:11px;font-weight:700;color:var(--ink);background:#fff;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:2px}
+.st a.map{font-size:12px;color:var(--fg-3);border:1px solid var(--line-2);border-radius:999px;padding:2px 9px;white-space:nowrap;transition:color .2s,border-color .2s}
+.st a.map:hover{color:var(--fg);border-color:rgba(255,255,255,.45)}
+
+/* 안내 */
+.notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:860px){.notes{grid-template-columns:1fr}}
+.nt{background:var(--panel);padding:20px;display:grid;gap:8px;align-content:start}
+.nt .k{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.nt h3{font-size:16px;font-weight:500}
+.nt p{font-size:14px;color:var(--fg-2)}
+.src{font-size:13px;color:var(--fg-3)}
+.src a{color:var(--accent)}
+.foot{border-top:1px solid var(--line);color:var(--fg-3);font-size:13px}
+.foot .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html?v=10151403" class="logo">AMSA<small>WYD 2027</small></a>
+    <nav class="links" aria-label="주요 메뉴">
+      <a href="index.html?v=10151403">홈</a><a href="about.html?v=10151403">소개</a><a href="plan.html?v=10151403">1년 일정</a><a href="pilgrim.html?v=10151403" aria-current="page">순례길</a>
+    </nav>
+    <a href="index.html?v=10151403#join" data-join class="btn btn-l">함께하기</a>
+  </div>
+</header>
+
+<section class="head">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">PILGRIMAGE · SEOUL</p>
+      <h1>천주교 서울 순례길</h1>
+      <p class="lead" style="margin-top:12px">한국 교회 순교자들의 발자취를 따라 걷는 길입니다. 2018년 교황청이 아시아 최초의 공식 국제 순례지로 선포했고, 2027 서울 세계청년대회 조직위원회도 청년 순례 프로그램에서 이 길을 함께 걸었습니다.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="k">코스</span><span class="v">3개</span></div>
+      <div class="fact"><span class="k">순례지</span><span class="v">24곳</span></div>
+      <div class="fact"><span class="k">총 길이</span><span class="v">44.1km</span></div>
+      <div class="fact"><span class="k">교황청 선포</span><span class="v">2018.9.14</span></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+
+    <section aria-labelledby="h-route">
+      <div class="sec-h"><h2 id="h-route">코스와 순례지</h2><p>흰 테두리 점은 다음 코스로 이어지는 지점 · ‘지도’는 네이버 지도 검색</p></div>
+      <div class="legend" role="group" aria-label="코스 강조">
+        <button class="lg" type="button" data-c="all" aria-pressed="true">전체</button>
+        <button class="lg" type="button" data-c="c1" aria-pressed="false"><i style="background:var(--c1)"></i>말씀의 길</button>
+        <button class="lg" type="button" data-c="c2" aria-pressed="false"><i style="background:var(--c2)"></i>생명의 길</button>
+        <button class="lg" type="button" data-c="c3" aria-pressed="false"><i style="background:var(--c3)"></i>일치의 길</button>
+      </div>
+      <div class="lines" id="lines"></div>
+    </section>
+
+    <section aria-labelledby="h-note">
+      <div class="sec-h"><h2 id="h-note">순례 안내</h2></div>
+      <div class="notes">
+        <div class="nt"><p class="k">ORDER</p><h3>이어지는 세 코스</h3><p>말씀의 길이 끝나는 가회동성당에서 생명의 길이, 생명의 길이 끝나는 약현성당에서 일치의 길이 시작됩니다. 하루 한 코스씩 나누어 걸을 수 있습니다.</p></div>
+        <div class="nt"><p class="k">DISTANCE</p><h3>코스별 거리</h3><p>도심 안을 걷는 말씀의 길(8.7km)·생명의 길(5.9km)은 반나절, 한강 쪽 성지를 잇는 일치의 길(29.5km)은 대중교통을 섞어 하루 이상 잡는 것이 좋습니다.</p></div>
+        <div class="nt"><p class="k">WYD</p><h3>청년 순례 프로그램</h3><p>조직위원회는 2025년 ‘9월愛 동행’에서 청년들이 이 길을 걸으며 순례자 여권에 도장을 받고, 절두산 순교성지 순교자현양미사에서 여권을 봉헌하도록 했습니다.</p></div>
+      </div>
+      <p class="src" style="margin-top:16px">출처: <a href="https://mediahub.seoul.go.kr/archives/1181240" target="_blank" rel="noopener">내 손안에 서울 · 천주교 서울 순례길 국제 순례지 선포</a>, <a href="https://wydseoul.org/participation/seoulPilgrim" target="_blank" rel="noopener">2027 서울 WYD · 9월愛 동행</a>. 순례지 운영 시간과 미사 일정은 방문 전에 각 성지에 확인하세요.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>“용기를 내어라! 내가 세상을 이겼다” (요한 16,33)</p>
+    <p>암사동성당 영성기획 파트</p>
+  </div>
+</footer>
+
+<script>
+const COURSES = [
+  {id:"c1", no:"1코스", name:"말씀의 길", km:"8.7km", stops:[
+    "명동성당", ["장악원 터","김범우의 집"], "이벽의 집 터", "좌포도청 터", "종로성당", "광희문",
+    "가톨릭대학교 성신교정", "석정보름우물", {n:"가회동성당", x:"생명의 길로"}]},
+  {id:"c2", no:"2코스", name:"생명의 길", km:"5.9km", stops:[
+    {n:"가회동성당", x:"말씀의 길에서"}, "광화문 시복 터", "형조 터", "의금부 터", "전옥서 터",
+    "우포도청 터", "경기감영 터", "서소문 역사공원", {n:"약현성당", x:"일치의 길로"}]},
+  {id:"c3", no:"3코스", name:"일치의 길", km:"29.5km", stops:[
+    {n:"약현성당", x:"생명의 길에서"}, "당고개 순교성지", "새남터 순교성지", "절두산 순교성지",
+    "노고산", "용산 성심신학교", "왜고개 성지", "삼성산 성지"]}
+];
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const mapUrl = q => "https://map.naver.com/p/search/" + encodeURIComponent(q.replace(/ 터$/," 터") + (/(성당|성지|공원|신학교|교정)$/.test(q) ? "" : " 서울"));
+
+document.getElementById("lines").innerHTML = COURSES.map(c => `
+  <article class="course ${c.id}" data-id="${c.id}">
+    <div class="ch"><p class="no">${c.no}</p><h3>${c.name}</h3><p class="meta">${c.km} · 순례지 ${c.stops.length}곳</p></div>
+    <ol class="stops">${c.stops.map(s => {
+      const o = typeof s === "string" ? {n:s} : Array.isArray(s) ? {n:s[0], sub:s[1]} : s;
+      return `<li class="st${o.x ? " x" : ""}"><span class="pt" aria-hidden="true"></span>
+        <span class="nm">${esc(o.n)}${o.x ? `<span class="tag">${esc(o.x)}</span>` : ""}${o.sub ? `<small>${esc(o.sub)}</small>` : ""}</span>
+        <a class="map" href="${mapUrl(o.n)}" target="_blank" rel="noopener" aria-label="${esc(o.n)} 지도 열기">지도</a></li>`;
+    }).join("")}</ol>
+  </article>`).join("");
+
+const lgs = [...document.querySelectorAll(".lg")];
+lgs.forEach(b => b.addEventListener("click", () => {
+  const c = b.dataset.c;
+  lgs.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  document.querySelectorAll(".course").forEach(el => el.classList.toggle("dim", c !== "all" && el.dataset.id !== c));
+}));
+</script>
+</body>
+</html>
