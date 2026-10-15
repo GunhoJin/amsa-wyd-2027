@@ -102,8 +102,7 @@ main .wrap{padding-block:16px 64px}
 .foot .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* 모바일 메뉴 */
-.mn-btn{display:none;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:0;padding:0;margin-right:-8px;cursor:pointer;color:#fff}
-@media (max-width:640px){.mn-btn{display:inline-flex}}
+.mn-btn{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:0;padding:0;margin-right:-8px;cursor:pointer;color:#fff}
 .mn-btn svg{width:24px;height:24px}
 .mn{position:fixed;inset:0;z-index:200;background:rgba(16,18,22,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;flex-direction:column;
   padding:calc(env(safe-area-inset-top,0px) + 16px) 20px calc(env(safe-area-inset-bottom,0px) + 32px);animation:mnIn .22s ease both;color:#fff}
@@ -114,7 +113,8 @@ main .wrap{padding-block:16px 64px}
 .mn-k{font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.5);font-weight:700}
 .mn-x{width:40px;height:40px;margin-right:-8px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;color:#fff;cursor:pointer}
 .mn-x svg{width:22px;height:22px}
-.mn nav{display:grid;margin-top:24px;max-width:560px}
+.mn-top,.mn nav{width:100%;max-width:1040px;margin-inline:auto}
+.mn nav{display:grid;grid-template-columns:minmax(0,560px);margin-top:24px}
 .mn nav a{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:28px;letter-spacing:-.6px;line-height:1.2;color:#fff;text-decoration:none}
 .mn nav a small{font-size:13px;letter-spacing:0;color:rgba(255,255,255,.5)}
 .mn nav a[aria-current]{color:#00A1DB}
@@ -146,16 +146,13 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
 
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="index.html?v=10151427">홈<small>처음 화면</small></a><a href="about.html?v=10151427" aria-current="page">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=10151427">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=10151427">순례길<small>천주교 서울 순례길</small></a></nav>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=10151428">홈<small>처음 화면</small></a><a href="about.html?v=10151428" aria-current="page">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=10151428">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=10151428">순례길<small>천주교 서울 순례길</small></a></nav>
 </div>
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=10151427" class="logo">AMSA<small>WYD 2027</small></a>
-    <nav class="links rise" aria-label="주요 메뉴">
-      <a href="index.html?v=10151427">홈</a><a href="about.html?v=10151427" aria-current="page">소개</a><a href="plan.html?v=10151427">1년 일정</a><a href="pilgrim.html?v=10151427">순례길</a>
-    </nav>
-    <a href="index.html?v=10151427#join" data-join class="btn btn-l">함께하기</a>
+    <a href="index.html?v=10151428" class="logo">AMSA<small>WYD 2027</small></a>
+    <a href="index.html?v=10151428#join" data-join class="btn btn-l">함께하기</a>
     <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
 </header>
