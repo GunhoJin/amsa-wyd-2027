@@ -87,7 +87,7 @@ main .wrap > section{min-width:0}
 .st a.map:hover{color:var(--fg);border-color:rgba(255,255,255,.45)}
 
 /* 해설 도보관광 */
-.tours{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.tours{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 @media (max-width:860px){.tours{grid-template-columns:1fr}}
 .tour{border:1px solid var(--line);background:var(--panel);padding:22px;display:grid;gap:14px;align-content:start}
 .tour .k{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
@@ -164,13 +164,13 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
 
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="index.html?v=10151726">홈<small>처음 화면</small></a><a href="about.html?v=10151726">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=10151726">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=10151726" aria-current="page">순례길<small>천주교 서울 순례길</small></a></nav>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=10151729">홈<small>처음 화면</small></a><a href="about.html?v=10151729">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=10151729">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=10151729" aria-current="page">순례길<small>천주교 서울 순례길</small></a></nav>
 </div>
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=10151726" class="logo">AMSA<small>WYD 2027</small></a>
-    <a href="index.html?v=10151726#join" data-join class="btn btn-l">함께하기</a>
+    <a href="index.html?v=10151729" class="logo">AMSA<small>WYD 2027</small></a>
+    <a href="index.html?v=10151729#join" data-join class="btn btn-l">함께하기</a>
     <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
 </header>
@@ -236,10 +236,24 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
             <a class="ta" href="https://korean.visitseoul.net/walking-tour/%EC%84%9C%EC%9A%B8-%EC%88%9C%EB%A1%80%EA%B8%B8-%EC%84%9C%EC%86%8C%EB%AC%B8-%EC%88%9C%EB%A1%80%EA%B8%B8/KON026218" target="_blank" rel="noopener">코스 안내 ↗</a>
           </div>
         </article>
+        <article class="tour">
+          <p class="k">한강 순례길</p>
+          <h3>마포에서 절두산·양화진까지</h3>
+          <p class="desc">마포음식문화거리에서 토정 나들목을 지나 흙길·돌길·숲길·꽃길로 이어지는 강변을 걸어, 병인박해 순교 터인 절두산 순교성지와 외국인 선교사들이 잠든 양화진에 이릅니다.</p>
+          <dl class="tmeta"><dt>만나는 곳</dt><dd>마포역 1번 출구 (5호선)</dd><dt>소요 시간</dt><dd>약 2시간 30분</dd></dl>
+          <ol class="chips" aria-label="한강 순례길 경로">
+            <li>마포음식문화거리</li><li>한강 순례길 특화 구간</li><li class="pg">절두산 순교성지</li><li>양화진 외국인선교사묘원</li>
+          </ol>
+          <div class="tacts">
+            <a class="ta pri" href="https://dobo.visitseoul.net/reserve/step1/list?lang=kr&amp;cos_cd=50&amp;type=1" target="_blank" rel="noopener">개인 예약 (1~10인)</a>
+            <a class="ta" href="https://dobo.visitseoul.net/reserve/step1/list?lang=kr&amp;cos_cd=50&amp;type=2" target="_blank" rel="noopener">단체 예약 (11인 이상)</a>
+            <a class="ta" href="https://korean.visitseoul.net/walking-tour/%EC%84%9C%EC%9A%B8-%EC%88%9C%EB%A1%80%EA%B8%B8-%ED%95%9C%EA%B0%95%EC%88%9C%EB%A1%80%EA%B8%B8/KON026217" target="_blank" rel="noopener">코스 안내 ↗</a>
+          </div>
+        </article>
       </div>
       <div class="tnote">
         <p>금색 번호는 천주교 서울 순례길의 순례지입니다. 해설사와 함께 걷는 프로그램으로 사전 예약이 필요합니다.</p>
-        <p><b>기존 코스와 비교</b> 두 해설 코스는 순례지 일부에 주변 명소를 더한 관광형 코스입니다. 북촌 순례길은 광화문 시복 터·가회동성당·석정보름우물(말씀의 길 끝~생명의 길 시작), 서소문 순례길은 명동대성당·서소문 밖 네거리 순교성지·약현성당(말씀의 길 시작, 생명의 길 끝)만 겹칩니다. 새남터·절두산·삼성산 등 일치의 길의 한강 쪽 성지는 들어 있지 않습니다. 성지 순례는 위의 세 코스를 기준으로 하고, 해설 코스는 처음 오는 분이나 해외 청년 순례자를 안내할 때 활용하면 좋습니다.</p>
+        <p><b>기존 코스와 비교</b> 세 해설 코스는 순례지 일부에 주변 명소를 더한 관광형 코스입니다. 북촌 순례길은 광화문 시복 터·가회동성당·석정보름우물(말씀의 길 끝~생명의 길 시작), 서소문 순례길은 명동대성당·서소문 밖 네거리 순교성지·약현성당(말씀의 길 시작, 생명의 길 끝), 한강 순례길은 절두산 순교성지(일치의 길)만 겹칩니다. 당고개·새남터·삼성산 등 일치의 길의 나머지 성지는 들어 있지 않습니다. 성지 순례는 위의 세 코스를 기준으로 하고, 해설 코스는 처음 오는 분이나 해외 청년 순례자를 안내할 때 활용하면 좋습니다.</p>
         <p><b>예약</b> 개인은 3일 전까지(다음 달 예약은 매월 15일부터), 단체는 5개월~5일 전. 초등 고학년 이상 권장, 보호자 없는 14세 미만은 현장 취소.</p>
         <p><b>취소</b> 폭염·태풍·호우·미세먼지 등 기상특보 시 취소, 혹서기(7.23~8.11) 운영 중단. 문의 서울도보관광 02-6925-0777</p>
       </div>
