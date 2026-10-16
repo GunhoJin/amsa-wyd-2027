@@ -23,6 +23,7 @@
 | **홈** | 회전 지구본(역대 WYD 개최지·서울 2027), D-day, 주제 성구, 공식 앱 내려받기 | [`/`](https://amsa-wyd-2027.pages.dev/) |
 | **소개** | 교황의 초대, 주제 성구, 로고와 공식 색, 수호성인 5위, 지구를 위한 WYD, 대회 발자취 | [`/about`](https://amsa-wyd-2027.pages.dev/about) |
 | **1년 일정** | 본당위원회(P.O.C.) 조직, 매월 반복 기도, 본대회 주간, WYD 십자가 순례, 월별 일정 | [`/plan`](https://amsa-wyd-2027.pages.dev/plan) |
+| **프로그램** | WYD를 향한 영적 순례 여정 — 지난·진행 중·예정 프로그램 (날짜로 자동 분류) | [`/program`](https://amsa-wyd-2027.pages.dev/program) |
 | **순례길** | 천주교 서울 순례길 3개 코스·24개 순례지 노선도, 순례지별 지도 링크 | [`/pilgrim`](https://amsa-wyd-2027.pages.dev/pilgrim) |
 
 같은 내용이 GitHub Pages에도 배포됩니다 → <https://gunhojin.github.io/amsa-wyd-2027/>
@@ -35,6 +36,8 @@
 ├── about.html        # 소개
 ├── plan.html         # 1년 일정
 ├── pilgrim.html      # 순례길
+├── program.html      # 프로그램 (영적 순례 여정)
+├── prog-*.jpg        # 프로그램 포스터
 ├── bg*.png           # 배경 이미지 (휴대폰·태블릿·데스크톱)
 ├── hands.png         # 두 손 이미지
 └── *-mask-*.svg      # 손 이미지 가장자리 마스크
@@ -53,6 +56,7 @@
 | 준비 시작일·본대회 날짜 | `plan.html` | `START`, `WYD` |
 | 지구본의 역대 개최지 | `index.html` | `const HOSTS` |
 | 홈 문구·주제 성구 | `index.html` | `const COPY` |
+| 프로그램 추가·수정 | `program.html` | `const PROGRAMS` (from/to 날짜로 지난·진행 중·예정 자동 분류) |
 | 순례길 코스·순례지 | `pilgrim.html` | `const COURSES` |
 | 참여 버튼 다시 보이기 | 모든 페이지 | `[data-join]{display:none!important}` 한 줄 삭제 |
 

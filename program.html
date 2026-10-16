@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>영적 순례 여정</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* Layout: 다른 페이지와 같은 어두운 바탕. 지난 → 진행 중 → 예정 순서로, 진행 중 프로그램만 금색으로 강조 */
+:root{
+  --ink:#101216; --panel:#16191f;
+  --fg:#ffffff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.48);
+  --line:rgba(255,255,255,.1); --line-2:rgba(255,255,255,.18);
+  --accent:#00A1DB; --gold:#FFD27A;
+  --c1:#00A1DB; --c2:#FFD27A; --c3:#B9A6FF;
+  --btn-light:#f0f0f0; --btn-ink:#060e08;
+  --font:"Helvetica Neue","Noto Sans KR",Helvetica,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+/* 참여 안내 준비 전까지 참여 버튼 숨김 — 이 줄만 지우면 다시 표시 */
+[data-join]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg)}
+body{font-family:var(--font);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+
+.nav{border-bottom:1px solid var(--line-2)}
+.nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:26px;letter-spacing:-.8px;line-height:1;display:flex;align-items:baseline;gap:.35em;white-space:nowrap}
+.logo small{font-size:12px;letter-spacing:.08em;color:var(--fg-2)}
+.links{display:flex;gap:24px;font-size:15px}
+.links a{color:var(--fg-2);transition:color .2s}.links a:hover,.links a[aria-current]{color:var(--fg)}
+@media (max-width:640px){.links{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-size:14px;white-space:nowrap}
+.btn-l{color:var(--btn-ink);background:var(--btn-light)}
+
+.head{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.head::before{content:"";position:absolute;inset:0;background:url("bg-desktop.png") center 40%/cover no-repeat;opacity:.5;pointer-events:none}
+.head .wrap{position:relative;padding-block:56px 44px;display:grid;gap:28px}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.head h1{font-size:clamp(30px,5vw,46px);line-height:1.2;letter-spacing:-1.2px;font-weight:500;text-wrap:balance}
+.lead{color:var(--fg-2);max-width:60ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:rgba(16,18,22,.55)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px}
+.fact:last-child{border-right:0}
+@media (max-width:760px){.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.fact .k{font-size:12px;color:var(--fg-3)}
+.fact .v{font-size:19px;font-weight:500;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+
+main .wrap{padding-block:40px 64px;display:grid;gap:48px}
+main .wrap > section{min-width:0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.sec-h h2{font-size:22px;font-weight:500;letter-spacing:-.4px}
+.sec-h p{font-size:13px;color:var(--fg-3)}
+/* 프로그램 */
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs a{font-size:13px;color:var(--fg-2);border:1px solid var(--line-2);border-radius:999px;padding:6px 14px;transition:color .2s,border-color .2s}
+.tabs a:hover{color:var(--fg);border-color:rgba(255,255,255,.45)}
+.tabs a b{font-weight:700;color:var(--fg);margin-left:6px;font-variant-numeric:tabular-nums}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.04em;border-radius:999px;padding:3px 10px;border:1px solid var(--line-2);color:var(--fg-2)}
+.badge.now{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+.badge.now::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--ink);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.badge.now::before{animation:none}}
+.pg-card{border:1px solid var(--line);background:var(--panel);display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:0}
+.pg-card.now{border-color:rgba(255,210,122,.45)}
+@media (max-width:760px){.pg-card{grid-template-columns:1fr}}
+.pg-img{display:block;background:#0b0c0f;border-right:1px solid var(--line)}
+@media (max-width:760px){.pg-img{border-right:0;border-bottom:1px solid var(--line)}}
+.pg-img img{display:block;width:100%;height:100%;max-height:520px;object-fit:contain}
+.pg-body{padding:24px;display:grid;gap:16px;align-content:start}
+.pg-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pg-no{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.pg-body h3{font-size:clamp(22px,3vw,28px);font-weight:500;letter-spacing:-.5px;line-height:1.3}
+.pg-body .desc{color:var(--fg-2)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.steps li{background:var(--ink);padding:14px;display:grid;gap:2px}
+.steps .n{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.08em}
+.steps .t{font-size:14px}
+.pg-meta{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;font-size:14px;margin:0}
+.pg-meta dt{color:var(--fg-3)}.pg-meta dd{margin:0}
+.goal{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--fg-3)}
+.goal b{display:block;font-size:20px;color:var(--fg);font-weight:500;font-variant-numeric:tabular-nums}
+.list{display:grid;gap:12px}
+.up{border:1px solid var(--line);background:var(--panel);padding:18px 20px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;align-items:baseline}
+@media (max-width:520px){.up{grid-template-columns:1fr;gap:4px}}
+.up .when{font-size:14px;color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums}
+.up h3{font-size:18px;font-weight:500;letter-spacing:-.3px}
+.up p{font-size:14px;color:var(--fg-2);margin-top:4px}
+.empty{border:1px dashed var(--line-2);padding:20px;color:var(--fg-3);font-size:14px}
+.more{font-size:13px;color:var(--fg-3);margin-top:14px}
+.more a{color:var(--accent)}
+
+/* 모바일 메뉴 */
+.mn-btn{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:0;padding:0;margin-right:-8px;cursor:pointer;color:#fff}
+.mn-btn svg{width:24px;height:24px}
+.mn{position:fixed;inset:0;z-index:200;background:rgba(16,18,22,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top,0px) + 16px) 20px calc(env(safe-area-inset-bottom,0px) + 32px);animation:mnIn .22s ease both;color:#fff}
+.mn[hidden]{display:none!important}
+@keyframes mnIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mn{animation:none}}
+.mn-top{display:flex;justify-content:space-between;align-items:center;min-height:40px}
+.mn-k{font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.5);font-weight:700}
+.mn-x{width:40px;height:40px;margin-right:-8px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;color:#fff;cursor:pointer}
+.mn-x svg{width:22px;height:22px}
+.mn-top,.mn nav{width:100%;max-width:1040px;margin-inline:auto}
+.mn nav{display:grid;grid-template-columns:minmax(0,560px);justify-content:end;margin-top:24px}
+.mn nav a{display:flex;flex-direction:row-reverse;align-items:baseline;justify-content:space-between;text-align:right;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:28px;letter-spacing:-.6px;line-height:1.2;color:#fff;text-decoration:none}
+.mn nav a small{font-size:13px;letter-spacing:0;color:rgba(255,255,255,.5)}
+.mn nav a[aria-current]{color:#00A1DB}
+.mn nav a:focus-visible,.mn-x:focus-visible,.mn-btn:focus-visible{outline:2px solid #00A1DB;outline-offset:2px}
+/* ── 인트로: Originkit Type Sequence 방식 타이핑 → 제목 자리로 착지 ── */
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding-inline:20px;background:var(--ink)}
+.intro::before{content:"";position:absolute;inset:0;background:url("bg-desktop.png") center/cover no-repeat;opacity:.35;pointer-events:none;transition:opacity .9s ease}
+.intro.landing{background:transparent;transition:background-color .9s ease}
+.intro.landing::before{opacity:0}
+.intro-text{position:relative;margin:0;font-weight:500;color:var(--fg);white-space:pre-wrap;text-align:left;
+  font-size:clamp(26px,7.6vw,76px);line-height:1.2;letter-spacing:-.026em;transform-origin:0 0;will-change:transform}
+.caret{display:inline-block;box-sizing:border-box;width:.16em;height:.82em;margin-left:.08em;vertical-align:-.08em;
+  background:var(--accent);border:1.5px solid rgba(255,255,255,.35);border-radius:2px}
+.caret.off{opacity:0}
+.intro-skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));font:inherit;font-size:12px;color:var(--fg-3);
+  background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;transition:opacity .4s}
+.intro.landing .intro-skip{opacity:0}
+body.intro-on{overflow:hidden}
+body.title-hide .head h1{visibility:hidden}
+body.intro-on .rise{opacity:0;transform:translateY(14px)}
+.rise{transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
+</style>
+</head>
+<body>
+<div class="intro" id="intro" hidden>
+  <p class="intro-text" id="introText" aria-hidden="true"><span id="typed"></span><span class="caret" id="caret"></span></p>
+  <button class="intro-skip" id="introSkip" type="button">건너뛰기</button>
+</div>
+
+<div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
+  <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=10161010">홈<small>처음 화면</small></a><a href="about.html?v=10161010">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=10161010">1년 일정<small>월별 준비 일정</small></a><a href="program.html?v=10161010" aria-current="page">프로그램<small>영적 순례 여정</small></a><a href="pilgrim.html?v=10161010">순례길<small>천주교 서울 순례길</small></a></nav>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html?v=10161010" class="logo">AMSA<small>WYD 2027</small></a>
+    <a href="index.html?v=10161010#join" data-join class="btn btn-l">함께하기</a>
+    <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</header>
+
+<section class="head">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rise">PROGRAMS · 영성기획팀</p>
+      <h1 id="title">WYD를 향한<br>영적 순례 여정</h1>
+      <p class="lead rise" style="margin-top:12px">2027 서울 세계청년대회까지, 암사동성당 영성기획팀이 한 달에 한 걸음씩 준비하는 기도와 만남의 프로그램입니다. 지나온 여정과 지금 함께하는 여정, 앞으로의 여정을 모았습니다.</p>
+    </div>
+    <nav class="tabs rise" aria-label="프로그램 구분"><a href="#past">지난 프로그램<b id="n-past">0</b></a><a href="#now">진행 중<b id="n-now">0</b></a><a href="#next">예정<b id="n-next">0</b></a></nav>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <section id="past" aria-labelledby="h-past">
+      <div class="sec-h"><h2 id="h-past">지난 프로그램</h2><p>함께 걸어온 여정</p></div>
+      <div class="list" id="l-past"></div>
+    </section>
+    <section id="now" aria-labelledby="h-now">
+      <div class="sec-h"><h2 id="h-now">진행 중 프로그램</h2><p>지금 성당에서 함께할 수 있어요</p></div>
+      <div class="list" id="l-now"></div>
+    </section>
+    <section id="next" aria-labelledby="h-next">
+      <div class="sec-h"><h2 id="h-next">예정 프로그램</h2><p>세부 내용은 확정되는 대로 안내합니다</p></div>
+      <div class="list" id="l-next"></div>
+      <p class="more">월별 준비 일정 전체는 <a href="plan.html?v=10161010">1년 일정</a>에서 볼 수 있습니다.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>“용기를 내어라! 내가 세상을 이겼다” (요한 16,33)</p>
+    <p>암사동성당 영성기획 파트</p>
+  </div>
+</footer>
+
+<script>
+/* 프로그램 데이터 — from/to 날짜로 지난·진행 중·예정이 자동으로 나뉩니다 (to가 지나면 '지난'으로 이동) */
+const PROGRAMS = [
+  {no:"첫 번째 여정", title:"마음을 담은 편지", from:"2026-09-27", to:"2026-09-27",
+   img:"prog-letter.jpg", alt:"마음을 담은 편지 포스터",
+   desc:"1년 뒤의 나에게 쓰는 편지. 오늘 적은 마음은 소중히 밀봉되어 1년 뒤 다시 여러분의 품으로 돌아갑니다.",
+   meta:[["날짜","2026년 9월 27일 (주일) 저녁 6시 미사 후"],["장소","암사동성당 대성전"],["돌려받기","1년 뒤, 2027년 가을"]]},
+  {no:"두 번째 여정", title:"우리의 기도를 장미꽃으로", from:"2026-10-01", to:"2026-10-31",
+   img:"prog-rosary.jpg", alt:"우리의 기도를 장미꽃으로 포스터 — 스티커가 붙은 장미 꽃다발 그림",
+   desc:"묵주기도 성월에 성당 마당 바닥의 묵주 장식을 따라 한 걸음씩 옮기며 묵주기도를 바칩니다. 한 단을 마칠 때마다 스티커를 붙여, 모두의 기도로 장미 꽃다발을 완성합니다.",
+   steps:["묵주기도 한 단을 바칩니다","스티커를 한 장 붙입니다","열 장이 차면 장미 한 송이가 핍니다"],
+   goal:[["100송이","장미 목표"],["1,000장","스티커 목표"]],
+   meta:[["기간","2026년 10월 1일 ~ 10월 31일"],["장소","성당 마당 · 꽃다발 판"]]},
+  {title:"크리스마스 마켓", from:"2026-12-01", to:"2026-12-31", desc:"참여팀 모집, 부스 운영, 수익금 기부 방식을 협의하고 있습니다."},
+  {title:"빛으로 봉헌하는 미사", from:"2027-01-01", to:"2027-01-31", desc:"주님 봉헌 축일 미사를 참고해 빛을 봉헌하는 미사를 준비합니다."},
+  {title:"가시관 만들기", from:"2027-03-01", to:"2027-03-31", desc:"사순 시기에 함께 가시관을 만들며 수난을 묵상합니다."},
+  {title:"2027 서울 세계청년대회", from:"2027-08-03", to:"2027-08-08", desc:"한 해의 여정을 안고 본대회에 함께합니다."}
+];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const d = s => new Date(s + "T00:00:00+09:00");
+const now = new Date();
+const stateOf = p => now < d(p.from) ? "next" : now >= new Date(d(p.to).getTime() + 864e5) ? "past" : "now";
+const ym = s => { const [y,m] = s.split("-"); return `${y}.${+m}`; };
+const dl = m => m ? `<dl class="pg-meta">${m.map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>` : "";
+
+function card(p, st){
+  if(!p.img) return `<article class="up"><p class="when">${ym(p.from)}</p><div><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p></div></article>`;
+  return `<article class="pg-card${st === "now" ? " now" : ""}">
+    <a class="pg-img" href="${p.img}" target="_blank" rel="noopener" aria-label="${esc(p.alt)} 크게 보기"><img src="${p.img}" alt="${esc(p.alt)}" loading="lazy"></a>
+    <div class="pg-body">
+      <div class="pg-top">${st === "now" ? '<span class="badge now">진행 중</span>' : st === "past" ? '<span class="badge">마침</span>' : ""}${p.no ? `<span class="pg-no">${esc(p.no)}</span>` : ""}</div>
+      <h3>${esc(p.title)}</h3>
+      <p class="desc">${esc(p.desc)}</p>
+      ${p.steps ? `<ol class="steps">${p.steps.map((t,i) => `<li><span class="n">${["하나","둘","셋","넷"][i]}</span><span class="t">${esc(t)}</span></li>`).join("")}</ol>` : ""}
+      ${p.goal ? `<div class="goal">${p.goal.map(([v,k]) => `<span><b>${esc(v)}</b>${esc(k)}</span>`).join("")}</div>` : ""}
+      ${dl(p.meta)}
+    </div>
+  </article>`;
+}
+const groups = {past:[], now:[], next:[]};
+PROGRAMS.forEach(p => groups[stateOf(p)].push(p));
+groups.past.reverse();   // 최근에 마친 프로그램이 위로
+for(const k in groups){
+  document.getElementById("l-" + k).innerHTML = groups[k].length ? groups[k].map(p => card(p, k)).join("")
+    : `<p class="empty">${k === "now" ? "지금 진행 중인 프로그램이 없습니다. 예정 프로그램을 확인해 주세요." : k === "past" ? "아직 마친 프로그램이 없습니다." : "예정된 프로그램이 확정되면 안내합니다."}</p>`;
+  document.getElementById("n-" + k).textContent = groups[k].length;
+}
+</script>
+<script>
+/* 모바일 메뉴 열기·닫기 */
+(function(){
+  var m = document.getElementById("mn"), opener = null;
+  function open(btn){ opener = btn; m.hidden = false; document.documentElement.style.overflow = "hidden"; var a = m.querySelector("nav a"); if(a) a.focus(); }
+  function close(){ m.hidden = true; document.documentElement.style.overflow = ""; if(opener) opener.focus(); }
+  document.addEventListener("click", function(e){
+    var o = e.target.closest("[data-menu-open]"); if(o){ e.preventDefault(); open(o); return; }
+    if(e.target.closest("[data-menu-close]")) close();
+  });
+  addEventListener("keydown", function(e){ if(e.key === "Escape" && !m.hidden) close(); });
+})();
+</script>
+<script>
+/* 인트로 — Type Sequence(타이핑 55ms/자, 대기 중 커서 깜빡임 530ms) 후 제목 자리로 착지 */
+(function(){
+  const TEXT = "WYD를 향한\n영적 순례 여정";
+  const TYPE_MS = 55, HOLD_MS = 1100, LAND_MS = 900;
+  const intro = document.getElementById("intro"), typed = document.getElementById("typed"),
+        caret = document.getElementById("caret"), box = document.getElementById("introText"),
+        title = document.getElementById("title"), rises = [...document.querySelectorAll(".rise")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let seen = false; try{ seen = sessionStorage.getItem("wyd-program-intro") === "1"; }catch(e){}
+  if(reduce || seen || location.hash){ intro.remove(); return; }
+
+  document.body.classList.add("intro-on","title-hide"); intro.hidden = false;
+  let i = 0, blink = null, timers = [], done = false;
+  const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+
+  function finish(){
+    if(done) return; done = true;
+    timers.forEach(clearTimeout); clearInterval(blink); clearInterval(iv);
+    document.body.classList.remove("intro-on","title-hide");
+    intro.remove();
+    rises.forEach((el, k) => { el.style.transitionDelay = (k*70) + "ms"; });
+    try{ sessionStorage.setItem("wyd-program-intro","1"); }catch(e){}
+  }
+  function land(){
+    clearInterval(blink); caret.classList.add("off");
+    // FLIP: 인트로 문구 → 실제 h1 위치·크기
+    const a = box.getBoundingClientRect(), b = title.getBoundingClientRect();
+    const sc = b.height / a.height;
+    intro.classList.add("landing");
+    box.style.transition = `transform ${LAND_MS}ms cubic-bezier(.65,0,.35,1)`;
+    box.style.transform = `translate(${b.left - a.left}px, ${b.top - a.top}px) scale(${sc})`;
+    later(() => { document.body.classList.remove("intro-on"); rises.forEach((el,k)=>{ el.style.transitionDelay = (k*80)+"ms"; }); }, LAND_MS - 150);
+    later(finish, LAND_MS + 60);
+  }
+  // 시간 기반 진행: 타이머가 지연·중단돼도 경과 시간으로 글자 수를 계산
+  const NL = TEXT.indexOf("\n"), NL_EXTRA = NL < 0 ? 0 : TYPE_MS*3;
+  const typeEnd = TEXT.length*TYPE_MS + NL_EXTRA;
+  let t0 = null, phase = "typing";
+  function charsAt(ms){ const n = Math.floor(ms / TYPE_MS); return (NL < 0 || n <= NL) ? n : Math.max(NL+1, Math.floor((ms - NL_EXTRA)/TYPE_MS)); }
+  function step(){
+    if(done || phase === "land") return;
+    const el = performance.now() - t0;
+    if(phase === "typing"){
+      const n = Math.min(TEXT.length, charsAt(el));
+      if(typed.textContent.length !== n) typed.textContent = TEXT.slice(0, n);
+      if(el >= typeEnd){ typed.textContent = TEXT; phase = "hold"; blink = setInterval(() => caret.classList.toggle("off"), 530); }
+    } else if(phase === "hold" && el >= typeEnd + HOLD_MS){ phase = "land"; clearInterval(iv); land(); }
+  }
+  function raf(){ step(); if(!done && phase !== "land") requestAnimationFrame(raf); }
+  let iv = null;
+  let started = false;
+  function start(){ if(started) return; started = true; t0 = performance.now(); raf(); iv = setInterval(step, 150); }
+  // 웹폰트 로드 후 시작 (최대 700ms만 기다림)
+  Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 700))])
+    .then(() => later(start, 250));
+  setTimeout(finish, 10000);   // 안전장치: 어떤 경우에도 10초 안에 본문 표시
+  document.getElementById("introSkip").addEventListener("click", finish);
+  addEventListener("keydown", e => { if(e.key === "Escape") finish(); }, {once:true});
+})();
+</script>
+</body>
+</html>
