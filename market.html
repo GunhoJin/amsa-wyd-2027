@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>성탄 홀리마켓</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* Layout: 다른 페이지와 같은 어두운 바탕. 개요 → 12사도 부스판(선점 현황) → 운영 원칙 → 준비 일정(오늘 기준 강조) → 영성기획팀 부스 */
+:root{
+  --ink:#101216; --panel:#16191f;
+  --fg:#ffffff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.48);
+  --line:rgba(255,255,255,.1); --line-2:rgba(255,255,255,.18);
+  --accent:#00A1DB; --gold:#FFD27A;
+  --c1:#00A1DB; --c2:#FFD27A; --c3:#B9A6FF;
+  --btn-light:#f0f0f0; --btn-ink:#060e08;
+  --font:"Helvetica Neue","Noto Sans KR",Helvetica,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+/* 참여 안내 준비 전까지 참여 버튼 숨김 — 이 줄만 지우면 다시 표시 */
+[data-join]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg)}
+body{font-family:var(--font);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+
+.nav{border-bottom:1px solid var(--line-2)}
+.nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:26px;letter-spacing:-.8px;line-height:1;display:flex;align-items:baseline;gap:.35em;white-space:nowrap}
+.logo small{font-size:12px;letter-spacing:.08em;color:var(--fg-2)}
+.links{display:flex;gap:24px;font-size:15px}
+.links a{color:var(--fg-2);transition:color .2s}.links a:hover,.links a[aria-current]{color:var(--fg)}
+@media (max-width:640px){.links{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-size:14px;white-space:nowrap}
+.btn-l{color:var(--btn-ink);background:var(--btn-light)}
+
+.head{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.head::before{content:"";position:absolute;inset:0;background:url("bg-desktop.png") center 40%/cover no-repeat;opacity:.5;pointer-events:none}
+.head .wrap{position:relative;padding-block:56px 44px;display:grid;gap:28px}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.head h1{font-size:clamp(30px,5vw,46px);line-height:1.2;letter-spacing:-1.2px;font-weight:500;text-wrap:balance}
+.lead{color:var(--fg-2);max-width:60ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:rgba(16,18,22,.55)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px}
+.fact:last-child{border-right:0}
+@media (max-width:760px){.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.fact .k{font-size:12px;color:var(--fg-3)}
+.fact .v{font-size:19px;font-weight:500;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+
+main .wrap{padding-block:40px 64px;display:grid;gap:48px}
+main .wrap > section{min-width:0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.sec-h h2{font-size:22px;font-weight:500;letter-spacing:-.4px}
+.sec-h p{font-size:13px;color:var(--fg-3)}
+/* 홀리마켓 */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:rgba(16,18,22,.55)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px}
+.fact:last-child{border-right:0}
+@media (max-width:760px){.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.fact .k{font-size:12px;color:var(--fg-3)}
+.fact .v{font-size:18px;font-weight:500;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+.booths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;list-style:none;margin:0;padding:0;counter-reset:b}
+@media (max-width:860px){.booths{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.booths{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bo{counter-increment:b;border:1px solid var(--line);background:var(--panel);padding:16px;display:grid;gap:6px;min-height:112px;align-content:start}
+.bo::before{content:counter(b,decimal-leading-zero);font-size:11px;font-weight:700;color:var(--fg-3);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.bo h3{font-size:18px;font-weight:500;letter-spacing:-.3px}
+.bo .t{font-size:13px;color:var(--fg-3)}
+.bo.taken{border-color:rgba(255,210,122,.45)}
+.bo.taken .t{color:var(--gold)}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:860px){.rules{grid-template-columns:1fr}}
+.ru{background:var(--panel);padding:20px;display:grid;gap:8px;align-content:start}
+.ru .k{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.ru h3{font-size:16px;font-weight:500}
+.ru p{font-size:14px;color:var(--fg-2)}
+.tl{list-style:none;margin:0;padding:0;display:grid;border-left:2px solid var(--line-2);margin-left:6px}
+.tl li{position:relative;padding:0 0 22px 22px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px}
+@media (max-width:520px){.tl li{grid-template-columns:1fr;gap:2px}}
+.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:999px;background:var(--ink);border:2px solid var(--line-2)}
+.tl li.done{color:var(--fg-3)}
+.tl li.done::before{background:var(--fg-3);border-color:var(--fg-3)}
+.tl li.next::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 4px rgba(255,210,122,.2)}
+.tl .d{font-size:14px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.tl li.done .d{color:var(--fg-3)}
+.tl li.next .d{color:var(--gold)}
+.tl h3{font-size:16px;font-weight:500}
+.tl p{font-size:14px;color:var(--fg-2)}
+.tl li.done p{color:var(--fg-3)}
+.own{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.own{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.own{grid-template-columns:1fr}}
+.ow{border:1px solid var(--line);background:var(--panel);padding:18px;display:grid;gap:6px;align-content:start}
+.ow .k{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.06em}
+.ow h3{font-size:16px;font-weight:500}
+.ow p{font-size:14px;color:var(--fg-2)}
+.notice{font-size:13px;color:var(--fg-3);margin-top:16px}
+
+/* 모바일 메뉴 */
+.mn-btn{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:0;padding:0;margin-right:-8px;cursor:pointer;color:#fff}
+.mn-btn svg{width:24px;height:24px}
+.mn{position:fixed;inset:0;z-index:200;background:rgba(16,18,22,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top,0px) + 16px) 20px calc(env(safe-area-inset-bottom,0px) + 32px);animation:mnIn .22s ease both;color:#fff}
+.mn[hidden]{display:none!important}
+@keyframes mnIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mn{animation:none}}
+.mn-top{display:flex;justify-content:space-between;align-items:center;min-height:40px}
+.mn-k{font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.5);font-weight:700}
+.mn-x{width:40px;height:40px;margin-right:-8px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;color:#fff;cursor:pointer}
+.mn-x svg{width:22px;height:22px}
+.mn-top,.mn nav{width:100%;max-width:1040px;margin-inline:auto}
+.mn nav{display:grid;grid-template-columns:minmax(0,560px);justify-content:end;margin-top:24px}
+.mn nav a{display:flex;flex-direction:row-reverse;align-items:baseline;justify-content:space-between;text-align:right;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:28px;letter-spacing:-.6px;line-height:1.2;color:#fff;text-decoration:none}
+.mn nav a small{font-size:13px;letter-spacing:0;color:rgba(255,255,255,.5)}
+.mn nav a[aria-current]{color:#00A1DB}
+.mn nav a:focus-visible,.mn-x:focus-visible,.mn-btn:focus-visible{outline:2px solid #00A1DB;outline-offset:2px}
+/* ── 인트로: Originkit Type Sequence 방식 타이핑 → 제목 자리로 착지 ── */
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding-inline:20px;background:var(--ink)}
+.intro::before{content:"";position:absolute;inset:0;background:url("bg-desktop.png") center/cover no-repeat;opacity:.35;pointer-events:none;transition:opacity .9s ease}
+.intro.landing{background:transparent;transition:background-color .9s ease}
+.intro.landing::before{opacity:0}
+.intro-text{position:relative;margin:0;font-weight:500;color:var(--fg);white-space:pre-wrap;text-align:left;
+  font-size:clamp(26px,7.6vw,76px);line-height:1.2;letter-spacing:-.026em;transform-origin:0 0;will-change:transform}
+.caret{display:inline-block;box-sizing:border-box;width:.16em;height:.82em;margin-left:.08em;vertical-align:-.08em;
+  background:var(--accent);border:1.5px solid rgba(255,255,255,.35);border-radius:2px}
+.caret.off{opacity:0}
+.intro-skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));font:inherit;font-size:12px;color:var(--fg-3);
+  background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;transition:opacity .4s}
+.intro.landing .intro-skip{opacity:0}
+body.intro-on{overflow:hidden}
+body.title-hide .head h1{visibility:hidden}
+body.intro-on .rise{opacity:0;transform:translateY(14px)}
+.rise{transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
+</style>
+</head>
+<body>
+<div class="intro" id="intro" hidden>
+  <p class="intro-text" id="introText" aria-hidden="true"><span id="typed"></span><span class="caret" id="caret"></span></p>
+  <button class="intro-skip" id="introSkip" type="button">건너뛰기</button>
+</div>
+
+<div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
+  <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=10251652">홈<small>처음 화면</small></a><a href="about.html?v=10251652">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=10251652">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=10251652">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=10251652">프로그램<small>영적 순례 여정</small></a><a href="market.html?v=10251652" aria-current="page">홀리마켓<small>12.27 성탄 나눔 장터</small></a><a href="join.html?v=10251652">참여하기<small>봉사자 모집 · 순례길 · 홈스테이</small></a></nav>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html?v=10251652" class="logo">AMSA<small>WYD 2027</small></a>
+    <a href="join.html?v=10251652" data-join class="btn btn-l">함께하기</a>
+    <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</header>
+
+<section class="head">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rise">HOLY MARKET · 2026.12.27</p>
+      <h1 id="title">함께 나누는<br>성탄 홀리마켓</h1>
+      <p class="lead rise" style="margin-top:12px">성가정 축일, 본당 단체들이 12사도의 이름으로 부스를 열고 이웃을 초대합니다. 나눔으로 마련한 기금은 WYD 2027 준비에 보탭니다.</p>
+    </div>
+    <div class="facts rise">
+      <div class="fact"><span class="k">날짜</span><span class="v">12.27 (주일)</span></div>
+      <div class="fact"><span class="k">시간</span><span class="v">12:00 – 16:00</span></div>
+      <div class="fact"><span class="k">장소</span><span class="v">만남의 방 · 소성전 앞</span></div>
+      <div class="fact"><span class="k">단체 부스</span><span class="v" id="f-booth">12개</span></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <section aria-labelledby="h-booth">
+      <div class="sec-h"><h2 id="h-booth">12사도 부스</h2><p id="booth-sum">11월 8일 선점 신청 시작 · 신청 순서대로 사도 부스 선택</p></div>
+      <ol class="booths" id="booths"></ol>
+    </section>
+
+    <section aria-labelledby="h-rule">
+      <div class="sec-h"><h2 id="h-rule">참여 원칙</h2></div>
+      <div class="rules">
+        <div class="ru"><p class="k">FIRST COME</p><h3>단체 선점</h3><p>단체당 1부스. 신청 순서대로 배정하고 12개가 차면 마감합니다. 이후 신청은 대기 순번으로 관리합니다.</p></div>
+        <div class="ru"><p class="k">ITEMS</p><h3>품목은 최대 2개 부스까지</h3><p>같은 품목·테마는 먼저 신청한 단체가 우선이며 최대 2개 부스까지 열 수 있습니다. 판매 물품은 새 물건이 원칙입니다.</p></div>
+        <div class="ru"><p class="k">SHARING</p><h3>기부금은 순위만 공개</h3><p>행사 후 사도 부스별 기부금 순위만 발표하고, 액수는 공개하지 않습니다.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-own">
+      <div class="sec-h"><h2 id="h-own">영성기획팀 부스</h2><p>단체 부스와 별도로 운영</p></div>
+      <div class="own">
+        <div class="ow"><p class="k">WYD</p><h3>WYD 홍보·기금</h3><p>2027 서울 세계청년대회를 소개하고 기금을 모읍니다.</p></div>
+        <div class="ow"><p class="k">LETTER</p><h3>타임캡슐 편지</h3><p>대림 우체통에 1년 뒤의 나와 이웃에게 마음을 띄웁니다.</p></div>
+        <div class="ow"><p class="k">STAMP</p><h3>스탬프 랠리</h3><p>사도 부스를 돌며 도장을 모으면 작은 선물을 드립니다.</p></div>
+        <div class="ow"><p class="k">PHOTO</p><h3>산타 포토존</h3><p>가족·이웃과 함께 성탄 사진을 남겨 보세요.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-tl">
+      <div class="sec-h"><h2 id="h-tl">준비 일정</h2><p>금색이 다음 단계입니다</p></div>
+      <ol class="tl" id="tl"></ol>
+      <p class="notice">날짜와 운영 방식은 주임신부님 승인 후 확정되며, 바뀌면 이 페이지와 주보로 안내합니다. 문의는 본당 WYD 영성기획팀으로 해 주세요.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>“용기를 내어라! 내가 세상을 이겼다” (요한 16,33)</p>
+    <p>암사동성당 영성기획 파트</p>
+  </div>
+</footer>
+
+<script>
+/* 12사도 부스 — 선점한 단체가 정해지면 team에 단체명을 넣으세요 (예: team:"레지오") */
+const BOOTHS = [
+  {n:"베드로"},{n:"안드레아"},{n:"대 야고보"},{n:"요한"},{n:"필립보"},{n:"바르톨로마오"},
+  {n:"토마스"},{n:"마태오"},{n:"소 야고보"},{n:"유다 타대오"},{n:"시몬"},{n:"마티아"}
+];
+/* 준비 일정 — 날짜가 지나면 자동으로 흐리게, 다음 단계는 금색으로 표시 */
+const STEPS = [
+  {d:"2026-11-01", t:"기본 확정", p:"날짜·참여 방식 승인, 사목협의회 보고, 기부 원칙 확정"},
+  {d:"2026-11-07", t:"암사1동 프리마켓 참가", p:"WYD 홍보 부스로 참가하며 운영 경험 쌓기"},
+  {d:"2026-11-08", t:"단체 부스 선점 신청 시작", p:"신청 순서대로 사도 부스 선택, 12개 차면 마감"},
+  {d:"2026-11-22", t:"참여 단체 확정", p:"단체별 담당자·품목 확정, 영성기획팀 부스 확정"},
+  {d:"2026-11-29", t:"단체 사전 안내", p:"대림 제1주일 · 위생·화기 규정 안내, 리스 예약 주문 시작"},
+  {d:"2026-12-06", t:"동네 홍보 시작", p:"외벽 현수막, 아파트·상가·주민센터 게시, 당근마켓·SNS"},
+  {d:"2026-12-26", t:"설치", p:"부스 테이블·전기·안내 표지 설치"},
+  {d:"2026-12-27", t:"홀리마켓", p:"성가정 축일 12:00–16:00"},
+  {d:"2027-01-03", t:"정산·나눔", p:"사도 부스별 정산, 기부금 순위 발표(액수 비공개)"}
+];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const taken = BOOTHS.filter(b => b.team).length;
+document.getElementById("booths").innerHTML = BOOTHS.map(b =>
+  `<li class="bo${b.team ? " taken" : ""}"><h3>${esc(b.n)}</h3><span class="t">${b.team ? esc(b.team) : "선점 가능"}</span></li>`).join("");
+document.getElementById("f-booth").textContent = taken ? `${taken} / 12` : "12개";
+if(taken) document.getElementById("booth-sum").textContent = `선점 ${taken}개 · 남은 부스 ${12 - taken}개`;
+
+const today = new Date(); today.setHours(0,0,0,0);
+const md = s => { const [y,m,d] = s.split("-"); return `${+m}.${+d}`; };
+let nextFound = false;
+document.getElementById("tl").innerHTML = STEPS.map(x => {
+  const dt = new Date(x.d + "T00:00:00+09:00");
+  let c = "";
+  if(dt < today) c = "done"; else if(!nextFound){ c = "next"; nextFound = true; }
+  return `<li class="${c}"><span class="d">${md(x.d)}</span><div><h3>${esc(x.t)}</h3><p>${esc(x.p)}</p></div></li>`;
+}).join("");
+</script>
+<script>
+/* 모바일 메뉴 열기·닫기 */
+(function(){
+  var m = document.getElementById("mn"), opener = null;
+  function open(btn){ opener = btn; m.hidden = false; document.documentElement.style.overflow = "hidden"; var a = m.querySelector("nav a"); if(a) a.focus(); }
+  function close(){ m.hidden = true; document.documentElement.style.overflow = ""; if(opener) opener.focus(); }
+  document.addEventListener("click", function(e){
+    var o = e.target.closest("[data-menu-open]"); if(o){ e.preventDefault(); open(o); return; }
+    if(e.target.closest("[data-menu-close]")) close();
+  });
+  addEventListener("keydown", function(e){ if(e.key === "Escape" && !m.hidden) close(); });
+})();
+</script>
+<script>
+/* 인트로 — Type Sequence(타이핑 55ms/자, 대기 중 커서 깜빡임 530ms) 후 제목 자리로 착지 */
+(function(){
+  const TEXT = "함께 나누는\n성탄 홀리마켓";
+  const TYPE_MS = 55, HOLD_MS = 1100, LAND_MS = 900;
+  const intro = document.getElementById("intro"), typed = document.getElementById("typed"),
+        caret = document.getElementById("caret"), box = document.getElementById("introText"),
+        title = document.getElementById("title"), rises = [...document.querySelectorAll(".rise")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let seen = false; try{ seen = sessionStorage.getItem("wyd-market-intro") === "1"; }catch(e){}
+  if(reduce || seen || location.hash){ intro.remove(); return; }
+
+  document.body.classList.add("intro-on","title-hide"); intro.hidden = false;
+  let i = 0, blink = null, timers = [], done = false;
+  const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+
+  function finish(){
+    if(done) return; done = true;
+    timers.forEach(clearTimeout); clearInterval(blink); clearInterval(iv);
+    document.body.classList.remove("intro-on","title-hide");
+    intro.remove();
+    rises.forEach((el, k) => { el.style.transitionDelay = (k*70) + "ms"; });
+    try{ sessionStorage.setItem("wyd-market-intro","1"); }catch(e){}
+  }
+  function land(){
+    clearInterval(blink); caret.classList.add("off");
+    // FLIP: 인트로 문구 → 실제 h1 위치·크기
+    const a = box.getBoundingClientRect(), b = title.getBoundingClientRect();
+    const sc = b.height / a.height;
+    intro.classList.add("landing");
+    box.style.transition = `transform ${LAND_MS}ms cubic-bezier(.65,0,.35,1)`;
+    box.style.transform = `translate(${b.left - a.left}px, ${b.top - a.top}px) scale(${sc})`;
+    later(() => { document.body.classList.remove("intro-on"); rises.forEach((el,k)=>{ el.style.transitionDelay = (k*80)+"ms"; }); }, LAND_MS - 150);
+    later(finish, LAND_MS + 60);
+  }
+  // 시간 기반 진행: 타이머가 지연·중단돼도 경과 시간으로 글자 수를 계산
+  const NL = TEXT.indexOf("\n"), NL_EXTRA = NL < 0 ? 0 : TYPE_MS*3;
+  const typeEnd = TEXT.length*TYPE_MS + NL_EXTRA;
+  let t0 = null, phase = "typing";
+  function charsAt(ms){ const n = Math.floor(ms / TYPE_MS); return (NL < 0 || n <= NL) ? n : Math.max(NL+1, Math.floor((ms - NL_EXTRA)/TYPE_MS)); }
+  function step(){
+    if(done || phase === "land") return;
+    const el = performance.now() - t0;
+    if(phase === "typing"){
+      const n = Math.min(TEXT.length, charsAt(el));
+      if(typed.textContent.length !== n) typed.textContent = TEXT.slice(0, n);
+      if(el >= typeEnd){ typed.textContent = TEXT; phase = "hold"; blink = setInterval(() => caret.classList.toggle("off"), 530); }
+    } else if(phase === "hold" && el >= typeEnd + HOLD_MS){ phase = "land"; clearInterval(iv); land(); }
+  }
+  function raf(){ step(); if(!done && phase !== "land") requestAnimationFrame(raf); }
+  let iv = null;
+  let started = false;
+  function start(){ if(started) return; started = true; t0 = performance.now(); raf(); iv = setInterval(step, 150); }
+  // 웹폰트 로드 후 시작 (최대 700ms만 기다림)
+  Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 700))])
+    .then(() => later(start, 250));
+  setTimeout(finish, 10000);   // 안전장치: 어떤 경우에도 10초 안에 본문 표시
+  document.getElementById("introSkip").addEventListener("click", finish);
+  addEventListener("keydown", e => { if(e.key === "Escape") finish(); }, {once:true});
+})();
+</script>
+</body>
+</html>
