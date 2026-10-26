@@ -7,7 +7,7 @@
 2027 서울 세계청년대회(World Youth Day)를 향한 1년 —<br>
 암사동성당 청년과 중고등부가 기도와 만남으로 함께 준비합니다.
 
-[![사이트 바로가기](https://img.shields.io/badge/사이트-amsa--wyd--2027.pages.dev-00A1DB?style=for-the-badge)](https://amsa-wyd-2027.pages.dev/)
+[![사이트 바로가기](https://img.shields.io/badge/사이트-amsawyd.com-00A1DB?style=for-the-badge)](https://amsawyd.com/)
 [![본대회](https://img.shields.io/badge/본대회-2027.8.3~8.8-FFD27A?style=for-the-badge&labelColor=101216)](https://wydseoul.org/)
 
 > “용기를 내어라! 내가 세상을 이겼다” (요한 16,33)
@@ -20,12 +20,12 @@
 
 | 페이지 | 내용 | 주소 |
 |---|---|---|
-| **홈** | 회전 지구본(역대 WYD 개최지·서울 2027), D-day, 주제 성구, 공식 앱 내려받기 | [`/`](https://amsa-wyd-2027.pages.dev/) |
-| **소개** | 교황의 초대, 주제 성구, 로고와 공식 색, 수호성인 5위, 지구를 위한 WYD, 대회 발자취 | [`/about`](https://amsa-wyd-2027.pages.dev/about) |
-| **1년 일정** | 본당위원회(P.O.C.) 조직, 매월 반복 기도, 본대회 주간, WYD 십자가 순례, 월별 일정 | [`/plan`](https://amsa-wyd-2027.pages.dev/plan) |
-| **프로그램** | WYD를 향한 영적 순례 여정 — 지난·진행 중·예정 프로그램 (날짜로 자동 분류) | [`/program`](https://amsa-wyd-2027.pages.dev/program) |
-| **참여하기** | 봉사자 모집 · 순례길 참여 · 홈스테이 신청, 하단에 성탄 홀리마켓(12사도 부스·준비 일정) | [`/join`](https://amsa-wyd-2027.pages.dev/join) |
-| **순례길** | 천주교 서울 순례길 3개 코스·24개 순례지 노선도, 순례지별 지도 링크 | [`/pilgrim`](https://amsa-wyd-2027.pages.dev/pilgrim) |
+| **홈** | 회전 지구본(역대 WYD 개최지·서울 2027), D-day, 주제 성구, 공식 앱 내려받기 | [`/`](https://amsawyd.com/) |
+| **소개** | 교황의 초대, 주제 성구, 로고와 공식 색, 수호성인 5위, 지구를 위한 WYD, 대회 발자취 | [`/about`](https://amsawyd.com/about) |
+| **1년 일정** | 본당위원회(P.O.C.) 조직, 매월 반복 기도, 본대회 주간, WYD 십자가 순례, 월별 일정 | [`/plan`](https://amsawyd.com/plan) |
+| **프로그램** | WYD를 향한 영적 순례 여정 — 지난·진행 중·예정 프로그램 (날짜로 자동 분류) | [`/program`](https://amsawyd.com/program) |
+| **참여하기** | 봉사자 모집 · 순례길 참여 · 홈스테이 신청, 하단에 성탄 홀리마켓(12사도 부스·준비 일정) | [`/join`](https://amsawyd.com/join) | [`/join`](https://amsawyd.com/join) |
+| **순례길** | 천주교 서울 순례길 3개 코스·24개 순례지 노선도, 순례지별 지도 링크 | [`/pilgrim`](https://amsawyd.com/pilgrim) |
 
 같은 내용이 GitHub Pages에도 배포됩니다 → <https://gunhojin.github.io/amsa-wyd-2027/>
 
@@ -68,6 +68,7 @@
 
 | 곳 | 주소 | 방식 |
 |---|---|---|
+| 공개 주소 | <https://amsawyd.com> | Cloudflare Pages 커스텀 도메인 |
 | Cloudflare Pages | <https://amsa-wyd-2027.pages.dev> | `main` push 시 자동 배포 (빌드 명령 없음, 출력 `/`) |
 | GitHub Pages | <https://gunhojin.github.io/amsa-wyd-2027/> | `main` 브랜치 루트 |
 
