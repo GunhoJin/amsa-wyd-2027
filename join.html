@@ -78,6 +78,8 @@ main .wrap > section{min-width:0}
 .ja.pri{background:var(--fg);color:var(--ink);border-color:var(--fg)}
 .ja.pri:hover{opacity:.85}
 .ja[aria-disabled="true"]{background:transparent;color:var(--fg-3);border-style:dashed;border-color:var(--line-2);cursor:default;pointer-events:none}
+.bo.fixed{border-style:dashed;border-color:rgba(0,161,219,.5)}
+.bo.fixed::before{content:"고정";counter-increment:none;color:var(--accent)}
 .notice{font-size:13px;color:var(--fg-3);margin-top:16px}
 
 /* 홀리마켓 */
@@ -128,6 +130,10 @@ main .wrap > section{min-width:0}
 .mk-lead{color:var(--fg-2);max-width:60ch;margin-bottom:18px}
 .sec-h .ey{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.1em;display:block;margin-bottom:4px}
 
+.own.own3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:860px){.own.own3{grid-template-columns:1fr}}
+.rules.r4{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:860px){.rules.r4{grid-template-columns:1fr}}
 /* 모바일 메뉴 */
 .mn-btn{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:0;padding:0;margin-right:-8px;cursor:pointer;color:#fff}
 .mn-btn svg{width:24px;height:24px}
@@ -173,13 +179,13 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
 
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="index.html?v=10251745">홈<small>처음 화면</small></a><a href="about.html?v=10251745">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=10251745">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=10251745">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=10251745">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=10251745" aria-current="page">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a></nav>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=10261148">홈<small>처음 화면</small></a><a href="about.html?v=10261148">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=10261148">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=10261148">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=10261148">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=10261148" aria-current="page">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a></nav>
 </div>
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=10251745" class="logo">AMSA<small>WYD 2027</small></a>
-    <a href="join.html?v=10251745" data-join class="btn btn-l">함께하기</a>
+    <a href="index.html?v=10261148" class="logo">AMSA<small>WYD 2027</small></a>
+    <a href="join.html?v=10261148" data-join class="btn btn-l">함께하기</a>
     <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
 </header>
@@ -203,37 +209,37 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
     </section>
 
     <section id="market" aria-labelledby="h-market">
-      <div class="sec-h"><h2 id="h-market"><span class="ey">HOLY MARKET · 2026.12.27</span>함께 나누는 성탄 홀리마켓</h2><p>본당 단체 부스 참여</p></div>
-      <p class="mk-lead">성가정 축일, 본당 단체들이 12사도의 이름으로 부스를 열고 이웃을 초대합니다. 나눔으로 마련한 기금은 WYD 2027 준비에 보탭니다.</p>
+      <div class="sec-h"><h2 id="h-market"><span class="ey">HOLY MARKET · 2026.12.20</span>함께 나누는 성탄 홀리마켓</h2><p>본당 단체 · 지역 이웃 참여</p></div>
+      <p class="mk-lead">대림 제4주일, 본당 단체들이 12사도의 이름으로 부스를 열고 이웃을 초대합니다. 나눔으로 마련한 기금은 WYD 2027 준비에 보탭니다.</p>
       <div class="facts">
-        <div class="fact"><span class="k">날짜</span><span class="v">12.27 (주일)</span></div>
+        <div class="fact"><span class="k">날짜</span><span class="v">12.20 (주일)</span></div>
         <div class="fact"><span class="k">시간</span><span class="v">12:00 – 16:00</span></div>
         <div class="fact"><span class="k">장소</span><span class="v">만남의 방 · 소성전 앞</span></div>
-        <div class="fact"><span class="k">단체 부스</span><span class="v" id="f-booth">12개</span></div>
+        <div class="fact"><span class="k">기본 부스</span><span class="v" id="f-booth">14개</span></div>
       </div>
     </section>
 
     <section aria-labelledby="h-booth">
-      <div class="sec-h"><h2 id="h-booth">홀리마켓 · 12사도 부스</h2><p id="booth-sum">11월 8일 선점 신청 시작 · 신청 순서대로 사도 부스 선택</p></div>
+      <div class="sec-h"><h2 id="h-booth">홀리마켓 · 부스</h2><p id="booth-sum">단체 부스 12개(12사도) + 본부석 + WYD 홍보부스 · 11월 8일 선점 신청 시작</p></div>
       <ol class="booths" id="booths"></ol>
     </section>
 
     <section aria-labelledby="h-rule">
       <div class="sec-h"><h2 id="h-rule">홀리마켓 · 참여 원칙</h2></div>
-      <div class="rules">
+      <div class="rules r4">
         <div class="ru"><p class="k">FIRST COME</p><h3>단체 선점</h3><p>단체당 1부스. 신청 순서대로 배정하고 12개가 차면 마감합니다. 이후 신청은 대기 순번으로 관리합니다.</p></div>
         <div class="ru"><p class="k">ITEMS</p><h3>품목은 최대 2개 부스까지</h3><p>같은 품목·테마는 먼저 신청한 단체가 우선이며 최대 2개 부스까지 열 수 있습니다. 판매 물품은 새 물건이 원칙입니다.</p></div>
+        <div class="ru"><p class="k">OPEN TO NEIGHBORS</p><h3>판매존은 외부 신청도 받아요</h3><p>단체 부스가 확정된 뒤 판매존의 남은 자리를 지역 주민·소상공인에게 엽니다(11.15–11.22). 같은 품목 규칙을 적용하고 단체 신청이 우선입니다.</p></div>
         <div class="ru"><p class="k">SHARING</p><h3>기부금은 순위만 공개</h3><p>행사 후 사도 부스별 기부금 순위만 발표하고, 액수는 공개하지 않습니다.</p></div>
       </div>
     </section>
 
     <section aria-labelledby="h-own">
-      <div class="sec-h"><h2 id="h-own">홀리마켓 · 영성기획팀 부스</h2><p>단체 부스와 별도로 운영</p></div>
-      <div class="own">
-        <div class="ow"><p class="k">WYD</p><h3>WYD 홍보·기금</h3><p>2027 서울 세계청년대회를 소개하고 기금을 모읍니다.</p></div>
-        <div class="ow"><p class="k">LETTER</p><h3>타임캡슐 편지</h3><p>대림 우체통에 1년 뒤의 나와 이웃에게 마음을 띄웁니다.</p></div>
-        <div class="ow"><p class="k">STAMP</p><h3>스탬프 랠리</h3><p>사도 부스를 돌며 도장을 모으면 작은 선물을 드립니다.</p></div>
-        <div class="ow"><p class="k">PHOTO</p><h3>산타 포토존</h3><p>가족·이웃과 함께 성탄 사진을 남겨 보세요.</p></div>
+      <div class="sec-h"><h2 id="h-own">홀리마켓 · 구역</h2><p>단체는 신청할 때 희망 구역을 고릅니다</p></div>
+      <div class="own own3">
+        <div class="ow"><p class="k">EXPERIENCE</p><h3>체험존</h3><p>스탬프 랠리, 산타 포토존, 공예 체험</p></div>
+        <div class="ow"><p class="k">SNACK</p><h3>간식존</h3><p>단체가 준비하는 겨울 간식과 베이킹 (메뉴 검토 중)</p></div>
+        <div class="ow"><p class="k">MARKET</p><h3>판매존</h3><p>단체 판매 부스, 성물, 크리스마스 리스, 외부 신청 부스</p></div>
       </div>
     </section>
 
@@ -288,26 +294,34 @@ document.getElementById("jg").innerHTML = JOINS.map(j => {
 <script>
 /* 12사도 부스 — 선점한 단체가 정해지면 team에 단체명을 넣으세요 (예: team:"레지오") */
 const BOOTHS = [
-  {n:"베드로"},{n:"안드레아"},{n:"대 야고보"},{n:"요한"},{n:"필립보"},{n:"바르톨로마오"},
+  {n:"베드로"},{n:"안드레아"},{n:"대 야고보"},{n:"요한"},{n:"필립보"},{n:"바르톨로메오"},
   {n:"토마스"},{n:"마태오"},{n:"소 야고보"},{n:"유다 타대오"},{n:"시몬"},{n:"마티아"}
+];
+/* 고정 부스 — 단체 선점과 별도 */
+const FIXED = [
+  {n:"본부석", t:"안내 · 정산 · 분실물 · 응급의료"},
+  {n:"WYD 홍보부스", t:"WYD 2027 소개 · 기금 모금"}
 ];
 /* 준비 일정 — 날짜가 지나면 자동으로 흐리게, 다음 단계는 금색으로 표시 */
 const STEPS = [
-  {d:"2026-11-01", t:"기본 확정", p:"날짜·참여 방식 승인, 사목협의회 보고, 기부 원칙 확정"},
+  {d:"2026-11-01", t:"기본 확정", p:"날짜·참여 방식·외부 판매 신청 기준 승인, 기부 원칙 확정"},
   {d:"2026-11-07", t:"암사1동 프리마켓 참가", p:"WYD 홍보 부스로 참가하며 운영 경험 쌓기"},
-  {d:"2026-11-08", t:"단체 부스 선점 신청 시작", p:"신청 순서대로 사도 부스 선택, 12개 차면 마감"},
-  {d:"2026-11-22", t:"참여 단체 확정", p:"단체별 담당자·품목 확정, 영성기획팀 부스 확정"},
-  {d:"2026-11-29", t:"단체 사전 안내", p:"대림 제1주일 · 위생·화기 규정 안내, 리스 예약 주문 시작"},
-  {d:"2026-12-06", t:"동네 홍보 시작", p:"외벽 현수막, 아파트·상가·주민센터 게시, 당근마켓·SNS"},
-  {d:"2026-12-26", t:"설치", p:"부스 테이블·전기·안내 표지 설치"},
-  {d:"2026-12-27", t:"홀리마켓", p:"성가정 축일 12:00–16:00"},
-  {d:"2027-01-03", t:"정산·나눔", p:"사도 부스별 정산, 기부금 순위 발표(액수 비공개)"}
+  {d:"2026-11-08", t:"단체 부스 선점 신청 시작", p:"희망 구역·사도 부스·품목을 적어 신청, 12개 차면 마감"},
+  {d:"2026-11-15", t:"단체 부스 확정 · 외부 신청 시작", p:"사도 부스·구역·품목 확정, 판매존 남은 자리 외부 신청 공고"},
+  {d:"2026-11-22", t:"외부 신청 마감", p:"외부 판매 부스 확정, 전체 배치도 초안"},
+  {d:"2026-11-29", t:"사전 안내 · 동네 홍보 시작", p:"대림 제1주일 · 위생·화기 규정 안내, 현수막·게시판·당근마켓·SNS 홍보"},
+  {d:"2026-12-06", t:"운영 준비", p:"배치도·표지판 확정, 본부석 응급의료 준비"},
+  {d:"2026-12-13", t:"최종 점검", p:"비품·인력 배치·정산표 준비, 주보 최종 공지"},
+  {d:"2026-12-19", t:"설치", p:"부스·본부석 설치, 구역 안내 표지 부착"},
+  {d:"2026-12-20", t:"홀리마켓", p:"대림 제4주일 12:00–16:00"},
+  {d:"2026-12-27", t:"정산·나눔", p:"부스별 정산, 기부금 순위 발표(액수 비공개)"}
 ];
 const taken = BOOTHS.filter(b => b.team).length;
 document.getElementById("booths").innerHTML = BOOTHS.map(b =>
-  `<li class="bo${b.team ? " taken" : ""}"><h3>${esc(b.n)}</h3><span class="t">${b.team ? esc(b.team) : "선점 가능"}</span></li>`).join("");
-document.getElementById("f-booth").textContent = taken ? `${taken} / 12` : "12개";
-if(taken) document.getElementById("booth-sum").textContent = `선점 ${taken}개 · 남은 부스 ${12 - taken}개`;
+  `<li class="bo${b.team ? " taken" : ""}"><h3>${esc(b.n)}</h3><span class="t">${b.team ? esc(b.team) : "선점 가능"}</span></li>`).join("")
+  + FIXED.map(f => `<li class="bo fixed"><h3>${esc(f.n)}</h3><span class="t">${esc(f.t)}</span></li>`).join("");
+
+if(taken) document.getElementById("booth-sum").textContent = `단체 부스 선점 ${taken}개 · 남은 부스 ${12 - taken}개 · 본부석·WYD 홍보부스 별도`;
 
 const today = new Date(); today.setHours(0,0,0,0);
 const md = s => { const [y,m,d] = s.split("-"); return `${+m}.${+d}`; };
