@@ -231,7 +231,7 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
 <body>
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="index.html?v=10291012">홈<small>처음 화면</small></a><a href="about.html?v=10291012">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=10291012" aria-current="page">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=10291012">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=10291012">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=10291012">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a></nav>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=10292030">홈<small>처음 화면</small></a><a href="about.html?v=10292030">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=10292030" aria-current="page">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=10292030">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=10292030">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=10292030">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a></nav>
 </div>
 <div class="intro" id="intro" hidden>
   <p class="intro-text" id="introText" aria-hidden="true"><span id="typed"></span><span class="caret" id="caret"></span></p>
@@ -240,8 +240,8 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=10291012" class="logo">AMSA<small>WYD 2027</small></a>
-    <a href="join.html?v=10291012" data-join class="btn btn-l">함께하기</a>
+    <a href="index.html?v=10292030" class="logo">AMSA<small>WYD 2027</small></a>
+    <a href="join.html?v=10292030" data-join class="btn btn-l">함께하기</a>
     <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
 </header>
@@ -377,15 +377,20 @@ const PHASES = [
 // prog: 암사동성당 WYD 본당위원회(P.O.C.) 기획안 4.2 영성/기획팀 월별 프로그램 (null = 미정)
 // theme: 영성 축 기획안의 청년·청소년 월 주제(안)
 const MONTHS = [
-  {ym:"2026-08", span:"8.30~9월", prog:"WYD 설명·본당위원회 모집, 발대 미사와 친교의 장",
+  {ym:"2026-08", span:"8.30", prog:"WYD 설명·본당위원회 모집, 발대 미사와 친교의 장",
    a:["세계청년대회 설명, 본당위원회 모집"], y:[], p:["본당위원회(P.O.C.) 구성"],
    k:[["8.30","WYD 발대식"]]},
-  {ym:"2026-10", prog:"성모상 앞에서 미사 전 묵주기도", note:"묵주를 만들어 나누는 방안 검토",
+  {ym:"2026-09", prog:"첫 번째 여정 · 마음을 담은 편지", note:"1년 뒤의 나에게 쓰는 편지, 밀봉해 1년 뒤 돌려드림",
+   a:["9.27 저녁 6시 미사 후 대성전에서 편지 쓰기"],
+   y:[],
+   p:["편지 보관, 2027년 가을 돌려주기 준비"],
+   k:[["9.27","마음을 담은 편지"]]},
+  {ym:"2026-10", prog:"두 번째 여정 · 우리의 기도를 장미꽃으로", note:"묵주기도 한 단마다 스티커 한 장, 장미 100송이 꽃다발 완성",
    theme:"주제성구(요한 16,33)와 공식 주제가",
-   a:["10.25 저녁미사 후 성당 마당 묵주기도 5단 봉헌 (화상 참여 병행)","기도함 설치, 기도의 날 미사 지향 안내","매 미사 WYD 2027 공식 기도문 봉독 시작"],
+   a:["10.1~31 성모상 앞 꽃다발 판에 묵주기도 스티커 채우기","10.25 저녁미사 후 성당 마당 묵주기도 5단 봉헌 (화상 참여 병행)","기도함 설치, 기도의 날 미사 지향 안내","매 미사 WYD 2027 공식 기도문 봉독 시작"],
    y:["주제가 함께 배우기"],
    p:["봉사자 모집 안내 게시","참가자 등록시스템 오픈 확인"],
-   k:[["10.25","묵주기도 5단 봉헌"]]},
+   k:[["10.1~31","장미꽃 묵주기도"],["10.25","묵주기도 5단 봉헌"]]},
   {ym:"2026-11", prog:"12월 성탄 홀리마켓 준비 · 팀 친교", note:"팀워크 활성화와 팀 구성 구체화",
    theme:"성 요한 바오로 2세",
    a:["20시 27분 기도 홍보","묵주기도 단수 집계 시작"],
@@ -514,7 +519,7 @@ function render(){
     const ph = PHASES.find(p => m.ym >= p.from && m.ym <= p.to);
     if(ph !== lastPhase){ html += `<div class="phase-h"><b>${ph.name}</b>${ph.label || ph.from.replace("-",".")} — ${ph.to.replace("-",".")}</div>`; lastPhase = ph; }
     const [y, mo] = m.ym.split("-");
-    const endYM = m.span ? "2026-09" : m.ym;
+    const endYM = m.end || m.ym;
     const state = (m.ym <= curYM && curYM <= endYM) ? "now" : (endYM < curYM ? "past" : "");
     const li = (arr, t, label) => arr.map(x=>`<li data-t="${t}"><span class="tag t-${t}">${label}</span><span>${esc(x)}</span></li>`).join("");
     html += `<article class="m ${state}" data-ym="${m.ym}">
