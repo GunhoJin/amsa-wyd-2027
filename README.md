@@ -27,6 +27,7 @@
 | **순례길** | 천주교 서울 순례길 3개 코스·24개 순례지 노선도, 북촌·서소문·한강 해설 도보관광(무료) 예약 | [`/pilgrim`](https://amsawyd.com/pilgrim) |
 | **프로그램** | WYD를 향한 영적 순례 여정 — 지난·진행 중·예정 프로그램 (날짜로 자동 분류) | [`/program`](https://amsawyd.com/program) |
 | **참여하기** | 본당위원회 봉사자 모집(구글 폼) · 순례길 참여 · 홈스테이 · 홀리마켓 부스 신청 | [`/join`](https://amsawyd.com/join) |
+| └ **홈스테이** | 호스트 가정 자격 조건, 본대회 기간 일정(8.1–8.9), 배정 원칙, 사전 안내, 신청서 항목 | [`/homestay`](https://amsawyd.com/homestay) |
 | └ **성탄 홀리마켓** | 12.20 대림 제4주일 — 12사도 부스 선점 현황, 본부석·WYD 홍보부스, 구역, 참여 원칙, 준비 일정 | [`/market`](https://amsawyd.com/market) |
 
 모든 페이지는 우측 상단 메뉴로 이동합니다. 각 페이지는 처음 열 때 제목을 타이핑하는 인트로가 한 번 나옵니다.
@@ -86,6 +87,7 @@
 ├── pilgrim.html      # 순례길
 ├── program.html      # 프로그램 (영적 순례 여정)
 ├── join.html         # 참여하기 (봉사자·순례길·홈스테이·홀리마켓 신청 카드)
+├── homestay.html     # 홈스테이 세부 (본당 매뉴얼 2026.4 기준)
 ├── market.html       # 성탄 홀리마켓 세부
 ├── prog-*.jpg        # 프로그램 포스터·현장 사진
 ├── og.jpg            # 카카오톡·SNS 링크 미리보기 이미지
@@ -121,6 +123,7 @@ python -m http.server 8000
 - [2027 서울 세계청년대회 공식 홈페이지](https://wydseoul.org) — 대회 소개, 주제 성구, 로고·공식 색, 수호성인, 대회 발자취, WYD 십자가 순례 일정
 - [내 손안에 서울](https://mediahub.seoul.go.kr/archives/1181240) — 천주교 서울 순례길 코스와 순례지
 - [VISIT SEOUL 서울도보해설관광](https://korean.visitseoul.net/walking-tour) — 북촌·서소문·한강 순례길 해설 코스
+- 2027 서울 세계청년대회 조직위원회 「본당 매뉴얼」(2026년 4월 배포) — 순례자 패키지·숙박 일정, 홈스테이 호스트 조건·배정·교육
 - 암사동성당 WYD 본당위원회(P.O.C.) 기획안 — 본당 조직, 영성기획팀 월별 프로그램
 - 암사동성당 영성기획팀 회의록 — 프로그램, 성탄 홀리마켓 기획
 - 지구본 육지 데이터 — [Natural Earth](https://www.naturalearthdata.com/) (world-atlas)
