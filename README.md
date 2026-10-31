@@ -27,6 +27,7 @@
 | **순례길** | 천주교 서울 순례길 3개 코스·24개 순례지 노선도, 북촌·서소문·한강 해설 도보관광(무료) 예약 | [`/pilgrim`](https://amsawyd.com/pilgrim) |
 | **프로그램** | WYD를 향한 영적 순례 여정 — 지난·진행 중·예정 프로그램 (날짜로 자동 분류) | [`/program`](https://amsawyd.com/program) |
 | **참여하기** | 본당위원회 봉사자 모집(구글 폼) · 순례길 참여 · 홈스테이 · 홀리마켓 부스 신청 | [`/join`](https://amsawyd.com/join) |
+| **후원하기** | 본당 WYD 후원금 전용 계좌(복사 버튼), 입금 안내, 쓰임 | [`/donate`](https://amsawyd.com/donate) |
 | **문의 · 수정 요청** | 담당자·메일, 문의/수정 요청 메일 양식 버튼 (메뉴에서만 연결) | [`/contact`](https://amsawyd.com/contact) |
 | └ **홈스테이** | 호스트 가정 자격 조건, 본대회 기간 일정(8.1–8.9), 배정 원칙, 사전 안내, 신청서 항목 | [`/homestay`](https://amsawyd.com/homestay) |
 | └ **성탄 홀리마켓** | 12.20 대림 제4주일 — 부스 구성(본부석·WYD 홍보·체험·간식·판매존), 참여 원칙, 준비 일정 | [`/market`](https://amsawyd.com/market) |
@@ -88,6 +89,7 @@
 ├── pilgrim.html      # 순례길
 ├── program.html      # 프로그램 (영적 순례 여정)
 ├── join.html         # 참여하기 (봉사자·순례길·홈스테이·홀리마켓 신청 카드)
+├── donate.html       # 후원금 모금 안내
 ├── contact.html      # 문의 · 수정 요청 (메뉴 전용)
 ├── homestay.html     # 홈스테이 세부 (본당 매뉴얼 2026.4 기준)
 ├── market.html       # 성탄 홀리마켓 세부
