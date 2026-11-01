@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>묵주기도 10억 단 봉헌운동 | 암사동성당 WYD 2027</title>
+<meta name="description" content="2027 서울 세계청년대회를 위한 묵주기도 10억 단 봉헌운동 — 본당 집계함·하상앱·홈페이지·단체 참여 방법과 교구 봉헌 현황.">
+<link rel="canonical" href="https://amsawyd.com/rosary">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="암사동성당 WYD 2027">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="묵주기도 10억 단 봉헌운동 | 암사동성당 WYD 2027">
+<meta property="og:description" content="2027 서울 세계청년대회를 위한 묵주기도 10억 단 봉헌운동 — 본당 집계함·하상앱·홈페이지·단체 참여 방법과 교구 봉헌 현황.">
+<meta property="og:url" content="https://amsawyd.com/rosary">
+<meta property="og:image" content="https://amsawyd.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#101216">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* Layout: 봉헌운동 상세. 교구 현황(기준일 스냅숏 + 실시간 링크) → 참여 방법 3가지 → 우리 본당 → 기도문·자료 */
+:root{
+  --ink:#101216; --panel:#16191f;
+  --fg:#ffffff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.48);
+  --line:rgba(255,255,255,.1); --line-2:rgba(255,255,255,.18);
+  --accent:#00A1DB; --gold:#FFD27A;
+  --c1:#00A1DB; --c2:#FFD27A; --c3:#B9A6FF;
+  --btn-light:#f0f0f0; --btn-ink:#060e08;
+  --font:"Helvetica Neue","Noto Sans KR",Helvetica,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+/* 참여 안내 준비 전까지 참여 버튼 숨김 — 이 줄만 지우면 다시 표시 */
+[data-join]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg)}
+body{font-family:var(--font);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+
+.nav{border-bottom:1px solid var(--line-2)}
+.nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:26px;letter-spacing:-.8px;line-height:1;display:flex;align-items:baseline;gap:.35em;white-space:nowrap}
+.logo small{font-size:12px;letter-spacing:.08em;color:var(--fg-2)}
+.links{display:flex;gap:24px;font-size:15px}
+.links a{color:var(--fg-2);transition:color .2s}.links a:hover,.links a[aria-current]{color:var(--fg)}
+@media (max-width:640px){.links{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-size:14px;white-space:nowrap}
+.btn-l{color:var(--btn-ink);background:var(--btn-light)}
+
+.head{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.head::before{content:"";position:absolute;inset:0;background:url("bg-desktop.png") center 40%/cover no-repeat;opacity:.5;pointer-events:none}
+.head .wrap{position:relative;padding-block:56px 44px;display:grid;gap:28px}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.head h1{font-size:clamp(30px,5vw,46px);line-height:1.2;letter-spacing:-1.2px;font-weight:500;text-wrap:balance}
+.lead{color:var(--fg-2);max-width:60ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:rgba(16,18,22,.55)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px}
+.fact:last-child{border-right:0}
+@media (max-width:760px){.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.fact .k{font-size:12px;color:var(--fg-3)}
+.fact .v{font-size:19px;font-weight:500;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+
+main .wrap{padding-block:40px 64px;display:grid;gap:48px}
+main .wrap > section{min-width:0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.sec-h h2{font-size:22px;font-weight:500;letter-spacing:-.4px}
+.sec-h p{font-size:13px;color:var(--fg-3)}
+/* 참여 */
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.04em;border-radius:999px;padding:3px 10px;border:1px solid var(--line-2);color:var(--fg-2)}
+.badge.open{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+.top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.jg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+@media (max-width:760px){.jg{grid-template-columns:1fr}}
+.jc{border:1px solid var(--line);background:var(--panel);padding:24px;display:grid;gap:16px;align-content:start}
+.jc.open{border-color:rgba(255,210,122,.45)}
+.jc .k{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.jc h3{font-size:24px;font-weight:500;letter-spacing:-.4px;line-height:1.3}
+.jc .desc{color:var(--fg-2)}
+.jc ul{margin:0;padding-left:18px;color:var(--fg-2);font-size:14px;display:grid;gap:2px}
+.jc .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.ja{font-size:14px;border-radius:999px;padding:10px 18px;border:1px solid var(--line-2);color:var(--fg);white-space:nowrap;transition:opacity .2s,border-color .2s}
+.ja:hover{border-color:rgba(255,255,255,.5)}
+.ja.pri{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.ja.pri:hover{opacity:.85}
+.ja[aria-disabled="true"]{background:transparent;color:var(--fg-3);border-style:dashed;border-color:var(--line-2);cursor:default;pointer-events:none}
+.bo.fixed{border-style:dashed;border-color:rgba(0,161,219,.5)}
+.bo.fixed::before{content:"고정";counter-increment:none;color:var(--accent)}
+.back{font-size:14px}
+.back a{color:var(--accent)}
+.facts.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){.facts.c2{grid-template-columns:1fr}.facts.c2 .fact{border-right:0}.facts.c2 .fact:first-child{border-bottom:1px solid var(--line)}}
+.ml{color:var(--accent);word-break:break-all}
+.ru .acts{margin-top:6px}
+.ja{display:inline-block;font-size:14px;border-radius:999px;padding:10px 18px;border:1px solid var(--line-2);color:var(--fg);white-space:nowrap}
+.ja.pri{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.ja.pri:hover{opacity:.85}
+.acct{border:1px solid rgba(255,210,122,.45);background:linear-gradient(160deg,rgba(255,210,122,.10),rgba(255,210,122,0) 70%),var(--panel);padding:28px;display:grid;gap:6px;justify-items:start}
+.acct .bank{font-size:14px;color:var(--gold);font-weight:700;letter-spacing:.04em}
+.acct .num{font-size:clamp(28px,6vw,40px);font-weight:500;letter-spacing:-.5px;font-variant-numeric:tabular-nums;line-height:1.2}
+.acct .holder{font-size:15px;color:var(--fg-2);margin-bottom:12px}
+.acct button.ja{font:inherit;font-size:14px;cursor:pointer}
+.acts2{display:flex;flex-wrap:wrap;gap:8px}
+.acts2 .ja{display:inline-block}
+.acct .num small{font-size:.5em;margin-left:4px;color:var(--fg-2)}
+.bar{width:100%;height:10px;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:999px}
+.statgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:100%;margin:6px 0 14px}
+.statgrid div{display:grid;gap:2px}
+.statgrid b{font-size:20px;font-weight:500;font-variant-numeric:tabular-nums}
+.statgrid span{font-size:12px;color:var(--fg-3)}
+.copied{font-size:13px;color:var(--gold);min-height:1em}
+.notice{font-size:13px;color:var(--fg-3);margin-top:16px}
+
+/* 홀리마켓 */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:rgba(16,18,22,.55)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px}
+.fact:last-child{border-right:0}
+@media (max-width:760px){.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.fact .k{font-size:12px;color:var(--fg-3)}
+.fact .v{font-size:18px;font-weight:500;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+.booths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;list-style:none;margin:0;padding:0;counter-reset:b}
+@media (max-width:860px){.booths{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.booths{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bo{counter-increment:b;border:1px solid var(--line);background:var(--panel);padding:16px;display:grid;gap:6px;min-height:112px;align-content:start}
+.bo::before{content:counter(b,decimal-leading-zero);font-size:11px;font-weight:700;color:var(--fg-3);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.bo h3{font-size:18px;font-weight:500;letter-spacing:-.3px}
+.bo .t{font-size:13px;color:var(--fg-3)}
+.bo.taken{border-color:rgba(255,210,122,.45)}
+.bo.taken .t{color:var(--gold)}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:860px){.rules{grid-template-columns:1fr}}
+.ru{background:var(--panel);padding:20px;display:grid;gap:8px;align-content:start}
+.ru .k{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.ru h3{font-size:16px;font-weight:500}
+.ru p{font-size:14px;color:var(--fg-2)}
+.tl{list-style:none;margin:0;padding:0;display:grid;border-left:2px solid var(--line-2);margin-left:6px}
+.tl li{position:relative;padding:0 0 22px 22px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px}
+@media (max-width:520px){.tl li{grid-template-columns:1fr;gap:2px}}
+.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:999px;background:var(--ink);border:2px solid var(--line-2)}
+.tl li.done{color:var(--fg-3)}
+.tl li.done::before{background:var(--fg-3);border-color:var(--fg-3)}
+.tl li.next::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 4px rgba(255,210,122,.2)}
+.tl .d{font-size:14px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.tl li.done .d{color:var(--fg-3)}
+.tl li.next .d{color:var(--gold)}
+.tl h3{font-size:16px;font-weight:500}
+.tl p{font-size:14px;color:var(--fg-2)}
+.tl li.done p{color:var(--fg-3)}
+.own{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.own{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.own{grid-template-columns:1fr}}
+.ow{border:1px solid var(--line);background:var(--panel);padding:18px;display:grid;gap:6px;align-content:start}
+.ow .k{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.06em}
+.ow h3{font-size:16px;font-weight:500}
+.ow p{font-size:14px;color:var(--fg-2)}
+
+.mk-lead{color:var(--fg-2);max-width:60ch;margin-bottom:18px}
+.sec-h .ey{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.1em;display:block;margin-bottom:4px}
+
+.own.own3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:860px){.own.own3{grid-template-columns:1fr}}
+.rules.r4{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:860px){.rules.r4{grid-template-columns:1fr}}
+/* 모바일 메뉴 */
+.mn-btn{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:0;padding:0;margin-right:-8px;cursor:pointer;color:#fff}
+.mn-btn svg{width:24px;height:24px}
+.mn{position:fixed;inset:0;z-index:200;background:rgba(16,18,22,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top,0px) + 16px) 20px calc(env(safe-area-inset-bottom,0px) + 32px);animation:mnIn .22s ease both;color:#fff}
+.mn[hidden]{display:none!important}
+@keyframes mnIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mn{animation:none}}
+.mn-top{display:flex;justify-content:space-between;align-items:center;min-height:40px}
+.mn-k{font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.5);font-weight:700}
+.mn-x{width:40px;height:40px;margin-right:-8px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;color:#fff;cursor:pointer}
+.mn-x svg{width:22px;height:22px}
+.mn-top,.mn nav{width:100%;max-width:1040px;margin-inline:auto}
+.mn nav{display:grid;grid-template-columns:minmax(0,560px);justify-content:end;align-content:start;margin-top:24px;flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding-right:4px}
+.mn nav a{display:flex;flex-direction:row-reverse;align-items:baseline;justify-content:space-between;text-align:right;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:28px;letter-spacing:-.6px;line-height:1.2;color:#fff;text-decoration:none}
+.mn nav a small{font-size:13px;letter-spacing:0;color:rgba(255,255,255,.5)}
+.mn nav a[aria-current]{color:#00A1DB}
+.mn nav a:focus-visible{outline-offset:-2px}
+.mn nav a:focus-visible,.mn-x:focus-visible,.mn-btn:focus-visible{outline:2px solid #00A1DB;outline-offset:2px}
+/* ── 인트로: Originkit Type Sequence 방식 타이핑 → 제목 자리로 착지 ── */
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding-inline:20px;background:var(--ink)}
+.intro::before{content:"";position:absolute;inset:0;background:url("bg-desktop.png") center/cover no-repeat;opacity:.35;pointer-events:none;transition:opacity .9s ease}
+.intro.landing{background:transparent;transition:background-color .9s ease}
+.intro.landing::before{opacity:0}
+.intro-text{position:relative;margin:0;font-weight:500;color:var(--fg);white-space:pre-wrap;text-align:left;
+  font-size:clamp(26px,7.6vw,76px);line-height:1.2;letter-spacing:-.026em;transform-origin:0 0;will-change:transform}
+.caret{display:inline-block;box-sizing:border-box;width:.16em;height:.82em;margin-left:.08em;vertical-align:-.08em;
+  background:var(--accent);border:1.5px solid rgba(255,255,255,.35);border-radius:2px}
+.caret.off{opacity:0}
+.intro-skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));font:inherit;font-size:12px;color:var(--fg-3);
+  background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;transition:opacity .4s}
+.intro.landing .intro-skip{opacity:0}
+body.intro-on{overflow:hidden}
+body.title-hide .head h1{visibility:hidden}
+body.intro-on .rise{opacity:0;transform:translateY(14px)}
+.rise{transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
+</style>
+</head>
+<body>
+<div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
+  <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=11011501">홈<small>처음 화면</small></a><a href="about.html?v=11011501">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11011501">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11011501">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11011501">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11011501">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11011501">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11011501">문의 · 수정 요청</a></nav>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html?v=11011501" class="logo">AMSA<small>WYD 2027</small></a>
+    <a href="join.html?v=11011501" data-join class="btn btn-l">함께하기</a>
+    <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</header>
+
+<section class="head">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rise">ROSARY · 10억 단 봉헌운동</p>
+      <h1 id="title">묵주기도 10억 단,<br>함께 채워 갑니다</h1>
+      <p class="lead rise" style="margin-top:12px">2027 서울 세계청년대회를 위해 서울대교구가 2024년 2월부터 대회 때까지 이어 가는 기도 운동입니다. 성직자·수도자·평신도 모두가 묵주기도로 대회를 준비합니다.</p>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <section aria-labelledby="h-stat">
+      <div class="sec-h"><h2 id="h-stat">교구 봉헌 현황</h2><p id="statDate"></p></div>
+      <div class="acct">
+        <p class="bank">누적 봉헌</p>
+        <p class="num"><span id="sDone"></span><small>단</small></p>
+        <div class="bar" role="img" id="sBarWrap"><i id="sBar"></i></div>
+        <p class="holder" id="sPct"></p>
+        <div class="statgrid">
+          <div><b id="sPar"></b><span>참여 본당</span></div>
+          <div><b id="sOrg"></b><span>참여 기관·단체</span></div>
+          <div><b>10억 단</b><span>목표</span></div>
+        </div>
+        <div class="acts2">
+          <a class="ja pri" href="https://wyd.catholic.or.kr/status.asp" target="_blank" rel="noopener">실시간 봉헌 통계</a>
+          <a class="ja" href="https://wyd.catholic.or.kr/church.asp" target="_blank" rel="noopener">본당별 현황</a>
+          <a class="ja" href="https://wyd.catholic.or.kr/parish.asp" target="_blank" rel="noopener">교구·지역별 현황</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-how">
+      <div class="sec-h"><h2 id="h-how">참여 방법</h2><p>5단 = 묵주알 1개</p></div>
+      <div class="own own3">
+        <div class="ow"><p class="k">PARISH</p><h3>본당 집계함</h3><p>암사동성당 사무실의 묵주기도 집계함에 5단마다 묵주알 하나씩 넣습니다. 본당이 매주 집계해 교구에 올리고, 모인 묵주알은 2027년에 실제 묵주로 만들어집니다.</p></div>
+        <div class="ow"><p class="k">PERSONAL</p><h3>하상앱 · 홈페이지</h3><p>누구나 하상앱이나 대회 홈페이지에서 바친 단수를 직접 봉헌할 수 있습니다. 웹 봉헌은 2시간에 최대 25단까지 입력됩니다.</p><p class="acts2" style="margin-top:6px"><a class="ja pri" href="https://wydseoul.org/participation/rosary" target="_blank" rel="noopener">온라인으로 봉헌하기</a></p></div>
+        <div class="ow"><p class="k">GROUP</p><h3>단체 봉헌</h3><p>본당이 아닌 단체는 대표자가 단수를 모아 봉헌합니다. 단체 계정을 신청하고, 다음 날 승인되면 단체 계정으로 등록합니다.</p><p class="acts2" style="margin-top:6px"><a class="ja" href="https://wyd.catholic.or.kr/prayRosary.asp" target="_blank" rel="noopener">참여 방법 자세히</a></p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-ours">
+      <div class="sec-h"><h2 id="h-ours">우리 본당과 함께</h2></div>
+      <div class="rules r4">
+        <div class="ru"><p class="k">ROSE</p><h3>우리의 기도를 장미꽃으로</h3><p>10월 묵주기도 성월, 성모상 앞 꽃다발 판에 한 단마다 스티커를 붙여 장미 100송이를 함께 채웠습니다.</p><p class="acts" style="margin-top:6px"><a class="ml" href="program.html?v=11011501">프로그램 보기</a></p></div>
+        <div class="ru"><p class="k">PRAYER</p><h3>묵주기도와 함께 바치는 기도</h3><p>묵주기도 시작이나 끝에 「젊은이를 위한 기도」와 WYD 공식 기도문을 함께 바칩니다.</p><p class="acts" style="margin-top:6px"><a class="ml" href="https://wyd.catholic.or.kr/prayer.asp" target="_blank" rel="noopener">공식 기도문</a> · <a class="ml" href="https://wyd.catholic.or.kr/theme-song.asp" target="_blank" rel="noopener">공식 주제가</a></p></div>
+      </div>
+      <p class="notice">현황 숫자는 기준일의 교구 봉헌통계를 옮긴 것이며, 최신 숫자는 ‘실시간 봉헌 통계’에서 확인할 수 있습니다. 출처: 서울대교구 묵주기도 10억단 봉헌운동(wyd.catholic.or.kr), 가톨릭신문(2024.2.13).</p>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>“용기를 내어라! 내가 세상을 이겼다” (요한 16,33)</p>
+    <p>암사동성당 영성기획 파트</p>
+  </div>
+</footer>
+
+<script>
+/* 교구 봉헌 현황 — 기준일에 wyd.catholic.or.kr/status.asp 값을 옮겨 적습니다 (갱신 시 여기만 수정) */
+const STAT = {date:"2026-11-01", done:625543510, goal:1000000000, parishes:1268, orgs:183};
+(function(){
+  var f=function(n){return n.toLocaleString("ko-KR")}, pct=STAT.done/STAT.goal*100, d=STAT.date.split("-");
+  document.getElementById("sDone").textContent=f(STAT.done);
+  document.getElementById("sPct").textContent="목표 10억 단의 "+pct.toFixed(1)+"% · 남은 "+f(STAT.goal-STAT.done)+"단";
+  document.getElementById("sBar").style.width=Math.min(100,pct)+"%";
+  document.getElementById("sBarWrap").setAttribute("aria-label","목표 대비 "+pct.toFixed(1)+"%");
+  document.getElementById("sPar").textContent=f(STAT.parishes)+"곳";
+  document.getElementById("sOrg").textContent=f(STAT.orgs)+"곳";
+  document.getElementById("statDate").textContent=(+d[0])+"년 "+(+d[1])+"월 "+(+d[2])+"일 기준";
+})();
+</script>
+<script>
+/* 모바일 메뉴 열기·닫기 */
+(function(){
+  var m = document.getElementById("mn"), opener = null;
+  function open(btn){ opener = btn; m.hidden = false; document.documentElement.style.overflow = "hidden"; var a = m.querySelector("nav a"); if(a) a.focus(); }
+  function close(){ m.hidden = true; document.documentElement.style.overflow = ""; if(opener) opener.focus(); }
+  document.addEventListener("click", function(e){
+    var o = e.target.closest("[data-menu-open]"); if(o){ e.preventDefault(); open(o); return; }
+    if(e.target.closest("[data-menu-close]")) close();
+  });
+  addEventListener("keydown", function(e){ if(e.key === "Escape" && !m.hidden) close(); });
+})();
+</script>
+</body>
+</html>
