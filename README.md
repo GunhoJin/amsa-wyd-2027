@@ -90,7 +90,8 @@
 ├── pilgrim.html      # 순례길
 ├── program.html      # 프로그램 (영적 순례 여정)
 ├── join.html         # 참여하기 (봉사자·순례길·홈스테이·홀리마켓 신청 카드)
-├── rosary.html       # 묵주기도 10억 단 봉헌운동 (현황 숫자: const STAT)
+├── rosary.html       # 묵주기도 10억 단 봉헌운동 (실시간 현황 + 실패 시 const STAT)
+├── functions/api/rosary.js  # 교구 봉헌통계를 읽어 JSON으로 주는 Cloudflare Pages Function (/api/rosary)
 ├── donate.html       # 후원금 모금 안내
 ├── contact.html      # 문의 · 수정 요청 (메뉴 전용)
 ├── homestay.html     # 홈스테이 세부 (본당 매뉴얼 2026.4 기준)
@@ -117,6 +118,8 @@
 | GitHub Pages | <https://gunhojin.github.io/amsa-wyd-2027/> | `main` 브랜치 루트 |
 
 주보·QR·홍보물에는 **amsawyd.com**을 사용합니다.
+
+`/api/rosary`(묵주기도 실시간 현황)는 Cloudflare Pages Functions로 동작하므로 amsawyd.com·pages.dev에서만 되고, GitHub Pages에서는 기준일 숫자로 표시됩니다. 응답은 30분 캐시합니다.
 
 로컬에서 미리 보기:
 
