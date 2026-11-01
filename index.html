@@ -25,6 +25,8 @@
 <style>
 /* 제목 글꼴: Pretendard(SIL OFL 1.1) — 필요한 글자만 내려받는 웹폰트, 설치 없이 표시 */
 .mn,.mn nav a,.mn button{font-family:"Noto Sans KR",sans-serif}
+.mn nav a{font-weight:700}
+.mn nav a small{font-weight:400}
 h1,h2,.intro-text{font-family:"Pretendard Variable","Pretendard",var(--font,"Noto Sans KR"),sans-serif}
 /* Layout: hero-24 구조 그대로 — 고정 프레임(402/744/1280) 을 화면 폭에 맞춰 스케일, 중앙 지구본을 향해 뻗는 두 손 + 유리 카드 */
 :root{
@@ -173,7 +175,7 @@ p,h1{margin:0;font-weight:500}
 
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="index.html?v=11011628" aria-current="page">홈<small>처음 화면</small></a><a href="about.html?v=11011628">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11011628">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11011628">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11011628">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11011628">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11011628">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11011628">문의 · 수정 요청</a></nav>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=11011631" aria-current="page">홈<small>처음 화면</small></a><a href="about.html?v=11011631">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11011631">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11011631">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11011631">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11011631">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11011631">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11011631">문의 · 수정 요청</a></nav>
 </div>
 
 <main class="hero" id="home">
@@ -184,7 +186,7 @@ p,h1{margin:0;font-weight:500}
   <div class="desk-nav rv" style="animation-delay:0ms">
     <div class="row">
       <a href="#home" class="logo" style="font-size:32px;letter-spacing:-.96px"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
-      <a href="join.html?v=11011628" data-join class="btn btn-l" style="padding:14px 20px">함께하기</a>
+      <a href="join.html?v=11011631" data-join class="btn btn-l" style="padding:14px 20px">함께하기</a>
       <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
     </div>
   </div>
@@ -287,8 +289,8 @@ function build(key){
         <p class="rv" style="font-size:${c.p}px;animation-delay:160ms">${COPY.p}</p>
       </div>
       <div class="ctas rv" style="${c.ctas};animation-delay:240ms">
-        <nav class="tlinks" aria-label="바로가기"><a class="tl" href="about.html?v=11011628">소개</a><a class="tl" href="pilgrim.html?v=11011628">순례길</a><a class="tl" href="plan.html?v=11011628">1년 일정 보기</a><a class="tl" href="program.html?v=11011628">프로그램</a></nav>
-        <a class="btn join-btn" href="join.html?v=11011628">참여하기</a>
+        <nav class="tlinks" aria-label="바로가기"><a class="tl" href="about.html?v=11011631">소개</a><a class="tl" href="pilgrim.html?v=11011631">순례길</a><a class="tl" href="plan.html?v=11011631">1년 일정 보기</a><a class="tl" href="program.html?v=11011631">프로그램</a></nav>
+        <a class="btn join-btn" href="join.html?v=11011631">참여하기</a>
       </div>
     </div>
     <div class="globe rv" style="${F.globe};animation-delay:320ms"><canvas data-globe aria-label="서울을 표시한 회전 지구본" role="img"></canvas></div>
