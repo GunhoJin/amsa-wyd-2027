@@ -97,6 +97,7 @@
 ├── homestay.html     # 홈스테이 세부 (본당 매뉴얼 2026.4 기준)
 ├── market.html       # 성탄 홀리마켓 세부
 ├── prog-*.jpg        # 프로그램 포스터·현장 사진
+├── wyd-logo.svg      # WYD SEOUL 2027 공식 로고 (본당 매뉴얼 수록본에서 추출, 원본 색·비율 유지)
 ├── og.jpg            # 카카오톡·SNS 링크 미리보기 이미지
 ├── robots.txt        # 검색엔진 안내 (사이트맵 위치)
 ├── sitemap.xml       # 검색엔진용 페이지 목록
