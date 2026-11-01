@@ -1,0 +1,8 @@
+name: probe-api
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -sS -i https://amsawyd.com/api/rosary | head -30
