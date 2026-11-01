@@ -97,7 +97,6 @@
 ├── homestay.html     # 홈스테이 세부 (본당 매뉴얼 2026.4 기준)
 ├── market.html       # 성탄 홀리마켓 세부
 ├── prog-*.jpg        # 프로그램 포스터·현장 사진
-├── fonts/            # 제목 글꼴 페이퍼로지(Paperlogy Medium, SIL OFL 1.1) — 설치 없이 표시
 ├── og.jpg            # 카카오톡·SNS 링크 미리보기 이미지
 ├── robots.txt        # 검색엔진 안내 (사이트맵 위치)
 ├── sitemap.xml       # 검색엔진용 페이지 목록
@@ -142,7 +141,7 @@ python -m http.server 8000
 - 암사동성당 WYD 본당위원회(P.O.C.) 기획안 — 본당 조직, 영성기획팀 월별 프로그램
 - 암사동성당 영성기획팀 회의록 — 프로그램, 성탄 홀리마켓 기획
 - 지구본 육지 데이터 — [Natural Earth](https://www.naturalearthdata.com/) (world-atlas)
-- 제목 글꼴 — [Paperlogy](https://github.com/Freesentation/paperlogy) (SIL Open Font License 1.1, `fonts/Paperlogy-OFL.txt`)
+- 글꼴 — 제목 [Pretendard](https://github.com/orioncactus/pretendard) (SIL OFL 1.1, jsDelivr 웹폰트), 본문 맑은 고딕(시스템), 메뉴 Noto Sans KR
 - 히어로 레이아웃 — Originkit Hero 24, 타이핑 인트로 — Originkit Type Sequence
 
 > 대회 명칭과 로고는 재단법인 2027 서울 WYD 조직위원회의 사용 안내에 따라 홍보·사목 목적으로만 사용합니다.
