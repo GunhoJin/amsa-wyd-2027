@@ -202,6 +202,14 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 .logo .lw{font-family:"Pretendard Variable","Pretendard","Noto Sans KR",sans-serif;font-weight:800;letter-spacing:-.045em}
 .logo .lchip{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:4px 6px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
 .logo .lchip img{display:block;height:42px;width:auto}
+/* 홀리마켓 신청 버튼 (구글 폼) */
+.apply{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;font-size:16px;font-weight:700;color:#060e08;background:linear-gradient(180deg,#ffe3a6,#FFD27A);box-shadow:0 10px 28px -10px rgba(255,210,122,.7);transition:transform .2s,box-shadow .2s}
+.apply svg{width:18px;height:18px}
+.apply:hover{transform:translateY(-2px);box-shadow:0 14px 32px -10px rgba(255,210,122,.85)}
+.apply:focus-visible{outline:2px solid #00A1DB;outline-offset:3px}
+.apply-n{margin:10px 0 0;font-size:13px;color:rgba(255,255,255,.55)}
+.apply-end{display:flex;justify-content:center;margin:40px 0 8px}
+@media (prefers-reduced-motion:reduce){.apply{transition:none}}
 </style>
 </head>
 <body>
@@ -212,13 +220,13 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="index.html?v=11091140">홈<small>처음 화면</small></a><a href="about.html?v=11091140">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11091140">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11091140">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11091140">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11091140" aria-current="page">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11091140">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11091140" class="mn-sub">문의 · 수정 요청</a></nav>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=11151458">홈<small>처음 화면</small></a><a href="about.html?v=11151458">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11151458">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11151458">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11151458">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11151458" aria-current="page">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11151458">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11151458" class="mn-sub">문의 · 수정 요청</a></nav>
 </div>
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=11091140" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
-    <a href="join.html?v=11091140" data-join class="btn btn-l">함께하기</a>
+    <a href="index.html?v=11151458" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
+    <a href="join.html?v=11151458" data-join class="btn btn-l">함께하기</a>
     <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
 </header>
@@ -229,6 +237,7 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
       <p class="eyebrow rise">HOLY MARKET · 2026.12.20</p>
       <h1 id="title">함께 나누는<br>성탄 홀리마켓</h1>
       <p class="lead rise" style="margin-top:12px">대림 제4주일, 본당 단체와 지역 이웃이 함께 부스를 열고 동네를 초대합니다. 나눔으로 마련한 기금은 WYD 2027 준비에 보탭니다.</p>
+      <div class="rise" style="margin-top:22px"><a class="apply" href="https://forms.gle/YvUteFxcQYc35kxF8" target="_blank" rel="noopener">부스 신청하기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a><p class="apply-n">구글 폼 · 본당 단체 부스 / 판매존 외부 신청</p></div>
     </div>
     <div class="facts rise">
       <div class="fact"><span class="k">날짜</span><span class="v">12.20 (주일)</span></div>
@@ -267,7 +276,8 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
       <ol class="tl" id="tl"></ol>
       <p class="notice">날짜와 운영 방식은 주임신부님 승인 후 확정되며, 바뀌면 이 페이지와 주보로 안내합니다. 문의는 본당 WYD 영성기획팀으로 해 주세요.</p>
     </section>
-    <p class="back"><a href="join.html?v=11091140">참여하기로 돌아가기</a></p>
+    <div class="apply-end"><a class="apply" href="https://forms.gle/YvUteFxcQYc35kxF8" target="_blank" rel="noopener">부스 신청하기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+    <p class="back"><a href="join.html?v=11151458">참여하기로 돌아가기</a></p>
   </div>
 </main>
 
