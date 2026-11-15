@@ -31,7 +31,7 @@
 | **후원하기** | 본당 WYD 후원금 전용 계좌(복사 버튼), 입금 안내, 쓰임 | [`/donate`](https://amsawyd.com/donate) |
 | **문의 · 수정 요청** | 담당자·메일, 문의/수정 요청 메일 양식 버튼 (메뉴에서만 연결) | [`/contact`](https://amsawyd.com/contact) |
 | └ **홈스테이** | 호스트 가정 자격 조건, 본대회 기간 일정(8.1–8.9), 배정 원칙, 사전 안내, 신청서 항목 | [`/homestay`](https://amsawyd.com/homestay) |
-| └ **성탄 홀리마켓** | 12.20 대림 제4주일 — 부스 구성(본부석·WYD 홍보·체험·간식·판매존), 참여 원칙, 준비 일정 | [`/market`](https://amsawyd.com/market) |
+| └ **성탄 홀리마켓** | 12.20 대림 제4주일 — 부스 구성(본부석·WYD 홍보·체험·간식·판매존), 부스 선점 현황, 참여 원칙, 준비 일정, 신청 버튼(구글 폼) | [`/market`](https://amsawyd.com/market) |
 
 모든 페이지는 우측 상단 메뉴로 이동합니다. 각 페이지는 처음 열 때 제목을 타이핑하는 인트로가 한 번 나옵니다.
 
@@ -60,7 +60,7 @@
 | 순례길 코스·순례지 | `pilgrim.html` | `const COURSES` |
 | 프로그램 추가·수정 | `program.html` | `const PROGRAMS` — `from`/`to` 날짜로 지난·진행 중·예정 자동 분류, `img`가 있으면 포스터 카드 |
 | 신청 열기·마감 | `join.html` | `const JOINS` — `status`를 `soon`/`open`/`closed`로, `url`에 신청서 주소 |
-| 홀리마켓 신청 단체 | `market.html` | `const TEAMS` — 신청한 단체명을 순서대로 입력 (예: `"레지오"`) |
+| 홀리마켓 부스 선점 현황 | `market.html` | `const BOOTHS` — 구역(`exp`·`snack`·`market`)에 신청 순서대로 `{team:"레지오", item:"수제 쿠키"}` 추가, 외부 신청은 `ext:true`, 기준일은 `UPDATED` |
 | 홀리마켓 준비 일정 | `market.html` | `const STEPS` — 지난 단계는 흐리게, 다음 단계는 금색으로 자동 표시 |
 | 숨겨 둔 참여 버튼 | 모든 페이지 | `[data-join]{display:none!important}` 한 줄 삭제 시 표시 |
 

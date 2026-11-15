@@ -105,9 +105,6 @@ main .wrap > section{min-width:0}
 .bo.fixed::before{content:"고정";counter-increment:none;color:var(--accent)}
 .back{font-size:14px}
 .back a{color:var(--accent)}
-.teams{margin-top:12px;font-size:14px;color:var(--fg-2)}
-.teams b{color:var(--fg);font-weight:500}
-.teams span{display:inline-block;border:1px solid rgba(255,210,122,.45);color:var(--gold);border-radius:999px;padding:2px 10px;margin:4px 6px 0 0;font-size:13px}
 .notice{font-size:13px;color:var(--fg-3);margin-top:16px}
 
 /* 홀리마켓 */
@@ -210,6 +207,31 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 .apply-n{margin:10px 0 0;font-size:13px;color:rgba(255,255,255,.55)}
 .apply-end{display:flex;justify-content:center;margin:40px 0 8px}
 @media (prefers-reduced-motion:reduce){.apply{transition:none}}
+/* 부스 선점 현황 */
+.st-sum{font-size:15px;color:var(--fg-2);margin-bottom:14px}
+.st-sum b{color:var(--fg);font-weight:700;font-size:18px}
+.st-sum b.g{color:var(--gold)}
+.zones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.zones{grid-template-columns:1fr}}
+.zone{border:1px solid var(--line);background:var(--panel,rgba(255,255,255,.03));padding:18px;display:grid;gap:12px;align-content:start}
+.zone .k{font-size:11px;letter-spacing:.08em;color:var(--accent);font-weight:700;margin:0}
+.zone h3{font-size:17px;font-weight:500;margin:2px 0 0}
+.zh{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.zc{margin:0;font-size:14px;color:var(--fg-3);white-space:nowrap;text-align:right}
+.zc b{font-size:20px;color:var(--fg);font-weight:700}
+.zc span{display:block;font-size:12px;color:var(--gold)}
+.zone.full .zc span{color:var(--fg-3)}
+.bar{height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:2px}
+.sls{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.sl{display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:baseline;padding:9px 10px;border:1px dashed var(--line-2);font-size:13px;color:var(--fg-3);min-width:0}
+.sl .no{font-size:11px;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.sl .tm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sl .it{grid-column:2;font-size:12px;color:var(--fg-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sl.taken{border-style:solid;border-color:rgba(255,210,122,.4);background:rgba(255,210,122,.06)}
+.sl.taken .tm{color:var(--gold);font-weight:700}
+.sl em{font-style:normal;font-size:10px;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:4px;padding:0 4px;margin-left:6px;vertical-align:1px}
+.zn{margin:0;font-size:12px;color:var(--fg-3)}
 </style>
 </head>
 <body>
@@ -220,13 +242,13 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="index.html?v=11151458">홈<small>처음 화면</small></a><a href="about.html?v=11151458">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11151458">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11151458">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11151458">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11151458" aria-current="page">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11151458">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11151458" class="mn-sub">문의 · 수정 요청</a></nav>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=11151710">홈<small>처음 화면</small></a><a href="about.html?v=11151710">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11151710">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11151710">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11151710">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11151710" aria-current="page">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11151710">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11151710" class="mn-sub">문의 · 수정 요청</a></nav>
 </div>
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=11151458" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
-    <a href="join.html?v=11151458" data-join class="btn btn-l">함께하기</a>
+    <a href="index.html?v=11151710" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
+    <a href="join.html?v=11151710" data-join class="btn btn-l">함께하기</a>
     <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
 </header>
@@ -258,7 +280,13 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
         <div class="ow"><p class="k">SNACK · 4</p><h3>간식존</h3><p>핫초코·드립커피·더치커피·무알콜 뱅쇼, 아이싱 쿠키·컵케이크, 핫도그·호빵.</p></div>
         <div class="ow"><p class="k">MARKET</p><h3>판매존</h3><p>성물방과 지역 소상공인 입점, 크리스마스 리스 등 재능기부, 본당 단체 부스와 외부 신청 부스.</p></div>
       </div>
-      <div class="teams" id="teams"></div>
+    </section>
+
+    <section aria-labelledby="h-status">
+      <div class="sec-h"><h2 id="h-status">부스 선점 현황</h2><p id="st-upd"></p></div>
+      <div class="st-sum" id="st-sum"></div>
+      <div class="zones" id="zones"></div>
+      <p class="notice">구글 폼 신청을 담당자가 확인한 뒤 신청 순서대로 반영합니다. 같은 품목은 최대 2개 부스까지이니, 신청 전에 이미 선점된 품목을 확인해 주세요.</p>
     </section>
 
     <section aria-labelledby="h-rule">
@@ -277,7 +305,7 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
       <p class="notice">날짜와 운영 방식은 주임신부님 승인 후 확정되며, 바뀌면 이 페이지와 주보로 안내합니다. 문의는 본당 WYD 영성기획팀으로 해 주세요.</p>
     </section>
     <div class="apply-end"><a class="apply" href="https://forms.gle/YvUteFxcQYc35kxF8" target="_blank" rel="noopener">부스 신청하기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
-    <p class="back"><a href="join.html?v=11151458">참여하기로 돌아가기</a></p>
+    <p class="back"><a href="join.html?v=11151710">참여하기로 돌아가기</a></p>
   </div>
 </main>
 
@@ -290,8 +318,21 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 
 <script>
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-/* 신청한 본당 단체 — 신청 순서대로 단체명을 넣으세요 (예: "레지오") */
-const TEAMS = [];
+/* 부스 선점 현황 — 신청이 확인되면 해당 구역에 신청 순서대로 추가하세요
+   예: {team:"레지오", item:"수제 쿠키"}   외부 신청은 ext:true 를 붙이면 '외부' 표시 */
+const UPDATED = "2026-11-15";
+const ZONES = [
+  {id:"fixed",  name:"본부석 · WYD 홍보", k:"FIXED",      cap:2},
+  {id:"exp",    name:"체험존",            k:"EXPERIENCE", cap:4},
+  {id:"snack",  name:"간식존",            k:"SNACK",      cap:4},
+  {id:"market", name:"판매존",            k:"MARKET",     cap:10, note:"장소 사정에 따라 5~10부스"}
+];
+const BOOTHS = {
+  fixed:  [{team:"본당 WYD 위원회", item:"본부석"}, {team:"본당 WYD 위원회", item:"WYD 홍보부스"}],
+  exp:    [],
+  snack:  [],
+  market: []
+};
 /* 준비 일정 — 날짜가 지나면 자동으로 흐리게, 다음 단계는 금색으로 표시 */
 const STEPS = [
   {d:"2026-11-01", t:"기본 확정", p:"날짜·참여 방식·외부 판매 신청 기준 승인, 기부 원칙 확정"},
@@ -306,9 +347,31 @@ const STEPS = [
   {d:"2026-12-20", t:"홀리마켓", p:"대림 제4주일 12:00–16:00"},
   {d:"2026-12-27", t:"정산·나눔", p:"부스별 정산, 기부금 순위 발표(액수 비공개)"}
 ];
-document.getElementById("teams").innerHTML = TEAMS.length
-  ? `<b>신청한 본당 단체 ${TEAMS.length}곳</b><br>` + TEAMS.map(t => `<span>${esc(t)}</span>`).join("")
-  : `<b>본당 단체 부스</b> · 11월 8일부터 신청 순서대로 배정합니다.`;
+(function(){
+  const md0 = s => { const [y,m,d] = s.split("-"); return `${+m}.${+d}`; };
+  let used = 0, cap = 0;
+  document.getElementById("zones").innerHTML = ZONES.map(z => {
+    const list = BOOTHS[z.id] || [], n = Math.min(list.length, z.cap);
+    used += n; cap += z.cap;
+    const full = n >= z.cap;
+    const slots = Array.from({length:z.cap}, (_, i) => {
+      const b = list[i];
+      return b
+        ? `<li class="sl taken"><span class="no">${i+1}</span><span class="tm">${esc(b.team)}${b.ext ? '<em>외부</em>' : ""}</span>${b.item ? `<span class="it">${esc(b.item)}</span>` : ""}</li>`
+        : `<li class="sl"><span class="no">${i+1}</span><span class="tm">비어 있음</span></li>`;
+    }).join("");
+    return `<article class="zone${full ? " full" : ""}">
+      <div class="zh"><div><p class="k">${z.k}</p><h3>${esc(z.name)}</h3></div>
+        <p class="zc"><b>${n}</b> / ${z.cap}<span>${full ? "마감" : `남은 ${z.cap - n}`}</span></p></div>
+      <div class="bar"><i style="width:${Math.round(n / z.cap * 100)}%"></i></div>
+      <ol class="sls">${slots}</ol>
+      ${z.note ? `<p class="zn">${esc(z.note)}</p>` : ""}
+    </article>`;
+  }).join("");
+  document.getElementById("st-sum").innerHTML =
+    `<b>${used}</b> / ${cap} 부스 선점 · 남은 자리 <b class="g">${cap - used}</b>`;
+  document.getElementById("st-upd").textContent = `${md0(UPDATED)} 기준`;
+})();
 
 const today = new Date(); today.setHours(0,0,0,0);
 const md = s => { const [y,m,d] = s.split("-"); return `${+m}.${+d}`; };
