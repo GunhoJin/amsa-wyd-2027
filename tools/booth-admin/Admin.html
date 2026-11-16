@@ -122,13 +122,14 @@ function render(){
   $('#list').innerHTML = rows.map(x => {
     const full = s.used[x.zone] >= s.caps[x.zone] && x.status !== '승인';
     const cnt = it => { const n = s.items[norm(it)] || 0; const mine = x.status === '승인' && norm(x.assigned) === norm(it) ? 1 : 0; return n - mine; };
-    const dup = it => { if (!it) return ''; const n = cnt(it); return `<span class="dup${n >= s.maxSame ? ' warn' : ''}">승인 ${n}/${s.maxSame}</span>`; };
+    const maxOf = it => (s.snackMenus || []).map(norm).indexOf(norm(it)) >= 0 ? 1 : s.maxSame;
+    const dup = it => { if (!it) return ''; const n = cnt(it), m = maxOf(it); return `<span class="dup${n >= m ? ' warn' : ''}">승인 ${n}/${m}</span>`; };
     const pick = x.status === '승인' ? '' : `
       <div class="act">
         <div class="pick">
           <span class="meta">배정 아이템</span>
-          <label><input type="radio" name="p${x.row}" value="1" ${cnt(x.item1) < s.maxSame ? 'checked' : ''}> 1순위</label>
-          ${x.item2 ? `<label><input type="radio" name="p${x.row}" value="2" ${cnt(x.item1) >= s.maxSame ? 'checked' : ''}> 2순위</label>` : ''}
+          <label><input type="radio" name="p${x.row}" value="1" ${cnt(x.item1) < maxOf(x.item1) ? 'checked' : ''}> 1순위</label>
+          ${x.item2 ? `<label><input type="radio" name="p${x.row}" value="2" ${cnt(x.item1) >= maxOf(x.item1) ? 'checked' : ''}> 2순위</label>` : ''}
           <label><input type="radio" name="p${x.row}" value="c"> 직접 입력</label>
           <input type="text" id="c${x.row}" placeholder="아이템 직접 입력" style="flex:1 1 160px">
         </div>

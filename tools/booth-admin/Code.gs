@@ -12,6 +12,16 @@
 const CAPS = { exp: 4, snack: 6, market: 10 };
 // 같은 아이템 최대 부스 수
 const MAX_SAME_ITEM = 2;
+// 간식존 메뉴 6가지 — 메뉴마다 1부스 (폼 선택지·amsawyd.com/market 과 같은 문구)
+const SNACK_MENUS = [
+  '카페 (핫초코·커피·쌍화차 등)',
+  '뱅쇼',
+  '베이커리 (쿠키·컵케이크 등)',
+  '즉석간식 (핫도그·호빵 등)',
+  '즉석간식 (떡볶이·오뎅 등)',
+  '즉석간식 (팬케이크 등)',
+];
+const maxFor_ = item => SNACK_MENUS.map(norm_).indexOf(norm_(item)) >= 0 ? 1 : MAX_SAME_ITEM;
 // 폼 밖에서 이미 확정한 부스 (amsawyd.com/market 의 BOOTHS 와 같게) — 자리 수·같은 아이템 계산에 포함
 const RESERVED = { exp: [], snack: [], market: [] };
 // 처리할 수 있는 사람 (비우면 이 시트 편집자 누구나)
@@ -29,6 +39,8 @@ const FIELDS = [
   ['type',    '부스 유형'],
   ['item1',   '운영 아이템 (1순위'],
   ['item2',   '운영 아이템 (2순위'],
+  ['snack1',  '식음료 메뉴 (1순위'],
+  ['snack2',  '식음료 메뉴 (2순위'],
   ['staff',   '부스 운영 인원'],
   ['power',   '전기 사용 기기'],
   ['request', '요청 사항'],
@@ -102,7 +114,7 @@ function readAll_() {
       team: String(g('team')).trim(), partner: String(g('partner')).trim(),
       leader: String(g('leader')).trim(), phone: String(g('phone')).trim(),
       type: String(g('type')).trim(), zone: ZONE_OF(String(g('type'))),
-      item1: String(g('item1')).trim(), item2: String(g('item2')).trim(),
+      item1: String(g('snack1') || g('item1')).trim(), item2: String(g('snack2') || g('item2')).trim(),
       staff: String(g('staff')).trim(), power: String(g('power')).trim(), request: String(g('request')).trim(),
       status: String(g('처리상태') || '대기').trim() || '대기',
       assigned: String(g('배정아이템')).trim(), memo: String(g('처리메모')).trim(),
@@ -126,7 +138,7 @@ function summary_(rows) {
     const k = norm_(x.assigned);
     if (k) items[k] = (items[k] || 0) + 1;
   });
-  return { caps: CAPS, used, items, maxSame: MAX_SAME_ITEM, zoneName: ZONE_NAME, reserved: RESERVED };
+  return { caps: CAPS, used, items, maxSame: MAX_SAME_ITEM, snackMenus: SNACK_MENUS, zoneName: ZONE_NAME, reserved: RESERVED };
 }
 
 // ── 클라이언트에서 부르는 함수 ───────────────────────
@@ -160,7 +172,8 @@ function decide(row, action, item, memo) {
       if (zoneUsed >= CAPS[target.zone]) throw new Error(ZONE_NAME[target.zone] + ' 자리가 모두 찼습니다 (' + CAPS[target.zone] + '부스).');
       const allRes = [].concat(RESERVED.exp, RESERVED.snack, RESERVED.market);
       const same = others.filter(x => norm_(x.assigned) === norm_(item)).length + allRes.filter(b => norm_(b.item) === norm_(item)).length;
-      if (same >= MAX_SAME_ITEM) throw new Error('"' + item + '" 아이템은 이미 ' + MAX_SAME_ITEM + '개 부스가 승인되었습니다. 2순위나 다른 아이템으로 배정하세요.');
+      const max = maxFor_(item);
+      if (same >= max) throw new Error('"' + item + '" 아이템은 이미 ' + max + '개 부스가 승인되었습니다. 2순위나 다른 아이템으로 배정하세요.');
     }
     if (action === '반려' && !String(memo || '').trim()) throw new Error('반려 사유를 적어 주세요.');
 
@@ -197,4 +210,35 @@ function rebuildPublic_() {
 function setup() {
   columns_(responseSheet_());
   rebuildPublic_();
+}
+
+/**
+ * 한 번 실행: 구글 폼에 '식음료 메뉴' 선택 섹션을 추가합니다 (편집기에서 ▶ 실행)
+ * - 부스 유형이 식음료면 6가지 메뉴 중 1·2순위를 고르고, 체험·판매면 아이템을 직접 적습니다
+ */
+function updateFormSnackMenu() {
+  const form = FormApp.openByUrl(SpreadsheetApp.getActive().getFormUrl());
+  const items = form.getItems();
+  if (items.some(i => i.getTitle().indexOf('식음료 메뉴') === 0)) return '이미 반영됨';
+  const find = p => items.find(i => i.getTitle().indexOf(p) === 0);
+  const type = find('부스 유형'), it1 = find('운영 아이템 (1순위'), staff = find('부스 운영 인원');
+  if (!type || !it1 || !staff) throw new Error('폼 질문을 찾지 못했습니다.');
+
+  const pbA = form.addPageBreakItem().setTitle('체험·판매 부스 아이템')
+    .setHelpText('같은 아이템은 최대 2개 부스까지이며, 겹치면 2순위 아이템으로 조정합니다.');
+  form.moveItem(pbA.getIndex(), it1.getIndex());
+
+  const pbB = form.addPageBreakItem().setTitle('식음료 부스 메뉴')
+    .setHelpText('식음료 부스는 6개이며 메뉴마다 1개 부스입니다. 신청 순서대로 배정하고, 1순위가 이미 정해졌으면 2순위로 배정합니다.');
+  const s1 = form.addListItem().setTitle('식음료 메뉴 (1순위)').setRequired(true);
+  s1.setChoiceValues(SNACK_MENUS);
+  const s2 = form.addListItem().setTitle('식음료 메뉴 (2순위, 중복 시)');
+  s2.setChoiceValues(SNACK_MENUS);
+  const pbC = form.addPageBreakItem().setTitle('부스 운영 정보');
+  [pbB, s1, s2, pbC].forEach(it => form.moveItem(it.getIndex(), staff.getIndex()));
+  pbB.setGoToPage(pbC);   // 체험·판매 아이템을 적은 뒤에는 식음료 메뉴를 건너뜀
+
+  const t = type.getType() === FormApp.ItemType.LIST ? type.asListItem() : type.asMultipleChoiceItem();
+  t.setChoices(t.getChoices().map(c => t.createChoice(c.getValue(), /식음료|간식/.test(c.getValue()) ? pbB : pbA)));
+  return '반영 완료';
 }
