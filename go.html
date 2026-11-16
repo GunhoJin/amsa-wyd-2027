@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>이동 중… | 암사동성당 WYD 2027</title>
+<style>
+:root{color-scheme:dark}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#101216;color:#fff;font:15px/1.6 "Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR",sans-serif;text-align:center;padding:24px}
+a{color:#FFD27A;font-weight:700}
+p{margin:6px 0;color:rgba(255,255,255,.72)}
+</style>
+</head>
+<body>
+<main>
+  <p id="msg">이동 중입니다…</p>
+  <p><a id="go" href="index.html">여기를 눌러 이동</a></p>
+</main>
+<script>
+/* 카카오톡 → 기본 브라우저 중계 페이지
+   사용: https://amsawyd.com/go#<이동할 주소>   (구글 스크립트·폼·amsawyd.com 주소만 허용)
+   - 카카오톡 안에서 열리면 이 주소 그대로 기본 브라우저로 다시 열고
+   - 기본 브라우저에서는 # 뒤의 주소로 바로 이동합니다 */
+(function(){
+  var target = decodeURIComponent((location.hash || "").slice(1));
+  var ok = /^https:\/\/(script\.google\.com|docs\.google\.com|forms\.gle|amsawyd\.com)\//.test(target);
+  var a = document.getElementById("go"), msg = document.getElementById("msg");
+  if (!ok) { msg.textContent = "이동할 주소가 없습니다."; return; }
+  if (/KAKAOTALK/i.test(navigator.userAgent || "")) {
+    var ext = "kakaotalk://web/openExternal?url=" + encodeURIComponent(location.href);
+    msg.textContent = "휴대폰 기본 브라우저로 여는 중입니다.";
+    a.href = ext; a.textContent = "기본 브라우저로 열기";
+    location.replace(ext);
+  } else {
+    a.href = target;
+    location.replace(target);
+  }
+})();
+</script>
+</body>
+</html>

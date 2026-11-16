@@ -99,6 +99,7 @@
 ├── contact.html      # 문의 · 수정 요청 (메뉴 전용)
 ├── homestay.html     # 홈스테이 세부 (본당 매뉴얼 2026.4 기준)
 ├── market.html       # 성탄 홀리마켓 세부
+├── go.html           # 카카오톡 → 기본 브라우저 중계 (amsawyd.com/go#<주소>, 구글 스크립트·폼·amsawyd.com만 허용, 검색 제외)
 ├── prog-*.jpg        # 프로그램 포스터·현장 사진
 ├── fonts/            # 공식 앱 제목용 페이퍼로지 Bold (해당 글자만 서브셋, SIL OFL 1.1)
 ├── wyd-logo.svg      # WYD SEOUL 2027 공식 로고 (본당 매뉴얼 수록본에서 추출, 원본 색·비율 유지)
