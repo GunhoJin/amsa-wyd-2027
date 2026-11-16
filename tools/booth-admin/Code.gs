@@ -41,6 +41,7 @@ const ZONE_NAME = { exp: '체험존', snack: '간식존(식음료)', market: '�
 // ── 웹 앱 ───────────────────────────────────────────
 function doGet() {
   const t = HtmlService.createTemplateFromFile('Admin');
+  t.execUrl = ScriptApp.getService().getUrl();   // 카카오톡에서 열렸을 때 기본 브라우저로 넘길 주소
   return t.evaluate()
     .setTitle('홀리마켓 부스 승인')
     .addMetaTag('viewport', 'width=device-width, initial-scale=1')
