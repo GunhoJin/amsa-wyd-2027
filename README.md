@@ -29,7 +29,8 @@
 | **참여하기** | 본당위원회 봉사자 모집(구글 폼) · 순례길 참여 · 홈스테이 · 홀리마켓 부스 신청 | [`/join`](https://amsawyd.com/join) |
 | └ **묵주기도 10억 단** | 교구 봉헌운동 현황(기준일), 참여 방법(본당·하상앱·홈페이지·단체), 공식 기도문 링크 — 1년 일정·프로그램에서 연결 | [`/rosary`](https://amsawyd.com/rosary) |
 | **후원하기** | 본당 WYD 후원금 전용 계좌(복사 버튼), 입금 안내, 쓰임 | [`/donate`](https://amsawyd.com/donate) |
-| **문의 · 수정 요청** | 담당자·메일, 문의/수정 요청 메일 양식 버튼 (메뉴에서만 연결) | [`/contact`](https://amsawyd.com/contact) |
+| **문의 · 수정 요청** | 담당자·메일, 문의 메일 버튼, 수정요청 버튼 (메뉴에서만 연결) | [`/contact`](https://amsawyd.com/contact) |
+| └ **수정요청** | 요청서 → 구글 시트 저장 → 정기 작업이 확인·반영 → 담당자 메일 보고 | [`/request`](https://amsawyd.com/request) |
 | └ **홈스테이** | 호스트 가정 자격 조건, 본대회 기간 일정(8.1–8.9), 배정 원칙, 사전 안내, 신청서 항목 | [`/homestay`](https://amsawyd.com/homestay) |
 | └ **성탄 홀리마켓** | 12.20 대림 제4주일 — 부스 구성(본부석·WYD 홍보·체험·간식·판매존), 부스 선점 현황, 참여 원칙, 준비 일정, 신청 버튼(구글 폼) | [`/market`](https://amsawyd.com/market) |
 
@@ -94,9 +95,12 @@
 ├── rosary.html       # 묵주기도 10억 단 봉헌운동 (실시간 현황 + 실패 시 const STAT)
 ├── functions/api/rosary.js  # 교구 봉헌통계를 읽어 JSON으로 주는 Cloudflare Pages Function (/api/rosary)
 ├── functions/api/booths.js  # 홀리마켓 승인 부스(공개현황 CSV)를 JSON으로 주는 Function (/api/booths)
+├── functions/api/request.js # 수정요청 접수를 구글 Apps Script(시트 저장·접수 메일)로 넘기는 Function (/api/request)
+├── tools/edit-requests/  # 수정요청 접수 스크립트·처리 기록 — 흐름은 안의 README
 ├── tools/booth-admin/  # 홀리마켓 부스 승인 관리자 페이지 (구글 Apps Script, 비공개) — 설치 방법은 안의 README
 ├── donate.html       # 후원금 모금 안내
 ├── contact.html      # 문의 · 수정 요청 (메뉴 전용)
+├── request.html      # 수정요청서 (이름·세례명·연락처·단체명·내용 → /api/request → 구글 시트, 검색 제외)
 ├── homestay.html     # 홈스테이 세부 (본당 매뉴얼 2026.4 기준)
 ├── market.html       # 성탄 홀리마켓 세부
 ├── go.html           # 카카오톡 → 기본 브라우저 중계 (amsawyd.com/go#<주소>, 구글 스크립트·폼·amsawyd.com만 허용, 검색 제외)
