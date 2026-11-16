@@ -2,6 +2,10 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<script>
+/* 카카오톡 안에서 열리면 휴대폰 기본 브라우저로 다시 열기 (?inapp=1 을 붙이면 카카오톡 안에서 그대로 봄) */
+(function(){try{var u=navigator.userAgent||"";if(/KAKAOTALK/i.test(u)&&!/[?&]inapp=1/.test(location.search)){location.replace("kakaotalk://web/openExternal?url="+encodeURIComponent(location.href));}}catch(e){}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2027 서울 세계청년대회 소개 | 암사동성당 WYD 2027</title>
 <meta name="description" content="2027 서울 세계청년대회(WYD) 소개 — 교황의 초대, 주제 성구 요한 16,33, 로고와 공식 색, 수호성인, 대회 발자취.">

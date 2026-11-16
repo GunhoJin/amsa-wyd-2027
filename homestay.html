@@ -2,6 +2,10 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<script>
+/* 카카오톡 안에서 열리면 휴대폰 기본 브라우저로 다시 열기 (?inapp=1 을 붙이면 카카오톡 안에서 그대로 봄) */
+(function(){try{var u=navigator.userAgent||"";if(/KAKAOTALK/i.test(u)&&!/[?&]inapp=1/.test(location.search)){location.replace("kakaotalk://web/openExternal?url="+encodeURIComponent(location.href));}}catch(e){}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>홈스테이 안내 | 암사동성당 WYD 2027</title>
 <meta name="description" content="2027 서울 세계청년대회 본대회 기간(8.1–8.9) 홈스테이 호스트 가정 안내 — 자격 조건, 숙박 환경, 일정, 배정 원칙, 사전 교육, 신청서 항목.">

@@ -2,6 +2,10 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<script>
+/* 카카오톡 안에서 열리면 휴대폰 기본 브라우저로 다시 열기 (?inapp=1 을 붙이면 카카오톡 안에서 그대로 봄) */
+(function(){try{var u=navigator.userAgent||"";if(/KAKAOTALK/i.test(u)&&!/[?&]inapp=1/.test(location.search)){location.replace("kakaotalk://web/openExternal?url="+encodeURIComponent(location.href));}}catch(e){}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>영적 순례 여정 프로그램 | 암사동성당 WYD 2027</title>
 <meta name="description" content="WYD를 향한 영적 순례 여정 — 암사동성당 영성기획팀의 지난·진행 중·예정 프로그램(마음을 담은 편지, 묵주기도 장미꽃 등).">
