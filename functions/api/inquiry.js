@@ -30,7 +30,8 @@ export async function onRequestPost({ request }) {
     const r = await fetch(INTAKE_URL, {
       method: "POST",
       headers: { "content-type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({ ...v, kind: "inquiry" }).toString(),
+      // page="문의": 접수 스크립트가 아직 이전 버전이면 '요청' 탭에 저장되므로, 정기 작업이 이 값으로 문의를 구분함
+      body: new URLSearchParams({ ...v, kind: "inquiry", page: "문의" }).toString(),
       redirect: "follow",
     });
     const t = await r.text();
