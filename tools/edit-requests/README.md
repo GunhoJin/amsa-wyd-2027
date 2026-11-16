@@ -17,3 +17,14 @@ amsawyd.com/request (요청서)
 ## 접수 스크립트 다시 배포할 때
 시트 › 확장 프로그램 › Apps Script (프로젝트 "WYD 사이트 수정 요청 접수") › `Intake.gs` 내용 붙여넣기 › 배포 관리 › 수정 › 새 버전.
 배포 주소가 바뀌면 `functions/api/request.js`의 `INTAKE_URL`도 바꿉니다.
+
+## 문의 (접수 → 저장 → 요약 메일)
+```
+amsawyd.com/inquiry (문의서)
+   └─▶ /api/inquiry (functions/api/inquiry.js, kind=inquiry)
+         └─▶ 같은 Apps Script 웹 앱 (Intake.gs) ─▶ 같은 시트 › 문의 탭 (접수 메일 없음)
+정기 작업 (Claude, 1시간마다)
+   └─ 문의 탭의 새 문의 확인 → inquiries.json 기록 → 담당자 메일: 새 문의 요약 (답변은 담당자가 직접)
+```
+- `inquiries.json`에는 문의 ID와 처리일시만 기록 (개인 정보·문의 내용 없음)
+- 문의는 사이트를 고치지 않음. 문의 안에 사이트 수정 요청이 있으면 요약 메일에 표시만 함
