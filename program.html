@@ -108,6 +108,17 @@ main .wrap > section{min-width:0}
 .pg-verse blockquote{margin:0;font-size:clamp(19px,2.4vw,23px);line-height:1.55;letter-spacing:-.3px}
 .pg-verse cite{font-style:normal;font-size:13px;color:var(--fg-3)}
 .pg-verse .vs{font-size:14px;color:var(--fg-2);border-top:1px solid var(--line);padding-top:12px;margin:0}
+/* 성탄 테마 (tone:"xmas") — 성탄 빨강 · 상록 초록 · 금색 */
+.pg-card.xmas{border-color:rgba(200,50,58,.45);background:linear-gradient(180deg,rgba(120,18,28,.16),var(--panel) 45%)}
+.pg-card.xmas .pg-verse{position:relative;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,rgba(255,210,122,.16),transparent 55%),linear-gradient(165deg,#5a0f18 0%,#2a0a10 48%,#0d2a1c 100%)}
+.pg-card.xmas .pg-verse::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;background-image:radial-gradient(1.4px 1.4px at 18% 22%,#FFE7B0,transparent),radial-gradient(1px 1px at 72% 14%,#fff,transparent),radial-gradient(1.6px 1.6px at 86% 40%,#FFE7B0,transparent),radial-gradient(1px 1px at 34% 66%,#fff,transparent),radial-gradient(1.2px 1.2px at 60% 82%,#FFE7B0,transparent),radial-gradient(1px 1px at 10% 88%,#fff,transparent)}
+.pg-card.xmas .pg-verse > *{position:relative}
+.pg-card.xmas .pg-verse .star{width:30px;height:30px;color:#FFD27A;filter:drop-shadow(0 0 10px rgba(255,210,122,.55))}
+.pg-card.xmas .pg-verse .vs{border-top-color:rgba(255,210,122,.25)}
+.pg-card.xmas .pg-no{color:#F0727A}
+.pg-card.xmas .steps .n{color:#F0727A}
+.pg-card.xmas .goal b{color:#FFD27A}
+.pg-card.xmas .plink a{color:#FFD27A}
 .pg-img img{display:block;width:100%;height:100%;max-height:520px;object-fit:contain}
 .pg-body{padding:24px;display:grid;gap:16px;align-content:start}
 .pg-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -185,13 +196,13 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="index.html?v=11161547">홈<small>처음 화면</small></a><a href="about.html?v=11161547">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11161547">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11161547">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11161547" aria-current="page">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11161547">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11161547">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11161547" class="mn-sub">문의 · 수정 요청</a></nav>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=11161550">홈<small>처음 화면</small></a><a href="about.html?v=11161550">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11161550">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11161550">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11161550" aria-current="page">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11161550">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11161550">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11161550" class="mn-sub">문의 · 수정 요청</a></nav>
 </div>
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=11161547" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
-    <a href="join.html?v=11161547" data-join class="btn btn-l">함께하기</a>
+    <a href="index.html?v=11161550" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
+    <a href="join.html?v=11161550" data-join class="btn btn-l">함께하기</a>
     <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
 </header>
@@ -216,7 +227,7 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
     <section id="next" aria-labelledby="h-next">
       <div class="sec-h"><h2 id="h-next">예정 프로그램</h2><p>세부 내용은 확정되는 대로 안내합니다</p></div>
       <div class="list" id="l-next"></div>
-      <p class="more">월별 준비 일정 전체는 <a href="plan.html?v=11161547">1년 일정</a>에서 볼 수 있습니다.</p>
+      <p class="more">월별 준비 일정 전체는 <a href="plan.html?v=11161550">1년 일정</a>에서 볼 수 있습니다.</p>
     </section>
     <section id="past" aria-labelledby="h-past">
       <div class="sec-h"><h2 id="h-past">지난 프로그램</h2><p>함께 걸어온 여정</p></div>
@@ -251,7 +262,7 @@ const PROGRAMS = [
    steps:["미사 후 지정 자리에서 기도하는 모습을 찍습니다","12월 13일 만남의 방에 사진을 전시합니다","12월 20일 성탄 홀리마켓에서 액자로 받아 갑니다"],
    meta:[["촬영","11월 28일(토) 특전미사 · 11월 29일(주일) 09:00 · 11:00 · 18:00 WYD 연합미사 — 각 미사 후"],["장소","제대 앞 · 성모상 · 정문 · 성전 계단 · 성가대석 등"],["전시","12월 13일(주일) 만남의 방 — 액자 신청 접수, 기도 카드 쓰기"],["액자","12월 20일(주일) 성탄 홀리마켓 WYD 홍보부스 · 수익 전액 WYD 기금"],["안내","미사 중에는 찍지 않습니다. 찍기 전 꼭 여쭙고, 원하시면 뒷모습·손만 담습니다. 사진은 성당 내 전시와 WYD 홍보에 쓰일 수 있으며, 요청하시면 바로 내립니다."]],
    link:{href:"market.html",text:"성탄 홀리마켓 보기"}},
-  {no:"대림 제4주일 · 성탄 나눔", title:"성탄 홀리마켓", from:"2026-12-20", to:"2026-12-20",
+  {no:"대림 제4주일 · 성탄 나눔", title:"성탄 홀리마켓", tone:"xmas", from:"2026-12-20", to:"2026-12-20",
    verse:{k:"12월 20일 · 만남의 방 · 소성전 앞", q:"“보십시오, 저는 주님의 종입니다. 말씀하신 대로 저에게 이루어지기를 바랍니다.”", c:"루카 1,38 · 대림 제4주일 복음", s:"나눔으로 마련한 기금은 WYD 2027 준비에 보탭니다"},
    desc:"본당 단체와 지역 이웃이 함께 부스를 열고 동네를 초대하는 성탄 장터입니다. 체험하고, 나눠 먹고, 선물을 고르며 모인 수익금은 모두 WYD 2027 기금으로 씁니다. 세 번째 여정의 기도사진 액자도 이날 WYD 홍보부스에서 받아 가실 수 있습니다.",
    goal:[["4","체험존"],["6","간식존"],["5~10","판매존"],["2","본부석 · 홍보"]],
@@ -271,9 +282,9 @@ const dl = m => m ? `<dl class="pg-meta">${m.map(([k,v]) => `<dt>${esc(k)}</dt><
 
 function card(p, st){
   if(!p.img && !p.verse) return `<article class="up"><p class="when">${ym(p.from)}</p><div><h3>${p.link ? `<a href="${p.link}">${esc(p.title)}</a>` : esc(p.title)}</h3><p>${esc(p.desc)}</p></div></article>`;
-  return `<article class="pg-card${st === "now" ? " now" : ""}">
+  return `<article class="pg-card${st === "now" ? " now" : ""}${p.tone ? " " + p.tone : ""}">
     ${p.img ? `<a class="pg-img" href="${p.img}" target="_blank" rel="noopener" aria-label="${esc(p.alt)} 크게 보기"><img src="${p.img}" alt="${esc(p.alt)}" loading="lazy"></a>`
-      : `<div class="pg-verse"><p class="vk">${esc(p.verse.k)}</p><blockquote>${esc(p.verse.q)}</blockquote><cite>${esc(p.verse.c)}</cite><p class="vs">${esc(p.verse.s)}</p></div>`}
+      : `<div class="pg-verse">${p.tone === "xmas" ? '<svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5l1.9 7.1 7.1 1.9-7.1 1.9L12 19.5l-1.9-7.1L3 10.5l7.1-1.9z"/><path d="M12 19.5l.6 3h-1.2z" opacity=".6"/></svg>' : ""}<p class="vk">${esc(p.verse.k)}</p><blockquote>${esc(p.verse.q)}</blockquote><cite>${esc(p.verse.c)}</cite><p class="vs">${esc(p.verse.s)}</p></div>`}
     <div class="pg-body">
       <div class="pg-top">${st === "now" ? '<span class="badge now">진행 중</span>' : st === "past" ? '<span class="badge">마침</span>' : '<span class="badge">예정</span>'}${p.no ? `<span class="pg-no">${esc(p.no)}</span>` : ""}</div>
       <h3>${esc(p.title)}</h3>
