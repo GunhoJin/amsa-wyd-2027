@@ -20,7 +20,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#101216">
+<meta name="theme-color" content="#5a0f18">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
@@ -238,6 +238,38 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 .zn{margin:0;font-size:12px;color:var(--fg-3)}
 .sl.lab .tm{color:var(--fg-2);white-space:normal}
 .sl.taken .it{white-space:normal}
+/* ── 성탄 색상 배합 (빨강 · 상록 초록 · 금색) ── 이 블록만 지우면 기본 색으로 돌아갑니다 */
+:root{--ink:#120f11;--panel:#1b1517;--accent:#E8545C;--xr:#C8323A;--xg:#2E8B57;--xg2:#5CC48A;--gold:#FFD27A;
+  --line:rgba(255,230,210,.1);--line-2:rgba(255,230,210,.18)}
+.nav{border-bottom-color:rgba(200,50,58,.35)}
+.head{border-bottom:1px solid rgba(255,210,122,.25)}
+.head::before{opacity:.18;filter:saturate(.4)}
+.head::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(70% 90% at 85% 0%,rgba(255,210,122,.18),transparent 60%),
+    radial-gradient(1.5px 1.5px at 12% 20%,#FFE7B0,transparent),radial-gradient(1px 1px at 30% 70%,#fff,transparent),
+    radial-gradient(1.6px 1.6px at 62% 18%,#FFE7B0,transparent),radial-gradient(1px 1px at 78% 62%,#fff,transparent),
+    radial-gradient(1.3px 1.3px at 92% 30%,#FFE7B0,transparent),radial-gradient(1px 1px at 48% 40%,#fff,transparent),
+    linear-gradient(160deg,rgba(122,18,30,.85) 0%,rgba(52,10,18,.75) 45%,rgba(12,48,30,.8) 100%)}
+.head .wrap{z-index:1}
+.eyebrow{color:var(--gold)}
+.facts{background:rgba(18,10,12,.55);border-color:rgba(255,210,122,.22)}
+.fact{border-color:rgba(255,210,122,.16)!important}
+.ow{border-top:3px solid var(--xr)}
+.ow:nth-child(1){border-top-color:var(--gold)}
+.ow:nth-child(3){border-top-color:#FFB547}
+.ow:nth-child(4){border-top-color:var(--xg)}
+.ow:nth-child(2) .k{color:var(--accent)}.ow:nth-child(4) .k{color:var(--xg2)}
+.zone{border-top:3px solid var(--xr)}
+.zone:nth-child(4n+1){border-top-color:var(--gold)}
+.zone:nth-child(4n+4){border-top-color:var(--xg)}
+.ru .k{color:var(--xg2)}
+.ru:nth-child(even) .k{color:var(--accent)}
+.tl .d{color:var(--xg2)}
+.bo.fixed{border-color:rgba(255,210,122,.5)}.bo.fixed::before{color:var(--gold)}
+.sl em{color:var(--xg2);border-color:var(--xg2)}
+.mn nav a[aria-current]{color:var(--gold)}
+.apply:focus-visible,a:focus-visible{outline-color:var(--gold)}
+.back a{color:var(--gold)}
 </style>
 </head>
 <body>
@@ -248,13 +280,13 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="index.html?v=11161603">홈<small>처음 화면</small></a><a href="about.html?v=11161603">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11161603">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11161603">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11161603">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11161603" aria-current="page">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11161603">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11161603" class="mn-sub">문의 · 수정 요청</a></nav>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=11161608">홈<small>처음 화면</small></a><a href="about.html?v=11161608">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11161608">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11161608">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11161608">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11161608" aria-current="page">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11161608">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11161608" class="mn-sub">문의 · 수정 요청</a></nav>
 </div>
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=11161603" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
-    <a href="join.html?v=11161603" data-join class="btn btn-l">함께하기</a>
+    <a href="index.html?v=11161608" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
+    <a href="join.html?v=11161608" data-join class="btn btn-l">함께하기</a>
     <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
 </header>
@@ -311,7 +343,7 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
       <p class="notice">날짜와 운영 방식은 주임신부님 승인 후 확정되며, 바뀌면 이 페이지와 주보로 안내합니다. 문의는 본당 WYD 영성기획팀으로 해 주세요.</p>
     </section>
     <div class="apply-end"><a class="apply" href="https://forms.gle/YvUteFxcQYc35kxF8" target="_blank" rel="noopener">부스 신청하기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
-    <p class="back"><a href="join.html?v=11161603">참여하기로 돌아가기</a></p>
+    <p class="back"><a href="join.html?v=11161608">참여하기로 돌아가기</a></p>
   </div>
 </main>
 
