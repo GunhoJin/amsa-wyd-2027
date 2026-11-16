@@ -108,6 +108,14 @@ main .wrap > section{min-width:0}
 .pg-verse blockquote{margin:0;font-size:clamp(19px,2.4vw,23px);line-height:1.55;letter-spacing:-.3px}
 .pg-verse cite{font-style:normal;font-size:13px;color:var(--fg-3)}
 .pg-verse .vs{font-size:14px;color:var(--fg-2);border-top:1px solid var(--line);padding-top:12px;margin:0}
+/* 대림 테마 (tone:"advent") — 밝은 보라 */
+.pg-card.advent{border-color:rgba(170,130,240,.5);background:linear-gradient(180deg,rgba(124,82,214,.16),var(--panel) 45%)}
+.pg-card.advent .pg-verse{background:radial-gradient(120% 80% at 30% 0%,rgba(214,190,255,.28),transparent 60%),linear-gradient(160deg,#7b52d6 0%,#5a37a8 45%,#2c1a5c 100%)}
+.pg-card.advent .pg-verse .vk{color:#FFE3A3}
+.pg-card.advent .pg-verse cite{color:rgba(255,255,255,.72)}
+.pg-card.advent .pg-verse .vs{color:rgba(255,255,255,.88);border-top-color:rgba(255,255,255,.25)}
+.pg-card.advent .pg-no,.pg-card.advent .steps .n{color:#C6A8FF}
+.pg-card.advent .plink a{color:#C6A8FF}
 /* 성탄 테마 (tone:"xmas") — 성탄 빨강 · 상록 초록 · 금색 */
 .pg-card.xmas{border-color:rgba(200,50,58,.45);background:linear-gradient(180deg,rgba(120,18,28,.16),var(--panel) 45%)}
 .pg-card.xmas .pg-verse{position:relative;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,rgba(255,210,122,.16),transparent 55%),linear-gradient(165deg,#5a0f18 0%,#2a0a10 48%,#0d2a1c 100%)}
@@ -196,13 +204,13 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="index.html?v=11161550">홈<small>처음 화면</small></a><a href="about.html?v=11161550">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11161550">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11161550">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11161550" aria-current="page">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11161550">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11161550">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11161550" class="mn-sub">문의 · 수정 요청</a></nav>
+  <nav aria-label="전체 메뉴"><a href="index.html?v=11161552">홈<small>처음 화면</small></a><a href="about.html?v=11161552">소개<small>2027 서울 세계청년대회</small></a><a href="plan.html?v=11161552">1년 일정<small>월별 준비 일정</small></a><a href="pilgrim.html?v=11161552">순례길<small>천주교 서울 순례길</small></a><a href="program.html?v=11161552" aria-current="page">프로그램<small>영적 순례 여정</small></a><a href="join.html?v=11161552">참여하기<small>봉사자 · 순례길 · 홈스테이 · 홀리마켓</small></a><a href="donate.html?v=11161552">후원하기<small>본당 WYD 후원금</small></a><a href="contact.html?v=11161552" class="mn-sub">문의 · 수정 요청</a></nav>
 </div>
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html?v=11161550" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
-    <a href="join.html?v=11161550" data-join class="btn btn-l">함께하기</a>
+    <a href="index.html?v=11161552" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
+    <a href="join.html?v=11161552" data-join class="btn btn-l">함께하기</a>
     <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
 </header>
@@ -227,7 +235,7 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
     <section id="next" aria-labelledby="h-next">
       <div class="sec-h"><h2 id="h-next">예정 프로그램</h2><p>세부 내용은 확정되는 대로 안내합니다</p></div>
       <div class="list" id="l-next"></div>
-      <p class="more">월별 준비 일정 전체는 <a href="plan.html?v=11161550">1년 일정</a>에서 볼 수 있습니다.</p>
+      <p class="more">월별 준비 일정 전체는 <a href="plan.html?v=11161552">1년 일정</a>에서 볼 수 있습니다.</p>
     </section>
     <section id="past" aria-labelledby="h-past">
       <div class="sec-h"><h2 id="h-past">지난 프로그램</h2><p>함께 걸어온 여정</p></div>
@@ -256,7 +264,7 @@ const PROGRAMS = [
    steps:["묵주기도 한 단을 바칩니다","스티커를 한 장 붙입니다","열 장이 차면 장미 한 송이가 핍니다"],
    goal:[["100송이","장미 목표"],["1,000장","스티커 목표"]],
    meta:[["기간","2026년 10월 1일 ~ 10월 31일"],["장소","성당 마당 · 꽃다발 판"],["연계","교구 묵주기도 10억 단 봉헌운동"]], link:{href:"rosary.html",text:"10억 단 봉헌운동 보기"}},
-  {no:"세 번째 여정", title:"깨어 있어라 — 기다림의 첫 주일", from:"2026-11-28", to:"2026-12-20",
+  {no:"세 번째 여정", title:"깨어 있어라 — 기다림의 첫 주일", tone:"advent", from:"2026-11-28", to:"2026-12-20",
    verse:{k:"대림 제1주일 · 성당 기도사진 찍기", q:"“내가 너희에게 하는 이 말은 모든 사람에게 하는 말이다. 깨어 있어라.”", c:"마르코 13,37", s:"기억은 기도가 되고, 기다림은 희망이 됩니다"},
    desc:"대림 제1주일, 미사를 마친 뒤 성당 곳곳에서 영성기획팀이 여러분의 ‘기도하는 모습’을 일회용 필름 카메라로 찍어 드립니다. 인화를 기다리는 시간도 대림의 기다림이 됩니다. 사진은 만남의 방에 전시하고, 원하시는 분은 성탄 홀리마켓에서 액자로 받아 가실 수 있습니다.",
    steps:["미사 후 지정 자리에서 기도하는 모습을 찍습니다","12월 13일 만남의 방에 사진을 전시합니다","12월 20일 성탄 홀리마켓에서 액자로 받아 갑니다"],
