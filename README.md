@@ -61,6 +61,7 @@
 | 프로그램 추가·수정 | `program.html` | `const PROGRAMS` — `from`/`to` 날짜로 지난·진행 중·예정 자동 분류, `img`가 있으면 포스터 카드 |
 | 신청 열기·마감 | `join.html` | `const JOINS` — `status`를 `soon`/`open`/`closed`로, `url`에 신청서 주소 |
 | 홀리마켓 부스 선점 현황 | `market.html` | `const BOOTHS` — 구역(`exp`·`snack`·`market`)에 신청 순서대로 `{team:"레지오", item:"수제 쿠키"}` 추가, 외부 신청은 `ext:true`, 기준일은 `UPDATED` |
+| 홀리마켓 부스 승인 | 관리자 페이지 | 구글 폼 신청을 승인·반려하면 `/market` 선점 현황에 자동 반영 ([설치](tools/booth-admin/README.md)) |
 | 홀리마켓 준비 일정 | `market.html` | `const STEPS` — 지난 단계는 흐리게, 다음 단계는 금색으로 자동 표시 |
 | 숨겨 둔 참여 버튼 | 모든 페이지 | `[data-join]{display:none!important}` 한 줄 삭제 시 표시 |
 
@@ -92,6 +93,8 @@
 ├── join.html         # 참여하기 (봉사자·순례길·홈스테이·홀리마켓 신청 카드)
 ├── rosary.html       # 묵주기도 10억 단 봉헌운동 (실시간 현황 + 실패 시 const STAT)
 ├── functions/api/rosary.js  # 교구 봉헌통계를 읽어 JSON으로 주는 Cloudflare Pages Function (/api/rosary)
+├── functions/api/booths.js  # 홀리마켓 승인 부스(공개현황 CSV)를 JSON으로 주는 Function (/api/booths)
+├── tools/booth-admin/  # 홀리마켓 부스 승인 관리자 페이지 (구글 Apps Script, 비공개) — 설치 방법은 안의 README
 ├── donate.html       # 후원금 모금 안내
 ├── contact.html      # 문의 · 수정 요청 (메뉴 전용)
 ├── homestay.html     # 홈스테이 세부 (본당 매뉴얼 2026.4 기준)

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<style>
+:root{--ink:#101216;--panel:#181b21;--line:rgba(255,255,255,.1);--line2:rgba(255,255,255,.18);--fg:#fff;--fg2:rgba(255,255,255,.72);--fg3:rgba(255,255,255,.5);
+  --accent:#00A1DB;--gold:#FFD27A;--ok:#5fd38d;--no:#ff7b7b;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--fg);font:15px/1.5 "Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:20px 16px 60px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px}
+h1{font-size:22px;margin:0;letter-spacing:-.4px}
+.k{font-size:12px;letter-spacing:.12em;color:var(--accent);font-weight:700;margin:0 0 4px}
+.me{font-size:13px;color:var(--fg3)}
+button{font:inherit;cursor:pointer}
+.btn{border-radius:999px;padding:8px 16px;border:1px solid var(--line2);background:transparent;color:var(--fg);font-size:14px}
+.btn:hover{border-color:rgba(255,255,255,.4)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.btn.ok{background:var(--gold);color:#060e08;border-color:var(--gold);font-weight:700}
+.btn.no{color:var(--no);border-color:rgba(255,123,123,.5)}
+.zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}
+@media (max-width:640px){.zones{grid-template-columns:1fr}}
+.z{border:1px solid var(--line);background:var(--panel);padding:14px}
+.z b{font-size:20px}.z small{color:var(--fg3)}
+.bar{height:4px;background:rgba(255,255,255,.08);margin-top:8px}.bar i{display:block;height:100%;background:var(--gold)}
+.z.full .bar i{background:var(--fg3)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 14px}
+.chip{border-radius:999px;padding:5px 12px;border:1px solid var(--line2);background:transparent;color:var(--fg2);font-size:13px}
+.chip[aria-pressed="true"]{background:#fff;color:#060e08;border-color:#fff}
+.list{display:grid;gap:10px}
+.card{border:1px solid var(--line);background:var(--panel);padding:16px;display:grid;gap:10px}
+.card.st-승인{border-color:rgba(255,210,122,.5)}.card.st-반려{opacity:.7}
+.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.top h3{margin:0;font-size:18px}.top h3 small{font-size:13px;color:var(--fg3);font-weight:400;margin-left:6px}
+.tag{font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;border:1px solid var(--line2);color:var(--fg2);white-space:nowrap}
+.tag.승인{background:var(--gold);color:#060e08;border-color:var(--gold)}.tag.반려{color:var(--no);border-color:var(--no)}
+.meta{font-size:13px;color:var(--fg3)}
+dl{display:grid;grid-template-columns:110px 1fr;gap:4px 12px;margin:0;font-size:14px}
+dt{color:var(--fg3)}dd{margin:0;word-break:keep-all}
+.dup{font-size:12px;margin-left:6px;color:var(--fg3)}.dup.warn{color:var(--no);font-weight:700}
+.act{display:grid;gap:8px;border-top:1px dashed var(--line2);padding-top:10px}
+.pick{display:flex;gap:12px;flex-wrap:wrap;font-size:14px;align-items:center}
+.pick label{display:inline-flex;gap:6px;align-items:center}
+input[type=text]{font:inherit;background:#0c0e12;border:1px solid var(--line2);color:var(--fg);padding:7px 10px;border-radius:6px;min-width:0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row input[type=text]{flex:1 1 220px}
+.done{font-size:13px;color:var(--fg2)}
+.empty{color:var(--fg3);padding:30px 0;text-align:center}
+#msg{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#fff;color:#060e08;padding:10px 18px;border-radius:999px;font-size:14px;box-shadow:0 8px 30px rgba(0,0,0,.4);display:none;max-width:90vw}
+#msg.err{background:var(--no)}
+.busy{opacity:.5;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div><p class="k">HOLY MARKET · ADMIN</p><h1>성탄 홀리마켓 부스 승인</h1><p class="me" id="me">불러오는 중…</p></div>
+    <button class="btn" id="reload" type="button">새로고침</button>
+  </header>
+
+  <div class="zones" id="zones"></div>
+
+  <div class="chips" role="group" aria-label="상태">
+    <button class="chip" data-s="대기" aria-pressed="true">대기</button>
+    <button class="chip" data-s="승인" aria-pressed="false">승인</button>
+    <button class="chip" data-s="반려" aria-pressed="false">반려</button>
+    <button class="chip" data-s="" aria-pressed="false">전체</button>
+  </div>
+  <div class="chips" role="group" aria-label="구역">
+    <button class="chip" data-z="" aria-pressed="true">모든 구역</button>
+    <button class="chip" data-z="exp" aria-pressed="false">체험</button>
+    <button class="chip" data-z="snack" aria-pressed="false">식음료</button>
+    <button class="chip" data-z="market" aria-pressed="false">판매</button>
+  </div>
+
+  <div class="list" id="list"></div>
+</div>
+<div id="msg" role="status"></div>
+
+<script>
+let D = null, fS = '대기', fZ = '';
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => String(s || '').replace(/\s+/g, '').toLowerCase();
+
+function toast(t, err){ const m = $('#msg'); m.textContent = t; m.className = err ? 'err' : ''; m.style.display = 'block'; clearTimeout(toast.t); toast.t = setTimeout(() => m.style.display = 'none', err ? 6000 : 2500); }
+function call(fn, ...args){
+  document.body.classList.add('busy');
+  return new Promise((ok, no) => google.script.run
+    .withSuccessHandler(r => { document.body.classList.remove('busy'); ok(r); })
+    .withFailureHandler(e => { document.body.classList.remove('busy'); toast(e.message || String(e), true); no(e); })
+    [fn](...args));
+}
+function load(){ return call('getData').then(r => { D = r; render(); }); }
+
+function render(){
+  const s = D.sum;
+  $('#me').textContent = (D.me || '로그인 계정') + ' · 신청 ' + D.rows.length + '건 · 대기 ' + D.rows.filter(x => x.status === '대기').length + '건';
+  $('#zones').innerHTML = ['exp','snack','market'].map(z => {
+    const u = s.used[z], c = s.caps[z];
+    return `<div class="z${u >= c ? ' full' : ''}"><small>${esc(s.zoneName[z])}</small><div><b>${u}</b> / ${c} <small>${u >= c ? '마감' : '남은 ' + (c - u)}</small></div><div class="bar"><i style="width:${Math.min(100, Math.round(u / c * 100))}%"></i></div></div>`;
+  }).join('');
+
+  const res = [].concat(...['exp','snack','market'].map(z => (s.reserved[z] || []).map(b => s.zoneName[z] + ' · ' + b.team + (b.item ? ' (' + b.item + ')' : ''))));
+  $('#zones').insertAdjacentHTML('beforeend', res.length ? `<p class="meta" style="grid-column:1/-1;margin:0">폼 밖 확정 부스: ${res.map(esc).join(', ')}</p>` : '');
+  const rows = D.rows.filter(x => (!fS || x.status === fS) && (!fZ || x.zone === fZ));
+  if (!rows.length){ $('#list').innerHTML = `<p class="empty">해당하는 신청이 없습니다.</p>`; return; }
+
+  $('#list').innerHTML = rows.map(x => {
+    const full = s.used[x.zone] >= s.caps[x.zone] && x.status !== '승인';
+    const cnt = it => { const n = s.items[norm(it)] || 0; const mine = x.status === '승인' && norm(x.assigned) === norm(it) ? 1 : 0; return n - mine; };
+    const dup = it => { if (!it) return ''; const n = cnt(it); return `<span class="dup${n >= s.maxSame ? ' warn' : ''}">승인 ${n}/${s.maxSame}</span>`; };
+    const pick = x.status === '승인' ? '' : `
+      <div class="act">
+        <div class="pick">
+          <span class="meta">배정 아이템</span>
+          <label><input type="radio" name="p${x.row}" value="1" ${cnt(x.item1) < s.maxSame ? 'checked' : ''}> 1순위</label>
+          ${x.item2 ? `<label><input type="radio" name="p${x.row}" value="2" ${cnt(x.item1) >= s.maxSame ? 'checked' : ''}> 2순위</label>` : ''}
+          <label><input type="radio" name="p${x.row}" value="c"> 직접 입력</label>
+          <input type="text" id="c${x.row}" placeholder="아이템 직접 입력" style="flex:1 1 160px">
+        </div>
+        <div class="row">
+          <input type="text" id="m${x.row}" placeholder="메모 (반려 시 사유 필수)" value="${esc(x.memo)}">
+          <button class="btn ok" data-a="승인" data-r="${x.row}" ${full ? 'disabled title="구역 마감"' : ''}>승인</button>
+          <button class="btn no" data-a="반려" data-r="${x.row}">반려</button>
+          ${x.status !== '대기' ? `<button class="btn" data-a="대기" data-r="${x.row}">대기로</button>` : ''}
+        </div>
+        ${full ? `<p class="meta" style="margin:0;color:var(--no)">${esc(s.zoneName[x.zone])} 자리가 모두 찼습니다.</p>` : ''}
+      </div>`;
+    const done = x.status === '대기' ? '' : `<p class="done">${x.status === '승인' ? '배정: <b>' + esc(x.assigned) + '</b> · ' : ''}${esc(x.by)} · ${esc(x.at)}${x.memo ? ' · ' + esc(x.memo) : ''}
+        ${x.status === '승인' ? ` <button class="btn" data-a="대기" data-r="${x.row}" style="margin-left:6px;padding:4px 12px;font-size:13px">승인 취소</button>` : ''}</p>`;
+    return `<article class="card st-${esc(x.status)}">
+      <div class="top"><h3>${x.order}. ${esc(x.team)}${x.partner ? `<small>+ ${esc(x.partner)}</small>` : ''}</h3>
+        <span><span class="meta">${esc(x.ts)}</span> <span class="tag ${esc(x.status)}">${esc(x.status)}</span></span></div>
+      <dl>
+        <dt>부스 유형</dt><dd>${esc(x.type) || '-'}</dd>
+        <dt>아이템 1순위</dt><dd>${esc(x.item1) || '-'}${dup(x.item1)}</dd>
+        <dt>아이템 2순위</dt><dd>${esc(x.item2) || '-'}${dup(x.item2)}</dd>
+        <dt>운영 인원</dt><dd>${esc(x.staff) || '-'}</dd>
+        <dt>전기 사용</dt><dd>${esc(x.power) || '-'}</dd>
+        <dt>요청 사항</dt><dd>${esc(x.request) || '-'}</dd>
+        <dt>단체장</dt><dd>${esc(x.leader) || '-'}</dd>
+        <dt>연락처</dt><dd>${esc(x.phone) || '-'}</dd>
+      </dl>
+      ${done}${pick}
+    </article>`;
+  }).join('');
+}
+
+document.addEventListener('click', e => {
+  const c = e.target.closest('.chip');
+  if (c){
+    const g = c.parentElement; g.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', b === c));
+    if ('s' in c.dataset) fS = c.dataset.s; else fZ = c.dataset.z;
+    render(); return;
+  }
+  const b = e.target.closest('button[data-a]');
+  if (!b) return;
+  const row = +b.dataset.r, a = b.dataset.a, x = D.rows.find(r => r.row === row);
+  const memo = ($('#m' + row) || {}).value || '';
+  let item = '';
+  if (a === '승인'){
+    const p = (document.querySelector(`input[name="p${row}"]:checked`) || {}).value;
+    item = p === '1' ? x.item1 : p === '2' ? x.item2 : ($('#c' + row).value || '').trim();
+    if (!item){ toast('배정할 아이템을 고르거나 입력하세요.', true); return; }
+  }
+  if (a === '반려' && !memo.trim()){ toast('반려 사유를 메모에 적어 주세요.', true); $('#m' + row).focus(); return; }
+  call('decide', row, a, item, memo).then(r => { D = r; render(); toast(`${x.team} · ${a === '대기' ? '대기로 되돌림' : a + ' 완료'}`); });
+});
+$('#reload').addEventListener('click', () => load().then(() => toast('새로고침 완료')));
+load();
+</script>
+</body>
+</html>
