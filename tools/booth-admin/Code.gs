@@ -13,7 +13,7 @@ const CAPS = { exp: 4, snack: 6, market: 10 };
 // 같은 아이템 최대 부스 수
 const MAX_SAME_ITEM = 2;
 // 폼 밖에서 이미 확정한 부스 (amsawyd.com/market 의 BOOTHS 와 같게) — 자리 수·같은 아이템 계산에 포함
-const RESERVED = { exp: [], snack: [], market: [{ team: '주일학교', item: '오너먼트 판매' }] };
+const RESERVED = { exp: [], snack: [], market: [] };
 // 처리할 수 있는 사람 (비우면 이 시트 편집자 누구나)
 const ADMINS = [];
 // 공개 탭 이름
