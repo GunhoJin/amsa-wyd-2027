@@ -2,7 +2,7 @@
 // 관리자 페이지(구글 Apps Script)에서 승인한 부스만 모인 '공개현황' 탭을 웹에 게시한 CSV를 읽어 JSON으로 돌려줍니다.
 // 개인 정보(단체장·연락처)는 공개현황 탭에 없습니다.
 // CSV 주소: 스프레드시트 > 파일 > 공유 > 웹에 게시 > '공개현황' 탭 · CSV  (Cloudflare 환경변수 BOOTHS_CSV 로도 지정 가능)
-const CSV_URL = "";
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQHsC9MFKyj2UK26AD-ZCll51KzxrzSRzf4jpTeIbayr5ywsjmd1gRdM33PR2eqOnxBB_2345XvQ0oK/pub?gid=679680621&single=true&output=csv";
 
 function parseCSV(text) {
   const rows = []; let row = [], cur = "", q = false;
