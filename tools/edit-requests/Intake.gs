@@ -5,6 +5,9 @@
  * - 저장된 요청은 정기 작업이 읽어서 사이트에 반영하고, 반영 결과를 담당자 메일로 보냅니다.
  * - 문의(kind=inquiry): amsawyd.com/inquiry → /api/inquiry → 같은 웹 앱 → '문의' 탭에 저장
  *   (접수 메일은 보내지 않음. 정기 작업이 새 문의를 모아 요약 메일로 보냄)
+ * - PC 감시(kind=watch): tools/pc-watcher 의 감시 스크립트가 1분마다 최신 ID를 확인하고,
+ *   새 글이 있으면 시트 내용을 받아 Claude로 처리한 뒤 결과 메일을 이 웹 앱으로 보냄.
+ *   스크립트 속성 WATCH_KEY 와 같은 key 를 보낸 요청만 응답함 (key 가 없거나 틀리면 거부).
  */
 
 const SHEET = '요청';
@@ -35,6 +38,7 @@ const clip_ = (s, n) => String(s || '').replace(/[\u0000-\u0008\u000b\u000c\u000
 function doPost(e) {
   try {
     const p = (e && e.parameter) || {};
+    if (p.kind === 'watch') return watch_(p);
     if (p.website) return out_({ ok: true });                       // 스팸 방지용 숨은 칸
     const inquiry = p.kind === 'inquiry';
     const v = {
@@ -83,6 +87,35 @@ function doPost(e) {
   } catch (err) {
     return out_({ ok: false, error: '접수 중 문제가 생겼습니다. 잠시 후 다시 시도해 주세요.' });
   }
+}
+
+// ── PC 감시 스크립트용 ─────────────────────────────────────────
+function rows_(name) {
+  const sh = SpreadsheetApp.getActive().getSheetByName(name);
+  if (!sh || sh.getLastRow() < 2) return [];
+  return sh.getRange(2, 1, sh.getLastRow() - 1, sh.getLastColumn()).getValues().map(r => r.map(c =>
+    c instanceof Date ? Utilities.formatDate(c, 'Asia/Seoul', 'yyyy-MM-dd HH:mm:ss') : String(c)));
+}
+const b64_ = s => Utilities.newBlob(Utilities.base64Decode(String(s || ''))).getDataAsString('UTF-8');
+
+function watch_(p) {
+  const key = PropertiesService.getScriptProperties().getProperty('WATCH_KEY');
+  if (!key || key.length < 20 || p.key !== key) return out_({ ok: false, error: 'denied' });
+  if (p.op === 'latest') {                                          // 개인 정보 없이 마지막 ID와 건수만
+    const last = rs => rs.length ? rs[rs.length - 1][0] : '';
+    const r = rows_(SHEET), q = rows_(Q_SHEET);
+    return out_({ ok: true, r: last(r), rn: r.length, q: last(q), qn: q.length });
+  }
+  if (p.op === 'rows') {
+    return out_({ ok: true, request: { head: HEAD, rows: rows_(SHEET) }, inquiry: { head: Q_HEAD, rows: rows_(Q_SHEET) } });
+  }
+  if (p.op === 'report') {                                          // 결과 메일: 담당자 본인에게만
+    const subject = clip_(b64_(p.subject), 200), body = b64_(p.body).slice(0, 20000);
+    if (!subject || !body) return out_({ ok: false, error: 'empty' });
+    MailApp.sendEmail({ to: Session.getEffectiveUser().getEmail(), subject: subject, body: body });
+    return out_({ ok: true });
+  }
+  return out_({ ok: false, error: 'op' });
 }
 
 function doGet() {
