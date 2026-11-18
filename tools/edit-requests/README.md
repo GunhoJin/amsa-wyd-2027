@@ -5,7 +5,7 @@ amsawyd.com/request (요청서)
    └─▶ /api/request (Cloudflare Function, functions/api/request.js)
          └─▶ 구글 Apps Script 웹 앱 (Intake.gs) ─▶ 구글 시트 '암사동성당 WYD 사이트 수정 요청' › 요청 탭
                                                 └─▶ 담당자 메일: 접수 알림
-정기 작업 (Claude, 1시간마다)
+정기 작업 (Claude, 매일 23:30)
    └─ 시트의 새 요청 확인 → 사이트 파일 수정·배포 → processed.json 기록 → 담당자 메일: 반영 결과
 ```
 
@@ -25,9 +25,8 @@ PC 감시 스크립트가 1분마다 새 글을 확인해 바로 처리합니다
 ```
 amsawyd.com/inquiry (문의서)
    └─▶ /api/inquiry (functions/api/inquiry.js, kind=inquiry)
-         └─▶ 같은 Apps Script 웹 앱 (Intake.gs) ─▶ 같은 시트 › 문의 탭 (접수 메일 없음)
-정기 작업 (Claude, 1시간마다)
-   └─ 문의 탭의 새 문의 확인 → inquiries.json 기록 → 담당자 메일: 새 문의 요약 (답변은 담당자가 직접)
+         └─▶ 같은 Apps Script 웹 앱 (Intake.gs) ─▶ 같은 시트 › 문의 탭
+                                                └─▶ 담당자 메일: 새 문의 (접수 즉시, 실시간)
 ```
-- `inquiries.json`에는 문의 ID와 처리일시만 기록 (개인 정보·문의 내용 없음)
-- 문의는 사이트를 고치지 않음. 문의 안에 사이트 수정 요청이 있으면 요약 메일에 표시만 함
+- 답변은 담당자가 직접. 문의는 사이트를 고치지 않으며 정기 작업도 문의를 처리하지 않음
+- `inquiries.json`은 이전(정기 작업 요약 방식) 기록만 남아 있음

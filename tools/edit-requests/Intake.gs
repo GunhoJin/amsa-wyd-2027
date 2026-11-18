@@ -4,7 +4,7 @@
  * - 배포: 실행 계정 = "나", 액세스 권한 = "모든 사용자"  (요청을 받기만 하고, 시트 내용은 돌려주지 않음)
  * - 저장된 요청은 정기 작업이 읽어서 사이트에 반영하고, 반영 결과를 담당자 메일로 보냅니다.
  * - 문의(kind=inquiry): amsawyd.com/inquiry → /api/inquiry → 같은 웹 앱 → '문의' 탭에 저장
- *   (접수 메일은 보내지 않음. 정기 작업이 새 문의를 모아 요약 메일로 보냄)
+ *   + 담당자에게 바로 문의 메일 (실시간)
  * - PC 감시(kind=watch): tools/pc-watcher 의 감시 스크립트가 1분마다 최신 ID를 확인하고,
  *   새 글이 있으면 시트 내용을 받아 Claude로 처리한 뒤 결과 메일을 이 웹 앱으로 보냄.
  *   스크립트 속성 WATCH_KEY 와 같은 key 를 보낸 요청만 응답함 (key 가 없거나 틀리면 거부).
@@ -68,11 +68,19 @@ function doPost(e) {
       lock.releaseLock();
     }
 
-    if (inquiry) return out_({ ok: true, id: id });                 // 문의는 정기 작업이 요약 메일로 보고
-
     // 담당자(이 스크립트 소유자)에게 접수 알림
     try {
-      MailApp.sendEmail({
+      if (inquiry) MailApp.sendEmail({
+        to: Session.getEffectiveUser().getEmail(),
+        subject: '[암사동성당 WYD] 새 문의 ' + id + (v.topic ? ' · ' + v.topic : ''),
+        body: [
+          '새 문의가 접수되었습니다. 문의자에게 직접 답변해 주세요.', '',
+          'ID: ' + id, '접수: ' + Utilities.formatDate(new Date(), 'Asia/Seoul', 'yyyy-MM-dd HH:mm'),
+          '이름: ' + v.name + (v.baptism ? ' ' + v.baptism : ''), '연락처: ' + v.phone,
+          '단체: ' + (v.team || '-'), '분류: ' + (v.topic || '-'), '', '문의 내용:', v.content,
+        ].join('\n'),
+      });
+      else MailApp.sendEmail({
         to: Session.getEffectiveUser().getEmail(),
         subject: '[암사동성당 WYD] 수정 요청 접수 ' + id,
         body: [
