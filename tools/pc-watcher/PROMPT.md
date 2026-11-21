@@ -6,7 +6,7 @@
 ## 입력
 - `.watch/rows.json` : 시트 내용. `request.rows`(열: ID, 접수일시, 이름, 세례명, 연락처, 단체명, 페이지, 요청내용), `inquiry.rows`(열: ID, 접수일시, 이름, 세례명, 연락처, 단체명, 분류, 문의내용)
   - `request.rows` 중 페이지 값이 정확히 "문의"인 행은 문의로 보고 분류는 "-"로 처리합니다.
-- `.watch/now.txt` : 현재 서울 시각 두 줄 (1줄: `yyyy-MM-dd HH:mm`, 2줄: 캐시 번호 `MMDDHHMM`)
+- `.watch/now.txt` : 현재 서울 시각 두 줄 (1줄: `yyyy-MM-dd HH:mm`, 2줄: `MMDDHHMM`, 지금은 쓰지 않음)
 - 새 요청 = `tools/edit-requests/processed.json` 의 items[].id 에 없는 수정요청 ID
 - 새 문의 = `tools/edit-requests/inquiries.json` 의 items[].id 에 없는 문의 ID
 - 둘 다 없으면 아무 파일도 만들거나 고치지 말고 바로 끝냅니다.
@@ -20,7 +20,7 @@
 
 ## 처리
 1. 반영 대상 요청마다 해당 페이지의 정확한 위치를 찾아 최소 범위로 고칩니다. 기존 디자인·구조·말투(간결한 한국어)를 유지합니다.
-2. 고친 HTML이 있으면 그 파일들 안의 `href="(index|plan|about|pilgrim|program|join|market|homestay|contact|donate|rosary).html?v=숫자"` 의 숫자를 now.txt 2줄의 캐시 번호로 바꿉니다.
+2. 내부 링크는 깔끔한 주소(`/`, `/about`, `/plan` …)를 씁니다. `.html` 이나 `?v=` 캐시 번호를 붙이지 않고, 기존 링크 형식도 바꾸지 않습니다.
 3. processed.json items 에 새 요청 모두를 `{"id","processed_at"(now.txt 1줄),"result"("반영"|"보류"),"summary"(개인정보 없는 한 줄)}` 로 추가하고, inquiries.json items 에 새 문의 모두를 `{"id","processed_at"}` 로 추가합니다. 기존 형식(들여쓰기 2칸, 한글 그대로)을 유지합니다.
 4. `.watch/out/commit_msg.txt` 에 커밋 메시지 한 줄: "수정요청 반영: <요약>" (문의만 있으면 "문의 확인 기록: N건"). 추가 줄 없음.
 5. 메일 파일 (첫 줄 = 제목, 둘째 줄부터 = 본문, 일반 텍스트, 간결하게):
