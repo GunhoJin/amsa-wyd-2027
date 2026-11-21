@@ -225,6 +225,9 @@ body.intro-on .rise{opacity:0;transform:translateY(14px)}
 .logo .lw{font-family:"Pretendard Variable","Pretendard","Noto Sans KR",sans-serif;font-weight:800;letter-spacing:-.045em}
 .logo .lchip{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:4px 6px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
 .logo .lchip img{display:block;height:42px;width:auto}
+/* 줄바꿈: 괄호·가운뎃점으로 붙은 말은 한 줄, 마지막 줄 한 단어 방지 */
+.nw{white-space:nowrap}
+main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -341,6 +344,13 @@ const STAT = {date:"2026-11-01", total:625543510, goal:1000000000, parishes:1268
   });
   addEventListener("keydown", function(e){ if(e.key === "Escape" && !m.hidden) close(); });
 })();
+</script>
+<script>/* 줄바꿈 정리: 괄호·가운뎃점·하이픈으로 붙은 말이 줄 끝에서 끊기지 않게 (JS로 그린 내용 포함) */
+(function(){var P=/[()·「」‘’“”~\-–]/,H=/[가-힣0-9A-Za-z]/,SKIP="script,style,svg,textarea,code,.nw,.ml";
+function fix(root){if(!root||root.nodeType!==1)return;var w=document.createTreeWalker(root,4,null),a=[],n;while(n=w.nextNode()){var p=n.parentElement;if(!p||p.closest(SKIP))continue;if(P.test(n.data))a.push(n);}
+a.forEach(function(n){var t=n.data,re=/\S+/g,f=document.createDocumentFragment(),last=0,m,hit=false;while(m=re.exec(t)){var k=m[0];if(k.length<3||!P.test(k)||!H.test(k))continue;hit=true;f.appendChild(document.createTextNode(t.slice(last,m.index)));(k.length>10&&k.indexOf("·")>=0?k.match(/[^·]*·|[^·]+$/g):[k]).forEach(function(s){var e=document.createElement("span");e.className="nw";e.textContent=s;f.appendChild(e);});last=m.index+k.length;}
+if(hit&&n.parentNode){f.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(f,n);}});}
+fix(document.body);new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.closest&&m.target.closest(".nw"))return;m.addedNodes.forEach(function(x){if(x.nodeType===1){if(!x.classList.contains("nw"))fix(x);}else if(x.nodeType===3)fix(x.parentElement);});});}).observe(document.body,{childList:true,subtree:true});})();
 </script>
 </body>
 </html>

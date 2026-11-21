@@ -276,6 +276,9 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 .mn nav a[aria-current]{color:var(--gold)}
 .apply:focus-visible,a:focus-visible{outline-color:var(--gold)}
 .back a{color:var(--gold)}
+/* 줄바꿈: 괄호·가운뎃점으로 붙은 말은 한 줄, 마지막 줄 한 단어 방지 */
+.nw{white-space:nowrap}
+main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Event", "name": "암사동성당 성탄 홀리마켓", "startDate": "2026-12-20T09:00:00+09:00", "endDate": "2026-12-20T16:00:00+09:00", "description": "대림 제4주일, 본당 단체와 지역 이웃이 함께 여는 성탄 장터. 체험존·간식존·판매존, 기도사진 액자 전달. 수익금은 WYD 2027 준비 기금으로 씁니다. 장소: 만남의 방 · 소성전 앞.", "url": "https://amsawyd.com/market", "image": ["https://amsawyd.com/og.jpg"], "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": {"@type": "Place", "name": "천주교 서울대교구 암사동성당", "address": {"@type": "PostalAddress", "streetAddress": "암사길 46", "addressLocality": "강동구", "addressRegion": "서울특별시", "addressCountry": "KR"}}, "organizer": {"@type": "Organization", "name": "암사동성당 WYD 본당위원회", "url": "https://amsawyd.com/"}, "isAccessibleForFree": true, "inLanguage": "ko-KR", "offers": {"@type": "Offer", "price": 0, "priceCurrency": "KRW", "availability": "https://schema.org/InStock", "url": "https://amsawyd.com/market"}}]}</script>
 </head>
@@ -577,6 +580,13 @@ document.getElementById("tl").innerHTML = STEPS.map(x => {
   addEventListener("resize", resize);
   if(!reduce) raf = requestAnimationFrame(loop);
 })();
+</script>
+<script>/* 줄바꿈 정리: 괄호·가운뎃점·하이픈으로 붙은 말이 줄 끝에서 끊기지 않게 (JS로 그린 내용 포함) */
+(function(){var P=/[()·「」‘’“”~\-–]/,H=/[가-힣0-9A-Za-z]/,SKIP="script,style,svg,textarea,code,.nw,.ml";
+function fix(root){if(!root||root.nodeType!==1)return;var w=document.createTreeWalker(root,4,null),a=[],n;while(n=w.nextNode()){var p=n.parentElement;if(!p||p.closest(SKIP))continue;if(P.test(n.data))a.push(n);}
+a.forEach(function(n){var t=n.data,re=/\S+/g,f=document.createDocumentFragment(),last=0,m,hit=false;while(m=re.exec(t)){var k=m[0];if(k.length<3||!P.test(k)||!H.test(k))continue;hit=true;f.appendChild(document.createTextNode(t.slice(last,m.index)));(k.length>10&&k.indexOf("·")>=0?k.match(/[^·]*·|[^·]+$/g):[k]).forEach(function(s){var e=document.createElement("span");e.className="nw";e.textContent=s;f.appendChild(e);});last=m.index+k.length;}
+if(hit&&n.parentNode){f.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(f,n);}});}
+fix(document.body);new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.closest&&m.target.closest(".nw"))return;m.addedNodes.forEach(function(x){if(x.nodeType===1){if(!x.classList.contains("nw"))fix(x);}else if(x.nodeType===3)fix(x.parentElement);});});}).observe(document.body,{childList:true,subtree:true});})();
 </script>
 </body>
 </html>
