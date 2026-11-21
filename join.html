@@ -203,13 +203,13 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
       <a class="ja" aria-disabled="true">모집 예정</a>
       <a class="ja" href="/pilgrim">순례길 코스 보기</a>
     </div>
-  </article><article class="jc">
-    <div class="top"><span class="badge">모집 예정</span><span class="k">HOMESTAY</span></div>
-    <h3>홈스테이 신청</h3>
-    <p class="desc">본대회 기간 세계 각국에서 오는 청년 순례자를 가정에 맞이합니다. 특별한 시설 없이 최소한의 잠자리와 간단한 조식이면 충분합니다.</p>
-    <ul><li>기간: 2027년 8월 1일(일) ~ 9일(월), 상황에 따라 늘어날 수 있음</li><li>조건: 본당 신자 가정, 순례자 2명 이상 수용, 간단한 조식 제공</li><li>침대가 없어도 1인당 침낭 공간(2m × 1.5m)이면 충분</li><li>11월 모집 시작 · 본당이 배정하고 사전 모임에서 안내</li></ul>
+  </article><article class="jc open">
+    <div class="top"><span class="badge open">모집 중</span><span class="k">HOMESTAY</span></div>
+    <h3>홈스테이 호스트 가정 모집</h3>
+    <p class="desc">대림 4주간 집중 모집 중입니다. 본대회 기간 세계 각국에서 오는 순례자를 가정에 맞이합니다. 특별한 시설 없이 최소한의 잠자리와 간단한 아침이면 충분합니다.</p>
+    <ul><li>모집: 대림 제1주일(11.28) ~ 성탄(12.24)</li><li>접수: 토요 특전미사 ~ 주일 18시 청년미사 후 현장 접수(새벽미사 제외), 본당 사무실 신청서</li><li>기간: 2027년 8월 2일(월) ~ 8일(일)</li><li>조건: 본당 신자 가정, 순례자 2명 이상 수용, 간단한 아침 제공</li></ul>
     <div class="acts">
-      <a class="ja" aria-disabled="true">모집 예정</a>
+      <a class="ja pri" href="https://docs.google.com/forms/d/e/1FAIpQLSdBi9G7u0wZQGIjR5WydsCykSqFcGnbnZonhM2PbJUh6D87Iw/viewform" target="_blank" rel="noopener">호스트 FAQ 보기</a>
       <a class="ja" href="/homestay">홈스테이 알아보기</a>
     </div>
   </article><article class="jc open">
@@ -246,9 +246,9 @@ const JOINS = [
    desc:"천주교 서울 순례길을 본당 공동체가 함께 걷습니다. 순례지마다 기도하며 WYD를 향한 마음을 모읍니다.",
    items:["대상: 함께 걷고 싶은 본당 신자 누구나","코스: 말씀의 길 · 생명의 길 · 일치의 길 중 선택","일정과 모임 장소는 모집 시 안내"],
    more:{href:"/pilgrim", text:"순례길 코스 보기"}},
-  {k:"HOMESTAY", title:"홈스테이 신청", status:"soon", url:"",
-   desc:"본대회 기간 세계 각국에서 오는 청년 순례자를 가정에 맞이합니다. 특별한 시설 없이 최소한의 잠자리와 간단한 조식이면 충분합니다.",
-   items:["기간: 2027년 8월 1일(일) ~ 9일(월), 상황에 따라 늘어날 수 있음","조건: 본당 신자 가정, 순례자 2명 이상 수용, 간단한 조식 제공","침대가 없어도 1인당 침낭 공간(2m × 1.5m)이면 충분","11월 모집 시작 · 본당이 배정하고 사전 모임에서 안내"],
+  {k:"HOMESTAY", title:"홈스테이 호스트 가정 모집", status:"open", url:"https://docs.google.com/forms/d/e/1FAIpQLSdBi9G7u0wZQGIjR5WydsCykSqFcGnbnZonhM2PbJUh6D87Iw/viewform", cta:"호스트 FAQ 보기",
+   desc:"대림 4주간 집중 모집 중입니다. 본대회 기간 세계 각국에서 오는 순례자를 가정에 맞이합니다. 특별한 시설 없이 최소한의 잠자리와 간단한 아침이면 충분합니다.",
+   items:["모집: 대림 제1주일(11.28) ~ 성탄(12.24)","접수: 토요 특전미사 ~ 주일 18시 청년미사 후 현장 접수(새벽미사 제외), 본당 사무실 신청서","기간: 2027년 8월 2일(월) ~ 8일(일)","조건: 본당 신자 가정, 순례자 2명 이상 수용, 간단한 아침 제공"],
    more:{href:"/homestay", text:"홈스테이 알아보기"}},
   {k:"HOLY MARKET", title:"성탄 홀리마켓 부스 신청", status:"open", url:"https://forms.gle/YvUteFxcQYc35kxF8",
    desc:"12월 20일(대림 제4주일), 체험·간식·판매존에서 본당 단체와 지역 이웃이 함께하는 성탄 장터입니다. 수익금은 WYD 2027 기금으로 씁니다.",
@@ -265,7 +265,7 @@ document.getElementById("jg").innerHTML = JOINS.map(j => {
     <p class="desc">${esc(j.desc)}</p>
     <ul>${j.items.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
     <div class="acts">
-      ${on ? `<a class="ja pri" href="${esc(j.url)}" target="_blank" rel="noopener">신청하기</a>`
+      ${on ? `<a class="ja pri" href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.cta || "신청하기")}</a>`
            : `<a class="ja" aria-disabled="true">${j.status === "closed" ? "신청 마감" : "모집 예정"}</a>`}
       <a class="ja" href="${j.more.href}">${esc(j.more.text)}</a>
     </div>
