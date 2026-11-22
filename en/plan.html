@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+/* 카카오톡 안에서 열리면 휴대폰 기본 브라우저로 다시 열기 (?inapp=1 을 붙이면 카카오톡 안에서 그대로 봄) */
+(function(){try{var u=navigator.userAgent||"";if(/KAKAOTALK/i.test(u)&&!/[?&]inapp=1/.test(location.search)){location.replace("kakaotalk://web/openExternal?url="+encodeURIComponent(location.href));}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>1-Year Plan | Amsa-dong Parish WYD 2027</title>
+<meta name="description" content="Amsa-dong Parish’s 1-year plan for WYD 2027 — the parish committee (P.O.C.), monthly prayer, the WYD Cross pilgrimage, monthly programs and the main event week.">
+<link rel="canonical" href="https://amsawyd.com/en/plan">
+<link rel="alternate" hreflang="ko" href="https://amsawyd.com/plan">
+<link rel="alternate" hreflang="en" href="https://amsawyd.com/en/plan">
+<link rel="alternate" hreflang="x-default" href="https://amsawyd.com/plan">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Amsa-dong Parish WYD 2027">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="1-Year Plan | Amsa-dong Parish WYD 2027">
+<meta property="og:description" content="Amsa-dong Parish’s 1-year plan for WYD 2027 — the parish committee (P.O.C.), monthly prayer, the WYD Cross pilgrimage, monthly programs and the main event week.">
+<meta property="og:url" content="https://amsawyd.com/en/plan">
+<meta property="og:image" content="https://amsawyd.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#101216">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<style>
+/* 제목 글꼴: Pretendard(SIL OFL 1.1) — 필요한 글자만 내려받는 웹폰트, 설치 없이 표시 */
+.mn,.mn nav a,.mn button{font-family:"Noto Sans KR",sans-serif}
+.mn nav a{font-weight:700}
+.mn nav a small{font-weight:400}
+.mn nav a.mn-sub{font-size:17px}
+/* 스크롤바가 생기거나 사라질 때 화면이 옆으로 밀리지 않게 (인트로 착지 위치 어긋남 방지) */
+html{scrollbar-gutter:stable}
+h1,h2,.intro-text{font-weight:700!important}
+h1,h2,.intro-text{font-family:"Pretendard Variable","Pretendard",var(--font,"Noto Sans KR"),sans-serif}
+/* Layout: 히어로와 같은 어두운 바탕·청록 강조. 상단 진행 막대(오늘 위치) → 매월 반복 → 월별 타임라인(대상별 태그) */
+:root{
+  --ink:#101216; --panel:#16191f; --panel-2:#1b1f26;
+  --fg:#ffffff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.48);
+  --line:rgba(255,255,255,.1); --line-2:rgba(255,255,255,.18);
+  --accent:#00A1DB; --gold:#FFD27A; --gold-ink:#101216;
+  --all:#6CB8FF; --youth:#2FD3C0; --parish:#B9A6FF;
+  --btn-light:#f0f0f0; --btn-ink:#060e08;
+  --font:"Malgun Gothic","맑은 고딕","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+/* 참여 안내 준비 전까지 참여 버튼 숨김 — 이 줄만 지우면 다시 표시 */
+[data-join]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg)}
+body{font-family:var(--font);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+
+/* nav — 히어로와 동일한 형태 */
+.nav{border-bottom:1px solid var(--line-2)}
+.nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:26px;letter-spacing:-.8px;line-height:1;display:flex;align-items:baseline;gap:.35em;white-space:nowrap}
+.logo small{font-size:12px;letter-spacing:.08em;color:var(--fg-2)}
+.links{display:flex;gap:24px;font-size:15px}
+.links a{color:var(--fg-2);transition:color .2s}.links a:hover,.links a[aria-current]{color:var(--fg)}
+@media (max-width:640px){.links{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-size:14px;white-space:nowrap;transition:opacity .2s}
+.btn:hover{opacity:.8}
+.btn-l{color:var(--btn-ink);background:linear-gradient(180deg,rgba(255,255,255,.33),rgba(255,255,255,0)),var(--btn-light);box-shadow:inset 0 1px 1px #fff,inset 0 -1.5px 0 rgba(0,0,0,.1)}
+
+/* header */
+.head{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.head::before{content:"";position:absolute;inset:0;background:url("/bg-desktop.png") center 70%/cover no-repeat;opacity:.55;pointer-events:none}
+.head .wrap{position:relative;padding-block:56px 40px;display:grid;gap:28px}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.head h1{font-size:clamp(30px,5vw,46px);line-height:1.2;letter-spacing:-1.2px;font-weight:500;text-wrap:balance}
+.head p.lead{color:var(--fg-2);max-width:56ch}
+.draft{display:inline-block;margin-top:10px;font-size:12px;color:var(--fg-3);border:1px solid var(--line-2);border-radius:999px;padding:3px 10px}
+
+/* progress */
+.prog{display:grid;gap:10px}
+.prog-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dday{font-size:30px;font-weight:700;font-style:italic;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.dday small{font-size:14px;font-style:normal;font-weight:500;color:var(--fg-2);margin-left:8px}
+.today{font-size:13px;color:var(--fg-2);font-variant-numeric:tabular-nums}
+.track{position:relative;height:44px}
+.phases{position:absolute;inset:0 0 auto 0;height:28px;display:flex;gap:3px}
+.phase{display:flex;align-items:center;padding-inline:10px;font-size:12px;color:var(--fg-2);background:rgba(255,255,255,.06);border:1px solid var(--line);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ps{display:none}
+@media (max-width:600px){.phase{padding-inline:6px;font-size:11px}.pf{display:none}.ps{display:inline}}
+.phase.p3{background:rgba(255,210,122,.12);border-color:rgba(255,210,122,.35);color:var(--gold)}
+.fill{position:absolute;left:0;top:0;height:28px;background:linear-gradient(90deg,rgba(0,161,219,.0),rgba(0,161,219,.35));pointer-events:none}
+.pin{position:absolute;top:-6px;width:2px;height:40px;background:var(--fg);transform:translateX(-1px)}
+.pin::after{content:"Today";position:absolute;top:40px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--fg);white-space:nowrap}
+.ticks{position:relative;height:16px;font-size:11px;color:var(--fg-3);font-variant-numeric:tabular-nums;margin-top:6px}
+.ticks span{position:absolute;top:0;transform:translateX(-2px);white-space:nowrap}
+@media (max-width:600px){.ticks span.odd{display:none}}
+
+/* sections */
+main .wrap{padding-block:40px 64px;display:grid;gap:48px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.sec-h h2{font-size:22px;font-weight:500;letter-spacing:-.4px}
+.sec-h p{font-size:13px;color:var(--fg-3)}
+
+.repeat{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:440px){.repeat{grid-template-columns:1fr}}
+.rp{background:var(--panel);padding:18px;display:grid;gap:6px;align-content:start}
+.rp .when{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.04em}
+.rp h3{font-size:16px;font-weight:500}
+.rp p{font-size:13px;color:var(--fg-2)}
+.rp h3 a.rlink{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:3px}
+.rp .big{font-size:24px;font-weight:700;letter-spacing:-.5px;font-variant-numeric:tabular-nums;color:var(--fg)}
+
+/* filters */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font:inherit;font-size:13px;color:var(--fg-2);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.chip[aria-pressed="true"]{color:var(--fg);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
+.dot{width:8px;height:8px;border-radius:999px;flex:none}
+.d-all{background:var(--all)}.d-youth{background:var(--youth)}.d-parish{background:var(--parish)}.d-key{background:var(--gold)}
+
+/* timeline */
+.tl{display:grid;border-top:1px solid var(--line)}
+.phase-h{display:flex;align-items:center;gap:12px;padding:22px 0 10px;font-size:13px;color:var(--fg-3);letter-spacing:.06em}
+.phase-h b{color:var(--fg);font-weight:700;letter-spacing:0;font-size:15px}
+.phase-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.m{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:20px 0;border-bottom:1px solid var(--line);position:relative}
+@media (max-width:600px){.m{grid-template-columns:1fr;gap:10px}}
+.m.now{background:linear-gradient(90deg,rgba(0,161,219,.10),rgba(0,161,219,0) 60%);margin-inline:-20px;padding-inline:20px}
+.m.past{opacity:.55}
+.mo{display:flex;flex-direction:column;gap:2px}
+@media (max-width:600px){.mo{flex-direction:row;align-items:baseline;gap:8px}}
+.mo .n{font-size:34px;line-height:1;font-weight:700;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.mo .n span{font-size:16px;font-weight:500;margin-left:2px}
+.mo .y{font-size:12px;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.badge{align-self:flex-start;margin-top:6px;font-size:11px;font-weight:700;color:var(--ink);background:var(--accent);border-radius:999px;padding:2px 8px}
+@media (max-width:600px){.badge{margin-top:0}}
+.body{display:grid;gap:12px;min-width:0}
+.theme{font-size:17px;font-weight:500;line-height:1.45}
+.theme small{display:block;font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.04em;margin-bottom:2px}
+.theme.tbd{color:var(--fg-3)}
+.pnote{display:block;font-size:13px;font-weight:400;color:var(--fg-3);margin-top:2px}
+.items{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.items li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline;font-size:14px;color:var(--fg-2)}
+.tag{font-size:11px;font-weight:700;border-radius:4px;padding:1px 6px;white-space:nowrap;border:1px solid}
+.t-all{color:var(--all);border-color:rgba(108,184,255,.4)}
+.t-youth{color:var(--youth);border-color:rgba(47,211,192,.4)}
+.t-parish{color:var(--parish);border-color:rgba(185,166,255,.4)}
+.keys{display:flex;flex-wrap:wrap;gap:8px}
+.key{display:inline-flex;gap:8px;align-items:baseline;font-size:13px;color:var(--gold-ink);background:var(--gold);border-radius:999px;padding:4px 12px;font-weight:500}
+.key b{font-variant-numeric:tabular-nums}
+
+
+main .wrap > section{min-width:0}
+/* 본당위원회 */
+.poc{display:grid;gap:20px}
+.poc-chain{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.poc-chain li{display:grid;gap:1px;padding:10px 14px;border:1px solid var(--line-2);background:var(--panel)}
+.poc-chain li span{font-size:11px;color:var(--fg-3)}
+.poc-chain li b{font-size:15px;font-weight:500}
+.teams{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:860px){.teams{grid-template-columns:1fr}}
+.team{background:var(--panel);padding:18px;display:grid;gap:8px;align-content:start}
+.team .tn{font-size:15px;font-weight:700}
+.team.mine{background:linear-gradient(160deg,rgba(255,210,122,.10),rgba(255,210,122,0) 70%),var(--panel)}
+.team.mine .tn{color:var(--gold)}
+.team ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:13px;color:var(--fg-2)}
+.dirs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.dirs{grid-template-columns:1fr}}
+.dk{grid-column:1/-1;font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.08em}
+.dir{display:grid;gap:4px;border-top:1px solid var(--line-2);padding-top:10px}
+.dir b{font-size:15px;font-weight:500}
+.dir span{font-size:13px;color:var(--fg-2)}
+/* 본대회 주간 */
+.week-wrap{overflow-x:auto;border:1px solid var(--line)}
+.week{width:100%;min-width:640px;border-collapse:collapse;font-size:13px;text-align:center}
+.week th{font-weight:500;color:var(--fg-2);background:var(--panel);padding:10px 6px;border-bottom:1px solid var(--line-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.week td{padding:12px 8px;border:1px solid var(--line);color:var(--fg-2);vertical-align:middle}
+.week td.mv{color:var(--fg-3)}
+.week td.hl{color:var(--gold);font-weight:700}
+/* WYD 십자가 순례 */
+.cross{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;align-items:start}
+@media (max-width:860px){.cross{grid-template-columns:1fr}}
+.cross-now{border:1px solid rgba(255,210,122,.35);background:linear-gradient(160deg,rgba(255,210,122,.10),rgba(255,210,122,0) 70%);padding:22px;display:grid;gap:10px}
+.cross-now .k{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.06em}
+.cross-now .where{font-size:30px;font-weight:700;letter-spacing:-.6px;line-height:1.15}
+.cross-now .when{font-size:13px;color:var(--fg-2);font-variant-numeric:tabular-nums}
+.cross-now p.q{font-size:13px;color:var(--fg-2);line-height:1.6;border-top:1px solid var(--line);padding-top:12px}
+.cross-now p.q b{color:var(--fg);font-weight:500}
+.cross-now a{font-size:13px;color:var(--accent)}
+.route{list-style:none;margin:0;padding:0;display:grid;position:relative}
+.route::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--line-2)}
+.stop{display:grid;grid-template-columns:16px minmax(0,1fr) auto;gap:14px;align-items:center;padding:9px 0;position:relative}
+.stop .pt{width:16px;height:16px;border-radius:999px;border:2px solid var(--line-2);background:var(--ink);z-index:1}
+.stop .nm{font-size:15px}
+.stop .dt{font-size:12px;color:var(--fg-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.stop.done{opacity:.45}.stop.done .pt{background:var(--fg-3);border-color:var(--fg-3)}
+.stop.now .pt{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(255,210,122,.18)}
+.stop.now .nm{color:var(--gold);font-weight:700}
+.stop.seoul .nm::after{content:"Our diocese";margin-left:8px;font-size:11px;font-weight:700;color:var(--ink);background:var(--accent);border-radius:999px;padding:1px 7px;vertical-align:2px}
+.stop.rest .nm{color:var(--fg-3)}
+.foot{border-top:1px solid var(--line);color:var(--fg-3);font-size:13px}
+.foot .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.verse{color:var(--fg-2)}
+@media (prefers-reduced-motion:no-preference){.m{transition:opacity .2s}}
+
+/* ── 인트로: Originkit Type Sequence 방식 타이핑 → 제목 자리로 착지 ── */
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding-inline:20px;background:transparent}
+/* 배경은 한 겹(::before)으로 합쳐 투명도만 애니메이션 — 휴대폰에서도 GPU로만 처리돼 착지가 끊기지 않음 */
+.intro::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(16,18,22,.65),rgba(16,18,22,.65)),url("/bg-desktop.png") center/cover no-repeat,var(--ink);opacity:1;pointer-events:none;transition:opacity .9s ease;will-change:opacity}
+.intro.landing::before{opacity:0}
+.intro-text{position:relative;margin:0;font-weight:500;color:var(--fg);white-space:pre-wrap;text-align:left;
+  font-size:clamp(26px,7.6vw,76px);line-height:1.2;letter-spacing:-.026em;transform-origin:0 0;will-change:transform}
+.caret{display:inline-block;box-sizing:border-box;width:.16em;height:.82em;margin-left:.08em;vertical-align:-.08em;
+  background:var(--accent);border:1.5px solid rgba(255,255,255,.35);border-radius:2px}
+.caret.off{opacity:0}
+.intro-skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));font:inherit;font-size:12px;color:var(--fg-3);
+  background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;transition:opacity .4s}
+.intro.landing .intro-skip{opacity:0}
+body.intro-on{overflow:hidden}
+body.title-hide .head h1{visibility:hidden}
+body.rise-wait .rise{opacity:0;transform:translateY(14px)}
+.rise{transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
+
+/* 모바일 메뉴 */
+.mn-btn{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:0;padding:0;margin-right:-8px;cursor:pointer;color:#fff}
+.mn-btn svg{width:24px;height:24px}
+.mn{position:fixed;inset:0;z-index:200;background:rgba(16,18,22,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top,0px) + 16px) 20px calc(env(safe-area-inset-bottom,0px) + 32px);animation:mnIn .22s ease both;color:#fff}
+.mn[hidden]{display:none!important}
+@keyframes mnIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mn{animation:none}}
+.mn-top{display:flex;justify-content:space-between;align-items:center;min-height:40px}
+.mn-k{font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.5);font-weight:700}
+.mn-x{width:40px;height:40px;margin-right:-8px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;color:#fff;cursor:pointer}
+.mn-x svg{width:22px;height:22px}
+.mn-top,.mn nav{width:100%;max-width:1040px;margin-inline:auto}
+.mn nav{display:grid;grid-template-columns:minmax(0,560px);justify-content:end;align-content:start;margin-top:24px;flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding-right:4px}
+.mn nav a{display:flex;flex-direction:row-reverse;align-items:baseline;justify-content:space-between;text-align:right;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:25px;letter-spacing:-.6px;line-height:1.2;color:#fff;text-decoration:none}
+.mn nav a small{font-size:15px;letter-spacing:0;color:rgba(255,255,255,.5)}
+.mn nav a[aria-current]{color:#00A1DB}
+.mn nav a:focus-visible{outline-offset:-2px}
+.mn nav a:focus-visible,.mn-x:focus-visible,.mn-btn:focus-visible{outline:2px solid #00A1DB;outline-offset:2px}
+/* 홈 버튼: AMSA 워드마크(Pretendard) + WYD SEOUL 2027 공식 로고(원본 색 유지, 흰 바탕) */
+.logo{align-items:center!important;gap:10px!important}
+.logo .lw{font-family:"Pretendard Variable","Pretendard","Noto Sans KR",sans-serif;font-weight:800;letter-spacing:-.045em}
+.logo .lchip{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:4px 6px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.logo .lchip img{display:block;height:42px;width:auto}
+/* 줄바꿈: 괄호·가운뎃점으로 붙은 말은 한 줄, 마지막 줄 한 단어 방지 */
+.nw{white-space:nowrap}
+main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
+.lang{margin-left:auto;margin-right:20px;color:inherit;font-size:14px;font-weight:600;letter-spacing:.06em;text-decoration:none;opacity:.8}.lang:hover{opacity:1}
+</style>
+</head>
+<body>
+<div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav aria-label="Full menu"><a href="/en/">Home<small>Start page</small></a><a href="/en/about">About<small>World Youth Day Seoul 2027</small></a><a href="/en/plan" aria-current="page">1-Year Plan<small>Monthly preparation</small></a><a href="/en/pilgrim">Pilgrimage<small>Seoul Catholic Pilgrimage Routes</small></a><a href="/en/program">Programs<small>Spiritual pilgrimage journey</small></a><a href="/en/join">Get Involved<small>Volunteers · Pilgrimage · Homestay</small></a><a href="/en/donate">Donate<small>Parish WYD fund</small></a><a href="/en/contact" class="mn-sub">Contact · Edit Request</a><a href="/plan" class="mn-sub" hreflang="ko" lang="ko">한국어</a></nav>
+</div>
+<div class="intro" id="intro" hidden>
+  <p class="intro-text" id="introText" aria-hidden="true"><span id="typed"></span><span class="caret" id="caret"></span></p>
+  <button class="intro-skip" id="introSkip" type="button">Skip</button>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="/en/" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="/wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
+    <a href="/en/join" data-join class="btn btn-l">Join Us</a>
+    <a class="lang" href="/plan" hreflang="ko" lang="ko">KO</a>
+    <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</header>
+
+<section class="head">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rise">2026.08.30 — 2027.08</p>
+      <h1 id="title">Toward WYD Seoul,<br>a year our parish walks together</h1>
+      <p class="lead rise" style="margin-top:12px">All parishioners prepare through prayer, young adults and youth through a monthly theme and Holy Hour, and the parish by getting ready to welcome pilgrims.</p>
+      <span class="draft rise">Based on the parish committee (P.O.C.) plan · items marked TBD will be updated</span>
+    </div>
+    <div class="prog rise" aria-label="Preparation progress">
+      <div class="prog-top">
+        <p class="dday" id="dday">D-299<small>Main event Aug 3</small></p>
+        <p class="today" id="today"></p>
+      </div>
+      <div class="track">
+        <div class="phases" id="phases"></div>
+        <div class="fill" id="fill"></div>
+        <div class="pin" id="pin"></div>
+      </div>
+      <div class="ticks" id="ticks"></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+
+    <section aria-labelledby="h-poc">
+      <div class="sec-h"><h2 id="h-poc">Parish Committee (P.O.C.)</h2><p>Based on the Amsa-dong Parish WYD Committee plan</p></div>
+      <div class="poc">
+        <ol class="poc-chain">
+          <li><span>Chair</span><b>Pastor</b></li>
+          <li><span>Vice-chair · Coordinator</span><b>Associate pastor</b></li>
+          <li><span>Religious partner</span><b>Mission sister</b></li>
+          <li><span>Executive chair</span><b>Pastoral council president</b></li>
+          <li><span>Executive vice-chair</span><b>WYD subcommittee head</b></li>
+        </ol>
+        <div class="teams">
+          <div class="team"><p class="tn">Volunteers / Admin Team</p><ul><li>Inviting young people, encouraging and leading WYD participation</li><li>Recruiting and training parish volunteers by role</li><li>Liaising with district committees and the local community</li><li>Fundraising, budget and accounts</li><li>Homestay sign-ups and pilgrim assignments</li><li>Lodging preparation and main event support</li></ul></div>
+          <div class="team"><p class="tn">Liturgy / Music Team</p><ul><li>Leading the young adult Mass on the last Sunday of each month</li><li>Joint choir (Familia), Gregorian chant</li><li>Commentators and readers mainly from Sunday school and young adults; altar servers</li><li>Monthly English Mass; the Lord’s Prayer in Latin</li><li>Supporting the 1 Billion Rosary Decades and the Day of Prayer</li><li>Liturgy for pilgrim Masses and joint Masses</li></ul></div>
+          <div class="team mine"><p class="tn">Spiritual / Planning Team</p><ul><li>Planning faith and fellowship programs (gold headings)</li><li>WYD spiritual formation for all parishioners</li><li>Spreading the word through neighborhood groups and talks</li><li>Planning pilgrim welcome and exchange programs</li><li>Welcome ceremony on arrival day (8.1–2)</li><li>Planning a joint Mass for parishioners and pilgrims</li></ul></div>
+        </div>
+        <div class="dirs">
+          <p class="dk">Our parish’s direction</p>
+          <div class="dir"><b>Helping young people in our area rediscover faith</b><span>Outreach to young workers living alone (with the Legion of Mary); welcoming back lapsed Catholics and their children</span></div>
+          <div class="dir"><b>Telling our neighbors about WYD</b><span>Sticker campaign, banners, Vatican flags and other visible promotion</span></div>
+          <div class="dir"><b>Love and fellowship in the liturgy</b><span>Centered on the Mass, with emphasis on Holy Hour and Marian Masses, step-by-step participation, exchange between generations, and fellowship after Mass</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-repeat">
+      <div class="sec-h"><h2 id="h-repeat">Every month</h2><p>Throughout the preparation year</p></div>
+      <div class="repeat">
+        <div class="rp"><p class="when">Last Sunday of each month</p><h3>Young adult Mass</h3><p>Led by the parish WYD committee. Sunday school, the young adults’ association, mothers’ and fathers’ groups prepare the liturgy together; the joint choir (Familia) sings Gregorian chant.</p></div>
+        <div class="rp"><p class="when">Daily</p><p class="big">20:27</p><h3>8:27 pm prayer</h3><p>A prayer for young people with the Our Father and Hail Mary — alone or with family.</p></div>
+        <div class="rp"><p class="when">Fourth Sunday of each month</p><h3>WYD Day of Prayer</h3><p>Mass intentions and Prayers of the Faithful prepared by young adults.</p></div>
+        <div class="rp"><p class="when">Once a month</p><h3>Young adult and youth Holy Hour</h3><p>Prayer before the Blessed Sacrament on the month’s theme.</p></div>
+        <div class="rp"><p class="when">Ongoing · wraps up in March</p><h3><a href="/en/rosary" class="rlink">1 Billion Rosary Decades</a></h3><p>Offered in the parish prayer box, counted and posted monthly. The official WYD 2027 prayer is read at every Mass.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-week">
+      <div class="sec-h"><h2 id="h-week">Main event week</h2><p>Official World Youth Day schedule</p></div>
+      <div class="week-wrap">
+        <table class="week">
+          <thead><tr><th>8.1~2</th><th>3 (Tue)</th><th>4 (Wed)</th><th>5 (Thu)</th><th>6 (Fri)</th><th>7 (Sat)</th><th>8 (Sun)</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3" class="mv">Travel to Seoul<br>Registration</td><td></td><td colspan="3">Catechesis</td><td rowspan="2" class="mv">Pilgrim Vigil<br>Move to venue</td><td class="hl">Closing Mass</td></tr>
+            <tr><td colspan="4">Youth Festival · Vocations Expo</td><td rowspan="2"></td></tr>
+            <tr><td class="hl">Opening Mass</td><td></td><td class="hl">Welcome of the Pope</td><td>Way of the Cross</td><td>Vigil</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-host">
+      <div class="sec-h"><h2 id="h-host">What the parish does during WYD</h2><p>Based on the organizing committee’s parish manual (2026.4) · common to all parishes of Seoul</p></div>
+      <div class="repeat">
+        <div class="rp"><p class="when">Pilgrim lodging</p><p class="big">About 2,000</p><h3>welcomed per parish</h3><p>About 500 in homestays and about 1,500 in parish and group lodgings. Numbers per parish are confirmed in July 2027.</p></div>
+        <div class="rp"><p class="when">8.1 ~ 8.2</p><h3>Arrival and welcome</h3><p>Check-in and lodging guidance, registration check, pilgrim kits, welcome ceremony and orientation, meal information.</p></div>
+        <div class="rp"><p class="when">8.3 ~ 8.6</p><h3>Running the lodgings</h3><p>Pilgrims go out after breakfast and lodgings are tidied during the day. Air conditioning, showers and toilets are checked, with at least one volunteer on site.</p></div>
+        <div class="rp"><p class="when">8.4 ~ 8.6</p><h3>Catechesis venue</h3><p>Every parish in Seoul hosts catechesis on days 2–4 of the main event, and also provides space for pilgrim Masses.</p></div>
+        <div class="rp"><p class="when">8.7 ~ 8.9</p><h3>Vigil · Farewell</h3><p>Lodging security during the Vigil, welcoming pilgrims back after the Closing Mass on the 8th, check-out and farewell on the 9th.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-cross">
+      <div class="sec-h"><h2 id="h-cross">WYD Cross pilgrimage</h2><p>2026.9 – 2027.5 pilgrimage through Korean dioceses · source wydseoul.org</p></div>
+      <div class="cross">
+        <div class="cross-now" id="crossNow"></div>
+        <ol class="route" id="route" aria-label="Cross pilgrimage by diocese"></ol>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-tl">
+      <div class="sec-h"><h2 id="h-tl">Month by month</h2>
+        <div class="chips" role="group" aria-label="View by group">
+          <button class="chip" type="button" data-f="all-view" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-f="all" aria-pressed="false"><span class="dot d-all"></span>All parishioners</button>
+          <button class="chip" type="button" data-f="youth" aria-pressed="false"><span class="dot d-youth"></span>Young adults · Youth</button>
+          <button class="chip" type="button" data-f="parish" aria-pressed="false"><span class="dot d-parish"></span>Parish preparation</button>
+        </div>
+      </div>
+      <div class="tl" id="tl"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="verse">“Take courage! I have conquered the world” (John 16:33)</p>
+    <p>Amsa-dong Parish Spiritual Planning Team</p>
+  </div>
+</footer>
+
+<script>
+const START = new Date("2026-08-30T00:00:00+09:00");
+const WYD   = new Date("2027-08-03T00:00:00+09:00");
+const END   = new Date("2027-08-31T23:59:59+09:00");
+
+const PHASES = [
+  {name:"Building the base", from:"2026-08", to:"2026-12", label:"2026.08.30"},
+  {name:"Regular rhythm", from:"2027-01", to:"2027-06"},
+  {name:"Sending · Main event", short:"Sending", from:"2027-07", to:"2027-08", cls:"p3"}
+];
+
+// a: All parishioners / y: Young adults · Youth / p: Parish preparation / k: 주요 날짜
+// prog: Amsa-dong Parish WYD Committee(P.O.C.) 기획안 4.2 영성/기획팀 별 Programs (null = 미정)
+// theme: 영성 축 기획안의 Young adults · Youth  주제(안)
+const MONTHS = [
+  {ym:"2026-08", span:"8.30", prog:"WYD briefing, committee recruitment, launch Mass and fellowship",
+   a:["World Youth Day briefing, parish committee recruitment"], y:[], p:["Parish committee (P.O.C.) formed"],
+   k:[["8.30","WYD launch ceremony"]]},
+  {ym:"2026-09", prog:"Journey 1 · A Letter from the Heart", note:"A letter to yourself one year from now, sealed and returned a year later",
+   a:["9.27 Letter writing in the main church after the 6 pm Mass"],
+   y:[],
+   p:["Letters kept safe; preparing to return them in autumn 2027"],
+   k:[["9.27","A Letter from the Heart"]]},
+  {ym:"2026-10", prog:"Journey 2 · Our Prayers as Roses", note:"One sticker for each decade of the Rosary, completing a bouquet of 100 roses",
+   theme:"Theme verse (John 16:33) and the official theme song",
+   a:["10.1–31 Filling the bouquet board before the statue of Mary with Rosary stickers","10.25 Five decades of the Rosary in the church courtyard after the evening Mass (online participation too)","Prayer box installed; Mass intentions for the Day of Prayer announced","Official WYD 2027 prayer begins to be read at every Mass"],
+   y:["Learning the theme song together"],
+   p:["Volunteer recruitment notice posted","Checking the opening of participant registration"],
+   k:[["10.1~31","Rose Rosary"],["10.25","Offering five decades of the Rosary"]]},
+  {ym:"2026-11", prog:"Journey 3 · Stay Awake — The First Sunday of Waiting", note:"Film photos of people at prayer after Masses of the First Sunday of Advent · 12.13 exhibition · 12.20 framed prints",
+   theme:"St. John Paul II",
+   a:["Prayer photos after the 11.28 evening Mass and the 11.29 06:00 · 09:00 · 11:00 · 18:00 WYD joint Masses","Promoting the 8:27 pm prayer","Rosary decade count begins"],
+   y:["First youth Holy Hour","Archdiocese · 11.5 Holy Hour with the Archbishop","Archdiocese · Open Masses 11.13 · 11.18 · 11.27","Archdiocese · 11.7 Super Class · 11.14 Film Therapy · 11.28 Peace Run marathon","Archdiocese · Barbed-wire Cross project every Sunday"],
+   p:["Four-week Advent drive for homestay host families begins (11.28–12.24, sign up after Mass or with a form at the parish office)","Young adult and youth registration opens (group registration and package info)","Holy Market group booth applications (11.8–25) · outside vendor applications (11.15–25)","Spiritual Planning Team gathering; team structure and roles defined"],
+   k:[["11.7","WYD booth at the Amsa 1-dong flea market"],["11.8","Holy Market booth applications open"],["11.25","Holy Market booth applications close"],["11.21","41st World Youth Day (diocesan)"],["11.28","Homestay drive begins"],["11.29","Prayer photos · First Sunday of Advent"]]},
+  {ym:"2026-12", prog:"Christmas Holy Market", note:"12.20 Fourth Sunday of Advent · activity, snack and market zones; proceeds go to the WYD fund",
+   theme:"St. Andrew Kim Taegon",
+   a:["12.13 Prayer photo exhibition in the Meeting Room · frame orders · prayer cards","12.20 09:00–16:00 Christmas Holy Market — 4 activity · 6 snack · 10+ market booths","12.20 Framed prayer photos handed out at the WYD booth of the Holy Market","Advent and Christmas prayer"],
+   y:["Young adult rota for the Prayers of the Faithful finalized"],
+   p:["Homestay host family drive (until 12.24 Christmas Eve)","Parish volunteer recruitment (guiding, lodging, meals, interpreting)"],
+   k:[["12.13","Prayer photo exhibition"],["12.20","Christmas Holy Market"],["12.27","Holy Market accounts · donation ranking announced"]]},
+  {ym:"2027-01", prog:"Mass offered in light", note:"Reference: Vatican Mass of the Presentation of the Lord",
+   theme:"St. Frances Xavier Cabrini (patron of immigrants)",
+   a:["Regular Day of Prayer on the fourth Sunday"],
+   y:["Prayers of the Faithful rota"],
+   p:["Homestay and volunteer recruitment continues","Checking parish lodging space (2 m × 1.5 m per person, separate for men and women, showers and toilets)"]},
+  {ym:"2027-02", prog:null,
+   theme:"St. Josephine Bakhita",
+   a:["Lent centered on the usual liturgy"],
+   y:["Few new events; regular prayer only"],
+   p:["Requesting help from candidate group lodgings (nearby schools and gyms)","Building WYD awareness and partnerships in the local community"],
+   k:[["2.10","Ash Wednesday · Lent begins"]]},
+  {ym:"2027-03", prog:"Making a crown of thorns",
+   theme:"St. Carlo Acutis",
+   a:["Final check on the 1 Billion Rosary Decades (before Holy Week)"],
+   y:[],
+   p:["Volunteer recruitment closes → training prep (organizing committee role training and youth office volunteer training)"],
+   k:[["3.28","Easter Sunday"]]},
+  {ym:"2027-04", prog:null,
+   theme:"Reading the papal exhortation Christus Vivit together",
+   a:["Gathering with host families"],
+   y:[],
+   p:["Homestay recruitment closes → final selection by the pastor","Checking the updated parish manual (issued by the organizing committee)"]},
+  {ym:"2027-05", prog:null,
+   theme:"Hospitality and encounter: a welcoming heart, understanding cultures and languages",
+   a:["Prayer to welcome the WYD Cross to the Archdiocese of Seoul"],
+   y:["Joining the Cross pilgrimage (once parish and district dates are set)"],
+   p:["Homestay host meeting and training; checking lodging and washing facilities","Young adult and youth registration closes","Confirming whether the Cross will visit our parish or district"],
+   k:[["5.30~","WYD Cross arrives in the Archdiocese of Seoul"]]},
+  {ym:"2027-06", prog:null,
+   theme:"Prayer gathering before sending",
+   a:["Information on attending the Closing Mass together"],
+   y:[],
+   p:["Parish participant numbers confirmed","Pilgrim registration closes (first half) → assignment to parishes"]},
+  {ym:"2027-07", prog:null,
+   theme:"Prayer for hospitality; focus on the 8:27 pm prayer",
+   a:["Sending Mass · blessing of volunteers"],
+   y:["Prayer to welcome pilgrims"],
+   p:["Pilgrim numbers and packages per parish confirmed (notified in July) → homestay, lodging and volunteer assignments","Check-in prep: lodging signs and notices, air conditioning and power strips, breakfast delivery counts","Group travel and meeting point for the Closing Mass confirmed"],
+   k:[["July","Pilgrim assignments per parish confirmed"],["7.29~8.2","Days in the Dioceses (outside Seoul)"]]},
+  {ym:"2027-08", prog:"Main event · from pilgrim arrival (8.1–2) to farewell (8.9)",
+   theme:"Parish young adult prayer during the main event",
+   a:["Thanksgiving Mass after the main event"],
+   y:["Evening of sharing"],
+   p:["8.1–2 Pilgrim arrival and welcome ceremony","8.4–6 Parish hosts catechesis","8.9 Pilgrim check-out and farewell","Regular parish events reduced to focus on welcoming pilgrims"],
+   k:[["8.1~2","Pilgrims arrive"],["8.3~8.8","WYD Seoul 2027 main event"],["8.9","Pilgrim farewell"]]}
+];
+
+const kst = new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Seoul"}));
+const curYM = `${kst.getFullYear()}-${String(kst.getMonth()+1).padStart(2,"0")}`;
+const esc = s => s.replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+/* WYD Cross pilgrimage — wydseoul.org 'Where the Cross is now' 향후 일정 (2026.10.8 확인) */
+const CROSS = [
+  {d:"Diocese of Daejeon", from:"2026-08-26", to:"2026-09-30"},
+  {d:"Diocese of Busan", from:"2026-09-30", to:"2026-10-28"},
+  {d:"Diocese of Jeju", from:"2026-10-28", to:"2026-11-25"},
+  {d:"Diocese of Masan", from:"2026-11-25", to:"2026-12-23"},
+  {d:"Rest",     from:"2026-12-23", to:"2027-01-27", rest:true},
+  {d:"Diocese of Incheon", from:"2027-01-27", to:"2027-03-03"},
+  {d:"Diocese of Andong", from:"2027-03-03", to:"2027-03-31"},
+  {d:"Diocese of Cheongju", from:"2027-03-31", to:"2027-04-28"},
+  {d:"Diocese of Jeonju", from:"2027-04-28", to:"2027-05-30"},
+  {d:"Archdiocese of Seoul", from:"2027-05-30", to:null, seoul:true}
+];
+(function(){
+  const day = s => new Date(s + "T00:00:00+09:00");
+  const fmt = s => { const [y,m,d] = s.split("-").map(Number); return `${String(y).slice(2)}.${m}.${d}`; };
+  const now = new Date();
+  const state = c => (c.to && now >= day(c.to)) ? "done" : (now >= day(c.from) ? "now" : "next");
+  document.getElementById("route").innerHTML = CROSS.map(c => {
+    const st = state(c);
+    return `<li class="stop ${st}${c.seoul?" seoul":""}${c.rest?" rest":""}"><span class="pt" aria-hidden="true"></span>
+      <span class="nm">${c.d}${st==="now"?" · now":""}</span><span class="dt">${fmt(c.from)} – ${c.to?fmt(c.to):""}</span></li>`;
+  }).join("");
+  const cur = CROSS.find(c => state(c) === "now");
+  const seoul = CROSS.find(c => c.seoul);
+  const dSeoul = Math.ceil((day(seoul.from) - now) / 86400000);
+  document.getElementById("crossNow").innerHTML = `
+    <p class="k">Where the Cross is now</p>
+    <p class="where">${cur ? cur.d : "Checking pilgrimage schedule"}</p>
+    ${cur ? `<p class="when">${fmt(cur.from)} – ${cur.to ? fmt(cur.to) : ""}</p>` : ""}
+    <p class="when">Arrives in Seoul ${fmt(seoul.from)}${dSeoul > 0 ? ` · D-${dSeoul}` : ""}</p>
+    <p class="q">The WYD Cross, received by the young people of Seoul on November 24, 2024, is on pilgrimage through the dioceses of Korea. <b>“Now it is your turn!”</b> (Pope Francis, handover of the symbols)</p>
+    <a href="https://wydseoul.org/youthCrossPilgrimage/crossRoute" target="_blank" rel="noopener">See latest location ↗</a>`;
+})();
+
+/* 진행 막대 — 날짜 기준 위치 */
+(function(){
+  const total = END - START, at = d => Math.min(100, Math.max(0, (d - START) / total * 100));
+  const pct = at(new Date());
+  const first = ym => ym === "2026-08" ? START : new Date(ym + "-01T00:00:00+09:00");
+  const nextM = ym => { let [y,m] = ym.split("-").map(Number); m++; if(m>12){m=1;y++;} return new Date(`${y}-${String(m).padStart(2,"0")}-01T00:00:00+09:00`); };
+  document.getElementById("phases").innerHTML = PHASES.map(p=>{
+    const w = at(p.to === "2027-08" ? END : nextM(p.to)) - at(first(p.from));
+    return `<div class="phase ${p.cls||""}" style="flex:0 0 calc(${w}% - 2px)"><span class="pf">${p.name}</span><span class="ps">${p.short||p.name}</span></div>`;
+  }).join("");
+  document.getElementById("fill").style.width = pct + "%";
+  document.getElementById("pin").style.left = pct + "%";
+  let ticks = "", i = 0;
+  for(let y=2026, m=9; y<2027 || m<=8; m++){ if(m>12){m=1;y++;}
+    const d = new Date(`${y}-${String(m).padStart(2,"0")}-01T00:00:00+09:00`);
+    ticks += `<span class="${i++%2?"odd":""}" style="left:${at(d)}%">${["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][m]}</span>`; if(y===2027 && m===8) break; }
+  document.getElementById("ticks").innerHTML = ticks;
+  const d = Math.ceil((WYD - new Date())/86400000);
+  document.getElementById("dday").innerHTML = (d>0?`D-${d}`:d===0?"D-DAY":"WYD 2027") + "<small>Main event Aug 3</small>";
+  document.getElementById("today").textContent =
+    `Today ${kst.getFullYear()}.${kst.getMonth()+1}.${kst.getDate()} · Day ${Math.floor((new Date()-START)/86400000)+1}· ${Math.round(pct)}% elapsed`;
+})();
+
+/* 타임라인 */
+function render(){
+  let html = "", lastPhase = null;
+  for(const m of MONTHS){
+    const ph = PHASES.find(p => m.ym >= p.from && m.ym <= p.to);
+    if(ph !== lastPhase){ html += `<div class="phase-h"><b>${ph.name}</b>${ph.label || ph.from.replace("-",".")} — ${ph.to.replace("-",".")}</div>`; lastPhase = ph; }
+    const [y, mo] = m.ym.split("-");
+    const endYM = m.end || m.ym;
+    const state = (m.ym <= curYM && curYM <= endYM) ? "now" : (endYM < curYM ? "past" : "");
+    const li = (arr, t, label) => arr.map(x=>`<li data-t="${t}"><span class="tag t-${t}">${label}</span><span>${esc(x)}</span></li>`).join("");
+    html += `<article class="m ${state}" data-ym="${m.ym}">
+      <div class="mo"><p class="n">${m.span ? `<span style="font-size:22px;margin:0">${m.span}</span>` : `${+mo}<span></span>`}</p><p class="y">${y}</p>${state==="now"?'<span class="badge">This month</span>':""}</div>
+      <div class="body">
+        <p class="theme${m.prog ? "" : " tbd"}"><small>Spiritual Planning Team program</small>${m.prog ? esc(m.prog) : "TBD · in planning"}${m.note ? `<span class="pnote">${esc(m.note)}</span>` : ""}</p>
+        ${m.k ? `<div class="keys">${m.k.map(([d,t])=>`<span class="key"><b>${d}</b>${esc(t)}</span>`).join("")}</div>` : ""}
+        <ul class="items">${li(m.a,"all","All parishioners")}${li((m.theme?[" Theme (draft) · "+m.theme]:[]).concat(m.y),"youth","Young adults · Youth")}${li(m.p,"parish","Parish preparation")}</ul>
+      </div></article>`;
+  }
+  document.getElementById("tl").innerHTML = html;
+}
+render();
+
+/* 대상 필터 */
+const chips = [...document.querySelectorAll(".chip")];
+function applyFilter(f){
+  chips.forEach(c => c.setAttribute("aria-pressed", String(c.dataset.f === f)));
+  document.querySelectorAll("#tl [data-t]").forEach(el => { el.hidden = !(f === "all-view" || el.dataset.t === f); });
+  try{ localStorage.setItem("wyd-plan-filter", f); }catch(e){}
+}
+chips.forEach(c => c.addEventListener("click", () => applyFilter(c.dataset.f)));
+let saved = "all-view"; try{ saved = localStorage.getItem("wyd-plan-filter") || "all-view"; }catch(e){}
+applyFilter(saved);
+
+/* This month로 스크롤 (해시 없을 때만) */
+function scrollToNow(){ if(!location.hash){ const now = document.querySelector(".m.now"); if(now && now.offsetTop > innerHeight) now.scrollIntoView({block:"center"}); } }
+
+/* 인트로 — Type Sequence(타이핑 55ms/자, 대기 중 커서 깜빡임 530ms) 후 제목 자리로 착지 */
+(function(){
+  const TEXT = "Toward WYD Seoul,\na year our parish walks together";
+  const TYPE_MS = 55, HOLD_MS = 1100, LAND_MS = 900;
+  const intro = document.getElementById("intro"), typed = document.getElementById("typed"),
+        caret = document.getElementById("caret"), box = document.getElementById("introText"),
+        title = document.getElementById("title"), rises = [...document.querySelectorAll(".rise")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let seen = false; try{ seen = sessionStorage.getItem("wyd-plan-intro") === "1"; }catch(e){}
+  if(reduce || seen || location.hash){ intro.remove(); scrollToNow(); return; }
+
+  // iOS 사파리 등에서 새로고침 시 이전 스크롤 위치가 복원되면 착지 지점이 어긋나므로 맨 위로 고정
+  try{ history.scrollRestoration = "manual"; }catch(e){}
+  window.scrollTo(0, 0);
+  document.body.classList.add("intro-on","title-hide","rise-wait"); intro.hidden = false;
+  let i = 0, blink = null, timers = [], done = false;
+  const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+
+  function finish(){
+    if(done) return; done = true;
+    timers.forEach(clearTimeout); clearInterval(blink); clearInterval(iv);
+    document.body.classList.remove("intro-on","title-hide","rise-wait");
+    intro.remove();
+    rises.forEach((el, k) => { el.style.transitionDelay = (k*70) + "ms"; });
+    try{ sessionStorage.setItem("wyd-plan-intro","1"); }catch(e){}
+  }
+  function land(){
+    clearInterval(blink); caret.classList.add("off");
+    // FLIP: 인트로 문구 → 실제 h1 위치·크기
+    const a = box.getBoundingClientRect(), b = title.getBoundingClientRect();
+    window.scrollTo(0, 0);
+    const r0 = b.height / a.height, sc = Math.abs(r0 - 1) < 0.06 ? 1 : r0;   // 휴대폰처럼 크기가 거의 같으면 확대·축소 없이 이동만 (사파리 글자 재렌더링으로 튀는 것 방지)
+    intro.classList.add("landing");
+    box.style.transition = `transform ${LAND_MS}ms cubic-bezier(.65,0,.35,1)`;
+    box.style.transform = `translate3d(${b.left - a.left}px, ${b.top - a.top}px, 0) scale(${sc})`;
+    later(() => { document.body.classList.remove("rise-wait"); rises.forEach((el,k)=>{ el.style.transitionDelay = (k*80)+"ms"; }); }, LAND_MS - 150);   // 스크롤 잠금은 착지가 끝난 뒤(finish)에 풀어 도중에 화면이 다시 계산되지 않게
+    // 착지 직후 실제 제목을 먼저 보이고 인트로 글자를 짧게 겹쳐 사라지게 해서 교체 순간이 튀지 않게
+    later(() => { document.body.classList.remove("title-hide"); box.style.transition = "opacity 320ms ease"; box.style.opacity = "0"; }, LAND_MS + 20);
+    later(finish, LAND_MS + 360);
+  }
+  // 시간 기반 진행: 타이머가 지연·중단돼도 경과 시간으로 글자 수를 계산
+  const NL = TEXT.indexOf("\n"), NL_EXTRA = TYPE_MS*3;
+  const typeEnd = TEXT.length*TYPE_MS + NL_EXTRA;
+  let t0 = null, phase = "typing";
+  function charsAt(ms){ const n = Math.floor(ms / TYPE_MS); return n <= NL ? n : Math.max(NL+1, Math.floor((ms - NL_EXTRA)/TYPE_MS)); }
+  function step(){
+    if(done || phase === "land") return;
+    const el = performance.now() - t0;
+    if(phase === "typing"){
+      const n = Math.min(TEXT.length, charsAt(el));
+      if(typed.textContent.length !== n) typed.textContent = TEXT.slice(0, n);
+      if(el >= typeEnd){ typed.textContent = TEXT; phase = "hold"; blink = setInterval(() => caret.classList.toggle("off"), 530); }
+    } else if(phase === "hold" && el >= typeEnd + HOLD_MS){ phase = "land"; clearInterval(iv); land(); }
+  }
+  function raf(){ step(); if(!done && phase !== "land") requestAnimationFrame(raf); }
+  let iv = null;
+  let started = false;
+  function start(){ if(started) return; started = true; t0 = performance.now(); raf(); iv = setInterval(step, 150); }
+  // 제목 글꼴(Pretendard)에서 인트로 글자 조각을 먼저 받아 둔 뒤 시작 (최대 1.5초) — 타이핑·착지 중 글꼴 교체로 끊기지 않게
+  Promise.race([(document.fonts && document.fonts.load) ? Promise.all([document.fonts.load('700 60px "Pretendard Variable"', TEXT.replace(/\n/g, "")), document.fonts.load('700 60px "Noto Sans KR"', TEXT.replace(/\n/g, "")), document.fonts.ready]) : Promise.resolve(), new Promise(r => setTimeout(r, 1500))])
+    .then(() => later(start, 250));
+  setTimeout(finish, 10000);   // 안전장치: 어떤 경우에도 10초 안에 본문 표시
+  document.getElementById("introSkip").addEventListener("click", finish);
+  addEventListener("keydown", e => { if(e.key === "Escape") finish(); }, {once:true});
+})();
+</script>
+<script>
+/* 모바일 Open menu·닫기 */
+(function(){
+  var m = document.getElementById("mn"), opener = null;
+  function open(btn){ opener = btn; m.hidden = false; document.documentElement.style.overflow = "hidden"; var a = m.querySelector("nav a"); if(a) a.focus(); }
+  function close(){ m.hidden = true; document.documentElement.style.overflow = ""; if(opener) opener.focus(); }
+  document.addEventListener("click", function(e){
+    var o = e.target.closest("[data-menu-open]"); if(o){ e.preventDefault(); open(o); return; }
+    if(e.target.closest("[data-menu-close]")) close();
+  });
+  addEventListener("keydown", function(e){ if(e.key === "Escape" && !m.hidden) close(); });
+})();
+</script>
+<script>/* 줄바꿈 정리: 괄호·가운뎃점·하이픈으로 붙은 말이 줄 끝에서 끊기지 않게 (JS로 그린 내용 포함) */
+(function(){var P=/[()·「」‘’“”~\-–]/,H=/[가-힣0-9A-Za-z]/,SKIP="script,style,svg,textarea,code,.nw,.ml";
+function fix(root){if(!root||root.nodeType!==1)return;var w=document.createTreeWalker(root,4,null),a=[],n;while(n=w.nextNode()){var p=n.parentElement;if(!p||p.closest(SKIP))continue;if(P.test(n.data))a.push(n);}
+a.forEach(function(n){var t=n.data,re=/\S+/g,f=document.createDocumentFragment(),last=0,m,hit=false;while(m=re.exec(t)){var k=m[0];if(k.length<3||!P.test(k)||!H.test(k))continue;hit=true;f.appendChild(document.createTextNode(t.slice(last,m.index)));(k.length>10&&k.indexOf("·")>=0?k.match(/[^·]*·|[^·]+$/g):[k]).forEach(function(s){var e=document.createElement("span");e.className="nw";e.textContent=s;f.appendChild(e);});last=m.index+k.length;}
+if(hit&&n.parentNode){f.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(f,n);}});}
+fix(document.body);new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.closest&&m.target.closest(".nw"))return;m.addedNodes.forEach(function(x){if(x.nodeType===1){if(!x.classList.contains("nw"))fix(x);}else if(x.nodeType===3)fix(x.parentElement);});});}).observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>

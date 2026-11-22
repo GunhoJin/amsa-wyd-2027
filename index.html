@@ -9,6 +9,9 @@
 <title>암사동성당 WYD 2027 | 서울 세계청년대회 준비</title>
 <meta name="description" content="암사동성당 WYD 2027 — 2027 서울 세계청년대회(WYD)를 향한 1년. 천주교 서울대교구 암사동성당 청년·중고등부·본당 공동체의 준비 일정, 영적 순례 여정 프로그램, 성탄 홀리마켓, 홈스테이·봉사자 안내.">
 <link rel="canonical" href="https://amsawyd.com/">
+<link rel="alternate" hreflang="ko" href="https://amsawyd.com/">
+<link rel="alternate" hreflang="en" href="https://amsawyd.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://amsawyd.com/">
 <link rel="alternate" type="application/rss+xml" title="암사동성당 WYD 2027 소식" href="https://amsawyd.com/rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="암사동성당 WYD 2027">
@@ -193,6 +196,7 @@ html.fw .rv,html.fw .sl,html.fw .sr{animation-play-state:paused}
 /* 공식 앱 제목만 페이퍼로지 Bold (SIL OFL 1.1) — 이 제목에 쓰인 글자만 담은 1KB 파일 */
 @font-face{font-family:"Paperlogy";src:url("fonts/Paperlogy-7Bold-app.woff2") format("woff2");font-weight:700;font-display:block}
 .app .app-h{font-family:"Paperlogy","Pretendard Variable","Pretendard",sans-serif!important;font-weight:700!important}
+.lang{margin-left:auto;margin-right:20px;color:inherit;font-size:14px;font-weight:600;letter-spacing:.06em;text-decoration:none;opacity:.8}.lang:hover{opacity:1}
 </style>
 <script>
 /* 제목 글꼴 미리 받기: 받는 동안 등장 애니메이션을 멈춰 둠 (최대 1초) */
@@ -204,7 +208,7 @@ html.fw .rv,html.fw .sl,html.fw .sr{animation-play-state:paused}
 
 <div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="메뉴">
   <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav aria-label="전체 메뉴"><a href="/" aria-current="page">홈<small>처음 화면</small></a><a href="/about">소개<small>2027 서울 세계청년대회</small></a><a href="/plan">1년 일정<small>월별 준비 일정</small></a><a href="/pilgrim">순례길<small>천주교 서울 순례길</small></a><a href="/program">프로그램<small>영적 순례 여정</small></a><a href="/join">참여하기<small>봉사자 · 순례길 · 홈스테이</small></a><a href="/donate">후원하기<small>본당 WYD 후원금</small></a><a href="/contact" class="mn-sub">문의 · 수정 요청</a></nav>
+  <nav aria-label="전체 메뉴"><a href="/" aria-current="page">홈<small>처음 화면</small></a><a href="/about">소개<small>2027 서울 세계청년대회</small></a><a href="/plan">1년 일정<small>월별 준비 일정</small></a><a href="/pilgrim">순례길<small>천주교 서울 순례길</small></a><a href="/program">프로그램<small>영적 순례 여정</small></a><a href="/join">참여하기<small>봉사자 · 순례길 · 홈스테이</small></a><a href="/donate">후원하기<small>본당 WYD 후원금</small></a><a href="/contact" class="mn-sub">문의 · 수정 요청</a><a href="/en/" class="mn-sub" hreflang="en" lang="en">English</a></nav>
 </div>
 
 <main class="hero" id="home">
@@ -216,6 +220,7 @@ html.fw .rv,html.fw .sl,html.fw .sr{animation-play-state:paused}
     <div class="row">
       <a href="#home" class="logo" style="font-size:32px;letter-spacing:-.96px"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
       <a href="/join" data-join class="btn btn-l" style="padding:14px 20px">함께하기</a>
+      <a class="lang" href="/en/" hreflang="en" lang="en">EN</a>
       <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
     </div>
   </div>
@@ -330,6 +335,7 @@ function build(key){
   const F = FRAMES[key], c = F.copy;
   const nav = F.nav ? `<div class="nav rv" style="width:${F.nav.w}px;padding:${F.nav.pad};${F.nav.h?`height:${F.nav.h}px;`:""}animation-delay:0ms">
       <div class="row"><a href="#home" class="logo" style="font-size:${F.nav.logo}px;letter-spacing:${F.nav.ls}px"><span class="lw">AMSA</span><span class="lchip"><img src="wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
+      <a class="lang" href="/en/" hreflang="en" lang="en">EN</a>
       <button class="menu" type="button" data-menu-open aria-controls="mn" aria-label="메뉴 열기" style="background:transparent;border:0;padding:0;color:#fff;display:block"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="display:block"><path d="M4 8h16M4 16h16"/></svg></button></div></div>` : "";
   return `<div class="frame" style="width:${F.w}px;height:${F.h}px">
     ${nav}

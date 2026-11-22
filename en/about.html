@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+/* 카카오톡 안에서 열리면 휴대폰 기본 브라우저로 다시 열기 (?inapp=1 을 붙이면 카카오톡 안에서 그대로 봄) */
+(function(){try{var u=navigator.userAgent||"";if(/KAKAOTALK/i.test(u)&&!/[?&]inapp=1/.test(location.search)){location.replace("kakaotalk://web/openExternal?url="+encodeURIComponent(location.href));}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About WYD Seoul 2027 | Amsa-dong Parish WYD 2027</title>
+<meta name="description" content="About World Youth Day Seoul 2027 — the Pope’s invitation, the theme verse John 16:33, the logo and official colors, patron saints, and the road so far.">
+<link rel="canonical" href="https://amsawyd.com/en/about">
+<link rel="alternate" hreflang="ko" href="https://amsawyd.com/about">
+<link rel="alternate" hreflang="en" href="https://amsawyd.com/en/about">
+<link rel="alternate" hreflang="x-default" href="https://amsawyd.com/about">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Amsa-dong Parish WYD 2027">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="About WYD Seoul 2027 | Amsa-dong Parish WYD 2027">
+<meta property="og:description" content="About World Youth Day Seoul 2027 — the Pope’s invitation, the theme verse John 16:33, the logo and official colors, patron saints, and the road so far.">
+<meta property="og:url" content="https://amsawyd.com/en/about">
+<meta property="og:image" content="https://amsawyd.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#101216">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<style>
+/* 제목 글꼴: Pretendard(SIL OFL 1.1) — 필요한 글자만 내려받는 웹폰트, 설치 없이 표시 */
+.mn,.mn nav a,.mn button{font-family:"Noto Sans KR",sans-serif}
+.mn nav a{font-weight:700}
+.mn nav a small{font-weight:400}
+.mn nav a.mn-sub{font-size:17px}
+/* 스크롤바가 생기거나 사라질 때 화면이 옆으로 밀리지 않게 (인트로 착지 위치 어긋남 방지) */
+html{scrollbar-gutter:stable}
+h1,h2,.intro-text{font-weight:700!important}
+h1,h2,.intro-text{font-family:"Pretendard Variable","Pretendard",var(--font,"Noto Sans KR"),sans-serif}
+/* Layout: 1년 일정 페이지와 같은 어두운 바탕·청록 강조. 핵심 정보 띠 → 교황의 초대 → 주제 성구 → 로고·색 → 수호성인 → 지구를 위한 WYD → 대회 발자취 */
+:root{
+  --ink:#101216; --panel:#16191f;
+  --fg:#ffffff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.48);
+  --line:rgba(255,255,255,.1); --line-2:rgba(255,255,255,.18);
+  --accent:#00A1DB; --gold:#FFD27A;
+  --btn-light:#f0f0f0; --btn-ink:#060e08;
+  --font:"Malgun Gothic","맑은 고딕","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+/* 참여 안내 준비 전까지 참여 버튼 숨김 — 이 줄만 지우면 다시 표시 */
+[data-join]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg)}
+body{font-family:var(--font);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p,blockquote{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+
+.nav{border-bottom:1px solid var(--line-2)}
+.nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:26px;letter-spacing:-.8px;line-height:1;display:flex;align-items:baseline;gap:.35em;white-space:nowrap}
+.logo small{font-size:12px;letter-spacing:.08em;color:var(--fg-2)}
+.links{display:flex;gap:24px;font-size:15px}
+.links a{color:var(--fg-2);transition:color .2s}.links a:hover,.links a[aria-current]{color:var(--fg)}
+@media (max-width:640px){.links{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-size:14px;white-space:nowrap}
+.btn-l{color:var(--btn-ink);background:var(--btn-light)}
+
+.head{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.head::before{content:"";position:absolute;inset:0;background:url("/bg-desktop.png") center 60%/cover no-repeat;opacity:.55;pointer-events:none}
+.head .wrap{position:relative;padding-block:56px 44px;display:grid;gap:28px}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.head h1{font-size:clamp(30px,5vw,46px);line-height:1.2;letter-spacing:-1.2px;font-weight:500;text-wrap:balance}
+.lead{color:var(--fg-2);max-width:58ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:rgba(16,18,22,.55)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px}
+.fact:last-child{border-right:0}
+@media (max-width:760px){.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.fact .k{font-size:12px;color:var(--fg-3)}
+.fact .v{font-size:19px;font-weight:500;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+
+main .wrap{padding-block:16px 64px}
+.sec{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;padding-block:44px;border-bottom:1px solid var(--line)}
+.sec:last-child{border-bottom:0}
+@media (max-width:760px){.sec{grid-template-columns:1fr;gap:16px;padding-block:36px}}
+.sec-h{display:grid;gap:6px;align-content:start}
+.sec-h .n{font-size:12px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.sec-h h2{font-size:22px;font-weight:500;letter-spacing:-.4px;line-height:1.35}
+.body{display:grid;gap:16px;min-width:0;max-width:68ch}
+.body p{color:var(--fg-2)}
+.body p b{color:var(--fg);font-weight:500}
+.quote{border-left:2px solid var(--gold);padding:4px 0 4px 18px;font-size:clamp(20px,2.6vw,26px);line-height:1.5;letter-spacing:-.4px;font-weight:500;color:var(--fg)}
+.quote cite{display:block;margin-top:8px;font-size:13px;font-style:normal;color:var(--fg-3);font-weight:400;letter-spacing:0}
+.chain{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:600px){.chain{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.chain div{background:var(--panel);padding:14px;display:grid;gap:4px}
+.chain .no{font-size:12px;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.chain .w{font-size:15px;font-weight:500}
+.chain .now{background:rgba(255,210,122,.1)}.chain .now .w{color:var(--gold)}
+
+.swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media (max-width:600px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sw{display:grid;gap:8px}
+.sw i{display:block;height:56px;border:1px solid var(--line-2)}
+.sw b{font-size:13px;font-weight:500;color:var(--fg)}
+.sw span{font-size:12px;color:var(--fg-3);font-variant-numeric:tabular-nums}
+
+.saints{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);max-width:none}
+.saint:last-child:nth-child(odd){grid-column:1/-1}
+@media (max-width:760px){.saints{grid-template-columns:1fr}}
+.saint{background:var(--panel);padding:20px;display:grid;gap:8px;align-content:start}
+.saint h3{font-size:17px;font-weight:500}
+.saint .meta{display:flex;flex-wrap:wrap;gap:6px}
+.saint .meta span{font-size:12px;color:var(--fg-2);border:1px solid var(--line-2);border-radius:999px;padding:1px 9px}
+.saint p{font-size:14px;color:var(--fg-2);line-height:1.65}
+
+.tl{list-style:none;margin:0;padding:0;display:grid}
+.tl li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.tl li:last-child{border-bottom:0}
+.tl time{font-size:13px;color:var(--fg-3);font-variant-numeric:tabular-nums;padding-top:1px}
+.tl span{font-size:15px;color:var(--fg-2)}
+.tl li.hl time{color:var(--gold)}.tl li.hl span{color:var(--fg)}
+
+.src{font-size:13px;color:var(--fg-3)}
+.src a{color:var(--accent)}
+.foot{border-top:1px solid var(--line);color:var(--fg-3);font-size:13px}
+.foot .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* 모바일 메뉴 */
+.mn-btn{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:0;padding:0;margin-right:-8px;cursor:pointer;color:#fff}
+.mn-btn svg{width:24px;height:24px}
+.mn{position:fixed;inset:0;z-index:200;background:rgba(16,18,22,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top,0px) + 16px) 20px calc(env(safe-area-inset-bottom,0px) + 32px);animation:mnIn .22s ease both;color:#fff}
+.mn[hidden]{display:none!important}
+@keyframes mnIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mn{animation:none}}
+.mn-top{display:flex;justify-content:space-between;align-items:center;min-height:40px}
+.mn-k{font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.5);font-weight:700}
+.mn-x{width:40px;height:40px;margin-right:-8px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;color:#fff;cursor:pointer}
+.mn-x svg{width:22px;height:22px}
+.mn-top,.mn nav{width:100%;max-width:1040px;margin-inline:auto}
+.mn nav{display:grid;grid-template-columns:minmax(0,560px);justify-content:end;align-content:start;margin-top:24px;flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding-right:4px}
+.mn nav a{display:flex;flex-direction:row-reverse;align-items:baseline;justify-content:space-between;text-align:right;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:25px;letter-spacing:-.6px;line-height:1.2;color:#fff;text-decoration:none}
+.mn nav a small{font-size:15px;letter-spacing:0;color:rgba(255,255,255,.5)}
+.mn nav a[aria-current]{color:#00A1DB}
+.mn nav a:focus-visible{outline-offset:-2px}
+.mn nav a:focus-visible,.mn-x:focus-visible,.mn-btn:focus-visible{outline:2px solid #00A1DB;outline-offset:2px}
+/* ── 인트로: Originkit Type Sequence 방식 타이핑 → 제목 자리로 착지 ── */
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding-inline:20px;background:transparent}
+/* 배경은 한 겹(::before)으로 합쳐 투명도만 애니메이션 — 휴대폰에서도 GPU로만 처리돼 착지가 끊기지 않음 */
+.intro::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(16,18,22,.65),rgba(16,18,22,.65)),url("/bg-desktop.png") center/cover no-repeat,var(--ink);opacity:1;pointer-events:none;transition:opacity .9s ease;will-change:opacity}
+.intro.landing::before{opacity:0}
+.intro-text{position:relative;margin:0;font-weight:500;color:var(--fg);white-space:pre-wrap;text-align:left;
+  font-size:clamp(26px,7.6vw,76px);line-height:1.2;letter-spacing:-.026em;transform-origin:0 0;will-change:transform}
+.caret{display:inline-block;box-sizing:border-box;width:.16em;height:.82em;margin-left:.08em;vertical-align:-.08em;
+  background:var(--accent);border:1.5px solid rgba(255,255,255,.35);border-radius:2px}
+.caret.off{opacity:0}
+.intro-skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));font:inherit;font-size:12px;color:var(--fg-3);
+  background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;transition:opacity .4s}
+.intro.landing .intro-skip{opacity:0}
+body.intro-on{overflow:hidden}
+body.title-hide .head h1{visibility:hidden}
+body.rise-wait .rise{opacity:0;transform:translateY(14px)}
+.rise{transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
+/* 홈 버튼: AMSA 워드마크(Pretendard) + WYD SEOUL 2027 공식 로고(원본 색 유지, 흰 바탕) */
+.logo{align-items:center!important;gap:10px!important}
+.logo .lw{font-family:"Pretendard Variable","Pretendard","Noto Sans KR",sans-serif;font-weight:800;letter-spacing:-.045em}
+.logo .lchip{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:4px 6px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.logo .lchip img{display:block;height:42px;width:auto}
+/* 줄바꿈: 괄호·가운뎃점으로 붙은 말은 한 줄, 마지막 줄 한 단어 방지 */
+.nw{white-space:nowrap}
+main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
+.lang{margin-left:auto;margin-right:20px;color:inherit;font-size:14px;font-weight:600;letter-spacing:.06em;text-decoration:none;opacity:.8}.lang:hover{opacity:1}
+</style>
+</head>
+<body>
+<div class="intro" id="intro" hidden>
+  <p class="intro-text" id="introText" aria-hidden="true"><span id="typed"></span><span class="caret" id="caret"></span></p>
+  <button class="intro-skip" id="introSkip" type="button">Skip</button>
+</div>
+
+<div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav aria-label="Full menu"><a href="/en/">Home<small>Start page</small></a><a href="/en/about" aria-current="page">About<small>World Youth Day Seoul 2027</small></a><a href="/en/plan">1-Year Plan<small>Monthly preparation</small></a><a href="/en/pilgrim">Pilgrimage<small>Seoul Catholic Pilgrimage Routes</small></a><a href="/en/program">Programs<small>Spiritual pilgrimage journey</small></a><a href="/en/join">Get Involved<small>Volunteers · Pilgrimage · Homestay</small></a><a href="/en/donate">Donate<small>Parish WYD fund</small></a><a href="/en/contact" class="mn-sub">Contact · Edit Request</a><a href="/about" class="mn-sub" hreflang="ko" lang="ko">한국어</a></nav>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="/en/" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="/wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
+    <a href="/en/join" data-join class="btn btn-l">Join Us</a>
+    <a class="lang" href="/about" hreflang="ko" lang="ko">KO</a>
+    <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</header>
+
+<section class="head">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rise">ABOUT · WYD SEOUL 2027</p>
+      <h1 id="title">Young people of the world<br>are gathering in Seoul</h1>
+      <p class="lead rise" style="margin-top:12px">World Youth Day, the Catholic Church’s festival where young people from around the world gather with the Pope, will be held in Seoul in the summer of 2027.</p>
+    </div>
+    <div class="facts rise">
+      <div class="fact"><span class="k">Main event</span><span class="v">2027.8.3 – 8.8</span></div>
+      <div class="fact"><span class="k">Host city</span><span class="v">Seoul, Korea</span></div>
+      <div class="fact"><span class="k">Theme verse</span><span class="v">John 16:33</span></div>
+      <div class="fact"><span class="k">In Asia</span><span class="v">First since Manila 1995</span></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+
+    <section class="sec" aria-labelledby="s1">
+      <div class="sec-h"><p class="n">INVITATION</p><h2 id="s1">The Pope’s invitation</h2></div>
+      <div class="body">
+        <blockquote class="quote">“The next World Youth Day will take place in Asia: in Seoul, Korea.”<cite>Pope Francis · Sending Mass of WYD Lisbon, August 6, 2023</cite></blockquote>
+        <p>The Pope described the move from Lisbon, at the western edge of Europe, to Seoul in the far East as <b>a sign of the dream of the Church’s universality and unity</b>. Then on August 3, 2025, Pope Leo XIV announced the dates of the Seoul event at the closing Mass of the Jubilee of Youth in Rome.</p>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s2">
+      <div class="sec-h"><p class="n">THEME</p><h2 id="s2">Theme verse</h2></div>
+      <div class="body">
+        <blockquote class="quote">“Take courage! I have conquered the world”<cite>John 16:33</cite></blockquote>
+        <p>These are the words Jesus left his disciples at the Last Supper. They recall the victory of Christ, who overcame fear even in the face of his Passion and death. They speak not of mere optimism but of <b>hope and courage rooted in the living Christ</b>.</p>
+        <p>The hope of this World Youth Day is that young people facing conflict, job insecurity and economic hardship will meet one another in Seoul, experience the joy of the Gospel, and be sent into the world as ‘pilgrims of hope’ and ‘missionaries full of courage’.</p>
+        <p>The themes of the last four World Youth Days form a single journey.</p>
+        <div class="chain">
+          <div><span class="no">38th</span><span class="w">Rejoicing in hope</span></div>
+          <div><span class="no">39th</span><span class="w">Walking without growing weary</span></div>
+          <div><span class="no">40th</span><span class="w">Bearing witness</span></div>
+          <div class="now"><span class="no">41st · Seoul</span><span class="w">Taking courage</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s3">
+      <div class="sec-h"><p class="n">LOGO</p><h2 id="s3">Logo and colors</h2></div>
+      <div class="body">
+        <p>The official logo writes the name of the capital, <b>‘Seoul’ (서울)</b>, in traditional Korean calligraphy. The rhythmic brushstrokes of the Korean letters can also be read as the English letters <b>W·Y·D</b>, expressing the harmonious unity of Seoul and WYD, East and West. Its theme is ‘Seoul and the youth of the world, united in the Holy Spirit’.</p>
+        <div class="swatches" aria-label="Official colors">
+          <div class="sw"><i style="background:#FFFFFF"></i><b>Pure White</b><span>Purity and conviction</span></div>
+          <div class="sw"><i style="background:#000000"></i><b>Black</b><span>A time of deep faith</span></div>
+          <div class="sw"><i style="background:#F32735"></i><b>Cross Red</b><span>Devotion and passion</span></div>
+          <div class="sw"><i style="background:#0047BB"></i><b>Youth Blue</b><span>The hope of youth</span></div>
+          <div class="sw"><i style="background:#FBE126"></i><b>Glorious Yellow</b><span>The light and life of Christ</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s4">
+      <div class="sec-h"><p class="n">PATRONS</p><h2 id="s4">Patron saints</h2></div>
+      <div class="body" style="max-width:none">
+        <div class="saints">
+          <article class="saint">
+            <h3>St. John Paul II</h3>
+            <div class="meta"><span>1920–2005</span><span>Feast Oct 22</span><span>Symbol · Crosier</span></div>
+            <p>He founded World Youth Day in 1984, inviting young people everywhere to be one in faith. He visited 129 countries during his pontificate and was canonized in 2014.</p>
+          </article>
+          <article class="saint">
+            <h3>St. Andrew Kim Taegon, priest, and companion martyrs</h3>
+            <div class="meta"><span>1821–1846</span><span>Symbol · Red stole</span></div>
+            <p>The first Korean Catholic priest. He was martyred at Saenamteo at the age of 25, just a year after his ordination, and was canonized in Seoul in 1984 with the 103 Korean Martyrs.</p>
+          </article>
+          <article class="saint">
+            <h3>St. Frances Xavier Cabrini</h3>
+            <div class="meta"><span>1850–1917</span><span>Feast Dec 22</span><span>Symbol · Steamship</span></div>
+            <p>Despite frail health she crossed the Atlantic 30 times and founded 67 institutions for immigrants. Today the patron saint of immigrants, she is a model of hospitality.</p>
+          </article>
+          <article class="saint">
+            <h3>St. Josephine Bakhita</h3>
+            <div class="meta"><span>1869–1947</span><span>Feast Feb 8</span><span>Symbol · Broken chains</span></div>
+            <p>A ‘witness of hope’ who, through God’s love, regained dignity and freedom amid the suffering of slavery. Her feast is also the World Day of Prayer against Human Trafficking.</p>
+          </article>
+          <article class="saint">
+            <h3>St. Carlo Acutis</h3>
+            <div class="meta"><span>1991–2006</span><span>Feast Oct 12</span><span>Symbol · Computer</span></div>
+            <p>A young saint known as the ‘patron saint of the internet’. He shared the faith digitally through a website cataloguing Eucharistic miracles and was canonized in 2025.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s5">
+      <div class="sec-h"><p class="n">ECOLOGY</p><h2 id="s5">WYD for the Earth</h2></div>
+      <div class="body">
+        <p>To live out the event’s core value of ‘love and ecology’, the organizing committee is running <b>the ‘Breath of Life for the Whole World’ (Onsum) campaign</b>. In the spirit of the encyclical Laudato Si’, it is a movement to care for the Earth as our common home.</p>
+        <p>Together with the Seoul Metropolitan Government and the Korea Forest Service, six tree-planting events are held each spring and autumn from 2025 to 2027, with about 2,000 young people planting more than 10,000 trees. The last one is on Arbor Day, April 5, 2027.</p>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s6">
+      <div class="sec-h"><p class="n">HISTORY</p><h2 id="s6">The road so far</h2></div>
+      <div class="body">
+        <ol class="tl">
+          <li class="hl"><time>2023.8.6</time><span>Seoul announced as the next host at the closing Mass of WYD Lisbon</span></li>
+          <li><time>2023.12.14</time><span>Seoul WYD Local Organizing Committee launched</span></li>
+          <li><time>2024.2.14</time><span>1 Billion Rosary Decades campaign begins</span></li>
+          <li><time>2024.7.28</time><span>Three years out: launch ceremony and Mass at Myeongdong Cathedral</span></li>
+          <li><time>2024.9.24</time><span>Theme verse and official logo unveiled at a Vatican press conference</span></li>
+          <li class="hl"><time>2024.11.24</time><span>WYD Cross and Marian icon received from the young people of Lisbon</span></li>
+          <li><time>2025.7.24–8.3</time><span>1,078 young people of the Archdiocese of Seoul make a pilgrimage to the Jubilee of Youth in Rome</span></li>
+          <li class="hl"><time>2025.8.3</time><span>Pope Leo XIV announces the dates of WYD Seoul</span></li>
+          <li><time>2025.10.27</time><span>Press briefing on the master plan</span></li>
+          <li class="hl"><time>2027.8.3–8</time><span>WYD Seoul 2027 main event</span></li>
+        </ol>
+        <p class="src">Source: <a href="https://wydseoul.org/introduction/moment" target="_blank" rel="noopener">official WYD Seoul 2027 website</a> — summary of its About section (the Pope’s invitation, theme verse, logo, patron saints, WYD for the Earth, and the road so far).</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>“Take courage! I have conquered the world” (John 16:33)</p>
+    <p>Amsa-dong Parish Spiritual Planning Team</p>
+  </div>
+</footer>
+<script>
+/* 모바일 Open menu·닫기 */
+(function(){
+  var m = document.getElementById("mn"), opener = null;
+  function open(btn){ opener = btn; m.hidden = false; document.documentElement.style.overflow = "hidden"; var a = m.querySelector("nav a"); if(a) a.focus(); }
+  function close(){ m.hidden = true; document.documentElement.style.overflow = ""; if(opener) opener.focus(); }
+  document.addEventListener("click", function(e){
+    var o = e.target.closest("[data-menu-open]"); if(o){ e.preventDefault(); open(o); return; }
+    if(e.target.closest("[data-menu-close]")) close();
+  });
+  addEventListener("keydown", function(e){ if(e.key === "Escape" && !m.hidden) close(); });
+})();
+</script>
+<script>
+/* 인트로 — Type Sequence(타이핑 55ms/자, 대기 중 커서 깜빡임 530ms) 후 제목 자리로 착지 */
+(function(){
+  const TEXT = "Young people of the world\nare gathering in Seoul";
+  const TYPE_MS = 55, HOLD_MS = 1100, LAND_MS = 900;
+  const intro = document.getElementById("intro"), typed = document.getElementById("typed"),
+        caret = document.getElementById("caret"), box = document.getElementById("introText"),
+        title = document.getElementById("title"), rises = [...document.querySelectorAll(".rise")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let seen = false; try{ seen = sessionStorage.getItem("wyd-about-intro") === "1"; }catch(e){}
+  if(reduce || seen || location.hash){ intro.remove(); return; }
+
+  // iOS 사파리 등에서 새로고침 시 이전 스크롤 위치가 복원되면 착지 지점이 어긋나므로 맨 위로 고정
+  try{ history.scrollRestoration = "manual"; }catch(e){}
+  window.scrollTo(0, 0);
+  document.body.classList.add("intro-on","title-hide","rise-wait"); intro.hidden = false;
+  let i = 0, blink = null, timers = [], done = false;
+  const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+
+  function finish(){
+    if(done) return; done = true;
+    timers.forEach(clearTimeout); clearInterval(blink); clearInterval(iv);
+    document.body.classList.remove("intro-on","title-hide","rise-wait");
+    intro.remove();
+    rises.forEach((el, k) => { el.style.transitionDelay = (k*70) + "ms"; });
+    try{ sessionStorage.setItem("wyd-about-intro","1"); }catch(e){}
+  }
+  function land(){
+    clearInterval(blink); caret.classList.add("off");
+    // FLIP: 인트로 문구 → 실제 h1 위치·크기
+    const a = box.getBoundingClientRect(), b = title.getBoundingClientRect();
+    window.scrollTo(0, 0);
+    const r0 = b.height / a.height, sc = Math.abs(r0 - 1) < 0.06 ? 1 : r0;   // 휴대폰처럼 크기가 거의 같으면 확대·축소 없이 이동만 (사파리 글자 재렌더링으로 튀는 것 방지)
+    intro.classList.add("landing");
+    box.style.transition = `transform ${LAND_MS}ms cubic-bezier(.65,0,.35,1)`;
+    box.style.transform = `translate3d(${b.left - a.left}px, ${b.top - a.top}px, 0) scale(${sc})`;
+    later(() => { document.body.classList.remove("rise-wait"); rises.forEach((el,k)=>{ el.style.transitionDelay = (k*80)+"ms"; }); }, LAND_MS - 150);   // 스크롤 잠금은 착지가 끝난 뒤(finish)에 풀어 도중에 화면이 다시 계산되지 않게
+    // 착지 직후 실제 제목을 먼저 보이고 인트로 글자를 짧게 겹쳐 사라지게 해서 교체 순간이 튀지 않게
+    later(() => { document.body.classList.remove("title-hide"); box.style.transition = "opacity 320ms ease"; box.style.opacity = "0"; }, LAND_MS + 20);
+    later(finish, LAND_MS + 360);
+  }
+  // 시간 기반 진행: 타이머가 지연·중단돼도 경과 시간으로 글자 수를 계산
+  const NL = TEXT.indexOf("\n"), NL_EXTRA = NL < 0 ? 0 : TYPE_MS*3;
+  const typeEnd = TEXT.length*TYPE_MS + NL_EXTRA;
+  let t0 = null, phase = "typing";
+  function charsAt(ms){ const n = Math.floor(ms / TYPE_MS); return (NL < 0 || n <= NL) ? n : Math.max(NL+1, Math.floor((ms - NL_EXTRA)/TYPE_MS)); }
+  function step(){
+    if(done || phase === "land") return;
+    const el = performance.now() - t0;
+    if(phase === "typing"){
+      const n = Math.min(TEXT.length, charsAt(el));
+      if(typed.textContent.length !== n) typed.textContent = TEXT.slice(0, n);
+      if(el >= typeEnd){ typed.textContent = TEXT; phase = "hold"; blink = setInterval(() => caret.classList.toggle("off"), 530); }
+    } else if(phase === "hold" && el >= typeEnd + HOLD_MS){ phase = "land"; clearInterval(iv); land(); }
+  }
+  function raf(){ step(); if(!done && phase !== "land") requestAnimationFrame(raf); }
+  let iv = null;
+  let started = false;
+  function start(){ if(started) return; started = true; t0 = performance.now(); raf(); iv = setInterval(step, 150); }
+  // 제목 글꼴(Pretendard)에서 인트로 글자 조각을 먼저 받아 둔 뒤 시작 (최대 1.5초) — 타이핑·착지 중 글꼴 교체로 끊기지 않게
+  Promise.race([(document.fonts && document.fonts.load) ? Promise.all([document.fonts.load('700 60px "Pretendard Variable"', TEXT.replace(/\n/g, "")), document.fonts.load('700 60px "Noto Sans KR"', TEXT.replace(/\n/g, "")), document.fonts.ready]) : Promise.resolve(), new Promise(r => setTimeout(r, 1500))])
+    .then(() => later(start, 250));
+  setTimeout(finish, 10000);   // 안전장치: 어떤 경우에도 10초 안에 본문 표시
+  document.getElementById("introSkip").addEventListener("click", finish);
+  addEventListener("keydown", e => { if(e.key === "Escape") finish(); }, {once:true});
+})();
+</script>
+<script>/* 줄바꿈 정리: 괄호·가운뎃점·하이픈으로 붙은 말이 줄 끝에서 끊기지 않게 (JS로 그린 내용 포함) */
+(function(){var P=/[()·「」‘’“”~\-–]/,H=/[가-힣0-9A-Za-z]/,SKIP="script,style,svg,textarea,code,.nw,.ml";
+function fix(root){if(!root||root.nodeType!==1)return;var w=document.createTreeWalker(root,4,null),a=[],n;while(n=w.nextNode()){var p=n.parentElement;if(!p||p.closest(SKIP))continue;if(P.test(n.data))a.push(n);}
+a.forEach(function(n){var t=n.data,re=/\S+/g,f=document.createDocumentFragment(),last=0,m,hit=false;while(m=re.exec(t)){var k=m[0];if(k.length<3||!P.test(k)||!H.test(k))continue;hit=true;f.appendChild(document.createTextNode(t.slice(last,m.index)));(k.length>10&&k.indexOf("·")>=0?k.match(/[^·]*·|[^·]+$/g):[k]).forEach(function(s){var e=document.createElement("span");e.className="nw";e.textContent=s;f.appendChild(e);});last=m.index+k.length;}
+if(hit&&n.parentNode){f.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(f,n);}});}
+fix(document.body);new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.closest&&m.target.closest(".nw"))return;m.addedNodes.forEach(function(x){if(x.nodeType===1){if(!x.classList.contains("nw"))fix(x);}else if(x.nodeType===3)fix(x.parentElement);});});}).observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>

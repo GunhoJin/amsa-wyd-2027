@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+/* 카카오톡 안에서 열리면 휴대폰 기본 브라우저로 다시 열기 (?inapp=1 을 붙이면 카카오톡 안에서 그대로 봄) */
+(function(){try{var u=navigator.userAgent||"";if(/KAKAOTALK/i.test(u)&&!/[?&]inapp=1/.test(location.search)){location.replace("kakaotalk://web/openExternal?url="+encodeURIComponent(location.href));}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Homestay Host Families | Amsa-dong Parish WYD 2027</title>
+<meta name="description" content="Amsa-dong Parish WYD 2027 is looking for homestay host families during a four-week Advent drive (11.28–12.24) — sign up after Mass or with a form at the parish office. Homestay Aug 2–8, 2027; requirements, schedule, assignment principles and FAQ.">
+<link rel="canonical" href="https://amsawyd.com/en/homestay">
+<link rel="alternate" hreflang="ko" href="https://amsawyd.com/homestay">
+<link rel="alternate" hreflang="en" href="https://amsawyd.com/en/homestay">
+<link rel="alternate" hreflang="x-default" href="https://amsawyd.com/homestay">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Amsa-dong Parish WYD 2027">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="Homestay Host Families | Amsa-dong Parish WYD 2027">
+<meta property="og:description" content="Amsa-dong Parish WYD 2027 is looking for homestay host families during a four-week Advent drive (11.28–12.24) — sign up after Mass or with a form at the parish office. Homestay Aug 2–8, 2027; requirements, schedule, assignment principles and FAQ.">
+<meta property="og:url" content="https://amsawyd.com/en/homestay">
+<meta property="og:image" content="https://amsawyd.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#101216">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<style>
+/* 제목 글꼴: Pretendard(SIL OFL 1.1) — 필요한 글자만 내려받는 웹폰트, 설치 없이 표시 */
+.mn,.mn nav a,.mn button{font-family:"Noto Sans KR",sans-serif}
+.mn nav a{font-weight:700}
+.mn nav a small{font-weight:400}
+.mn nav a.mn-sub{font-size:17px}
+/* 스크롤바가 생기거나 사라질 때 화면이 옆으로 밀리지 않게 (인트로 착지 위치 어긋남 방지) */
+html{scrollbar-gutter:stable}
+h1,h2,.intro-text{font-weight:700!important}
+h1,h2,.intro-text{font-family:"Pretendard Variable","Pretendard",var(--font,"Noto Sans KR"),sans-serif}
+/* Layout: 참여하기의 하위 페이지. 개요 → 자격 조건 → 일정 → 배정·교육 → 신청서 항목. 출처: 조직위 본당 매뉴얼(2026.4) */
+:root{
+  --ink:#101216; --panel:#16191f;
+  --fg:#ffffff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.48);
+  --line:rgba(255,255,255,.1); --line-2:rgba(255,255,255,.18);
+  --accent:#00A1DB; --gold:#FFD27A;
+  --c1:#00A1DB; --c2:#FFD27A; --c3:#B9A6FF;
+  --btn-light:#f0f0f0; --btn-ink:#060e08;
+  --font:"Malgun Gothic","맑은 고딕","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+/* 참여 안내 준비 전까지 참여 버튼 숨김 — 이 줄만 지우면 다시 표시 */
+[data-join]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg)}
+body{font-family:var(--font);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+
+.nav{border-bottom:1px solid var(--line-2)}
+.nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:26px;letter-spacing:-.8px;line-height:1;display:flex;align-items:baseline;gap:.35em;white-space:nowrap}
+.logo small{font-size:12px;letter-spacing:.08em;color:var(--fg-2)}
+.links{display:flex;gap:24px;font-size:15px}
+.links a{color:var(--fg-2);transition:color .2s}.links a:hover,.links a[aria-current]{color:var(--fg)}
+@media (max-width:640px){.links{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-size:14px;white-space:nowrap}
+.btn-l{color:var(--btn-ink);background:var(--btn-light)}
+
+.head{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.head::before{content:"";position:absolute;inset:0;background:url("/bg-desktop.png") center 40%/cover no-repeat;opacity:.5;pointer-events:none}
+.head .wrap{position:relative;padding-block:56px 44px;display:grid;gap:28px}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.head h1{font-size:clamp(30px,5vw,46px);line-height:1.2;letter-spacing:-1.2px;font-weight:500;text-wrap:balance}
+.lead{color:var(--fg-2);max-width:60ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:rgba(16,18,22,.55)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px}
+.fact:last-child{border-right:0}
+@media (max-width:760px){.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.fact .k{font-size:12px;color:var(--fg-3)}
+.fact .v{font-size:19px;font-weight:500;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+
+main .wrap{padding-block:40px 64px;display:grid;gap:48px}
+main .wrap > section{min-width:0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.sec-h h2{font-size:22px;font-weight:500;letter-spacing:-.4px}
+.sec-h p{font-size:13px;color:var(--fg-3)}
+/* 참여 */
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.04em;border-radius:999px;padding:3px 10px;border:1px solid var(--line-2);color:var(--fg-2)}
+.badge.open{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+.top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.jg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+@media (max-width:760px){.jg{grid-template-columns:1fr}}
+.jc{border:1px solid var(--line);background:var(--panel);padding:24px;display:grid;gap:16px;align-content:start}
+.jc.open{border-color:rgba(255,210,122,.45)}
+.jc .k{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.jc h3{font-size:24px;font-weight:500;letter-spacing:-.4px;line-height:1.3}
+.jc .desc{color:var(--fg-2)}
+.jc ul{margin:0;padding-left:18px;color:var(--fg-2);font-size:14px;display:grid;gap:2px}
+.jc .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.ja{font-size:14px;border-radius:999px;padding:10px 18px;border:1px solid var(--line-2);color:var(--fg);white-space:nowrap;transition:opacity .2s,border-color .2s}
+.ja:hover{border-color:rgba(255,255,255,.5)}
+.ja.pri{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.ja.pri:hover{opacity:.85}
+.ja[aria-disabled="true"]{background:transparent;color:var(--fg-3);border-style:dashed;border-color:var(--line-2);cursor:default;pointer-events:none}
+.bo.fixed{border-style:dashed;border-color:rgba(0,161,219,.5)}
+.bo.fixed::before{content:"Fixed";counter-increment:none;color:var(--accent)}
+.back{font-size:14px}
+.back a{color:var(--accent)}
+.notice{font-size:13px;color:var(--fg-3);margin-top:16px}
+
+/* 홀리마켓 */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:rgba(16,18,22,.55)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px}
+.fact:last-child{border-right:0}
+@media (max-width:760px){.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.fact .k{font-size:12px;color:var(--fg-3)}
+.fact .v{font-size:18px;font-weight:500;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+.booths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;list-style:none;margin:0;padding:0;counter-reset:b}
+@media (max-width:860px){.booths{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.booths{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bo{counter-increment:b;border:1px solid var(--line);background:var(--panel);padding:16px;display:grid;gap:6px;min-height:112px;align-content:start}
+.bo::before{content:counter(b,decimal-leading-zero);font-size:11px;font-weight:700;color:var(--fg-3);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.bo h3{font-size:18px;font-weight:500;letter-spacing:-.3px}
+.bo .t{font-size:13px;color:var(--fg-3)}
+.bo.taken{border-color:rgba(255,210,122,.45)}
+.bo.taken .t{color:var(--gold)}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:860px){.rules{grid-template-columns:1fr}}
+.ru{background:var(--panel);padding:20px;display:grid;gap:8px;align-content:start}
+.ru .k{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.ru h3{font-size:16px;font-weight:500}
+.ru p{font-size:14px;color:var(--fg-2)}
+.tl{list-style:none;margin:0;padding:0;display:grid;border-left:2px solid var(--line-2);margin-left:6px}
+.tl li{position:relative;padding:0 0 22px 22px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px}
+@media (max-width:520px){.tl li{grid-template-columns:1fr;gap:2px}}
+.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:999px;background:var(--ink);border:2px solid var(--line-2)}
+.tl li.done{color:var(--fg-3)}
+.tl li.done::before{background:var(--fg-3);border-color:var(--fg-3)}
+.tl li.next::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 4px rgba(255,210,122,.2)}
+.tl .d{font-size:14px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.tl li.done .d{color:var(--fg-3)}
+.tl li.next .d{color:var(--gold)}
+.tl h3{font-size:16px;font-weight:500}
+.tl p{font-size:14px;color:var(--fg-2)}
+.tl li.done p{color:var(--fg-3)}
+.own{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.own{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.own{grid-template-columns:1fr}}
+.ow{border:1px solid var(--line);background:var(--panel);padding:18px;display:grid;gap:6px;align-content:start}
+.ow .k{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.06em}
+.ow h3{font-size:16px;font-weight:500}
+.ow p{font-size:14px;color:var(--fg-2)}
+
+.mk-lead{color:var(--fg-2);max-width:60ch;margin-bottom:18px}
+.sec-h .ey{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.1em;display:block;margin-bottom:4px}
+
+.own.own3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:860px){.own.own3{grid-template-columns:1fr}}
+.rules.r4{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:860px){.rules.r4{grid-template-columns:1fr}}
+/* 줄바꿈: 괄호·가운뎃점으로 붙은 말은 한 줄, 마지막 줄 한 단어 방지 */
+.nw{white-space:nowrap}
+main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
+/* 홈스테이 모집·FAQ */
+.recruit{border:1px solid rgba(255,210,122,.45);background:var(--panel);padding:24px;display:grid;gap:16px}
+.recruit .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.recruit h3{font-size:24px;font-weight:500;letter-spacing:-.4px;line-height:1.3;margin:0}
+.recruit dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;margin:0;font-size:15px}
+.recruit dt{color:var(--fg-3)}.recruit dd{margin:0}
+.recruit .acts{display:flex;flex-wrap:wrap;gap:8px}
+.recruit .quote{color:var(--gold);font-size:15px;margin:0}
+.faq{display:grid;gap:8px}
+.faq-g{font-size:12px;letter-spacing:.1em;color:var(--gold);font-weight:700;margin:18px 0 4px}
+.faq-g:first-child{margin-top:0}
+.faq details{border:1px solid var(--line);background:var(--panel);padding:0 18px}
+.faq summary{cursor:pointer;list-style:none;padding:14px 0;font-size:15px;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--fg-3);font-size:18px;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:0 0 14px;font-size:14px;color:var(--fg-2)}
+/* 모바일 메뉴 */
+.mn-btn{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:0;padding:0;margin-right:-8px;cursor:pointer;color:#fff}
+.mn-btn svg{width:24px;height:24px}
+.mn{position:fixed;inset:0;z-index:200;background:rgba(16,18,22,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top,0px) + 16px) 20px calc(env(safe-area-inset-bottom,0px) + 32px);animation:mnIn .22s ease both;color:#fff}
+.mn[hidden]{display:none!important}
+@keyframes mnIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mn{animation:none}}
+.mn-top{display:flex;justify-content:space-between;align-items:center;min-height:40px}
+.mn-k{font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.5);font-weight:700}
+.mn-x{width:40px;height:40px;margin-right:-8px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;color:#fff;cursor:pointer}
+.mn-x svg{width:22px;height:22px}
+.mn-top,.mn nav{width:100%;max-width:1040px;margin-inline:auto}
+.mn nav{display:grid;grid-template-columns:minmax(0,560px);justify-content:end;align-content:start;margin-top:24px;flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding-right:4px}
+.mn nav a{display:flex;flex-direction:row-reverse;align-items:baseline;justify-content:space-between;text-align:right;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:25px;letter-spacing:-.6px;line-height:1.2;color:#fff;text-decoration:none}
+.mn nav a small{font-size:15px;letter-spacing:0;color:rgba(255,255,255,.5)}
+.mn nav a[aria-current]{color:#00A1DB}
+.mn nav a:focus-visible{outline-offset:-2px}
+.mn nav a:focus-visible,.mn-x:focus-visible,.mn-btn:focus-visible{outline:2px solid #00A1DB;outline-offset:2px}
+/* ── 인트로: Originkit Type Sequence 방식 타이핑 → 제목 자리로 착지 ── */
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding-inline:20px;background:transparent}
+/* 배경은 한 겹(::before)으로 합쳐 투명도만 애니메이션 — 휴대폰에서도 GPU로만 처리돼 착지가 끊기지 않음 */
+.intro::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(16,18,22,.65),rgba(16,18,22,.65)),url("/bg-desktop.png") center/cover no-repeat,var(--ink);opacity:1;pointer-events:none;transition:opacity .9s ease;will-change:opacity}
+.intro.landing::before{opacity:0}
+.intro-text{position:relative;margin:0;font-weight:500;color:var(--fg);white-space:pre-wrap;text-align:left;
+  font-size:clamp(26px,7.6vw,76px);line-height:1.2;letter-spacing:-.026em;transform-origin:0 0;will-change:transform}
+.caret{display:inline-block;box-sizing:border-box;width:.16em;height:.82em;margin-left:.08em;vertical-align:-.08em;
+  background:var(--accent);border:1.5px solid rgba(255,255,255,.35);border-radius:2px}
+.caret.off{opacity:0}
+.intro-skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));font:inherit;font-size:12px;color:var(--fg-3);
+  background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;transition:opacity .4s}
+.intro.landing .intro-skip{opacity:0}
+body.intro-on{overflow:hidden}
+body.title-hide .head h1{visibility:hidden}
+body.rise-wait .rise{opacity:0;transform:translateY(14px)}
+.rise{transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
+/* 홈 버튼: AMSA 워드마크(Pretendard) + WYD SEOUL 2027 공식 로고(원본 색 유지, 흰 바탕) */
+.logo{align-items:center!important;gap:10px!important}
+.logo .lw{font-family:"Pretendard Variable","Pretendard","Noto Sans KR",sans-serif;font-weight:800;letter-spacing:-.045em}
+.logo .lchip{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:4px 6px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.logo .lchip img{display:block;height:42px;width:auto}
+.lang{margin-left:auto;margin-right:20px;color:inherit;font-size:14px;font-weight:600;letter-spacing:.06em;text-decoration:none;opacity:.8}.lang:hover{opacity:1}
+</style>
+</head>
+<body>
+<div class="intro" id="intro" hidden>
+  <p class="intro-text" id="introText" aria-hidden="true"><span id="typed"></span><span class="caret" id="caret"></span></p>
+  <button class="intro-skip" id="introSkip" type="button">Skip</button>
+</div>
+
+<div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav aria-label="Full menu"><a href="/en/">Home<small>Start page</small></a><a href="/en/about">About<small>World Youth Day Seoul 2027</small></a><a href="/en/plan">1-Year Plan<small>Monthly preparation</small></a><a href="/en/pilgrim">Pilgrimage<small>Seoul Catholic Pilgrimage Routes</small></a><a href="/en/program">Programs<small>Spiritual pilgrimage journey</small></a><a href="/en/join" aria-current="page">Get Involved<small>Volunteers · Pilgrimage · Homestay</small></a><a href="/en/donate">Donate<small>Parish WYD fund</small></a><a href="/en/contact" class="mn-sub">Contact · Edit Request</a><a href="/homestay" class="mn-sub" hreflang="ko" lang="ko">한국어</a></nav>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="/en/" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="/wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
+    <a href="/en/join" data-join class="btn btn-l">Join Us</a>
+    <a class="lang" href="/homestay" hreflang="ko" lang="ko">KO</a>
+    <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</header>
+
+<section class="head">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rise">HOMESTAY · Host families wanted</p>
+      <h1 id="title">Welcoming pilgrims<br>into our homes</h1>
+      <p class="lead rise" style="margin-top:12px">During the four weeks of Advent (11.28–12.24) we are looking for homestay host families. A homestay is more than a bed: it is hospitality that shares faith and daily life with pilgrims from around the world. No special facilities or perfect home are needed — a simple place to sleep and a light breakfast are enough.</p>
+    </div>
+    <div class="facts rise">
+      <div class="fact"><span class="k">Homestay dates</span><span class="v">2027.8.2 – 8.8</span></div>
+      <div class="fact"><span class="k">Guests</span><span class="v">2 or more</span></div>
+      <div class="fact"><span class="k">Provide</span><span class="v">Bed space · breakfast</span></div>
+      <div class="fact"><span class="k">Sign-up drive</span><span class="v">11.28 – 12.24</span></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <section aria-labelledby="h-rec">
+      <div class="sec-h"><h2 id="h-rec">Host family sign-up</h2><p>Four-week Advent drive</p></div>
+      <div class="recruit">
+        <div class="top"><span class="badge open">Open</span><span class="k" style="font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em">HOMESTAY HOST</span></div>
+        <h3>WYD homestay families wanted — four-week Advent drive!</h3>
+        <dl>
+          <dt>Sign-up period</dt><dd>Vigil Mass of the First Sunday of Advent (11.28) – Christmas Eve (12.24)</dd>
+          <dt>At church</dt><dd>After Masses from the Saturday vigil to the Sunday 6 pm young adult Mass (except early-morning Mass)</dd>
+          <dt>At the office</dt><dd>Application forms are available at the parish office at any time</dd>
+          <dt>Homestay dates</dt><dd>Monday, August 2 – Sunday, August 8, 2027 · farewell after breakfast on Monday, August 9</dd>
+          <dt>Selection</dt><dd>After sign-ups close, the pastor reviews and makes the final selection; selected families are briefed at a preparatory meeting</dd>
+          <dt>Contact</dt><dd>Parish office +82-2-442-8511~2</dd>
+        </dl>
+        <p class="quote">“Welcome pilgrims as you would welcome Jesus!”</p>
+        <div class="acts">
+          <a class="ja pri" href="https://docs.google.com/forms/d/e/1FAIpQLSdBi9G7u0wZQGIjR5WydsCykSqFcGnbnZonhM2PbJUh6D87Iw/viewform" target="_blank" rel="noopener">Full host FAQ (Korean)</a>
+          <a class="ja" href="#h-faq">FAQ</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-cond">
+      <div class="sec-h"><h2 id="h-cond">Who can host</h2><p>Based on the parish manual</p></div>
+      <div class="own own3">
+        <div class="ow"><p class="k">PARISH</p><h3>An active parishioner household</h3><p>A household registered in our parish, with parish contributions and Easter or Christmas confession in the last three years. An adult must live in the home.</p></div>
+        <div class="ow"><p class="k">ROOM</p><h3>Minimal sleeping space</h3><p>No bed is needed. A 2 m × 1.5 m space per person for a sleeping bag and luggage is enough. Bathrooms can be shared with the family.</p></div>
+        <div class="ow"><p class="k">BREAKFAST</p><h3>A light breakfast</h3><p>Toast, cereal and milk are plenty. If that is hard, guests can join the parish breakfast by prior arrangement.</p></div>
+      </div>
+      <div class="rules r4" style="margin-top:12px">
+        <div class="ru"><p class="k">TWO OR MORE</p><h3>Room for at least 2</h3><p>Teen pilgrims always travel with an adult leader, so each home must be able to welcome two or more.</p></div>
+        <div class="ru"><p class="k">ACCESS</p><h3>Getting to the parish and venues</h3><p>Guests must be able to reach the parish and venues on foot or by public transport; if that is difficult, the host should be able to help.</p></div>
+      </div>
+      <p class="notice">Pilgrims bring their own sleeping bags and personal items. The pastor selects the final host families after reviewing applications.</p>
+    </section>
+
+    <section aria-labelledby="h-sch">
+      <div class="sec-h"><h2 id="h-sch">Homestay schedule</h2><p>2027.8.2 – 8.8 · subject to change</p></div>
+      <ol class="tl">
+        <li><span class="d">8.2 (Mon)</span><div><h3>Welcome</h3><p>After the parish welcome and orientation, meet your assigned pilgrims and take them home. Groups may arrive at different times.</p></div></li>
+        <li><span class="d">8.3 – 8.6</span><div><h3>Living together</h3><p>Serve a light breakfast and go to the parish together. Pilgrims join WYD events during the day; in the evening, meet at the parish at the agreed time (around 5 pm) and go home together.</p></div></li>
+        <li><span class="d">8.7 (Sat)</span><div><h3>Vigil</h3><p>Serve breakfast and see them off. Pilgrims stay at the Closing Mass venue after the Vigil, so they do not come back that night.</p></div></li>
+        <li><span class="d">8.8 (Sun)</span><div><h3>Home after the Closing Mass</h3><p>No breakfast needed. When pilgrims return after the Closing Mass (around 2–4 pm), welcome them warmly so they can wash and rest.</p></div></li>
+        <li><span class="d">8.9 (Mon)</span><div><h3>Farewell</h3><p>Serve breakfast, help with packing and say goodbye.</p></div></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="h-assign">
+      <div class="sec-h"><h2 id="h-assign">How guests are assigned</h2></div>
+      <div class="rules r4">
+        <div class="ru"><p class="k">WISHES</p><h3>Your preferences count</h3><p>We ask in advance how many guests and which gender you prefer, and assign within what is comfortable for you.</p></div>
+        <div class="ru"><p class="k">SPACE</p><h3>Separate spaces for men and women</h3><p>Pilgrims of different sexes in the same home do not share a sleeping space.</p></div>
+        <div class="ru"><p class="k">LANGUAGE</p><h3>Same language together</h3><p>Where possible, pilgrims from the same country or language group are placed together to ease communication.</p></div>
+        <div class="ru"><p class="k">CARE</p><h3>Special care</h3><p>Minors, women, and pilgrims who need help with health or mobility are placed with suitable families under separate criteria.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-edu">
+      <div class="sec-h"><h2 id="h-edu">Before you host</h2><p>Covered at the preparatory meeting</p></div>
+      <div class="own">
+        <div class="ow"><p class="k">WELCOME</p><h3>Hospitality in faith</h3><p>Lodging and meals are offered in a spirit of service. A greeting, a short introduction to Korean culture and a welcome sign are nice touches for the first meeting.</p></div>
+        <div class="ow"><p class="k">LIFE</p><h3>Share house rules</h3><p>Check allergies and other health needs in advance, and agree on house rules such as bedtime, showers and going out.</p></div>
+        <div class="ow"><p class="k">TALK</p><h3>Communication tools</h3><p>When words fail, use translation apps such as Papago or Google Translate and picture communication cards (AAC).</p></div>
+        <div class="ow"><p class="k">TOGETHER</p><h3>Travel together, solve problems together</h3><p>Hosts accompany guests between home and the parish. If a problem comes up, don’t handle it alone — tell the parish coordinator.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-form">
+      <div class="sec-h"><h2 id="h-form">What the application asks</h2><p>At church · office form</p></div>
+      <div class="rules r4">
+        <div class="ru"><p class="k">FAMILY</p><h3>Family</h3><p>Head of household details (name, baptismal name, phone, address) and household members</p></div>
+        <div class="ru"><p class="k">HOME</p><h3>Home</h3><p>Type of home, pets, languages spoken, preferred gender, number of guests, available space (e.g. 1 bed, sleeping-bag space)</p></div>
+        <div class="ru"><p class="k">CHECK</p><h3>Confirmation</h3><p>You confirm the homestay dates (8.2–8.8), a light breakfast, and that this is a faith activity shared with the community.</p></div>
+        <div class="ru"><p class="k">COST</p><h3>Cost</h3><p>There is no fee or payment. Families provide only sleeping space and a light breakfast; pilgrims pay for lunch, dinner and transport with a prepaid card.</p></div>
+      </div>
+      <p class="notice">Each parish of the Archdiocese of Seoul will host about 2,000 pilgrims, about 500 of them in homestays. Assignments are confirmed in July 2027. Source: WYD Seoul 2027 Organizing Committee, Parish Manual (April 2026) — subject to updates.</p>
+    </section>
+
+    <section aria-labelledby="h-faq">
+      <div class="sec-h"><h2 id="h-faq">FAQ</h2><p>Selected from the Amsa-dong Parish host FAQ</p></div>
+      <div class="faq">
+        <p class="faq-g">If you’re hesitating</p>
+        <details><summary>I don’t speak English. Is that OK?</summary><p>You can use translation apps and picture cards (AAC), and we try to place pilgrims who share a language.</p></details>
+        <details><summary>My home is small and I have no spare bed.</summary><p>No bed is needed. Pilgrims bring sleeping bags, mats and toiletries; room to lay out a sleeping bag per person is enough. Just make sure men and women don’t sleep in the same space.</p></details>
+        <details><summary>I’m nervous about having strangers from abroad at home.</summary><p>Only registered pilgrims whose identity is verified will stay; they wear name badges, and at least two stay together. Any problem is solved with the parish coordinator.</p></details>
+        <details><summary>We both work, so no one is home during the day.</summary><p>Pilgrims are out at WYD events during the day, so you don’t need to be home. Hosts accompany them to and from the parish morning and evening; if times don’t work, talk to the parish.</p></details>
+        <details><summary>We’re an older couple. And we have pets.</summary><p>Any household with an adult can apply. Note pets and type of home (apartment, villa, house) on the form and we will take them into account.</p></details>
+        <p class="faq-g">Eligibility · assignment</p>
+        <details><summary>Can I apply if I’m registered in another parish?</summary><p>You need to be registered in our parish, with parish contributions and Easter or Christmas confession in the last three years.</p></details>
+        <details><summary>Why at least two guests?</summary><p>Because teen pilgrims come with an adult leader.</p></details>
+        <details><summary>Can I choose my guests’ nationality or gender?</summary><p>Nationality can’t be chosen. Number of guests, preferred gender and languages noted on the form are respected as far as possible. Nationality and numbers are confirmed in July 2027.</p></details>
+        <details><summary>How many pilgrims are coming to our parish?</summary><p>About 2,000, of whom about 500 are expected to stay in homestays.</p></details>
+        <p class="faq-g">Daily life · meals</p>
+        <details><summary>What should I serve for breakfast?</summary><p>Toast, cereal and milk are fine; fruit or boiled eggs are a nice extra. If it’s difficult, arrange in advance for guests to use the parish breakfast.</p></details>
+        <details><summary>Do I need to serve dinner?</summary><p>No. If you like, you can share a meal such as the first evening’s dinner.</p></details>
+        <details><summary>Do I need air conditioning or a separate bathroom?</summary><p>The bathroom can be shared with the family. Without air conditioning, please provide a fan. It helps to show guests the Wi-Fi, power outlets and where to dry laundry.</p></details>
+        <details><summary>How do I explain house rules?</summary><p>On the first day, gently explain rules such as bedtime, showers, going out, shoes and recycling; a short note in English helps.</p></details>
+        <p class="faq-g">Safety · contact</p>
+        <details><summary>What if a pilgrim gets sick or there’s a problem?</summary><p>Don’t handle it alone — tell the parish coordinator right away. Treatment must be at a hospital designated by the organizing committee for insurance to apply.</p></details>
+        <details><summary>Can I help in other ways besides hosting?</summary><p>Yes — as a volunteer for guiding, lodging, meals, interpreting or admin. Apply on the Get Involved page.</p></details>
+      </div>
+      <p class="notice">All questions and answers are in the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBi9G7u0wZQGIjR5WydsCykSqFcGnbnZonhM2PbJUh6D87Iw/viewform" target="_blank" rel="noopener" style="color:var(--accent)">homestay host FAQ (Korean)</a>. Based on the WYD Seoul 2027 Parish Manual (April 2026) and the Amsa-dong Parish WYD Volunteers and Admin Team — subject to change by archdiocesan notice.</p>
+    </section>
+
+    <p class="back"><a href="/en/join">Back to Get Involved</a></p>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>“Take courage! I have conquered the world” (John 16:33)</p>
+    <p>Amsa-dong Parish Spiritual Planning Team</p>
+  </div>
+</footer>
+
+<script>
+/* 모바일 Open menu·닫기 */
+(function(){
+  var m = document.getElementById("mn"), opener = null;
+  function open(btn){ opener = btn; m.hidden = false; document.documentElement.style.overflow = "hidden"; var a = m.querySelector("nav a"); if(a) a.focus(); }
+  function close(){ m.hidden = true; document.documentElement.style.overflow = ""; if(opener) opener.focus(); }
+  document.addEventListener("click", function(e){
+    var o = e.target.closest("[data-menu-open]"); if(o){ e.preventDefault(); open(o); return; }
+    if(e.target.closest("[data-menu-close]")) close();
+  });
+  addEventListener("keydown", function(e){ if(e.key === "Escape" && !m.hidden) close(); });
+})();
+</script>
+<script>
+/* 인트로 — Type Sequence(타이핑 55ms/자, 대기 중 커서 깜빡임 530ms) 후 제목 자리로 착지 */
+(function(){
+  const TEXT = "Welcoming pilgrims\ninto our homes";
+  const TYPE_MS = 55, HOLD_MS = 1100, LAND_MS = 900;
+  const intro = document.getElementById("intro"), typed = document.getElementById("typed"),
+        caret = document.getElementById("caret"), box = document.getElementById("introText"),
+        title = document.getElementById("title"), rises = [...document.querySelectorAll(".rise")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let seen = false; try{ seen = sessionStorage.getItem("wyd-homestay-intro") === "1"; }catch(e){}
+  if(reduce || seen || location.hash){ intro.remove(); return; }
+
+  // iOS 사파리 등에서 새로고침 시 이전 스크롤 위치가 복원되면 착지 지점이 어긋나므로 맨 위로 고정
+  try{ history.scrollRestoration = "manual"; }catch(e){}
+  window.scrollTo(0, 0);
+  document.body.classList.add("intro-on","title-hide","rise-wait"); intro.hidden = false;
+  let i = 0, blink = null, timers = [], done = false;
+  const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+
+  function finish(){
+    if(done) return; done = true;
+    timers.forEach(clearTimeout); clearInterval(blink); clearInterval(iv);
+    document.body.classList.remove("intro-on","title-hide","rise-wait");
+    intro.remove();
+    rises.forEach((el, k) => { el.style.transitionDelay = (k*70) + "ms"; });
+    try{ sessionStorage.setItem("wyd-homestay-intro","1"); }catch(e){}
+  }
+  function land(){
+    clearInterval(blink); caret.classList.add("off");
+    // FLIP: 인트로 문구 → 실제 h1 위치·크기
+    const a = box.getBoundingClientRect(), b = title.getBoundingClientRect();
+    window.scrollTo(0, 0);
+    const r0 = b.height / a.height, sc = Math.abs(r0 - 1) < 0.06 ? 1 : r0;   // 휴대폰처럼 크기가 거의 같으면 확대·축소 없이 이동만 (사파리 글자 재렌더링으로 튀는 것 방지)
+    intro.classList.add("landing");
+    box.style.transition = `transform ${LAND_MS}ms cubic-bezier(.65,0,.35,1)`;
+    box.style.transform = `translate3d(${b.left - a.left}px, ${b.top - a.top}px, 0) scale(${sc})`;
+    later(() => { document.body.classList.remove("rise-wait"); rises.forEach((el,k)=>{ el.style.transitionDelay = (k*80)+"ms"; }); }, LAND_MS - 150);   // 스크롤 잠금은 착지가 끝난 뒤(finish)에 풀어 도중에 화면이 다시 계산되지 않게
+    // 착지 직후 실제 제목을 먼저 보이고 인트로 글자를 짧게 겹쳐 사라지게 해서 교체 순간이 튀지 않게
+    later(() => { document.body.classList.remove("title-hide"); box.style.transition = "opacity 320ms ease"; box.style.opacity = "0"; }, LAND_MS + 20);
+    later(finish, LAND_MS + 360);
+  }
+  // 시간 기반 진행: 타이머가 지연·중단돼도 경과 시간으로 글자 수를 계산
+  const NL = TEXT.indexOf("\n"), NL_EXTRA = NL < 0 ? 0 : TYPE_MS*3;
+  const typeEnd = TEXT.length*TYPE_MS + NL_EXTRA;
+  let t0 = null, phase = "typing";
+  function charsAt(ms){ const n = Math.floor(ms / TYPE_MS); return (NL < 0 || n <= NL) ? n : Math.max(NL+1, Math.floor((ms - NL_EXTRA)/TYPE_MS)); }
+  function step(){
+    if(done || phase === "land") return;
+    const el = performance.now() - t0;
+    if(phase === "typing"){
+      const n = Math.min(TEXT.length, charsAt(el));
+      if(typed.textContent.length !== n) typed.textContent = TEXT.slice(0, n);
+      if(el >= typeEnd){ typed.textContent = TEXT; phase = "hold"; blink = setInterval(() => caret.classList.toggle("off"), 530); }
+    } else if(phase === "hold" && el >= typeEnd + HOLD_MS){ phase = "land"; clearInterval(iv); land(); }
+  }
+  function raf(){ step(); if(!done && phase !== "land") requestAnimationFrame(raf); }
+  let iv = null;
+  let started = false;
+  function start(){ if(started) return; started = true; t0 = performance.now(); raf(); iv = setInterval(step, 150); }
+  // 제목 글꼴(Pretendard)에서 인트로 글자 조각을 먼저 받아 둔 뒤 시작 (최대 1.5초) — 타이핑·착지 중 글꼴 교체로 끊기지 않게
+  Promise.race([(document.fonts && document.fonts.load) ? Promise.all([document.fonts.load('700 60px "Pretendard Variable"', TEXT.replace(/\n/g, "")), document.fonts.load('700 60px "Noto Sans KR"', TEXT.replace(/\n/g, "")), document.fonts.ready]) : Promise.resolve(), new Promise(r => setTimeout(r, 1500))])
+    .then(() => later(start, 250));
+  setTimeout(finish, 10000);   // 안전장치: 어떤 경우에도 10초 안에 본문 표시
+  document.getElementById("introSkip").addEventListener("click", finish);
+  addEventListener("keydown", e => { if(e.key === "Escape") finish(); }, {once:true});
+})();
+</script>
+<script>/* 줄바꿈 정리: 괄호·가운뎃점·하이픈으로 붙은 말이 줄 끝에서 끊기지 않게 (JS로 그린 내용 포함) */
+(function(){var P=/[()·「」‘’“”~\-–]/,H=/[가-힣0-9A-Za-z]/,SKIP="script,style,svg,textarea,code,.nw,.ml";
+function fix(root){if(!root||root.nodeType!==1)return;var w=document.createTreeWalker(root,4,null),a=[],n;while(n=w.nextNode()){var p=n.parentElement;if(!p||p.closest(SKIP))continue;if(P.test(n.data))a.push(n);}
+a.forEach(function(n){var t=n.data,re=/\S+/g,f=document.createDocumentFragment(),last=0,m,hit=false;while(m=re.exec(t)){var k=m[0];if(k.length<3||!P.test(k)||!H.test(k))continue;hit=true;f.appendChild(document.createTextNode(t.slice(last,m.index)));(k.length>10&&k.indexOf("·")>=0?k.match(/[^·]*·|[^·]+$/g):[k]).forEach(function(s){var e=document.createElement("span");e.className="nw";e.textContent=s;f.appendChild(e);});last=m.index+k.length;}
+if(hit&&n.parentNode){f.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(f,n);}});}
+fix(document.body);new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.closest&&m.target.closest(".nw"))return;m.addedNodes.forEach(function(x){if(x.nodeType===1){if(!x.classList.contains("nw"))fix(x);}else if(x.nodeType===3)fix(x.parentElement);});});}).observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>

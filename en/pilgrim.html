@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+/* 카카오톡 안에서 열리면 휴대폰 기본 브라우저로 다시 열기 (?inapp=1 을 붙이면 카카오톡 안에서 그대로 봄) */
+(function(){try{var u=navigator.userAgent||"";if(/KAKAOTALK/i.test(u)&&!/[?&]inapp=1/.test(location.search)){location.replace("kakaotalk://web/openExternal?url="+encodeURIComponent(location.href));}}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seoul Catholic Pilgrimage Routes | Amsa-dong Parish WYD 2027</title>
+<meta name="description" content="Route maps of the 3 courses and 24 sites of the Seoul Catholic Pilgrimage Routes, plus how to book guided walking tours of Bukchon, Seosomun and the Han River.">
+<link rel="canonical" href="https://amsawyd.com/en/pilgrim">
+<link rel="alternate" hreflang="ko" href="https://amsawyd.com/pilgrim">
+<link rel="alternate" hreflang="en" href="https://amsawyd.com/en/pilgrim">
+<link rel="alternate" hreflang="x-default" href="https://amsawyd.com/pilgrim">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Amsa-dong Parish WYD 2027">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="Seoul Catholic Pilgrimage Routes | Amsa-dong Parish WYD 2027">
+<meta property="og:description" content="Route maps of the 3 courses and 24 sites of the Seoul Catholic Pilgrimage Routes, plus how to book guided walking tours of Bukchon, Seosomun and the Han River.">
+<meta property="og:url" content="https://amsawyd.com/en/pilgrim">
+<meta property="og:image" content="https://amsawyd.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#101216">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<style>
+/* 제목 글꼴: Pretendard(SIL OFL 1.1) — 필요한 글자만 내려받는 웹폰트, 설치 없이 표시 */
+.mn,.mn nav a,.mn button{font-family:"Noto Sans KR",sans-serif}
+.mn nav a{font-weight:700}
+.mn nav a small{font-weight:400}
+.mn nav a.mn-sub{font-size:17px}
+/* 스크롤바가 생기거나 사라질 때 화면이 옆으로 밀리지 않게 (인트로 착지 위치 어긋남 방지) */
+html{scrollbar-gutter:stable}
+h1,h2,.intro-text{font-weight:700!important}
+h1,h2,.intro-text{font-family:"Pretendard Variable","Pretendard",var(--font,"Noto Sans KR"),sans-serif}
+/* Layout: 소개·1년 일정과 같은 어두운 바탕. 세 코스를 지하철 노선도처럼 이어진 세로 노선으로 — 가회동성당·약현성당이 코스 사이의 환승역 */
+:root{
+  --ink:#101216; --panel:#16191f;
+  --fg:#ffffff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.48);
+  --line:rgba(255,255,255,.1); --line-2:rgba(255,255,255,.18);
+  --accent:#00A1DB; --gold:#FFD27A;
+  --c1:#00A1DB; --c2:#FFD27A; --c3:#B9A6FF;
+  --btn-light:#f0f0f0; --btn-ink:#060e08;
+  --font:"Malgun Gothic","맑은 고딕","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+/* 참여 안내 준비 전까지 참여 버튼 숨김 — 이 줄만 지우면 다시 표시 */
+[data-join]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg)}
+body{font-family:var(--font);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+
+.nav{border-bottom:1px solid var(--line-2)}
+.nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:26px;letter-spacing:-.8px;line-height:1;display:flex;align-items:baseline;gap:.35em;white-space:nowrap}
+.logo small{font-size:12px;letter-spacing:.08em;color:var(--fg-2)}
+.links{display:flex;gap:24px;font-size:15px}
+.links a{color:var(--fg-2);transition:color .2s}.links a:hover,.links a[aria-current]{color:var(--fg)}
+@media (max-width:640px){.links{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-size:14px;white-space:nowrap}
+.btn-l{color:var(--btn-ink);background:var(--btn-light)}
+
+.head{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.head::before{content:"";position:absolute;inset:0;background:url("/bg-desktop.png") center 40%/cover no-repeat;opacity:.5;pointer-events:none}
+.head .wrap{position:relative;padding-block:56px 44px;display:grid;gap:28px}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.head h1{font-size:clamp(30px,5vw,46px);line-height:1.2;letter-spacing:-1.2px;font-weight:500;text-wrap:balance}
+.lead{color:var(--fg-2);max-width:60ch}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:rgba(16,18,22,.55)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:2px}
+.fact:last-child{border-right:0}
+@media (max-width:760px){.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.fact .k{font-size:12px;color:var(--fg-3)}
+.fact .v{font-size:19px;font-weight:500;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+
+main .wrap{padding-block:40px 64px;display:grid;gap:48px}
+main .wrap > section{min-width:0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.sec-h h2{font-size:22px;font-weight:500;letter-spacing:-.4px}
+.sec-h p{font-size:13px;color:var(--fg-3)}
+
+/* 노선 */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.lg{font:inherit;font-size:13px;color:var(--fg-2);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.lg i{width:18px;height:4px;border-radius:2px;display:block}
+.lg[aria-pressed="true"]{color:var(--fg);border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.06)}
+.lines{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:860px){.lines{grid-template-columns:1fr}}
+.course{border:1px solid var(--line);background:var(--panel);padding:20px 20px 12px;display:grid;gap:14px;align-content:start;--c:var(--c1)}
+.course.c2{--c:var(--c2)}.course.c3{--c:var(--c3)}
+.course.dim{opacity:.35}
+.ch{display:grid;gap:2px}
+.ch .no{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--c)}
+.ch h3{font-size:20px;font-weight:500;letter-spacing:-.3px}
+.ch .meta{font-size:13px;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.stops{list-style:none;margin:0;padding:0;position:relative}
+.stops::before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:4px;border-radius:2px;background:var(--c)}
+.st{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:7px 0;position:relative}
+.st .pt{width:22px;height:22px;border-radius:999px;background:var(--ink);border:4px solid var(--c);z-index:1}
+.st.x .pt{border-color:#fff;background:var(--c);box-shadow:0 0 0 3px var(--ink)}
+.st .nm{font-size:15px;line-height:1.35}
+.st .nm small{display:block;font-size:12px;color:var(--fg-3)}
+.st .tag{font-size:11px;font-weight:700;color:var(--ink);background:#fff;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:2px}
+.st a.map{font-size:12px;color:var(--fg-3);border:1px solid var(--line-2);border-radius:999px;padding:2px 9px;white-space:nowrap;transition:color .2s,border-color .2s}
+.st a.map:hover{color:var(--fg);border-color:rgba(255,255,255,.45)}
+
+/* 해설 도보관광 */
+.tours{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+@media (max-width:860px){.tours{grid-template-columns:1fr}}
+.tour{border:1px solid var(--line);background:var(--panel);padding:22px;display:grid;gap:14px;align-content:start}
+.tour .k{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.tour h3{font-size:20px;font-weight:500;letter-spacing:-.3px}
+.tour .desc{font-size:14px;color:var(--fg-2)}
+.tmeta{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;font-size:13px}
+.tmeta dt{color:var(--fg-3)}.tmeta dd{margin:0;color:var(--fg)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0;counter-reset:c}
+.chips li{counter-increment:c;font-size:12px;color:var(--fg-2);border:1px solid var(--line-2);border-radius:999px;padding:2px 10px 2px 6px;display:inline-flex;gap:6px;align-items:center}
+.chips li::before{content:counter(c);font-size:10px;font-weight:700;color:var(--ink);background:var(--fg-3);border-radius:999px;width:16px;height:16px;display:inline-grid;place-items:center;font-variant-numeric:tabular-nums}
+.chips li.pg{color:var(--fg);border-color:rgba(255,210,122,.5)}
+.chips li.pg::before{background:var(--gold)}
+.tacts{display:flex;flex-wrap:wrap;gap:8px}
+.ta{font-size:13px;border-radius:999px;padding:8px 14px;border:1px solid var(--line-2);color:var(--fg);transition:border-color .2s,background .2s;white-space:nowrap}
+.ta:hover{border-color:rgba(255,255,255,.5)}
+.ta.pri{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.ta.pri:hover{opacity:.85}
+.tnote{font-size:13px;color:var(--fg-3);margin-top:14px;display:grid;gap:4px}
+.tnote b{color:var(--fg-2);font-weight:500}
+/* 안내 */
+.notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:860px){.notes{grid-template-columns:1fr}}
+.nt{background:var(--panel);padding:20px;display:grid;gap:8px;align-content:start}
+.nt .k{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.nt h3{font-size:16px;font-weight:500}
+.nt p{font-size:14px;color:var(--fg-2)}
+.src{font-size:13px;color:var(--fg-3)}
+.src a{color:var(--accent)}
+.foot{border-top:1px solid var(--line);color:var(--fg-3);font-size:13px}
+.foot .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* 모바일 메뉴 */
+.mn-btn{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:transparent;border:0;padding:0;margin-right:-8px;cursor:pointer;color:#fff}
+.mn-btn svg{width:24px;height:24px}
+.mn{position:fixed;inset:0;z-index:200;background:rgba(16,18,22,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top,0px) + 16px) 20px calc(env(safe-area-inset-bottom,0px) + 32px);animation:mnIn .22s ease both;color:#fff}
+.mn[hidden]{display:none!important}
+@keyframes mnIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mn{animation:none}}
+.mn-top{display:flex;justify-content:space-between;align-items:center;min-height:40px}
+.mn-k{font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.5);font-weight:700}
+.mn-x{width:40px;height:40px;margin-right:-8px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;color:#fff;cursor:pointer}
+.mn-x svg{width:22px;height:22px}
+.mn-top,.mn nav{width:100%;max-width:1040px;margin-inline:auto}
+.mn nav{display:grid;grid-template-columns:minmax(0,560px);justify-content:end;align-content:start;margin-top:24px;flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding-right:4px}
+.mn nav a{display:flex;flex-direction:row-reverse;align-items:baseline;justify-content:space-between;text-align:right;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:25px;letter-spacing:-.6px;line-height:1.2;color:#fff;text-decoration:none}
+.mn nav a small{font-size:15px;letter-spacing:0;color:rgba(255,255,255,.5)}
+.mn nav a[aria-current]{color:#00A1DB}
+.mn nav a:focus-visible{outline-offset:-2px}
+.mn nav a:focus-visible,.mn-x:focus-visible,.mn-btn:focus-visible{outline:2px solid #00A1DB;outline-offset:2px}
+/* ── 인트로: Originkit Type Sequence 방식 타이핑 → 제목 자리로 착지 ── */
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding-inline:20px;background:transparent}
+/* 배경은 한 겹(::before)으로 합쳐 투명도만 애니메이션 — 휴대폰에서도 GPU로만 처리돼 착지가 끊기지 않음 */
+.intro::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(16,18,22,.65),rgba(16,18,22,.65)),url("/bg-desktop.png") center/cover no-repeat,var(--ink);opacity:1;pointer-events:none;transition:opacity .9s ease;will-change:opacity}
+.intro.landing::before{opacity:0}
+.intro-text{position:relative;margin:0;font-weight:500;color:var(--fg);white-space:pre-wrap;text-align:left;
+  font-size:clamp(26px,7.6vw,76px);line-height:1.2;letter-spacing:-.026em;transform-origin:0 0;will-change:transform}
+.caret{display:inline-block;box-sizing:border-box;width:.16em;height:.82em;margin-left:.08em;vertical-align:-.08em;
+  background:var(--accent);border:1.5px solid rgba(255,255,255,.35);border-radius:2px}
+.caret.off{opacity:0}
+.intro-skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));font:inherit;font-size:12px;color:var(--fg-3);
+  background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;cursor:pointer;transition:opacity .4s}
+.intro.landing .intro-skip{opacity:0}
+body.intro-on{overflow:hidden}
+body.title-hide .head h1{visibility:hidden}
+body.rise-wait .rise{opacity:0;transform:translateY(14px)}
+.rise{transition:opacity .7s cubic-bezier(.215,.61,.355,1),transform .7s cubic-bezier(.215,.61,.355,1)}
+/* 홈 버튼: AMSA 워드마크(Pretendard) + WYD SEOUL 2027 공식 로고(원본 색 유지, 흰 바탕) */
+.logo{align-items:center!important;gap:10px!important}
+.logo .lw{font-family:"Pretendard Variable","Pretendard","Noto Sans KR",sans-serif;font-weight:800;letter-spacing:-.045em}
+.logo .lchip{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:4px 6px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.logo .lchip img{display:block;height:42px;width:auto}
+/* 줄바꿈: 괄호·가운뎃점으로 붙은 말은 한 줄, 마지막 줄 한 단어 방지 */
+.nw{white-space:nowrap}
+main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
+.lang{margin-left:auto;margin-right:20px;color:inherit;font-size:14px;font-weight:600;letter-spacing:.06em;text-decoration:none;opacity:.8}.lang:hover{opacity:1}
+</style>
+</head>
+<body>
+<div class="intro" id="intro" hidden>
+  <p class="intro-text" id="introText" aria-hidden="true"><span id="typed"></span><span class="caret" id="caret"></span></p>
+  <button class="intro-skip" id="introSkip" type="button">Skip</button>
+</div>
+
+<div class="mn" id="mn" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mn-top"><p class="mn-k">AMSA · WYD 2027</p><button class="mn-x" type="button" data-menu-close aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav aria-label="Full menu"><a href="/en/">Home<small>Start page</small></a><a href="/en/about">About<small>World Youth Day Seoul 2027</small></a><a href="/en/plan">1-Year Plan<small>Monthly preparation</small></a><a href="/en/pilgrim" aria-current="page">Pilgrimage<small>Seoul Catholic Pilgrimage Routes</small></a><a href="/en/program">Programs<small>Spiritual pilgrimage journey</small></a><a href="/en/join">Get Involved<small>Volunteers · Pilgrimage · Homestay</small></a><a href="/en/donate">Donate<small>Parish WYD fund</small></a><a href="/en/contact" class="mn-sub">Contact · Edit Request</a><a href="/pilgrim" class="mn-sub" hreflang="ko" lang="ko">한국어</a></nav>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="/en/" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="/wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
+    <a href="/en/join" data-join class="btn btn-l">Join Us</a>
+    <a class="lang" href="/pilgrim" hreflang="ko" lang="ko">KO</a>
+    <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</header>
+
+<section class="head">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rise">PILGRIMAGE · SEOUL</p>
+      <h1 id="title">The martyrs’ road,<br>walked by young feet</h1>
+      <p class="lead rise" style="margin-top:12px">These routes follow in the footsteps of the martyrs of the Korean Church. In 2018 the Holy See proclaimed them Asia’s first official international pilgrimage site, and the WYD Seoul 2027 organizing committee has walked them with young people in its pilgrimage programs.</p>
+    </div>
+    <div class="facts rise">
+      <div class="fact"><span class="k">Courses</span><span class="v">3</span></div>
+      <div class="fact"><span class="k">Sites</span><span class="v">24</span></div>
+      <div class="fact"><span class="k">Total length</span><span class="v">44.1km</span></div>
+      <div class="fact"><span class="k">Proclaimed by the Holy See</span><span class="v">2018.9.14</span></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+
+    <section aria-labelledby="h-route">
+      <div class="sec-h"><h2 id="h-route">Courses and sites</h2><p>Dots with a white ring connect to the next course · ‘Map’ opens a Naver Map search</p></div>
+      <div class="legend" role="group" aria-label="Highlight course">
+        <button class="lg" type="button" data-c="all" aria-pressed="true">All</button>
+        <button class="lg" type="button" data-c="c1" aria-pressed="false"><i style="background:var(--c1)"></i>Way of the Word</button>
+        <button class="lg" type="button" data-c="c2" aria-pressed="false"><i style="background:var(--c2)"></i>Way of Life</button>
+        <button class="lg" type="button" data-c="c3" aria-pressed="false"><i style="background:var(--c3)"></i>Way of Unity</button>
+      </div>
+      <div class="lines" id="lines"></div>
+    </section>
+
+    <section aria-labelledby="h-tour">
+      <div class="sec-h"><h2 id="h-tour">Walk with a guide</h2><p>Seoul Guided Walking Tours · pilgrimage sites plus nearby landmarks</p></div>
+      <div class="tours">
+        <article class="tour">
+          <p class="k">Bukchon Pilgrimage Walk</p>
+          <h3>Bukchon’s faith history through its people</h3>
+          <p class="desc">Walk through Insadong and Bukchon following the stories of the Heungseon Daewongun, Fr. James Zhou Wenmo — the first foreign priest martyred in Korea — and Columba Kang Wan-suk, who hid him.</p>
+          <dl class="tmeta"><dt>Meeting point</dt><dd>Gwanghwamun Station, Exit 9</dd><dt>Duration</dt><dd>About 2 h 30 min</dd></dl>
+          <ol class="chips" aria-label="Bukchon pilgrimage route">
+            <li class="pg">Gwanghwamun Beatification Site</li><li>Gamgodang-gil</li><li>Site of the Korean Language Society</li><li>Yun Po-sun House</li><li>Jeongdok Library</li><li>Site of Maeng Sa-seong’s house</li><li class="pg">Gahoe-dong Catholic Church</li><li class="pg">Seokjeong Boreum Well</li>
+          </ol>
+          <div class="tacts">
+            <a class="ta pri" href="https://dobo.visitseoul.net/reserve/step1/list?lang=en&amp;cos_cd=48&amp;type=1" target="_blank" rel="noopener">Individual booking (1–10)</a>
+            <a class="ta" href="https://dobo.visitseoul.net/reserve/step1/list?lang=en&amp;cos_cd=48&amp;type=2" target="_blank" rel="noopener">Group booking (11+)</a>
+            <a class="ta" href="https://korean.visitseoul.net/walking-tour/%EC%84%9C%EC%9A%B8-%EC%88%9C%EB%A1%80%EA%B8%B8-%EB%B6%81%EC%B4%8C-%EC%88%9C%EB%A1%80%EA%B8%B8/KON026219" target="_blank" rel="noopener">Course info ↗</a>
+          </div>
+        </article>
+        <article class="tour">
+          <p class="k">Seosomun Pilgrimage Walk</p>
+          <h3>From Myeongdong to the Seosomun Martyrs’ Shrine</h3>
+          <p class="desc">Starting at Myeongdong Cathedral, where the first Korean Catholic community was born, the walk passes through Jeong-dong to the Martyrs’ Shrine outside Seosomun Gate and Yakhyeon Catholic Church.</p>
+          <dl class="tmeta"><dt>Meeting point</dt><dd>Front gate of Myeongdong Cathedral</dd><dt>Duration</dt><dd>About 2 h 30 min</dd></dl>
+          <ol class="chips" aria-label="Seosomun pilgrimage route">
+            <li class="pg">Myeongdong Cathedral</li><li>Myeongdong Theater</li><li>Hana Financial Group</li><li>Woori Financial Jongno Center (former Gwangtonggwan)</li><li>Seoul City Hall</li><li>Seoul Hall of Urbanism and Architecture</li><li>Anglican Cathedral of Seoul</li><li>Jeongdong stone-wall road</li><li>Seoul Museum of Art</li><li>Pai Chai Hakdang</li><li class="pg">Martyrs’ Shrine outside Seosomun Gate</li><li class="pg">Yakhyeon Catholic Church, Jungnim-dong</li>
+          </ol>
+          <div class="tacts">
+            <a class="ta pri" href="https://dobo.visitseoul.net/reserve/step1/list?lang=en&amp;cos_cd=49&amp;type=1" target="_blank" rel="noopener">Individual booking (1–10)</a>
+            <a class="ta" href="https://dobo.visitseoul.net/reserve/step1/list?lang=en&amp;cos_cd=49&amp;type=2" target="_blank" rel="noopener">Group booking (11+)</a>
+            <a class="ta" href="https://korean.visitseoul.net/walking-tour/%EC%84%9C%EC%9A%B8-%EC%88%9C%EB%A1%80%EA%B8%B8-%EC%84%9C%EC%86%8C%EB%AC%B8-%EC%88%9C%EB%A1%80%EA%B8%B8/KON026218" target="_blank" rel="noopener">Course info ↗</a>
+          </div>
+        </article>
+        <article class="tour">
+          <p class="k">Han River Pilgrimage Walk</p>
+          <h3>From Mapo to Jeoldusan and Yanghwajin</h3>
+          <p class="desc">From Mapo Food Street, past the Tojeong riverside gateway, the walk follows dirt, stone, forest and flower paths along the river to Jeoldusan Martyrs’ Shrine, site of the Byeongin Persecution martyrdoms, and Yanghwajin, where foreign missionaries rest.</p>
+          <dl class="tmeta"><dt>Meeting point</dt><dd>Mapo Station, Exit 1 (Line 5)</dd><dt>Duration</dt><dd>About 2 h 30 min</dd></dl>
+          <ol class="chips" aria-label="Han River pilgrimage route">
+            <li>Mapo Food Street</li><li>Han River pilgrimage feature section</li><li class="pg">Jeoldusan Martyrs’ Shrine</li><li>Yanghwajin Foreign Missionary Cemetery</li>
+          </ol>
+          <div class="tacts">
+            <a class="ta pri" href="https://dobo.visitseoul.net/reserve/step1/list?lang=en&amp;cos_cd=50&amp;type=1" target="_blank" rel="noopener">Individual booking (1–10)</a>
+            <a class="ta" href="https://dobo.visitseoul.net/reserve/step1/list?lang=en&amp;cos_cd=50&amp;type=2" target="_blank" rel="noopener">Group booking (11+)</a>
+            <a class="ta" href="https://korean.visitseoul.net/walking-tour/%EC%84%9C%EC%9A%B8-%EC%88%9C%EB%A1%80%EA%B8%B8-%ED%95%9C%EA%B0%95%EC%88%9C%EB%A1%80%EA%B8%B8/KON026217" target="_blank" rel="noopener">Course info ↗</a>
+          </div>
+        </article>
+      </div>
+      <div class="tnote">
+        <p>Gold numbers are sites of the Seoul Catholic Pilgrimage Routes. These are guided programs and must be booked in advance.</p>
+        <p><b>Cost</b> Guiding is free (admission, activity and transport costs are your own). Tours are also available in English, Japanese, Chinese, Vietnamese, Malay, Indonesian, Thai and sign language.</p>
+        <p><b>Compared with the routes</b> The three guided walks are sightseeing courses that add nearby landmarks to some of the pilgrimage sites. The Bukchon walk shares only the Gwanghwamun Beatification Site, Gahoe-dong Catholic Church and Seokjeong Boreum Well (end of the Way of the Word to start of the Way of Life); the Seosomun walk shares Myeongdong Cathedral, the Seosomun Martyrs’ Shrine and Yakhyeon Catholic Church (start of the Way of the Word, end of the Way of Life); and the Han River walk shares only Jeoldusan Martyrs’ Shrine (Way of Unity). Danggogae, Saenamteo, Samseongsan and the other shrines on the Way of Unity are not included. Use the three courses above for pilgrimage, and the guided walks for first-time visitors or young pilgrims from abroad.</p>
+        <p><b>Booking</b> Individuals up to 3 days ahead (next month’s bookings open on the 15th), groups 5 months to 5 days ahead. Recommended for upper elementary age and up; children under 14 without a guardian will be turned away.</p>
+        <p><b>Cancellation</b> Canceled during weather warnings such as heat waves, typhoons, heavy rain or fine dust; no tours in peak summer (7.23–8.11). Inquiries: Seoul Walking Tours +82-2-6925-0777</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-note">
+      <div class="sec-h"><h2 id="h-note">Pilgrimage tips</h2></div>
+      <div class="notes">
+        <div class="nt"><p class="k">ORDER</p><h3>Three connected courses</h3><p>The Way of Life begins at Gahoe-dong Catholic Church where the Way of the Word ends, and the Way of Unity begins at Yakhyeon Catholic Church where the Way of Life ends. You can walk one course a day.</p></div>
+        <div class="nt"><p class="k">DISTANCE</p><h3>Distance by course</h3><p>The downtown Way of the Word (8.7 km) and Way of Life (5.9 km) take half a day each; for the Way of Unity (29.5 km), which links the shrines along the Han River, allow a day or more using public transport.</p></div>
+        <div class="nt"><p class="k">WYD</p><h3>Youth pilgrimage program</h3><p>In the 2025 ‘September Companions’ program, the organizing committee had young people walk these routes collecting stamps in a pilgrim passport, then offer the passports at the Mass honoring the martyrs at Jeoldusan.</p></div>
+      </div>
+      <p class="src" style="margin-top:16px">Source: <a href="https://mediahub.seoul.go.kr/archives/1181240" target="_blank" rel="noopener">Seoul in My Hand · Seoul Catholic Pilgrimage Routes proclaimed an international pilgrimage site</a>, <a href="https://wydseoul.org/participation/seoulPilgrim" target="_blank" rel="noopener">WYD Seoul 2027 · September Companions</a>, <a href="https://korean.visitseoul.net/walking-tour/%EC%84%9C%EC%9A%B8-%EC%88%9C%EB%A1%80%EA%B8%B8-%EB%B6%81%EC%B4%8C-%EC%88%9C%EB%A1%80%EA%B8%B8/KON026219" target="_blank" rel="noopener">VISIT SEOUL · Seoul Guided Walking Tours</a>. Check opening hours and Mass times with each shrine before visiting.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>“Take courage! I have conquered the world” (John 16:33)</p>
+    <p>Amsa-dong Parish Spiritual Planning Team</p>
+  </div>
+</footer>
+
+<script>
+const COURSES = [
+  {id:"c1", no:"Course 1", name:"Way of the Word", km:"8.7km", stops:[
+    "Myeongdong Cathedral", ["Site of Jangagwon","House of Kim Beom-u"], "Site of Yi Byeok’s house", "Site of the Left Police Bureau", "Jongno Catholic Church", "Gwanghuimun Gate",
+    "Catholic University, Seongsin Campus", "Seokjeong Boreum Well", {n:"Gahoe-dong Catholic Church", x:"→ Way of Life"}]},
+  {id:"c2", no:"Course 2", name:"Way of Life", km:"5.9km", stops:[
+    {n:"Gahoe-dong Catholic Church", x:"from Way of the Word"}, "Gwanghwamun Beatification Site", "Site of the Ministry of Punishments", "Site of Uigeumbu", "Site of Jeonokseo Prison",
+    "Site of the Right Police Bureau", "Site of the Gyeonggi Provincial Office", "Seosomun Historical Park", {n:"Yakhyeon Catholic Church", x:"→ Way of Unity"}]},
+  {id:"c3", no:"Course 3", name:"Way of Unity", km:"29.5km", stops:[
+    {n:"Yakhyeon Catholic Church", x:"from Way of Life"}, "Danggogae Martyrs’ Shrine", "Saenamteo Martyrs’ Shrine", "Jeoldusan Martyrs’ Shrine",
+    "Nogosan", "Yongsan Seongsim Seminary", "Waegogae Shrine", "Samseongsan Shrine"]}
+];
+const KO = {"House of Kim Beom-u": "김범우의 집", "Site of the Ministry of Punishments": "형조 터", "Yongsan Seongsim Seminary": "용산 성심신학교", "Nogosan": "노고산", "Gwanghwamun Beatification Site": "광화문 시복 터", "Myeongdong Cathedral": "명동성당", "Gwanghuimun Gate": "광희문", "Samseongsan Shrine": "삼성산 성지", "Danggogae Martyrs’ Shrine": "당고개 순교성지", "Seokjeong Boreum Well": "석정보름우물", "Seosomun Historical Park": "서소문 역사공원", "Waegogae Shrine": "왜고개 성지", "Saenamteo Martyrs’ Shrine": "새남터 순교성지", "Site of Yi Byeok’s house": "이벽의 집 터", "Site of the Left Police Bureau": "좌포도청 터", "Site of the Gyeonggi Provincial Office": "경기감영 터", "Yakhyeon Catholic Church": "약현성당", "Gahoe-dong Catholic Church": "가회동성당", "Site of the Right Police Bureau": "우포도청 터", "Site of Jangagwon": "장악원 터", "Catholic University, Seongsin Campus": "가톨릭대학교 성신교정", "Site of Jeonokseo Prison": "전옥서 터", "Jeoldusan Martyrs’ Shrine": "절두산 순교성지", "Jongno Catholic Church": "종로성당", "Site of Uigeumbu": "의금부 터"};
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const mapUrl = q => "https://map.naver.com/p/search/" + encodeURIComponent(q.replace(/ 터$/," 터") + (/(성당|성지|공원|신학교|교정)$/.test(q) ? "" : " 서울"));
+
+document.getElementById("lines").innerHTML = COURSES.map(c => `
+  <article class="course ${c.id}" data-id="${c.id}">
+    <div class="ch"><p class="no">${c.no}</p><h3>${c.name}</h3><p class="meta">${c.km} ·  ${c.stops.length} sites</p></div>
+    <ol class="stops">${c.stops.map(s => {
+      const o = typeof s === "string" ? {n:s} : Array.isArray(s) ? {n:s[0], sub:s[1]} : s;
+      return `<li class="st${o.x ? " x" : ""}"><span class="pt" aria-hidden="true"></span>
+        <span class="nm">${esc(o.n)}${o.x ? `<span class="tag">${esc(o.x)}</span>` : ""}${o.sub ? `<small>${esc(o.sub)}</small>` : ""}</span>
+        <a class="map" href="${mapUrl(KO[o.n]||o.n)}" target="_blank" rel="noopener" aria-label="${esc(o.n)} – open map">Map</a></li>`;
+    }).join("")}</ol>
+  </article>`).join("");
+
+const lgs = [...document.querySelectorAll(".lg")];
+lgs.forEach(b => b.addEventListener("click", () => {
+  const c = b.dataset.c;
+  lgs.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  document.querySelectorAll(".course").forEach(el => el.classList.toggle("dim", c !== "all" && el.dataset.id !== c));
+}));
+</script>
+<script>
+/* 모바일 Open menu·닫기 */
+(function(){
+  var m = document.getElementById("mn"), opener = null;
+  function open(btn){ opener = btn; m.hidden = false; document.documentElement.style.overflow = "hidden"; var a = m.querySelector("nav a"); if(a) a.focus(); }
+  function close(){ m.hidden = true; document.documentElement.style.overflow = ""; if(opener) opener.focus(); }
+  document.addEventListener("click", function(e){
+    var o = e.target.closest("[data-menu-open]"); if(o){ e.preventDefault(); open(o); return; }
+    if(e.target.closest("[data-menu-close]")) close();
+  });
+  addEventListener("keydown", function(e){ if(e.key === "Escape" && !m.hidden) close(); });
+})();
+</script>
+<script>
+/* 인트로 — Type Sequence(타이핑 55ms/자, 대기 중 커서 깜빡임 530ms) 후 제목 자리로 착지 */
+(function(){
+  const TEXT = "The martyrs’ road,\nwalked by young feet";
+  const TYPE_MS = 55, HOLD_MS = 1100, LAND_MS = 900;
+  const intro = document.getElementById("intro"), typed = document.getElementById("typed"),
+        caret = document.getElementById("caret"), box = document.getElementById("introText"),
+        title = document.getElementById("title"), rises = [...document.querySelectorAll(".rise")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let seen = false; try{ seen = sessionStorage.getItem("wyd-pilgrim-intro") === "1"; }catch(e){}
+  if(reduce || seen || location.hash){ intro.remove(); return; }
+
+  // iOS 사파리 등에서 새로고침 시 이전 스크롤 위치가 복원되면 착지 지점이 어긋나므로 맨 위로 고정
+  try{ history.scrollRestoration = "manual"; }catch(e){}
+  window.scrollTo(0, 0);
+  document.body.classList.add("intro-on","title-hide","rise-wait"); intro.hidden = false;
+  let i = 0, blink = null, timers = [], done = false;
+  const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+
+  function finish(){
+    if(done) return; done = true;
+    timers.forEach(clearTimeout); clearInterval(blink); clearInterval(iv);
+    document.body.classList.remove("intro-on","title-hide","rise-wait");
+    intro.remove();
+    rises.forEach((el, k) => { el.style.transitionDelay = (k*70) + "ms"; });
+    try{ sessionStorage.setItem("wyd-pilgrim-intro","1"); }catch(e){}
+  }
+  function land(){
+    clearInterval(blink); caret.classList.add("off");
+    // FLIP: 인트로 문구 → 실제 h1 위치·크기
+    const a = box.getBoundingClientRect(), b = title.getBoundingClientRect();
+    window.scrollTo(0, 0);
+    const r0 = b.height / a.height, sc = Math.abs(r0 - 1) < 0.06 ? 1 : r0;   // 휴대폰처럼 크기가 거의 같으면 확대·축소 없이 이동만 (사파리 글자 재렌더링으로 튀는 것 방지)
+    intro.classList.add("landing");
+    box.style.transition = `transform ${LAND_MS}ms cubic-bezier(.65,0,.35,1)`;
+    box.style.transform = `translate3d(${b.left - a.left}px, ${b.top - a.top}px, 0) scale(${sc})`;
+    later(() => { document.body.classList.remove("rise-wait"); rises.forEach((el,k)=>{ el.style.transitionDelay = (k*80)+"ms"; }); }, LAND_MS - 150);   // 스크롤 잠금은 착지가 끝난 뒤(finish)에 풀어 도중에 화면이 다시 계산되지 않게
+    // 착지 직후 실제 제목을 먼저 보이고 인트로 글자를 짧게 겹쳐 사라지게 해서 교체 순간이 튀지 않게
+    later(() => { document.body.classList.remove("title-hide"); box.style.transition = "opacity 320ms ease"; box.style.opacity = "0"; }, LAND_MS + 20);
+    later(finish, LAND_MS + 360);
+  }
+  // 시간 기반 진행: 타이머가 지연·중단돼도 경과 시간으로 글자 수를 계산
+  const NL = TEXT.indexOf("\n"), NL_EXTRA = NL < 0 ? 0 : TYPE_MS*3;
+  const typeEnd = TEXT.length*TYPE_MS + NL_EXTRA;
+  let t0 = null, phase = "typing";
+  function charsAt(ms){ const n = Math.floor(ms / TYPE_MS); return (NL < 0 || n <= NL) ? n : Math.max(NL+1, Math.floor((ms - NL_EXTRA)/TYPE_MS)); }
+  function step(){
+    if(done || phase === "land") return;
+    const el = performance.now() - t0;
+    if(phase === "typing"){
+      const n = Math.min(TEXT.length, charsAt(el));
+      if(typed.textContent.length !== n) typed.textContent = TEXT.slice(0, n);
+      if(el >= typeEnd){ typed.textContent = TEXT; phase = "hold"; blink = setInterval(() => caret.classList.toggle("off"), 530); }
+    } else if(phase === "hold" && el >= typeEnd + HOLD_MS){ phase = "land"; clearInterval(iv); land(); }
+  }
+  function raf(){ step(); if(!done && phase !== "land") requestAnimationFrame(raf); }
+  let iv = null;
+  let started = false;
+  function start(){ if(started) return; started = true; t0 = performance.now(); raf(); iv = setInterval(step, 150); }
+  // 제목 글꼴(Pretendard)에서 인트로 글자 조각을 먼저 받아 둔 뒤 시작 (최대 1.5초) — 타이핑·착지 중 글꼴 교체로 끊기지 않게
+  Promise.race([(document.fonts && document.fonts.load) ? Promise.all([document.fonts.load('700 60px "Pretendard Variable"', TEXT.replace(/\n/g, "")), document.fonts.load('700 60px "Noto Sans KR"', TEXT.replace(/\n/g, "")), document.fonts.ready]) : Promise.resolve(), new Promise(r => setTimeout(r, 1500))])
+    .then(() => later(start, 250));
+  setTimeout(finish, 10000);   // 안전장치: 어떤 경우에도 10초 안에 본문 표시
+  document.getElementById("introSkip").addEventListener("click", finish);
+  addEventListener("keydown", e => { if(e.key === "Escape") finish(); }, {once:true});
+})();
+</script>
+<script>/* 줄바꿈 정리: 괄호·가운뎃점·하이픈으로 붙은 말이 줄 끝에서 끊기지 않게 (JS로 그린 내용 포함) */
+(function(){var P=/[()·「」‘’“”~\-–]/,H=/[가-힣0-9A-Za-z]/,SKIP="script,style,svg,textarea,code,.nw,.ml";
+function fix(root){if(!root||root.nodeType!==1)return;var w=document.createTreeWalker(root,4,null),a=[],n;while(n=w.nextNode()){var p=n.parentElement;if(!p||p.closest(SKIP))continue;if(P.test(n.data))a.push(n);}
+a.forEach(function(n){var t=n.data,re=/\S+/g,f=document.createDocumentFragment(),last=0,m,hit=false;while(m=re.exec(t)){var k=m[0];if(k.length<3||!P.test(k)||!H.test(k))continue;hit=true;f.appendChild(document.createTextNode(t.slice(last,m.index)));(k.length>10&&k.indexOf("·")>=0?k.match(/[^·]*·|[^·]+$/g):[k]).forEach(function(s){var e=document.createElement("span");e.className="nw";e.textContent=s;f.appendChild(e);});last=m.index+k.length;}
+if(hit&&n.parentNode){f.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(f,n);}});}
+fix(document.body);new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.closest&&m.target.closest(".nw"))return;m.addedNodes.forEach(function(x){if(x.nodeType===1){if(!x.classList.contains("nw"))fix(x);}else if(x.nodeType===3)fix(x.parentElement);});});}).observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>
