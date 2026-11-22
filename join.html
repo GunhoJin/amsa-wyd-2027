@@ -155,7 +155,7 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 .logo .lchip{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:4px 6px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
 .logo .lchip img{display:block;height:42px;width:auto}
 /* 줄바꿈: 괄호·가운뎃점으로 붙은 말은 한 줄, 마지막 줄 한 단어 방지 */
-.nw{white-space:nowrap}
+.nw,nw-x{white-space:nowrap}
 main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
 /* lsw:start */
 /* 언어 전환 플립 스위치 (Uiverse.io flip switch by pharmacist-sabot 축소판) */
@@ -176,8 +176,8 @@ main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
 @media (prefers-reduced-motion:reduce){.lsw-card,.lsw a[aria-current]::after{animation:none!important}}
 /* lsw:end */
 /* theme:start — 라이트 테마 (기본은 기기 설정, 메뉴에서 선택) */
-@media (prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#f5f6f8;--ink-rgb:245,246,248;--panel:#ffffff;--panel-2:#eef0f3;--fg:#151a21;--fg-rgb:21,26,33;--accent:#0079a8;--accent-rgb:0,121,168;--gold:#946000;--gold-rgb:148,96,0;--btn-light:#151a21;--btn-ink:#ffffff;--field:#ffffff;color-scheme:light}:root:not([data-theme=dark]) .head::before{opacity:.1!important}:root:not([data-theme=dark]) .lsw{--lsw-hi:#0a9d84}:root:not([data-theme=dark]) #snow{filter:brightness(.55) sepia(1) hue-rotate(165deg) saturate(2.5)}}
-:root[data-theme=light]{--ink:#f5f6f8;--ink-rgb:245,246,248;--panel:#ffffff;--panel-2:#eef0f3;--fg:#151a21;--fg-rgb:21,26,33;--accent:#0079a8;--accent-rgb:0,121,168;--gold:#946000;--gold-rgb:148,96,0;--btn-light:#151a21;--btn-ink:#ffffff;--field:#ffffff;color-scheme:light}:root[data-theme=light] .head::before{opacity:.1!important}:root[data-theme=light] .lsw{--lsw-hi:#0a9d84}:root[data-theme=light] #snow{filter:brightness(.55) sepia(1) hue-rotate(165deg) saturate(2.5)}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#f5f6f8;--ink-rgb:245,246,248;--panel:#ffffff;--panel-2:#eef0f3;--fg:#151a21;--fg-rgb:21,26,33;--accent:#0079a8;--accent-rgb:0,121,168;--gold:#946000;--gold-rgb:148,96,0;--fg-3:rgba(21,26,33,.62);--btn-light:#151a21;--btn-ink:#ffffff;--field:#ffffff;color-scheme:light}:root:not([data-theme=dark]) .head::before{opacity:.1!important}:root:not([data-theme=dark]) .lsw{--lsw-hi:#0a9d84}:root:not([data-theme=dark]) #snow{filter:brightness(.55) sepia(1) hue-rotate(165deg) saturate(2.5)}}
+:root[data-theme=light]{--ink:#f5f6f8;--ink-rgb:245,246,248;--panel:#ffffff;--panel-2:#eef0f3;--fg:#151a21;--fg-rgb:21,26,33;--accent:#0079a8;--accent-rgb:0,121,168;--gold:#946000;--gold-rgb:148,96,0;--fg-3:rgba(21,26,33,.62);--btn-light:#151a21;--btn-ink:#ffffff;--field:#ffffff;color-scheme:light}:root[data-theme=light] .head::before{opacity:.1!important}:root[data-theme=light] .lsw{--lsw-hi:#0a9d84}:root[data-theme=light] #snow{filter:brightness(.55) sepia(1) hue-rotate(165deg) saturate(2.5)}
 /* theme:end */
 /* thm:start */
 .thm{display:flex;gap:6px;margin-top:10px}.thm button{flex:1;padding:10px 0;border-radius:10px;border:1px solid var(--line-2,rgba(255,255,255,.18));background:transparent;color:var(--fg-2,rgba(255,255,255,.72));font:inherit;font-size:14px;cursor:pointer}.thm button[aria-checked=true]{background:var(--fg,#fff);color:var(--ink,#101216);border-color:var(--fg,#fff)}.thm button:focus-visible{outline:2px solid #00A1DB;outline-offset:2px}.thm-k{margin:28px 0 0;font-size:12px;letter-spacing:.08em;color:var(--fg-3,rgba(255,255,255,.48))}
@@ -388,11 +388,11 @@ document.getElementById("jg").innerHTML = JOINS.map(j => {
 })();
 </script>
 <script>/* 줄바꿈 정리: 괄호·가운뎃점·하이픈으로 붙은 말이 줄 끝에서 끊기지 않게 (JS로 그린 내용 포함) */
-(function(){var P=/[()·「」‘’“”~\-–]/,H=/[가-힣0-9A-Za-z]/,SKIP="script,style,svg,textarea,code,.nw,.ml";
+(function(){var P=/[()·「」‘’“”~\-–]/,H=/[가-힣0-9A-Za-z]/,SKIP="script,style,svg,textarea,code,nw-x,.nw,.ml";
 function fix(root){if(!root||root.nodeType!==1)return;var w=document.createTreeWalker(root,4,null),a=[],n;while(n=w.nextNode()){var p=n.parentElement;if(!p||p.closest(SKIP))continue;if(P.test(n.data))a.push(n);}
-a.forEach(function(n){var t=n.data,re=/\S+/g,f=document.createDocumentFragment(),last=0,m,hit=false;while(m=re.exec(t)){var k=m[0];if(k.length<3||!P.test(k)||!H.test(k))continue;hit=true;f.appendChild(document.createTextNode(t.slice(last,m.index)));(k.length>10&&k.indexOf("·")>=0?k.match(/[^·]*·|[^·]+$/g):[k]).forEach(function(s){var e=document.createElement("span");e.className="nw";e.textContent=s;f.appendChild(e);});last=m.index+k.length;}
+a.forEach(function(n){var t=n.data,re=/\S+/g,f=document.createDocumentFragment(),last=0,m,hit=false;while(m=re.exec(t)){var k=m[0];if(k.length<3||!P.test(k)||!H.test(k))continue;hit=true;f.appendChild(document.createTextNode(t.slice(last,m.index)));(k.length>10&&k.indexOf("·")>=0?k.match(/[^·]*·|[^·]+$/g):[k]).forEach(function(s){var e=document.createElement("nw-x");e.textContent=s;f.appendChild(e);});last=m.index+k.length;}
 if(hit&&n.parentNode){f.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(f,n);}});}
-fix(document.body);new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.closest&&m.target.closest(".nw"))return;m.addedNodes.forEach(function(x){if(x.nodeType===1){if(!x.classList.contains("nw"))fix(x);}else if(x.nodeType===3)fix(x.parentElement);});});}).observe(document.body,{childList:true,subtree:true});})();
+fix(document.body);new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.closest&&m.target.closest("nw-x"))return;m.addedNodes.forEach(function(x){if(x.nodeType===1){if(x.localName!=="nw-x")fix(x);}else if(x.nodeType===3)fix(x.parentElement);});});}).observe(document.body,{childList:true,subtree:true});})();
 </script>
 <script>/* 언어 전환: 카드가 뒤집힌 뒤 이동 */
 document.addEventListener("click",function(e){var a=e.target.closest(".lsw a:not([aria-current])");if(!a||e.metaKey||e.ctrlKey||e.shiftKey)return;e.preventDefault();var w=a.parentNode;w.setAttribute("data-go",w.getAttribute("data-lang")==="ko"?"en":"ko");var d=matchMedia("(prefers-reduced-motion: reduce)").matches?0:380;setTimeout(function(){location.href=a.href},d)});

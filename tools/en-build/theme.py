@@ -8,7 +8,7 @@ PAGES = "about plan pilgrim program join market homestay rosary donate contact r
 
 LIGHT = ("--ink:#f5f6f8;--ink-rgb:245,246,248;--panel:#ffffff;--panel-2:#eef0f3;--fg:#151a21;--fg-rgb:21,26,33;"
          "--accent:#0079a8;--accent-rgb:0,121,168;--gold:#946000;--gold-rgb:148,96,0;"
-         "--btn-light:#151a21;--btn-ink:#ffffff;--field:#ffffff;color-scheme:light")
+         "--fg-3:rgba(21,26,33,.62);--btn-light:#151a21;--btn-ink:#ffffff;--field:#ffffff;color-scheme:light")
 EXTRA = [".head::before{opacity:.1!important}", ".lsw{--lsw-hi:#0a9d84}",
          "#snow{filter:brightness(.55) sepia(1) hue-rotate(165deg) saturate(2.5)}"]
 # 라이트에서도 어두운 배경을 유지하는 부분 (그 안의 글자색은 다크 값으로)
@@ -18,6 +18,13 @@ DARK_VARS = ("--fg:#ffffff;--fg-rgb:255,255,255;--fg-2:rgba(255,255,255,.72);--f
 SCOPES = {"market": [".head"], "program": [".pg-verse"]}
 # 페이지별 라이트 색표 (기본 라이트 위에 덮어씀) — 홀리마켓은 크리스마스 색: 아이보리 바탕, 와인 레드·상록 그린·골드
 PAGE_LIGHT = {
+    # 1년 일정: 대상별 색(전 신자·청년·본당)을 밝은 바탕에서 읽히게
+    "plan": ("--all:#1f6fb8;--youth:#0d7a6e;--parish:#6346c2", []),
+    # 순례길: 코스 색과 이어지는 코스 표시
+    "pilgrim": ("--c1:#0079a8;--c2:#8c5a00;--c3:#6346c2", [".st .tag{background:var(--fg)}"]),
+    # 프로그램: 대림(보라)·성탄(빨강) 카드의 번호·링크 색
+    "program": ("", [".pg-card.advent .pg-no,.pg-card.advent .steps .n,.pg-card.advent .plink a{color:#6346c2}",
+                     ".pg-card.xmas .pg-no,.pg-card.xmas .steps .n{color:#b8262f}"]),
     # 홈 첫 화면: 사진·손·지구본을 명암만 뒤집어(색조 유지) 밝은 판으로
     "index": ("--fg-dim:rgba(21,26,33,.72);--seoul:#946000;--btn:#e8ebef",
               [".bd,.clip img,[data-globe]{filter:invert(1) hue-rotate(180deg) brightness(1.04)}",
@@ -27,11 +34,17 @@ PAGE_LIGHT = {
                "--gold:#8c5a00;--gold-rgb:140,90,0;--line:rgba(120,30,40,.14);--line-2:rgba(120,30,40,.24)",
                ["#snow{filter:brightness(.78) sepia(1) saturate(2.4) hue-rotate(-8deg)}", ".zone:nth-child(3) .k,.ow:nth-child(3) .k{color:#b35f00}", ".zone:nth-child(3),.ow:nth-child(3){border-top-color:#d9821e}"]),
 }
+
+def pre(prefix, rule):
+    """규칙의 모든 선택자 앞에 테마 조건을 붙임 (쉼표로 묶인 선택자 각각)"""
+    sel, body = rule.split("{", 1)
+    return ",".join(prefix + " " + x.strip() for x in sel.split(",")) + "{" + body
+
 SYS = ":root:not([data-theme=dark])"
 PICK = ":root[data-theme=light]"
 CSS = ("/* theme:start — 라이트 테마 (기본은 기기 설정, 메뉴에서 선택) */\n"
-       "@media (prefers-color-scheme:light){" + SYS + "{" + LIGHT + "}" + "".join(SYS + " " + x for x in EXTRA) + "}\n"
-       + PICK + "{" + LIGHT + "}" + "".join(PICK + " " + x for x in EXTRA) + "\n"
+       "@media (prefers-color-scheme:light){" + SYS + "{" + LIGHT + "}" + "".join(pre(SYS, x) for x in EXTRA) + "}\n"
+       + PICK + "{" + LIGHT + "}" + "".join(pre(PICK, x) for x in EXTRA) + "\n"
        "/* theme:end */\n")
 THM_CSS = ("/* thm:start */\n"
            ".thm{display:flex;gap:6px;margin-top:10px}"
@@ -104,7 +117,7 @@ def apply(s, full=True, page=""):
     if full and page in PAGE_LIGHT:
         v, rules = PAGE_LIGHT[page]
         extra += ("/* theme:start 이 페이지 라이트 색표 */\n@media (prefers-color-scheme:light){%s{%s}%s}\n%s{%s}%s\n/* theme:end */\n"
-                  % (SYS, v, "".join(SYS + " " + r for r in rules), PICK, v, "".join(PICK + " " + r for r in rules)))
+                  % (SYS, v, "".join(pre(SYS, r) for r in rules), PICK, v, "".join(pre(PICK, r) for r in rules)))
     if full and page in SCOPES:
         a = ",".join(SYS + " " + x for x in SCOPES[page]); b = ",".join(PICK + " " + x for x in SCOPES[page])
         extra += ("/* theme:start 라이트에서도 어두운 부분 */\n@media (prefers-color-scheme:light){%s{%s}}\n%s{%s}\n/* theme:end */\n"
