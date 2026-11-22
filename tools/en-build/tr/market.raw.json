@@ -1,0 +1,9 @@
+{
+"'<em>외부</em>'": "'<em>outside</em>'",
+"\"비어 있음\"": "\"Open\"",
+">비어 있음</span>": ">Open</span>",
+"${full ? \"마감\" : `남은 ${z.cap - n}`}": "${full ? \"Full\" : `${z.cap - n} left`}",
+" 부스 선점 · 남은 자리 ": " booths taken · open ",
+"`실시간 · ${upd} 기준` : `${md0(UPDATED)} 기준`": "`Live · as of ${upd}` : `as of ${md0(UPDATED)}`",
+"함께 나누는<br>성탄 홀리마켓": "A Christmas Holy Market<br>to share together"
+}

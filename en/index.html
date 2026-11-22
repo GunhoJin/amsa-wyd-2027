@@ -197,7 +197,24 @@ html.fw .rv,html.fw .sl,html.fw .sr{animation-play-state:paused}
 /* 공식 앱 제목만 페이퍼로지 Bold (SIL OFL 1.1) — 이 제목에 쓰인 글자만 담은 1KB 파일 */
 @font-face{font-family:"Paperlogy";src:url("/fonts/Paperlogy-7Bold-app.woff2") format("woff2");font-weight:700;font-display:block}
 .app .app-h{font-family:"Paperlogy","Pretendard Variable","Pretendard",sans-serif!important;font-weight:700!important}
-.lang{margin-left:auto;margin-right:20px;color:inherit;font-size:14px;font-weight:600;letter-spacing:.06em;text-decoration:none;opacity:.8}.lang:hover{opacity:1}
+/* lsw:start */
+/* 언어 전환 플립 스위치 (Uiverse.io flip switch by pharmacist-sabot 축소판) */
+.lsw{--lsw-w:38px;--lsw-h:30px;--lsw-hi:#64ffda;position:relative;display:flex;width:calc(var(--lsw-w)*2);height:var(--lsw-h);margin-left:auto;margin-right:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;perspective:600px;flex:none;box-shadow:0 4px 16px rgba(31,38,135,.25),inset 0 2px 4px rgba(255,255,255,.1);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.lsw a{position:relative;z-index:2;flex:1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.6);text-decoration:none;transition:color .3s;-webkit-tap-highlight-color:transparent}
+.lsw a:hover,.lsw a[aria-current]{color:#fff}
+.lsw a[aria-current]{text-shadow:0 0 8px rgba(100,255,218,.5)}
+.lsw a[aria-current]::after{content:"";position:absolute;bottom:3px;width:14px;height:2px;border-radius:2px;background:var(--lsw-hi);animation:lswGlow 1.5s infinite alternate}
+.lsw a:focus-visible{outline:2px solid #00A1DB;outline-offset:2px;border-radius:8px}
+.lsw-card{position:absolute;top:0;left:0;width:var(--lsw-w);height:100%;z-index:1;border-radius:9px;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.1));border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 10px rgba(0,0,0,.2),inset 0 1px 3px rgba(255,255,255,.1);transform-style:preserve-3d}
+.lsw[data-lang=en] .lsw-card{transform:translateX(100%) rotateY(180deg)}
+.lsw[data-go=en] .lsw-card{animation:lswR .45s cubic-bezier(.76,0,.24,1) forwards}
+.lsw[data-go=ko] .lsw-card{animation:lswL .45s cubic-bezier(.76,0,.24,1) forwards}
+.lsw[data-go] a[aria-current]::after{opacity:0}
+@keyframes lswR{0%{transform:translateX(0) rotateY(0)}50%{transform:translateX(50%) rotateY(90deg) scale(1.05)}100%{transform:translateX(100%) rotateY(180deg)}}
+@keyframes lswL{0%{transform:translateX(100%) rotateY(180deg)}50%{transform:translateX(50%) rotateY(90deg) scale(1.05)}100%{transform:translateX(0) rotateY(0)}}
+@keyframes lswGlow{from{box-shadow:0 0 4px var(--lsw-hi)}to{box-shadow:0 0 10px var(--lsw-hi),0 0 16px var(--lsw-hi)}}
+@media (prefers-reduced-motion:reduce){.lsw-card,.lsw a[aria-current]::after{animation:none!important}}
+/* lsw:end */
 </style>
 <script>
 /* 제목 글꼴 미리 받기: 받는 동안 등장 애니메이션을 멈춰 둠 (최대 1초) */
@@ -221,7 +238,9 @@ html.fw .rv,html.fw .sl,html.fw .sr{animation-play-state:paused}
     <div class="row">
       <a href="#home" class="logo" style="font-size:32px;letter-spacing:-.96px"><span class="lw">AMSA</span><span class="lchip"><img src="/wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
       <a href="/en/join" data-join class="btn btn-l" style="padding:14px 20px">Join Us</a>
-      <a class="lang" href="/" hreflang="ko" lang="ko">KO</a>
+      
+      <div class="lsw" data-lang="en" role="group" aria-label="언어 선택 · Language"><span class="lsw-card" aria-hidden="true"></span><a href="/" lang="ko" hreflang="ko">한</a><a href="/en/" lang="en" hreflang="en" aria-current="true">EN</a></div>
+      
       <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
     </div>
   </div>
@@ -336,7 +355,9 @@ function build(key){
   const F = FRAMES[key], c = F.copy;
   const nav = F.nav ? `<div class="nav rv" style="width:${F.nav.w}px;padding:${F.nav.pad};${F.nav.h?`height:${F.nav.h}px;`:""}animation-delay:0ms">
       <div class="row"><a href="#home" class="logo" style="font-size:${F.nav.logo}px;letter-spacing:${F.nav.ls}px"><span class="lw">AMSA</span><span class="lchip"><img src="/wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
-      <a class="lang" href="/" hreflang="ko" lang="ko">KO</a>
+      
+      <div class="lsw" data-lang="en" role="group" aria-label="언어 선택 · Language"><span class="lsw-card" aria-hidden="true"></span><a href="/" lang="ko" hreflang="ko">한</a><a href="/en/" lang="en" hreflang="en" aria-current="true">EN</a></div>
+      
       <button class="menu" type="button" data-menu-open aria-controls="mn" aria-label="Open menu" style="background:transparent;border:0;padding:0;color:#fff;display:block"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="display:block"><path d="M4 8h16M4 16h16"/></svg></button></div></div>` : "";
   return `<div class="frame" style="width:${F.w}px;height:${F.h}px">
     ${nav}

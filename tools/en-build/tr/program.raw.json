@@ -1,0 +1,8 @@
+{
+"'<span class=\"badge\">마침</span>'": "'<span class=\"badge\">Done</span>'",
+"[\"하나\",\"둘\",\"셋\",\"넷\"]": "[\"1\",\"2\",\"3\",\"4\"]",
+"\"지금 진행 중인 프로그램이 없습니다. 예정 프로그램을 확인해 주세요.\"": "\"No program is running right now. Please see the upcoming programs.\"",
+"\"아직 마친 프로그램이 없습니다.\"": "\"No programs have finished yet.\"",
+"\"예정된 프로그램이 확정되면 안내합니다.\"": "\"Upcoming programs will be announced once confirmed.\"",
+"WYD를 향한<br>영적 순례 여정": "A spiritual pilgrimage<br>toward WYD"
+}

@@ -254,7 +254,24 @@ body.rise-wait .rise{opacity:0;transform:translateY(14px)}
 /* 줄바꿈: 괄호·가운뎃점으로 붙은 말은 한 줄, 마지막 줄 한 단어 방지 */
 .nw{white-space:nowrap}
 main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
-.lang{margin-left:auto;margin-right:20px;color:inherit;font-size:14px;font-weight:600;letter-spacing:.06em;text-decoration:none;opacity:.8}.lang:hover{opacity:1}
+/* lsw:start */
+/* 언어 전환 플립 스위치 (Uiverse.io flip switch by pharmacist-sabot 축소판) */
+.lsw{--lsw-w:38px;--lsw-h:30px;--lsw-hi:#64ffda;position:relative;display:flex;width:calc(var(--lsw-w)*2);height:var(--lsw-h);margin-left:auto;margin-right:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;perspective:600px;flex:none;box-shadow:0 4px 16px rgba(31,38,135,.25),inset 0 2px 4px rgba(255,255,255,.1);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.lsw a{position:relative;z-index:2;flex:1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.6);text-decoration:none;transition:color .3s;-webkit-tap-highlight-color:transparent}
+.lsw a:hover,.lsw a[aria-current]{color:#fff}
+.lsw a[aria-current]{text-shadow:0 0 8px rgba(100,255,218,.5)}
+.lsw a[aria-current]::after{content:"";position:absolute;bottom:3px;width:14px;height:2px;border-radius:2px;background:var(--lsw-hi);animation:lswGlow 1.5s infinite alternate}
+.lsw a:focus-visible{outline:2px solid #00A1DB;outline-offset:2px;border-radius:8px}
+.lsw-card{position:absolute;top:0;left:0;width:var(--lsw-w);height:100%;z-index:1;border-radius:9px;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.1));border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 10px rgba(0,0,0,.2),inset 0 1px 3px rgba(255,255,255,.1);transform-style:preserve-3d}
+.lsw[data-lang=en] .lsw-card{transform:translateX(100%) rotateY(180deg)}
+.lsw[data-go=en] .lsw-card{animation:lswR .45s cubic-bezier(.76,0,.24,1) forwards}
+.lsw[data-go=ko] .lsw-card{animation:lswL .45s cubic-bezier(.76,0,.24,1) forwards}
+.lsw[data-go] a[aria-current]::after{opacity:0}
+@keyframes lswR{0%{transform:translateX(0) rotateY(0)}50%{transform:translateX(50%) rotateY(90deg) scale(1.05)}100%{transform:translateX(100%) rotateY(180deg)}}
+@keyframes lswL{0%{transform:translateX(100%) rotateY(180deg)}50%{transform:translateX(50%) rotateY(90deg) scale(1.05)}100%{transform:translateX(0) rotateY(0)}}
+@keyframes lswGlow{from{box-shadow:0 0 4px var(--lsw-hi)}to{box-shadow:0 0 10px var(--lsw-hi),0 0 16px var(--lsw-hi)}}
+@media (prefers-reduced-motion:reduce){.lsw-card,.lsw a[aria-current]::after{animation:none!important}}
+/* lsw:end */
 </style>
 </head>
 <body>
@@ -271,7 +288,9 @@ main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
   <div class="wrap">
     <a href="/en/" class="logo"><span class="lw">AMSA</span><span class="lchip"><img src="/wyd-logo.svg" alt="WYD SEOUL 2027" width="36" height="42"></span></a>
     <a href="/en/join" data-join class="btn btn-l">Join Us</a>
-    <a class="lang" href="/plan" hreflang="ko" lang="ko">KO</a>
+    
+    <div class="lsw" data-lang="en" role="group" aria-label="언어 선택 · Language"><span class="lsw-card" aria-hidden="true"></span><a href="/plan" lang="ko" hreflang="ko">한</a><a href="/en/plan" lang="en" hreflang="en" aria-current="true">EN</a></div>
+    
     <button class="mn-btn" type="button" data-menu-open aria-controls="mn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
 </header>
@@ -663,6 +682,10 @@ function fix(root){if(!root||root.nodeType!==1)return;var w=document.createTreeW
 a.forEach(function(n){var t=n.data,re=/\S+/g,f=document.createDocumentFragment(),last=0,m,hit=false;while(m=re.exec(t)){var k=m[0];if(k.length<3||!P.test(k)||!H.test(k))continue;hit=true;f.appendChild(document.createTextNode(t.slice(last,m.index)));(k.length>10&&k.indexOf("·")>=0?k.match(/[^·]*·|[^·]+$/g):[k]).forEach(function(s){var e=document.createElement("span");e.className="nw";e.textContent=s;f.appendChild(e);});last=m.index+k.length;}
 if(hit&&n.parentNode){f.appendChild(document.createTextNode(t.slice(last)));n.parentNode.replaceChild(f,n);}});}
 fix(document.body);new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.closest&&m.target.closest(".nw"))return;m.addedNodes.forEach(function(x){if(x.nodeType===1){if(!x.classList.contains("nw"))fix(x);}else if(x.nodeType===3)fix(x.parentElement);});});}).observe(document.body,{childList:true,subtree:true});})();
+</script>
+
+<script>/* 언어 전환: 카드가 뒤집힌 뒤 이동 */
+document.addEventListener("click",function(e){var a=e.target.closest(".lsw a:not([aria-current])");if(!a||e.metaKey||e.ctrlKey||e.shiftKey)return;e.preventDefault();var w=a.parentNode;w.setAttribute("data-go",w.getAttribute("data-lang")==="ko"?"en":"ko");var d=matchMedia("(prefers-reduced-motion: reduce)").matches?0:380;setTimeout(function(){location.href=a.href},d)});
 </script>
 </body>
 </html>

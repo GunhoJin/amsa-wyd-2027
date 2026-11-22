@@ -1,0 +1,5 @@
+{
+"content:\"오늘\"": "content:\"Today\"",
+"${m}월</span>": "${[\"\",\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\"][m]}</span>",
+"content:\"우리 교구\"": "content:\"Our diocese\""
+}

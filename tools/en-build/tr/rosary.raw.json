@@ -1,0 +1,8 @@
+{
+"\"목표 10억 단의 \"+pct.toFixed(1)+\"% · 남은 \"+f(S.goal-S.total)+\"단\"+(S.today?\" · 오늘 \"+f(S.today)+\"단\":\"\")": "pct.toFixed(1)+\"% of the 1 billion goal · \"+f(S.goal-S.total)+\" decades to go\"+(S.today?\" · today \"+f(S.today):\"\")",
+"\"목표 대비 \"+pct.toFixed(1)+\"%\"": "\"Progress \"+pct.toFixed(1)+\"%\"",
+"f(S.parishes)+\"곳\"": "f(S.parishes)",
+"f(S.orgs)+\"곳\"": "f(S.orgs)",
+"(S.live?\"실시간 · \":\"\")+(+d[0])+\"년 \"+(+d[1])+\"월 \"+(+d[2])+\"일 기준\"": "(S.live?\"Live · \":\"\")+\"as of \"+[\"\",\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\"][+d[1]]+\" \"+(+d[2])+\", \"+(+d[0])",
+"묵주기도 10억 단,<br>함께 채워 갑니다": "1 billion Rosary decades,<br>filled in together"
+}
