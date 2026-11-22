@@ -1,7 +1,7 @@
 # 화면 테마(라이트·다크·시스템) 넣기/갱신 — 한국어 페이지에 실행하면 영문판은 build.py가 그대로 따라감
 # 사용: python tools/en-build/theme.py   (저장소 루트에서, 여러 번 실행해도 같은 결과)
 # 기본값은 기기 설정(시스템). 메뉴 안 「화면 테마」에서 바꾸면 이 브라우저에 기억.
-# 홈(index)은 사진·지구본 첫 화면이 다크 전용이라 항상 다크 — 메뉴의 테마 선택만 넣음.
+# 홈(index) 첫 화면은 라이트에서 사진·손·지구본의 명암을 뒤집어 밝게 보임(PAGE_LIGHT).
 import re, io, os, sys
 repo = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 PAGES = "about plan pilgrim program join market homestay rosary donate contact request inquiry".split()
@@ -16,6 +16,17 @@ DARK_VARS = ("--fg:#ffffff;--fg-rgb:255,255,255;--fg-2:rgba(255,255,255,.72);--f
              "--line:rgba(255,255,255,.1);--line-2:rgba(255,255,255,.18);--ink:#101216;--ink-rgb:16,18,22;"
              "--gold:#FFD27A;--gold-rgb:255,210,122;color:var(--fg)")
 SCOPES = {"market": [".head"], "program": [".pg-verse"]}
+# 페이지별 라이트 색표 (기본 라이트 위에 덮어씀) — 홀리마켓은 크리스마스 색: 아이보리 바탕, 와인 레드·상록 그린·골드
+PAGE_LIGHT = {
+    # 홈 첫 화면: 사진·손·지구본을 명암만 뒤집어(색조 유지) 밝은 판으로
+    "index": ("--fg-dim:rgba(21,26,33,.72);--seoul:#946000;--btn:#e8ebef",
+              [".bd,.clip img,[data-globe]{filter:invert(1) hue-rotate(180deg) brightness(1.04)}",
+               ".glass{background:rgba(255,255,255,.55)}", ".menu,.mn-btn{color:var(--fg)!important}"]),
+    "market": ("--ink:#fbf6ee;--ink-rgb:251,246,238;--panel:#fffdf8;--fg:#2b1719;--fg-rgb:43,23,25;"
+               "--accent:#b8262f;--accent-rgb:184,38,47;--xr:#b8262f;--xg:#1f6e43;--xg2:#1d7346;"
+               "--gold:#8c5a00;--gold-rgb:140,90,0;--line:rgba(120,30,40,.14);--line-2:rgba(120,30,40,.24)",
+               ["#snow{filter:brightness(.78) sepia(1) saturate(2.4) hue-rotate(-8deg)}", ".zone:nth-child(3) .k,.ow:nth-child(3) .k{color:#b35f00}", ".zone:nth-child(3),.ow:nth-child(3){border-top-color:#d9821e}"]),
+}
 SYS = ":root:not([data-theme=dark])"
 PICK = ":root[data-theme=light]"
 CSS = ("/* theme:start — 라이트 테마 (기본은 기기 설정, 메뉴에서 선택) */\n"
@@ -62,7 +73,9 @@ def tokenize(css):
     first = [True]
     def root(m):
         r = common(m.group(0))
-        if first[0] and "--fg-rgb" not in r:
+        if first[0] and "--gold:" not in r:
+            r = r.replace("--fg:#ffffff;", "--fg:#ffffff; --gold:#FFD27A; --panel:#16191f;", 1)
+        if first[0] and "--fg-rgb:" not in r:
             r = r.replace("--fg:#ffffff;", "--fg:#ffffff; --fg-rgb:255,255,255; --ink-rgb:16,18,22; --gold-rgb:255,210,122; --accent-rgb:0,161,219; --field:#0c0e12;", 1)
         first[0] = False
         return hold(r)
@@ -88,19 +101,23 @@ def apply(s, full=True, page=""):
     m = re.search(r'<style>[\s\S]*?</style>', s)
     css = tokenize(m.group(0)) if full else m.group(0)
     extra = ""
+    if full and page in PAGE_LIGHT:
+        v, rules = PAGE_LIGHT[page]
+        extra += ("/* theme:start 이 페이지 라이트 색표 */\n@media (prefers-color-scheme:light){%s{%s}%s}\n%s{%s}%s\n/* theme:end */\n"
+                  % (SYS, v, "".join(SYS + " " + r for r in rules), PICK, v, "".join(PICK + " " + r for r in rules)))
     if full and page in SCOPES:
         a = ",".join(SYS + " " + x for x in SCOPES[page]); b = ",".join(PICK + " " + x for x in SCOPES[page])
-        extra = ("/* theme:start 라이트에서도 어두운 부분 */\n@media (prefers-color-scheme:light){%s{%s}}\n%s{%s}\n/* theme:end */\n"
+        extra += ("/* theme:start 라이트에서도 어두운 부분 */\n@media (prefers-color-scheme:light){%s{%s}}\n%s{%s}\n/* theme:end */\n"
                  % (a, DARK_VARS, b, DARK_VARS))
     css = css.replace("</style>", (CSS + extra if full else "") + THM_CSS + "</style>")
     s = s[:m.start()] + css + s[m.end():]
     s = re.sub(r'(<nav aria-label="전체 메뉴">[\s\S]*?</nav>)', lambda m: m.group(1) + TOGGLE, s, count=1)
-    s = s.replace("</body>", JS + "</body>", 1)
+    s = s.replace("</body>", JS + "</body>", 1) if "</body>" in s else s.rstrip("\n") + "\n" + JS
     return s
 
 if __name__ == "__main__":
     for p in PAGES + ["index"]:
         f = os.path.join(repo, p + ".html"); s = io.open(f, encoding="utf-8").read()
-        s = apply(s, full=(p != "index"), page=p)
+        s = apply(s, full=True, page=p)
         io.open(f, "w", encoding="utf-8", newline="").write(s)
         print(p, "theme", s.count("theme:start"), "toggle", s.count('class="thm"'))

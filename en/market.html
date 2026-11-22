@@ -43,7 +43,7 @@ h1,h2,.intro-text{font-family:"Pretendard Variable","Pretendard",var(--font,"Not
 /* Layout: 참여하기의 하위 페이지. 개요 → 부스 구성(구역별) → 참여 원칙 → 준비 일정(오늘 기준 강조) */
 :root{
   --ink:#101216; --panel:#16191f;
-  --fg:#ffffff; --fg-2:rgba(var(--fg-rgb),.72); --fg-3:rgba(var(--fg-rgb),.48);
+  --fg:#ffffff; --fg-rgb:255,255,255; --ink-rgb:16,18,22; --gold-rgb:255,210,122; --accent-rgb:0,161,219; --field:#0c0e12; --fg-2:rgba(var(--fg-rgb),.72); --fg-3:rgba(var(--fg-rgb),.48);
   --line:rgba(var(--fg-rgb),.1); --line-2:rgba(var(--fg-rgb),.18);
   --accent:#00A1DB; --gold:#FFD27A;
   --c1:#00A1DB; --c2:#FFD27A; --c3:#B9A6FF;
@@ -287,6 +287,10 @@ main p,main li,main dd,main summary,.head .lead{text-wrap:pretty}
 /* theme:start — 라이트 테마 (기본은 기기 설정, 메뉴에서 선택) */
 @media (prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#f5f6f8;--ink-rgb:245,246,248;--panel:#ffffff;--panel-2:#eef0f3;--fg:#151a21;--fg-rgb:21,26,33;--accent:#0079a8;--accent-rgb:0,121,168;--gold:#946000;--gold-rgb:148,96,0;--btn-light:#151a21;--btn-ink:#ffffff;--field:#ffffff;color-scheme:light}:root:not([data-theme=dark]) .head::before{opacity:.1!important}:root:not([data-theme=dark]) .lsw{--lsw-hi:#0a9d84}:root:not([data-theme=dark]) #snow{filter:brightness(.55) sepia(1) hue-rotate(165deg) saturate(2.5)}}
 :root[data-theme=light]{--ink:#f5f6f8;--ink-rgb:245,246,248;--panel:#ffffff;--panel-2:#eef0f3;--fg:#151a21;--fg-rgb:21,26,33;--accent:#0079a8;--accent-rgb:0,121,168;--gold:#946000;--gold-rgb:148,96,0;--btn-light:#151a21;--btn-ink:#ffffff;--field:#ffffff;color-scheme:light}:root[data-theme=light] .head::before{opacity:.1!important}:root[data-theme=light] .lsw{--lsw-hi:#0a9d84}:root[data-theme=light] #snow{filter:brightness(.55) sepia(1) hue-rotate(165deg) saturate(2.5)}
+/* theme:end */
+/* theme:start 이 페이지 라이트 색표 */
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#fbf6ee;--ink-rgb:251,246,238;--panel:#fffdf8;--fg:#2b1719;--fg-rgb:43,23,25;--accent:#b8262f;--accent-rgb:184,38,47;--xr:#b8262f;--xg:#1f6e43;--xg2:#1d7346;--gold:#8c5a00;--gold-rgb:140,90,0;--line:rgba(120,30,40,.14);--line-2:rgba(120,30,40,.24)}:root:not([data-theme=dark]) #snow{filter:brightness(.78) sepia(1) saturate(2.4) hue-rotate(-8deg)}:root:not([data-theme=dark]) .zone:nth-child(3) .k,.ow:nth-child(3) .k{color:#b35f00}:root:not([data-theme=dark]) .zone:nth-child(3),.ow:nth-child(3){border-top-color:#d9821e}}
+:root[data-theme=light]{--ink:#fbf6ee;--ink-rgb:251,246,238;--panel:#fffdf8;--fg:#2b1719;--fg-rgb:43,23,25;--accent:#b8262f;--accent-rgb:184,38,47;--xr:#b8262f;--xg:#1f6e43;--xg2:#1d7346;--gold:#8c5a00;--gold-rgb:140,90,0;--line:rgba(120,30,40,.14);--line-2:rgba(120,30,40,.24)}:root[data-theme=light] #snow{filter:brightness(.78) sepia(1) saturate(2.4) hue-rotate(-8deg)}:root[data-theme=light] .zone:nth-child(3) .k,.ow:nth-child(3) .k{color:#b35f00}:root[data-theme=light] .zone:nth-child(3),.ow:nth-child(3){border-top-color:#d9821e}
 /* theme:end */
 /* theme:start 라이트에서도 어두운 부분 */
 @media (prefers-color-scheme:light){:root:not([data-theme=dark]) .head{--fg:#ffffff;--fg-rgb:255,255,255;--fg-2:rgba(255,255,255,.72);--fg-3:rgba(255,255,255,.48);--line:rgba(255,255,255,.1);--line-2:rgba(255,255,255,.18);--ink:#101216;--ink-rgb:16,18,22;--gold:#FFD27A;--gold-rgb:255,210,122;color:var(--fg)}}

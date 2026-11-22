@@ -19,7 +19,7 @@ def apply_switch(s, page, cur):
         s = re.sub(r'(\s*)(<button class="(?:mn-btn|menu)" type="button" data-menu-open)', lambda m: m.group(1) + lsw(page, cur) + m.group(1) + m.group(2), s)
     # 스크립트
     s = re.sub(r'<script>/\* 언어 전환: 카드가 뒤집힌 뒤 이동 \*/[\s\S]*?</script>\n', '', s)
-    s = s.replace("</body>", JS + "</body>", 1)
+    s = s.replace("</body>", JS + "</body>", 1) if "</body>" in s else s.rstrip("\n") + "\n" + JS
     return s
 
 if __name__ == "__main__":
