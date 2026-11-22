@@ -13,3 +13,5 @@
 - 한국어를 일부러 남길 코드(예: 순례길 네이버 지도 검색 이름)는 `tr/<page>.post.json`.
 - 언어 전환 스위치(한/EN)·hreflang: `python tools/en-build/lang.py` (디자인은 `lsw.py`).
 - 폼 선택지 값은 영문판에서도 한국어로 보낸다(접수 시트·정기 작업 호환).
+- 화면 테마(라이트·다크·시스템, 기본은 기기 설정): `python tools/en-build/theme.py` 후 `build.py`. 다크 전용으로 적힌 색(흰색·반투명 흰색·금색 등)을 테마 변수로 바꾸고 라이트 색표·메뉴 안 테마 선택을 넣는다. 홈은 항상 다크. 라이트에서도 어둡게 둘 부분은 `theme.py`의 `SCOPES`.
+- 순서: 한국어 페이지 수정 → (`lang.py` · `theme.py`는 구조를 바꿀 때만) → `build.py` → `prerender.js` 두 번.
