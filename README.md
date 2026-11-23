@@ -36,6 +36,10 @@
 
 카카오톡에서 링크를 누르면 휴대폰 기본 브라우저(크롬·사파리 등)로 자동으로 다시 열립니다(주소 끝에 `?inapp=1`을 붙이면 카카오톡 안에서 그대로 열림). 모든 페이지는 우측 상단 메뉴로 이동합니다. 각 페이지는 처음 열 때 제목을 타이핑하는 인트로가 한 번 나옵니다.
 
+- **영문판**: 모든 페이지에 같은 구성의 영어 페이지가 있습니다([`/en/`](https://amsawyd.com/en/)). 머리글의 **한/EN** 스위치나 메뉴의 English·한국어로 오갑니다.
+- **화면 테마**: 라이트·다크·시스템 중 고를 수 있습니다(메뉴 맨 아래 「화면 테마」, 기본은 기기 설정). 홀리마켓 라이트 모드는 크리스마스 색입니다.
+- **줄바꿈**: 괄호·가운뎃점·따옴표로 붙은 말이 줄 끝에서 끊기지 않게 하위 페이지마다 「줄바꿈 정리」 스크립트가 있습니다.
+
 ## 📌 지금 진행 상황
 
 | 항목 | 상태 |
@@ -73,7 +77,12 @@
 
 1. 해당 페이지의 데이터 목록을 고칩니다.
 2. `rss.xml` 맨 위에 `<item>`을 하나 추가합니다 (제목·링크·설명·날짜·고유 guid).
-3. 페이지를 새로 만들었다면 `sitemap.xml`에 주소를 추가하고, 각 페이지의 메뉴(`.mn nav`)에도 링크를 넣습니다.
+3. 페이지를 새로 만들었다면 `sitemap.xml`에 주소(한국어·영문 둘 다)를 추가하고, 각 페이지의 메뉴(`.mn nav`)에도 링크를 넣습니다.
+4. 내부 링크는 깔끔한 주소(`/about`, `/en/about`)로 씁니다 — `.html`·`?v=` 캐시 번호는 붙이지 않습니다.
+
+### 영문판 맞추기
+
+`en/*.html`은 직접 고치지 않고 한국어 페이지에서 다시 만듭니다. 한국어 문구를 고쳤다면 [`tools/en-build/README.md`](tools/en-build/README.md) 순서대로 번역표(`tr/<page>.json`)를 채우고 `build.py`·`prerender.js`를 실행합니다.
 
 ## 🔎 검색 노출
 
@@ -81,7 +90,8 @@
 |---|---|
 | 페이지 정보 | 페이지마다 `title`·`description`·`canonical`(amsawyd.com 기준) |
 | 링크 미리보기 | Open Graph·Twitter 카드, 이미지 `og.jpg` (1200×630) |
-| 검색엔진 파일 | [`robots.txt`](https://amsawyd.com/robots.txt) · [`sitemap.xml`](https://amsawyd.com/sitemap.xml) · [`rss.xml`](https://amsawyd.com/rss.xml) |
+| 다국어 | 한국어·영문 페이지마다 `hreflang`(ko·en·x-default)·`og:locale:alternate` |
+| 검색엔진 파일 | [`robots.txt`](https://amsawyd.com/robots.txt) · [`sitemap.xml`](https://amsawyd.com/sitemap.xml)(한국어 11 + 영문 11) · [`rss.xml`](https://amsawyd.com/rss.xml) |
 | 구글 서치 콘솔 | 도메인 속성 등록(DNS 소유 확인), 사이트맵 제출 |
 | 네이버 서치어드바이저 | 메타 태그 소유 확인(`index.html`), 사이트맵·RSS 제출 |
 
@@ -99,11 +109,15 @@
 ├── functions/api/rosary.js  # 교구 봉헌통계를 읽어 JSON으로 주는 Cloudflare Pages Function (/api/rosary)
 ├── functions/api/booths.js  # 홀리마켓 승인 부스(공개현황 CSV)를 JSON으로 주는 Function (/api/booths)
 ├── functions/api/request.js # 수정요청 접수를 구글 Apps Script(시트 저장·접수 메일)로 넘기는 Function (/api/request)
+├── functions/api/inquiry.js # 문의서를 같은 Apps Script로 넘기는 Function (/api/inquiry)
 ├── tools/edit-requests/  # 수정요청 접수 스크립트·처리 기록 — 흐름은 안의 README
+├── tools/en-build/    # 영문판 생성·언어 스위치·화면 테마 도구 (번역표 tr/*.json) — 사용법은 안의 README
+├── en/               # 영문판 13쪽 (tools/en-build로 자동 생성, 직접 고치지 않음)
 ├── tools/booth-admin/  # 홀리마켓 부스 승인 관리자 페이지 (구글 Apps Script, 비공개) — 설치 방법은 안의 README
 ├── donate.html       # 후원금 모금 안내
 ├── contact.html      # 문의 · 수정 요청 (메뉴 전용)
 ├── request.html      # 수정요청서 (이름·세례명·연락처·단체명·내용 → /api/request → 구글 시트, 검색 제외)
+├── inquiry.html      # 문의서 (→ /api/inquiry, 검색 제외)
 ├── homestay.html     # 홈스테이 세부 (본당 매뉴얼 2026.4 기준)
 ├── market.html       # 성탄 홀리마켓 세부
 ├── go.html           # 카카오톡 → 기본 브라우저 중계 (amsawyd.com/go#<주소>, 구글 스크립트·폼·amsawyd.com만 허용, 검색 제외)
@@ -120,7 +134,7 @@
 └── docs/             # 준비 참고 문서 (본당 매뉴얼 요약 등)
 ```
 
-빌드 과정이 없는 순수 HTML·CSS·JavaScript입니다. 파일을 고치고 `main`에 push하면 1분 안에 사이트에 반영됩니다.
+빌드 과정이 없는 순수 HTML·CSS·JavaScript입니다(영문판만 `tools/en-build`로 미리 만들어 함께 올림). 파일을 고치고 `main`에 push하면 1분 안에 사이트에 반영됩니다.
 
 ## 🚀 배포
 
